@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "standardize": "prettier --config package.json **/*.ts --write",
+    "standardize": "prettier **/*.ts --write",
     "start": "standardize && ng serve --port 5000",
     "build": "standardize && ng build",
     "test": "ng test",
@@ -50,9 +50,10 @@
     "typescript": "^2.3.4"
   },
   "prettier": {
-    "prettier.printWidth": 120,
-    "prettier.semi": false,
-    "prettier.singleQuote": true,
-    "prettier.trailingComma": "es5"
+    "printWidth": 120,
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "parser": "typescript"
   }
 }
