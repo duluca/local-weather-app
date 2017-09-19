@@ -1,0 +1,15 @@
+{
+  "editor.tabSize": 2,
+  "editor.rulers": [120],
+  "files.trimTrailingWhitespace": true,
+  "files.autoSave": "onFocusChange",
+  "editor.cursorBlinking": "solid",
+  "workbench.iconTheme": "material-icon-theme",
+  "git.enableSmartCommit": true,
+  "editor.autoIndent": true,
+  "debug.openExplorerOnEnd": true,
+  "auto-close-tag.SublimeText3Mode": true,
+  "explorer.openEditors.visible": 0,
+  "editor.minimap.enabled": false,
+  "html.autoClosingTags": false
+}
