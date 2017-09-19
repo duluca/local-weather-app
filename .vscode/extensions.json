@@ -2,7 +2,7 @@
     "recommendations": [
       "johnpapa.angular-essentials",
       "formulahendry.auto-close-tag",
-      "HookyQR.beautify",
+      "esbenp.prettier-vscode",
       "PeterJausovec.vscode-docker",
       "eamodio.gitlens",
       "WallabyJs.quokka-vscode"
