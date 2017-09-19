@@ -4,12 +4,12 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
+    "standardize": "prettier --config package.json **/*.ts --write",
     "start": "standardize && ng serve --port 5000",
     "build": "standardize && ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "standardize": "prettier --config package.json **/*.ts --fix"
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
