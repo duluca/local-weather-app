@@ -1,3 +1,5 @@
+[![Stories in Ready](https://badge.waffle.io/duluca/local-weather-app.png?label=ready&title=Ready)](http://waffle.io/duluca/local-weather-app)
+
 # WebApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.2.
