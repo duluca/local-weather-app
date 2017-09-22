@@ -5,7 +5,7 @@
   </div>
   <div>
     <img [src]='current.image'>
-    <span>{{current.temperature}}&#8457;</span>
+    <span>{{current.temperature | number:'1.0-0'}}&#8457;</span>
   </div>
   <div>
     {{current.description}}
