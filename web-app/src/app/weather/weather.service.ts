@@ -8,10 +8,12 @@ import 'rxjs/add/operator/mergeMap'
 import { environment } from '../../environments/environment'
 
 interface ICurrentWeatherData {
-  weather: [{
-    description: string
-    icon: string
-  }]
+  weather: [
+    {
+      description: string
+      icon: string
+    }
+  ]
   main: {
     temp: number
   }
@@ -41,7 +43,7 @@ export class WeatherService {
       date: data.dt * 1000,
       image: `http://openweathermap.org/img/w/${data.weather[0].icon}.png`,
       temperature: this.convertKelvinToFahrenheit(data.main.temp),
-      description: data.weather[0].description
+      description: data.weather[0].description,
     }
   }
 
