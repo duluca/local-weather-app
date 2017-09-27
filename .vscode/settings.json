@@ -1,6 +1,6 @@
 {
   "editor.tabSize": 2,
-  "editor.rulers": [90],
+  "editor.rulers": [90, 140],
   "files.trimTrailingWhitespace": true,
   "files.autoSave": "onFocusChange",
   "editor.cursorBlinking": "solid",
@@ -11,5 +11,11 @@
   "auto-close-tag.SublimeText3Mode": true,
   "explorer.openEditors.visible": 0,
   "editor.minimap.enabled": false,
-  "html.autoClosingTags": false
+  "html.autoClosingTags": false,
+  "git.confirmSync": false,
+  "editor.formatOnType": true,
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "typescriptHero.resolver.insertSemicolons": false,
+  "prettier.eslintIntegration": true
 }
