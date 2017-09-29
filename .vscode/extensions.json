@@ -6,7 +6,6 @@
       "PeterJausovec.vscode-docker",
       "eamodio.gitlens",
       "WallabyJs.quokka-vscode",
-      "rbbit.typescript-hero",
-      "DSKWRK.vscode-generate-getter-setter"
+      "rbbit.typescript-hero"
     ]
   }
