@@ -2,6 +2,11 @@
   "name": "localcast-weather",
   "version": "1.0.0",
   "license": "MIT",
+  "config": {
+    "imageRepo": "duluca/localcast-weather",
+    "imageName": "localcast-weather",
+    "imagePort": "8080"
+  },
   "scripts": {
     "ng": "ng",
     "standardize": "prettier **/*.ts --write",
@@ -9,7 +14,21 @@
     "build": "npm run standardize && ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "predocker:build": "npm run build -- --prod && npm test -- --single-run && npm run e2e -- --no-delete-output-path",
+    "docker:build": "cross-conf-env docker image build . -t $npm_package_config_imageRepo:$npm_package_version",
+    "postdocker:build": "npm run docker:tag",
+    "docker:tag": " cross-conf-env docker image tag $npm_package_config_imageRepo:$npm_package_version $npm_package_config_imageRepo:latest",
+    "docker:run": "run-s -c docker:clean docker:runHelper",
+    "docker:runHelper": "cross-conf-env docker run -e NODE_ENV=local --name $npm_package_config_imageName -d -p $npm_package_config_imagePort:3000 $npm_package_config_imageRepo",
+    "predocker:publish": "echo Attention! Ensure `docker login` is correct.",
+    "docker:publish": "cross-conf-env docker image push $npm_package_config_imageRepo:latest",
+    "docker:clean": "cross-conf-env docker rm -f $npm_package_config_imageName",
+    "docker:taillogs": "cross-conf-env docker logs -f $npm_package_config_imageName",
+    "docker:open:win": "echo Trying to launch on Windows && timeout 2 && start http://localhost:%npm_package_config_imagePort%",
+    "docker:open:mac": "echo Trying to launch on MacOS && sleep 2 && URL=http://localhost:$npm_package_config_imagePort && open $URL",
+    "predocker:debug": "run-s -c docker:build docker:run",
+    "docker:debug": "run-s -cs docker:open:win docker:open:mac docker:taillogs"
   },
   "private": true,
   "dependencies": {
@@ -34,6 +53,7 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^8.0.31",
     "codelyzer": "~3.2.0",
+    "cross-conf-env": "^1.1.2",
     "dev-norms": "1.3.6",
     "jasmine-core": "~2.8.0",
     "jasmine-spec-reporter": "~4.2.1",
@@ -43,6 +63,7 @@
     "karma-coverage-istanbul-reporter": "^1.3.0",
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
+    "npm-run-all": "^4.1.1",
     "prettier": "^1.7.0",
     "protractor": "~5.1.2",
     "ts-node": "^3.3.0",
