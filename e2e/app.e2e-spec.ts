@@ -1,6 +1,6 @@
 import { AppPage } from './app.po'
 
-describe('web-app App', () => {
+describe('LocalCast Weather App', () => {
   let page: AppPage
 
   beforeEach(() => {
