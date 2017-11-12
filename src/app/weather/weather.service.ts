@@ -1,9 +1,7 @@
-import 'rxjs/add/operator/map'
-import 'rxjs/add/operator/mergeMap'
-
 import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core'
 import { Observable } from 'rxjs/Rx'
+import { map } from 'rxjs/operators'
 
 import { environment } from '../../environments/environment'
 import { ICurrentWeather } from '../interfaces'
@@ -39,7 +37,7 @@ export class WeatherService implements IWeatherService {
         `${environment.baseUrl}api.openweathermap.org/data/2.5/weather?` +
           `q=${city},${country}&appid=${environment.appId}`
       )
-      .map(data => this.transformToICurrentWeather(data))
+      .pipe(map(data => this.transformToICurrentWeather(data)))
   }
 
   private transformToICurrentWeather(data: ICurrentWeatherData): ICurrentWeather {

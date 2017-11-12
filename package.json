@@ -1,6 +1,6 @@
 {
   "name": "localcast-weather",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "license": "MIT",
   "config": {
     "imageRepo": "duluca/localcast-weather",
@@ -10,7 +10,7 @@
   "scripts": {
     "ng": "ng",
     "standardize": "prettier **/*.ts --write",
-    "start": "npm run standardize && ng serve --port 5000",
+    "start": "npm run standardize && ng serve --port 5000 --aot",
     "build": "npm run standardize && ng build",
     "test": "ng test",
     "lint": "ng lint",
