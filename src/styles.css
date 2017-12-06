@@ -4,3 +4,8 @@
 body {
   margin: 0;
 }
+
+.vertical-margin {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
