@@ -19,6 +19,7 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
+        "localcast-theme.scss",
         "styles.css"
       ],
       "scripts": [],
