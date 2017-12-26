@@ -1,3 +1,4 @@
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { WeatherService } from './weather/weather.service'
 import { HttpClientModule } from '@angular/common/http'
 import { BrowserModule } from '@angular/platform-browser'
@@ -9,15 +10,18 @@ import { AppComponent } from './app.component'
 import { CurrentWeatherComponent } from './current-weather/current-weather.component'
 import { MaterialModule } from './material.module'
 import 'hammerjs'
+import { CitySearchComponent } from './city-search/city-search.component'
 
 @NgModule({
-  declarations: [AppComponent, CurrentWeatherComponent],
+  declarations: [AppComponent, CurrentWeatherComponent, CitySearchComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
     MaterialModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [WeatherService],
   bootstrap: [AppComponent],
