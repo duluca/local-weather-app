@@ -11,9 +11,15 @@ import { CurrentWeatherComponent } from './current-weather/current-weather.compo
 import { MaterialModule } from './material.module'
 import 'hammerjs'
 import { CitySearchComponent } from './city-search/city-search.component'
+import { CitySearchTpldrivenComponent } from './city-search-tpldriven/city-search-tpldriven.component'
 
 @NgModule({
-  declarations: [AppComponent, CurrentWeatherComponent, CitySearchComponent],
+  declarations: [
+    AppComponent,
+    CurrentWeatherComponent,
+    CitySearchComponent,
+    CitySearchTpldrivenComponent,
+  ],
   imports: [
     BrowserModule,
     HttpClientModule,
