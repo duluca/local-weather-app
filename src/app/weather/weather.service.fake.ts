@@ -1,4 +1,4 @@
-import { Observable } from 'rxjs/Rx'
+import { Observable, BehaviorSubject } from 'rxjs/Rx'
 
 import { IWeatherService } from './weather.service'
 import { ICurrentWeather } from '../interfaces'
@@ -13,7 +13,18 @@ export class WeatherServiceFake implements IWeatherService {
     description: 'light intensity drizzle',
   }
 
-  public getCurrentWeather(city: string, country: string): Observable<ICurrentWeather> {
+  currentWeather = new BehaviorSubject<ICurrentWeather>(this.fakeWeather)
+
+  public getCurrentWeather(
+    city: string | number,
+    country?: string
+  ): Observable<ICurrentWeather> {
     return Observable.of(this.fakeWeather)
+  }
+
+  public updateCurrentWeather(search: string | number, country?: string) {
+    this.getCurrentWeather(search, country).subscribe(weather =>
+      this.currentWeather.next(weather)
+    )
   }
 }
