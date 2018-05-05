@@ -12,15 +12,13 @@ describe('CitySearchComponent', () => {
   let component: CitySearchComponent
   let fixture: ComponentFixture<CitySearchComponent>
 
-  beforeEach(
-    async(() => {
-      TestBed.configureTestingModule({
-        declarations: [CitySearchComponent],
-        providers: [{ provide: WeatherService, useClass: WeatherServiceFake }],
-        imports: [FormsModule, ReactiveFormsModule, MaterialModule, NoopAnimationsModule],
-      }).compileComponents()
-    })
-  )
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [CitySearchComponent],
+      providers: [{ provide: WeatherService, useClass: WeatherServiceFake }],
+      imports: [FormsModule, ReactiveFormsModule, MaterialModule, NoopAnimationsModule],
+    }).compileComponents()
+  }))
 
   beforeEach(() => {
     fixture = TestBed.createComponent(CitySearchComponent)

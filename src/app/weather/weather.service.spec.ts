@@ -15,12 +15,9 @@ describe('WeatherService', () => {
     })
   })
 
-  it(
-    'should be created',
-    async(
-      inject([WeatherService], (service: WeatherService) => {
-        expect(service).toBeTruthy()
-      })
-    )
-  )
+  it('should be created', async(
+    inject([WeatherService], (service: WeatherService) => {
+      expect(service).toBeTruthy()
+    })
+  ))
 })

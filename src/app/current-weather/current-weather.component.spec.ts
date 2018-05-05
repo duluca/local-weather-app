@@ -8,15 +8,13 @@ import { MaterialModule } from '../material.module'
 describe('CurrentWeatherComponent', () => {
   let component: CurrentWeatherComponent
   let fixture: ComponentFixture<CurrentWeatherComponent>
-  beforeEach(
-    async(() => {
-      TestBed.configureTestingModule({
-        declarations: [CurrentWeatherComponent],
-        providers: [{ provide: WeatherService, useClass: WeatherServiceFake }],
-        imports: [MaterialModule],
-      }).compileComponents()
-    })
-  )
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [CurrentWeatherComponent],
+      providers: [{ provide: WeatherService, useClass: WeatherServiceFake }],
+      imports: [MaterialModule],
+    }).compileComponents()
+  }))
 
   beforeEach(() => {
     fixture = TestBed.createComponent(CurrentWeatherComponent)
