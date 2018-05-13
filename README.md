@@ -1,7 +1,7 @@
 # LocalCast Weather
 > Learn Angular, Angular Material, RxJS fundementals with LocalCast Weather using the Kanban method.
 
-[![Stories in Ready](https://badge.waffle.io/duluca/local-weather-app.png?label=ready&title=Ready)](http://waffle.io/duluca/local-weather-app)
+[![Waffle.io - Columns and their card count](https://badge.waffle.io/duluca/local-weather-app.svg?columns=all)](https://waffle.io/duluca/local-weather-app)
 
 ## Get the book
 LocalCast Weather has been developed in support of my book _Angular 6 for Enterprise-Ready Web Applications_. You can get the book on http://AngularForEnterprise.com.
