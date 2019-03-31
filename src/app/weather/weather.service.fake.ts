@@ -1,7 +1,7 @@
-import { Observable, BehaviorSubject, of } from 'rxjs'
+import { BehaviorSubject, Observable, of } from 'rxjs'
 
-import { IWeatherService } from './weather.service'
 import { ICurrentWeather } from '../interfaces'
+import { IWeatherService } from './weather.service'
 
 export class WeatherServiceFake implements IWeatherService {
   private fakeWeather: ICurrentWeather = {

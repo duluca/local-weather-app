@@ -3,7 +3,7 @@ import {
   HttpClientTestingModule,
   HttpTestingController,
 } from '@angular/common/http/testing'
-import { async, inject, TestBed } from '@angular/core/testing'
+import { TestBed, async, inject } from '@angular/core/testing'
 
 import { WeatherService } from './weather.service'
 

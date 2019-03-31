@@ -1,6 +1,7 @@
-import { WeatherService } from '../weather/weather.service'
-import { NgModel, Validators } from '@angular/forms'
 import { Component, OnInit } from '@angular/core'
+import { NgModel, Validators } from '@angular/forms'
+
+import { WeatherService } from '../weather/weather.service'
 
 @Component({
   selector: 'app-city-search-tpldriven',

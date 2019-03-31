@@ -1,7 +1,8 @@
-import { WeatherService } from '../weather/weather.service'
-import { FormControl, Validators } from '@angular/forms'
 import { Component, OnInit } from '@angular/core'
+import { FormControl, Validators } from '@angular/forms'
 import { debounceTime } from 'rxjs/operators'
+
+import { WeatherService } from '../weather/weather.service'
 
 @Component({
   selector: 'app-city-search',

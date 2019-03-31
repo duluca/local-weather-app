@@ -1,9 +1,9 @@
-import { async, ComponentFixture, inject, TestBed } from '@angular/core/testing'
+import { ComponentFixture, TestBed, async, inject } from '@angular/core/testing'
 
+import { MaterialModule } from '../material.module'
 import { WeatherService } from '../weather/weather.service'
 import { WeatherServiceFake } from '../weather/weather.service.fake'
 import { CurrentWeatherComponent } from './current-weather.component'
-import { MaterialModule } from '../material.module'
 
 describe('CurrentWeatherComponent', () => {
   let component: CurrentWeatherComponent
