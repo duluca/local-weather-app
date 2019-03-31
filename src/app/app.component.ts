@@ -9,8 +9,7 @@ import { Component } from '@angular/core'
     </div>
     <div fxLayoutAlign="center">
       <app-city-search></app-city-search>
-      >
-      <!-- <app-city-search-tpldriven></app-city-search-tpldr
+      <!-- <app-city-search-tpldriven></app-city-search-tpldriven> -->
     </div>
     <div fxLayout="row">
       <div fxFlex></div>
