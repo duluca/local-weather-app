@@ -1,7 +1,7 @@
-import { HttpClientTestingModule } from '@angular/common/http/testing'
-import { TestBed, async, inject } from '@angular/core/testing'
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { TestBed, async, inject } from '@angular/core/testing';
 
-import { WeatherService } from './weather.service'
+import { WeatherService } from './weather.service';
 
 describe('WeatherService', () => {
   // let debugElement: DebugElement
@@ -25,6 +25,14 @@ describe('WeatherService', () => {
   ))
 
   describe('getCurrentWeather', () => {
-    it('should ')
+    it('should return value given city name') {
+
+    }
+
+    it('should return value given zip code') {
+
+    }
   })
+
+  // add a component test where you spy on the fact that a service function is called
 })
