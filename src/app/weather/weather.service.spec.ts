@@ -1,18 +1,21 @@
-import { HttpClientModule } from '@angular/common/http'
-import {
-  HttpClientTestingModule,
-  HttpTestingController,
-} from '@angular/common/http/testing'
+import { HttpClientTestingModule } from '@angular/common/http/testing'
 import { TestBed, async, inject } from '@angular/core/testing'
 
 import { WeatherService } from './weather.service'
 
 describe('WeatherService', () => {
+  // let debugElement: DebugElement
+  // let httpClient: HttpClientTestingModule
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
       providers: [WeatherService],
     })
+
+    // https://offering.solutions/blog/articles/2017/10/02/testing-angular-2-http-service/
+    // fixture = TestBed.createComponent(AppComponent)
+    // debugElement = fixture.debugElement
+    // httpClient = debugElement.injector.get(IncrementDecrementService)
   })
 
   it('should be created', async(
@@ -20,4 +23,8 @@ describe('WeatherService', () => {
       expect(service).toBeTruthy()
     })
   ))
+
+  describe('getCurrentWeather', () => {
+    it('should ')
+  })
 })
