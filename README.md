@@ -6,7 +6,7 @@
 ## Get the book
 LocalCast Weather has been developed in support of my book _Angular 6 for Enterprise-Ready Web Applications_. You can get the book on http://AngularForEnterprise.com.
 
-Check out **LemonMart**, an Angular 8 Grocery Store LOB App implemented with a Router-first architecture, at https://github.com/duluca/lemon-mart.
+Check out **LemonMart**, an Angular Grocery Store LOB App implemented with a Router-first architecture, at https://github.com/duluca/lemon-mart.
 
 Build, debug and publish Docker images with [**npm Scripts for Docker**](bit.ly/npmScriptsForDocker) and achieve Blue-Green deployments on AWS Fargate with [**npm Scripts for AWS**](bit.ly/npmScriptsForAWS).
 
