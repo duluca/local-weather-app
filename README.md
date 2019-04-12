@@ -2,9 +2,7 @@
 > Learn Angular, Angular Material, RxJS fundementals with LocalCast Weather using the Kanban method.
 
 [![CircleCI](https://circleci.com/gh/duluca/local-weather-app.svg?style=svg)](https://circleci.com/gh/duluca/local-weather-app)
-
 [![DeepScan grade](https://deepscan.io/api/teams/1906/projects/5034/branches/39254/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=1906&pid=5034&bid=39254)
-
 [![Waffle.io - Columns and their card count](https://badge.waffle.io/duluca/local-weather-app.svg?columns=all)](https://waffle.io/duluca/local-weather-app)
 
 ## Get the book
