@@ -1,21 +1,38 @@
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { TestBed, async, inject } from '@angular/core/testing';
+import {
+  HttpClientTestingModule,
+  HttpTestingController,
+} from '@angular/common/http/testing'
+import { TestBed, async, inject } from '@angular/core/testing'
 
-import { WeatherService } from './weather.service';
+import { ICurrentWeatherData, WeatherService } from './weather.service'
+
+const fakeWeatherData: ICurrentWeatherData = {
+  weather: [
+    {
+      description: 'sunny',
+      icon: '',
+    },
+  ],
+  main: {
+    temp: 280.32,
+  },
+  sys: {
+    country: 'TR',
+  },
+  dt: 1485789600,
+  name: 'Bursa',
+}
 
 describe('WeatherService', () => {
-  // let debugElement: DebugElement
-  // let httpClient: HttpClientTestingModule
+  let weatherService: WeatherService
+
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
       providers: [WeatherService],
     })
 
-    // https://offering.solutions/blog/articles/2017/10/02/testing-angular-2-http-service/
-    // fixture = TestBed.createComponent(AppComponent)
-    // debugElement = fixture.debugElement
-    // httpClient = debugElement.injector.get(IncrementDecrementService)
+    weatherService = TestBed.get(WeatherService)
   })
 
   it('should be created', async(
@@ -25,14 +42,47 @@ describe('WeatherService', () => {
   ))
 
   describe('getCurrentWeather', () => {
-    it('should return value given city name') {
+    it('should return value given city name', () => {
+      // Arrange
+      const httpMock = TestBed.get(HttpTestingController)
+      const uriParams = 'q=Bursa'
 
-    }
+      // Act
+      weatherService.getCurrentWeather('Bursa').subscribe(data => {
+        // Assert
+        expect(data.city).toEqual('Bursa')
+      })
 
-    it('should return value given zip code') {
+      // Assert
+      const request = httpMock.expectOne(
+        `http://api.openweathermap.org/data/2.5/weather?` +
+          `${uriParams}&appid=01ff1417eeb4a81b09ac68b15958d453`,
+        'call to api'
+      )
 
-    }
+      expect(request.request.method).toBe('GET')
+
+      request.flush(fakeWeatherData)
+
+      httpMock.verify()
+    })
+
+    it('should return value given zip code', () => {
+      // Arrange
+      const httpMock = TestBed.get(HttpTestingController)
+      const uriParams = 'zip=22201'
+
+      // Act
+      weatherService.getCurrentWeather(22201).subscribe()
+
+      // Assert
+      const request = httpMock.expectOne(
+        `http://api.openweathermap.org/data/2.5/weather?` +
+          `${uriParams}&appid=01ff1417eeb4a81b09ac68b15958d453`,
+        'call to api'
+      )
+
+      expect(request.request.method).toBe('GET')
+    })
   })
-
-  // add a component test where you spy on the fact that a service function is called
 })
