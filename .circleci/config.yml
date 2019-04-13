@@ -25,3 +25,10 @@ jobs:
       - run: npm run build:prod
 
       - run: npm test -- --watch=false
+
+      - run: npm run e2e
+
+      - run: tar zcf dist.tar.gz dist
+
+      - store_artifacts:
+          path: dist.tar.gz

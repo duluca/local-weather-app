@@ -1,3 +1,5 @@
-FROM duluca/minimal-node-web-server:10.14.2
+FROM duluca/minimal-node-web-server:lts-alpine
+
 WORKDIR /usr/src/app
+
 COPY dist/local-weather-app public
