@@ -13,7 +13,11 @@ export const fakeWeather: ICurrentWeather = {
 }
 
 export class WeatherServiceFake implements IWeatherService {
-  currentWeather = new BehaviorSubject<ICurrentWeather>(fakeWeather)
+  private currentWeather = new BehaviorSubject<ICurrentWeather>(fakeWeather)
+
+  get currentWeather$() {
+    return this.currentWeather
+  }
 
   public getCurrentWeather(
     city: string | number,

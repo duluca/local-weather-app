@@ -20,7 +20,7 @@ export class CurrentWeatherComponent implements OnInit {
     //   .subscribe(data => (this.current = data))
 
     // final implementation
-    this.weatherService.currentWeather.subscribe(data => (this.current = data))
+    this.weatherService.currentWeather$.subscribe(data => (this.current = data))
   }
 
   // Attribution: https://stackoverflow.com/a/44418732/178620

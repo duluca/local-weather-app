@@ -1,29 +1,43 @@
-import { HttpClientTestingModule } from '@angular/common/http/testing'
 import { ComponentFixture, TestBed, async } from '@angular/core/testing'
-import { of } from 'rxjs'
+import { BehaviorSubject, of } from 'rxjs'
 
 import { MaterialModule } from '../material.module'
 import { WeatherService } from '../weather/weather.service'
 import { fakeWeather } from '../weather/weather.service.fake'
 import { CurrentWeatherComponent } from './current-weather.component'
 
+function addBehaviorSubject(object: object, propertyName: string, initialValue: object) {
+  Object.defineProperty(object, propertyName, {
+    get: () => new BehaviorSubject(initialValue),
+    enumerable: true,
+    configurable: true,
+  })
+}
+
 describe('CurrentWeatherComponent', () => {
   let component: CurrentWeatherComponent
   let fixture: ComponentFixture<CurrentWeatherComponent>
-  let weatherService: WeatherService
+  let weatherServiceMock: WeatherService
 
   beforeEach(async(() => {
+    weatherServiceMock = jasmine.createSpyObj('weatherService', ['getCurrentWeather'])
+    addBehaviorSubject(weatherServiceMock, 'currentWeather$', fakeWeather)
+
     TestBed.configureTestingModule({
       declarations: [CurrentWeatherComponent],
-      providers: [WeatherService],
-      imports: [MaterialModule, HttpClientTestingModule],
+      providers: [{ provide: WeatherService, useValue: weatherServiceMock }],
+      imports: [MaterialModule],
     }).compileComponents()
   }))
 
   beforeEach(() => {
     fixture = TestBed.createComponent(CurrentWeatherComponent)
     component = fixture.componentInstance
-    weatherService = fixture.debugElement.injector.get(WeatherService)
+    // const weatherServiceMock2 = fixture.debugElement.injector.get(WeatherService)
+    // spyOnProperty(weatherServiceMock2, 'currentWeather$').and.returnValue(
+    //   new BehaviorSubject(fakeWeather)
+    // )
+    // console.log(weatherServiceMock.currentWeather$)
   })
 
   it('should create', () => {
@@ -33,7 +47,8 @@ describe('CurrentWeatherComponent', () => {
 
   it('should get currentWeather from weatherService', () => {
     // Arrange
-    weatherService.currentWeather.next(fakeWeather)
+
+    // weatherServiceMock.currentWeather$.next(null)
 
     // Act
     fixture.detectChanges() // triggers ngOnInit()
@@ -47,7 +62,7 @@ describe('CurrentWeatherComponent', () => {
   xit('should get currentWeather from weatherService', () => {
     // Arrange
     const getCurrentWeatherSpy = spyOn(
-      weatherService,
+      weatherServiceMock,
       'getCurrentWeather'
     ).and.callThrough()
 
@@ -60,7 +75,7 @@ describe('CurrentWeatherComponent', () => {
 
   xit('should eagerly load currentWeather in Bethesda from weatherService', () => {
     // Arrange
-    spyOn(weatherService, 'getCurrentWeather').and.returnValue(of(fakeWeather))
+    spyOn(weatherServiceMock, 'getCurrentWeather').and.returnValue(of(fakeWeather))
 
     // Act
     fixture.detectChanges() // triggers ngOnInit()
