@@ -5,12 +5,12 @@ import { addPropertyAsBehaviorSubject } from './current-weather.component.spec'
 
 // ###################################################################
 // Advanced High-Performance Unit Test Setup sans TestBed
-// By Brendan Caulkins
+// By Brendon Caulkins
 // Effects of running tests without the TestBed:
 //    - Lifecycle hooks must be called manually
 //    - Lifecycle helper funcs and funcs/getters called by HTML aren't called magically
 //    - Which yields more accurate code coverage data
-//    - Runs faster (~0.07s, compared to ~0.35s with the TestBed)
+//    - Runs ~10x faster (0.037s, compared to 0.44s with the TestBed)
 //    - Has fewer imports / requires less maintenance
 //    - Forces higher knowledge of how the lifecycle interactes with your component
 //    - Allows you to better separate Unit (fast) and Integration (slow) tests
