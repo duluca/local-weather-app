@@ -1,38 +1,31 @@
-import { ComponentFixture, TestBed, async } from '@angular/core/testing'
-import { BehaviorSubject, of } from 'rxjs'
+import { ComponentFixture, TestBed, async } from '@angular/core/testing';
+import { BehaviorSubject, of } from 'rxjs';
 
-import { ICurrentWeather } from '../interfaces'
-import { MaterialModule } from '../material.module'
-import { IWeatherService, WeatherService } from '../weather/weather.service'
-import { fakeWeather } from '../weather/weather.service.fake'
-import { CurrentWeatherComponent } from './current-weather.component'
+import { MaterialModule } from '../material.module';
+import { WeatherService } from '../weather/weather.service';
+import { fakeWeather } from '../weather/weather.service.fake';
+import { CurrentWeatherComponent } from './current-weather.component';
 
-function addBehaviorSubject(object: object, propertyName: string, initialValue: object) {
-  const getSpy = jasmine
-    .createSpy(propertyName)
-    .and.returnValue(new BehaviorSubject(initialValue))
-  Object.defineProperty(object, propertyName, { get: getSpy })
-  // Object.defineProperty(object, propertyName, {
-  //   get: () => new BehaviorSubject(initialValue),
-  //   enumerable: true,
-  //   configurable: true,
-  // })
+function addProperty(object: object, propertyName: string, valueToReturn: object) {
+  Object.defineProperty(object, propertyName, {
+    get: () => valueToReturn,
+    enumerable: true,
+    configurable: true,
+  })
 }
 
-fdescribe('CurrentWeatherComponent', () => {
+export function addPropertyAsBehaviorSubject(object: object, propertyName: string) {
+  addProperty(object, propertyName, new BehaviorSubject(null))
+}
+
+describe('CurrentWeatherComponent', () => {
   let component: CurrentWeatherComponent
   let fixture: ComponentFixture<CurrentWeatherComponent>
-  let testWeather$: BehaviorSubject<ICurrentWeather>
   let weatherServiceMock: WeatherService
 
   beforeEach(async(() => {
-    testWeather$ = new BehaviorSubject(fakeWeather)
-    // weatherServiceMock = new WeatherService(null)
-    weatherServiceMock = jasmine.createSpyObj('weatherServiceMock', ['getCurrentWeather'])
-    addBehaviorSubject(weatherServiceMock, 'currentWeather$', fakeWeather)
-
-    // Swap out the read-only property with one that can be controlled here
-    // spyOnProperty(weatherServiceMock, 'currentWeather$').and.returnValue(testWeather$)
+    weatherServiceMock = jasmine.createSpyObj('WeatherService', ['getCurrentWeather'])
+    addPropertyAsBehaviorSubject(weatherServiceMock, 'currentWeather$')
 
     TestBed.configureTestingModule({
       declarations: [CurrentWeatherComponent],
@@ -44,11 +37,6 @@ fdescribe('CurrentWeatherComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(CurrentWeatherComponent)
     component = fixture.componentInstance
-    // const weatherServiceMock2 = fixture.debugElement.injector.get(WeatherService)
-    // spyOnProperty(weatherServiceMock2, 'currentWeather$').and.returnValue(
-    //   new BehaviorSubject(fakeWeather)
-    // )
-    // console.log(weatherServiceMock.currentWeather$)
   })
 
   it('should create', () => {
@@ -58,11 +46,10 @@ fdescribe('CurrentWeatherComponent', () => {
 
   it('should get currentWeather from weatherService', () => {
     // Arrange
-    weatherServiceMock.currentWeather$.next(null)
+    weatherServiceMock.currentWeather$.next(fakeWeather)
 
     // Act
-    component.ngOnInit() // You can call lifecycle hooks manually, if you want
-    // fixture.detectChanges() // triggers ngOnInit()
+    fixture.detectChanges() // triggers ngOnInit()
 
     // Assert
     expect(component.current).toBeDefined()
