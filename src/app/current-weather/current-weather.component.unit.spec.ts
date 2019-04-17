@@ -1,17 +1,12 @@
-// import { ComponentFixture, TestBed, async } from '@angular/core/testing'
-
-import { BehaviorSubject, of } from 'rxjs'
-
-import { ICurrentWeather } from '../interfaces'
 import { WeatherService } from '../weather/weather.service'
 import { fakeWeather } from '../weather/weather.service.fake'
 import { CurrentWeatherComponent } from './current-weather.component'
-
-// import { MaterialModule } from '../material.module'
+import { addPropertyAsBehaviorSubject } from './current-weather.component.spec'
 
 // ###################################################################
-//
-// Without the TestBed...
+// Advanced High-Performance Unit Test Setup sans TestBed
+// By Brendan Caulkins
+// Effects of running tests without the TestBed:
 //    - Lifecycle hooks must be called manually
 //    - Lifecycle helper funcs and funcs/getters called by HTML aren't called magically
 //    - Which yields more accurate code coverage data
@@ -23,91 +18,28 @@ import { CurrentWeatherComponent } from './current-weather.component'
 //
 // ###################################################################
 
-// tslint:disable-next-line:max-line-length
-// function addBehaviorSubject(object: object, propertyName: string, initialValue: object) {
-//   Object.defineProperty(object, propertyName, {
-//     get: () => new BehaviorSubject(initialValue),
-//     enumerable: true,
-//     configurable: true,
-//   })
-// }
-
-fdescribe('CurrentWeatherComponent (no TestBed)', () => {
+describe('CurrentWeatherComponent (no TestBed)', () => {
   let component: CurrentWeatherComponent
-  let testWeather$: BehaviorSubject<ICurrentWeather>
   let weatherServiceMock: WeatherService
 
-  // beforeEach(async(() => {
   beforeEach(() => {
-    testWeather$ = new BehaviorSubject(fakeWeather)
-    weatherServiceMock = new WeatherService(null)
+    weatherServiceMock = jasmine.createSpyObj('WeatherService', ['getCurrentWeather'])
+    addPropertyAsBehaviorSubject(weatherServiceMock, 'currentWeather$')
 
-    // Swap out the read-only property with one that can be controlled here
-    spyOnProperty(weatherServiceMock, 'currentWeather$').and.returnValue(testWeather$)
-    // addBehaviorSubject(weatherServiceMock, 'currentWeather$', fakeWeather)
-
-    // TestBed.configureTestingModule({
-    //   declarations: [CurrentWeatherComponent],
-    //   providers: [{ provide: WeatherService, useValue: weatherServiceMock }],
-    //   imports: [MaterialModule],
-    // }).compileComponents()
-
-    // The above can be done manually, because Components are just classes
+    // Create the class under test manually
     component = new CurrentWeatherComponent(weatherServiceMock)
   })
-  // }))
-
-  // beforeEach(() => {
-  //   fixture = TestBed.createComponent(CurrentWeatherComponent)
-  //   component = fixture.componentInstance
-  //   // const weatherServiceMock2 = fixture.debugElement.injector.get(WeatherService)
-  //   // spyOnProperty(weatherServiceMock2, 'currentWeather$').and.returnValue(
-  //   //   new BehaviorSubject(fakeWeather)
-  //   // )
-  //   // console.log(weatherServiceMock.currentWeather$)
-  // })
 
   it('should create', () => {
-    // fixture.detectChanges()
     expect(component).toBeTruthy()
   })
 
   it('should get currentWeather from weatherService', () => {
     // Arrange
-    weatherServiceMock.currentWeather$.next(null)
+    weatherServiceMock.currentWeather$.next(fakeWeather)
 
     // Act
-    component.ngOnInit() // You can call lifecycle hooks manually, if you want
-    // fixture.detectChanges() // triggers ngOnInit()
-
-    // Assert
-    expect(component.current).toBeDefined()
-    expect(component.current.city).toEqual('Bethesda')
-    expect(component.current.temperature).toEqual(280.32)
-  })
-
-  xit('should get currentWeather from weatherService', () => {
-    // Arrange
-    const getCurrentWeatherSpy = spyOn(
-      weatherServiceMock,
-      'getCurrentWeather'
-    ).and.callThrough()
-
-    // Act
-    component.ngOnInit() // You can call lifecycle hooks manually, if you want
-    // fixture.detectChanges() // triggers ngOnInit()
-
-    // Assert
-    expect(getCurrentWeatherSpy).toHaveBeenCalledTimes(1)
-  })
-
-  xit('should eagerly load currentWeather in Bethesda from weatherService', () => {
-    // Arrange
-    spyOn(weatherServiceMock, 'getCurrentWeather').and.returnValue(of(fakeWeather))
-
-    // Act
-    component.ngOnInit() // You can call lifecycle hooks manually, if you want
-    // fixture.detectChanges() // triggers ngOnInit()
+    component.ngOnInit() // You have to call lifecycle hooks manually
 
     // Assert
     expect(component.current).toBeDefined()
