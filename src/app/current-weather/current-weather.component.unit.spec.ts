@@ -32,7 +32,7 @@ import { CurrentWeatherComponent } from './current-weather.component'
 //   })
 // }
 
-fdescribe('CurrentWeatherComponent (no TestBed)', () => {
+describe('CurrentWeatherComponent (no TestBed)', () => {
   let component: CurrentWeatherComponent
   let testWeather$: BehaviorSubject<ICurrentWeather>
   let weatherServiceMock: WeatherService

@@ -3,20 +3,23 @@ import { BehaviorSubject, of } from 'rxjs'
 
 import { ICurrentWeather } from '../interfaces'
 import { MaterialModule } from '../material.module'
-import { WeatherService } from '../weather/weather.service'
+import { IWeatherService, WeatherService } from '../weather/weather.service'
 import { fakeWeather } from '../weather/weather.service.fake'
 import { CurrentWeatherComponent } from './current-weather.component'
 
-// tslint:disable-next-line:max-line-length
-// function addBehaviorSubject(object: object, propertyName: string, initialValue: object) {
-//   Object.defineProperty(object, propertyName, {
-//     get: () => new BehaviorSubject(initialValue),
-//     enumerable: true,
-//     configurable: true,
-//   })
-// }
+function addBehaviorSubject(object: object, propertyName: string, initialValue: object) {
+  const getSpy = jasmine
+    .createSpy(propertyName)
+    .and.returnValue(new BehaviorSubject(initialValue))
+  Object.defineProperty(object, propertyName, { get: getSpy })
+  // Object.defineProperty(object, propertyName, {
+  //   get: () => new BehaviorSubject(initialValue),
+  //   enumerable: true,
+  //   configurable: true,
+  // })
+}
 
-describe('CurrentWeatherComponent', () => {
+fdescribe('CurrentWeatherComponent', () => {
   let component: CurrentWeatherComponent
   let fixture: ComponentFixture<CurrentWeatherComponent>
   let testWeather$: BehaviorSubject<ICurrentWeather>
@@ -24,11 +27,12 @@ describe('CurrentWeatherComponent', () => {
 
   beforeEach(async(() => {
     testWeather$ = new BehaviorSubject(fakeWeather)
-    weatherServiceMock = new WeatherService(null)
+    // weatherServiceMock = new WeatherService(null)
+    weatherServiceMock = jasmine.createSpyObj('weatherServiceMock', ['getCurrentWeather'])
+    addBehaviorSubject(weatherServiceMock, 'currentWeather$', fakeWeather)
 
     // Swap out the read-only property with one that can be controlled here
-    spyOnProperty(weatherServiceMock, 'currentWeather$').and.returnValue(testWeather$)
-    // addBehaviorSubject(weatherServiceMock, 'currentWeather$', fakeWeather)
+    // spyOnProperty(weatherServiceMock, 'currentWeather$').and.returnValue(testWeather$)
 
     TestBed.configureTestingModule({
       declarations: [CurrentWeatherComponent],
