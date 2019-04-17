@@ -30,7 +30,7 @@ export interface IWeatherService {
 
 @Injectable()
 export class WeatherService implements IWeatherService {
-  private currentWeather = new BehaviorSubject<ICurrentWeather>({
+  readonly currentWeather$ = new BehaviorSubject<ICurrentWeather>({
     city: '--',
     country: '--',
     date: Date.now(),
@@ -38,11 +38,6 @@ export class WeatherService implements IWeatherService {
     temperature: 0,
     description: '',
   })
-
-  // strong typing!!
-  get currentWeather$(): BehaviorSubject<ICurrentWeather> {
-    return this.currentWeather
-  }
 
   constructor(private httpClient: HttpClient) {}
 
@@ -53,7 +48,7 @@ export class WeatherService implements IWeatherService {
 
   updateCurrentWeather(search: string | number, country?: string) {
     this.getCurrentWeather(search, country).subscribe(weather =>
-      this.currentWeather.next(weather)
+      this.currentWeather$.next(weather)
     )
   }
 
