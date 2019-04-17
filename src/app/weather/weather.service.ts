@@ -1,10 +1,10 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http'
+import { Injectable } from '@angular/core'
+import { BehaviorSubject, Observable } from 'rxjs'
+import { map } from 'rxjs/operators'
 
-import { environment } from '../../environments/environment';
-import { ICurrentWeather } from '../interfaces';
+import { environment } from '../../environments/environment'
+import { ICurrentWeather } from '../interfaces'
 
 export interface ICurrentWeatherData {
   weather: [
@@ -39,7 +39,8 @@ export class WeatherService implements IWeatherService {
     description: '',
   })
 
-  get currentWeather$() {
+  // strong typing!!
+  get currentWeather$(): BehaviorSubject<ICurrentWeather> {
     return this.currentWeather
   }
 
