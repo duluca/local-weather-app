@@ -1,22 +1,11 @@
-import { ComponentFixture, TestBed, async } from '@angular/core/testing';
-import { BehaviorSubject, of } from 'rxjs';
+import { ComponentFixture, TestBed, async } from '@angular/core/testing'
+import { addPropertyAsBehaviorSubject } from 'angular-unit-test-helper'
+import { of } from 'rxjs'
 
-import { MaterialModule } from '../material.module';
-import { WeatherService } from '../weather/weather.service';
-import { fakeWeather } from '../weather/weather.service.fake';
-import { CurrentWeatherComponent } from './current-weather.component';
-
-function addProperty(object: object, propertyName: string, valueToReturn: object) {
-  Object.defineProperty(object, propertyName, {
-    get: () => valueToReturn,
-    enumerable: true,
-    configurable: true,
-  })
-}
-
-export function addPropertyAsBehaviorSubject(object: object, propertyName: string) {
-  addProperty(object, propertyName, new BehaviorSubject(null))
-}
+import { MaterialModule } from '../material.module'
+import { WeatherService } from '../weather/weather.service'
+import { fakeWeather } from '../weather/weather.service.fake'
+import { CurrentWeatherComponent } from './current-weather.component'
 
 describe('CurrentWeatherComponent', () => {
   let component: CurrentWeatherComponent

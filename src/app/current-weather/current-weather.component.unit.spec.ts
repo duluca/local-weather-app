@@ -1,7 +1,8 @@
+import { addPropertyAsBehaviorSubject } from 'angular-unit-test-helper'
+
 import { WeatherService } from '../weather/weather.service'
 import { fakeWeather } from '../weather/weather.service.fake'
 import { CurrentWeatherComponent } from './current-weather.component'
-import { addPropertyAsBehaviorSubject } from './current-weather.component.spec'
 
 // ###################################################################
 // Advanced High-Performance Unit Test Setup sans TestBed
