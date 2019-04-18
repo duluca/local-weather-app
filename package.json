@@ -5,7 +5,8 @@
   "config": {
     "imageRepo": "duluca/localcast-weather",
     "imageName": "localcast-weather",
-    "imagePort": "8080"
+    "imagePort": "8080",
+    "internalContainerPort": "3000"
   },
   "scripts": {
     "ng": "ng",
@@ -23,7 +24,7 @@
     "postdocker:build": "npm run docker:tag",
     "docker:tag": " cross-conf-env docker image tag $npm_package_config_imageRepo:$npm_package_version $npm_package_config_imageRepo:latest",
     "docker:run": "run-s -c docker:clean docker:runHelper",
-    "docker:runHelper": "cross-conf-env docker run -e NODE_ENV=local --name $npm_package_config_imageName -d -p $npm_package_config_imagePort:3000 $npm_package_config_imageRepo",
+    "docker:runHelper": "cross-conf-env docker run -e NODE_ENV=local --name $npm_package_config_imageName -d -p $npm_package_config_imagePort:$npm_package_config_internalContainerPort $npm_package_config_imageRepo",
     "predocker:publish": "echo Attention! Ensure `docker login` is correct.",
     "docker:publish": "cross-conf-env docker image push $npm_package_config_imageRepo:$npm_package_version",
     "postdocker:publish": "cross-conf-env docker image push $npm_package_config_imageRepo:latest",

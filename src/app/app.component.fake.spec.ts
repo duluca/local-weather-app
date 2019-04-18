@@ -1,18 +1,20 @@
 import { TestBed, async } from '@angular/core/testing'
-import { createComponentMock } from 'angular-unit-test-helper'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { NoopAnimationsModule } from '@angular/platform-browser/animations'
 
 import { AppComponent } from './app.component'
+import { CitySearchComponent } from './city-search/city-search.component'
+import { CurrentWeatherComponent } from './current-weather/current-weather.component'
 import { MaterialModule } from './material.module'
+import { WeatherService } from './weather/weather.service'
+import { WeatherServiceFake } from './weather/weather.service.fake'
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        AppComponent,
-        createComponentMock('CurrentWeatherComponent'),
-        createComponentMock('CitySearchComponent'),
-      ],
-      imports: [MaterialModule],
+      declarations: [AppComponent, CurrentWeatherComponent, CitySearchComponent],
+      providers: [{ provide: WeatherService, useClass: WeatherServiceFake }],
+      imports: [FormsModule, ReactiveFormsModule, MaterialModule, NoopAnimationsModule],
     }).compileComponents()
   }))
   it('should create the app', async(() => {
