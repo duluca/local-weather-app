@@ -1,6 +1,8 @@
 # LocalCast Weather
 > Learn Angular, Angular Material, RxJS fundementals with LocalCast Weather using the Kanban method.
 
+> View live demo: https://local-weather-app.duluca.now.sh/
+
 [![Waffle.io - Columns and their card count](https://badge.waffle.io/duluca/local-weather-app.svg?columns=all)](https://waffle.io/duluca/local-weather-app)
 
 ## Get the book

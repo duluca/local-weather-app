@@ -35,7 +35,10 @@
     "docker:debugmessage": "echo Docker Debug Completed Successfully! Hit Ctrl+C to terminate log tailing.",
     "predocker:debug": "run-s -c docker:build docker:run",
     "docker:debug": "run-s -cs docker:open:win docker:open:mac docker:debugmessage docker:taillogs",
-    "publish:now": "npm run build:prod && now --platform-version 2 dist/local-weather-app"
+    "prenow:publish": "npm run build:prod",
+    "now:publish": "now --platform-version 2 dist/local-weather-app",
+    "prenow:publish:docker": "npm run build:prod",
+    "now:publish:docker": "now --local-config now-v1.json"
   },
   "private": true,
   "dependencies": {
@@ -66,7 +69,7 @@
     "@types/jasmine": "^3.3.12",
     "@types/jasminewd2": "~2.0.6",
     "@types/node": "^11.12.2",
-    "angular-unit-test-helper": "^1.0.0",
+    "angular-unit-test-helper": "^1.2.0",
     "codelyzer": "^5.0.0",
     "cross-conf-env": "^1.1.2",
     "dev-norms": "1.7.0",
