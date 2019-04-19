@@ -12,6 +12,7 @@ import { CitySearchTpldrivenComponent } from './city-search-tpldriven/city-searc
 import { CitySearchComponent } from './city-search/city-search.component'
 import { CurrentWeatherComponent } from './current-weather/current-weather.component'
 import { MaterialModule } from './material.module'
+import { PostalCodeService } from './postal-code/postal-code.service'
 import { WeatherService } from './weather/weather.service'
 
 @NgModule({
@@ -25,12 +26,12 @@ import { WeatherService } from './weather/weather.service'
     BrowserModule,
     HttpClientModule,
     MaterialModule,
-    BrowserAnimationsModule,
     FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
   ],
-  providers: [WeatherService],
+  providers: [WeatherService, PostalCodeService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

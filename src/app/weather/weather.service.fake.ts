@@ -13,20 +13,24 @@ export const fakeWeather: ICurrentWeather = {
 }
 
 export class WeatherServiceFake implements IWeatherService {
-  private currentWeather = new BehaviorSubject<ICurrentWeather>(fakeWeather)
-
   get currentWeather$() {
     return this.currentWeather
   }
 
-  public getCurrentWeather(
+  private currentWeather = new BehaviorSubject<ICurrentWeather>(fakeWeather)
+
+  getCurrentWeatherByCoords(coords: Coordinates): Observable<ICurrentWeather> {
+    throw new Error('Method not implemented.')
+  }
+
+  getCurrentWeather(
     city: string | number,
     country?: string
   ): Observable<ICurrentWeather> {
     return of(fakeWeather)
   }
 
-  public updateCurrentWeather(search: string | number, country?: string) {
+  updateCurrentWeather(search: string | number, country?: string) {
     this.getCurrentWeather(search, country).subscribe(weather =>
       this.currentWeather.next(weather)
     )
