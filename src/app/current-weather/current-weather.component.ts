@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core'
+import { Store } from '@ngrx/store'
+import { Observable } from 'rxjs'
 
 import { ICurrentWeather } from '../interfaces'
 import { WeatherService } from '../weather/weather.service'
@@ -10,8 +12,12 @@ import { WeatherService } from '../weather/weather.service'
 })
 export class CurrentWeatherComponent implements OnInit {
   current: ICurrentWeather
+  current$: Observable<ICurrentWeather> = this.store.select(state => state.current)
 
-  constructor(private weatherService: WeatherService) {}
+  constructor(
+    private weatherService: WeatherService,
+    private store: Store<{ current: ICurrentWeather }>
+  ) {}
 
   ngOnInit() {
     // initial implementation

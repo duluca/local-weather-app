@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core'
 import { FormControl, Validators } from '@angular/forms'
+import { Store } from '@ngrx/store'
 import { debounceTime } from 'rxjs/operators'
 
+import { SearchActions } from '../actions/search.actions'
+import * as fromSearch from '../reducers/search.reducer'
 import { WeatherService } from '../weather/weather.service'
 
 @Component({
@@ -11,18 +14,29 @@ import { WeatherService } from '../weather/weather.service'
 })
 export class CitySearchComponent implements OnInit {
   search = new FormControl('', [Validators.required, Validators.minLength(2)])
-  constructor(private weatherService: WeatherService) {}
+  constructor(
+    private weatherService: WeatherService,
+    private store: Store<fromSearch.State>
+  ) {}
 
   ngOnInit() {
     this.search.valueChanges.pipe(debounceTime(1000)).subscribe((searchValue: string) => {
       if (!this.search.invalid) {
         const userInput = searchValue.split(',').map(s => s.trim())
+        const searchText = userInput[0]
+        const country = userInput.length > 1 ? userInput[1] : undefined
 
-        this.weatherService.updateCurrentWeather(
-          userInput[0],
-          userInput.length > 1 ? userInput[1] : undefined
-        )
+        // this.behaviorSubjectBasedSearch(searchText, country)
+        this.ngRxBasedSearch(searchText, country)
       }
     })
+  }
+
+  behaviorSubjectBasedSearch(searchText: string, country?: string) {
+    this.weatherService.updateCurrentWeather(searchText, country)
+  }
+
+  ngRxBasedSearch(searchText: string, country?: string) {
+    this.store.dispatch(SearchActions.search({ searchText, country }))
   }
 }
