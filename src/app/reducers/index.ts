@@ -7,19 +7,38 @@ import {
   createFeatureSelector,
   createSelector,
 } from '@ngrx/store'
+import { storeFreeze } from 'ngrx-store-freeze'
 
 import { environment } from '../../environments/environment'
 import * as fromSearch from './search.reducer'
 
-export interface State {
+export interface AppState {
   search: fromSearch.State
 }
 
-export const reducers: ActionReducerMap<State> = {
+export const reducers: ActionReducerMap<AppState> = {
   search: fromSearch.reducer,
 }
 
-export const metaReducers: MetaReducer<State>[] = !environment.production ? [] : []
+export const selectCurrentWeather = (state: AppState) => state.search.current
+
+// console.log all actions
+export function logger(reducer: ActionReducer<AppState>): ActionReducer<AppState> {
+  return (state, action) => {
+    const result = reducer(state, action)
+    console.groupCollapsed(action.type)
+    console.log('prev state', state)
+    console.log('action', action)
+    console.log('next state', result)
+    console.groupEnd()
+
+    return result
+  }
+}
+
+export const metaReducers: MetaReducer<AppState>[] = !environment.production
+  ? [logger, storeFreeze]
+  : []
 
 // const developmentReducer: ActionReducer<State> = compose(
 //   storeFreeze,

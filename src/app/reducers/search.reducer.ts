@@ -1,3 +1,5 @@
+import { stat } from 'fs'
+
 import { SearchActions } from '../actions/search.actions'
 import { ICurrentWeather } from '../interfaces'
 import { defaultWeather } from '../weather/weather.service'
@@ -12,10 +14,10 @@ export const initialState: State = {
 
 export function reducer(state = initialState, action: SearchActions): State {
   switch (action.type) {
-    case SearchActions.search.type:
+    case SearchActions.weatherLoaded.type:
       return {
         ...state,
-        current: state.current,
+        current: action.current,
       }
     default:
       return state

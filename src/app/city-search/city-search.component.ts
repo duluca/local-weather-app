@@ -13,7 +13,9 @@ import { WeatherService } from '../weather/weather.service'
   styleUrls: ['./city-search.component.css'],
 })
 export class CitySearchComponent implements OnInit {
+  useNgRx = false
   search = new FormControl('', [Validators.required, Validators.minLength(2)])
+
   constructor(
     private weatherService: WeatherService,
     private store: Store<fromSearch.State>
@@ -26,8 +28,11 @@ export class CitySearchComponent implements OnInit {
         const searchText = userInput[0]
         const country = userInput.length > 1 ? userInput[1] : undefined
 
-        // this.behaviorSubjectBasedSearch(searchText, country)
-        this.ngRxBasedSearch(searchText, country)
+        if (this.useNgRx) {
+          this.ngRxBasedSearch(searchText, country)
+        } else {
+          this.behaviorSubjectBasedSearch(searchText, country)
+        }
       }
     })
   }

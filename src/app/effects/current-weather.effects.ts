@@ -18,10 +18,7 @@ export class CurrentWeatherEffects {
         return this.weatherService
           .getCurrentWeather(action.searchText, action.country)
           .pipe(
-            map(weather => ({
-              type: SearchActions.weatherLoaded.type,
-              payload: weather,
-            })),
+            map(weather => SearchActions.weatherLoaded({ current: weather })),
             catchError(() => EMPTY)
           )
       })

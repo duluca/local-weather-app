@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core'
-import { Store } from '@ngrx/store'
-import { Observable } from 'rxjs'
+import { Store, select } from '@ngrx/store'
+import { Observable, merge } from 'rxjs'
+import { map } from 'rxjs/operators'
 
 import { ICurrentWeather } from '../interfaces'
+import * as appStore from '../reducers'
 import { WeatherService } from '../weather/weather.service'
 
 @Component({
@@ -11,22 +13,26 @@ import { WeatherService } from '../weather/weather.service'
   styleUrls: ['./current-weather.component.css'],
 })
 export class CurrentWeatherComponent implements OnInit {
-  current: ICurrentWeather
-  current$: Observable<ICurrentWeather> = this.store.select(state => state.current)
+  // current: ICurrentWeather
+  current$: Observable<ICurrentWeather>
 
   constructor(
     private weatherService: WeatherService,
-    private store: Store<{ current: ICurrentWeather }>
-  ) {}
+    private store: Store<appStore.AppState>
+  ) {
+    this.current$ = merge(
+      this.store.pipe(select(appStore.selectCurrentWeather)),
+      this.weatherService.currentWeather$
+    )
+  }
 
   ngOnInit() {
     // initial implementation
     // this.weatherService
     //   .getCurrentWeather('Bethesda', 'US')
     //   .subscribe(data => (this.current = data))
-
     // final implementation
-    this.weatherService.currentWeather$.subscribe(data => (this.current = data))
+    // this.weatherService.currentWeather$.subscribe(data => (this.current = data))
   }
 
   // Attribution: https://stackoverflow.com/a/44418732/178620

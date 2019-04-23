@@ -1,5 +1,5 @@
-<div fxLayout="column">
-  <form #searchForm style="margin-bottom: 32px">
+<div fxLayout="column" style="margin-bottom: 32px">
+  <form #searchForm>
     <mat-form-field appearance="outline"
       [ngClass]="search.value ? 'search-box-partial' : 'search-box-full'">
       <mat-label>City Name or Postal Code</mat-label>
@@ -14,4 +14,9 @@
       <mat-icon>close</mat-icon>
     </button>
   </form>
+  <div class="center">
+    <mat-slide-toggle color="accent" [(ngModel)]="useNgRx">
+      {{useNgRx ? 'Using NgRX' : 'Using BehaviorSubject'}}
+    </mat-slide-toggle>
+  </div>
 </div>

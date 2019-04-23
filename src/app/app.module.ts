@@ -39,7 +39,6 @@ import { WeatherService } from './weather/weather.service'
     BrowserAnimationsModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
-    // StoreModule.forFeature('search', fromSearch.reducer),
     EffectsModule.forRoot([CurrentWeatherEffects]),
   ],
   providers: [WeatherService, PostalCodeService],

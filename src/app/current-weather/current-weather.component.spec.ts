@@ -1,10 +1,13 @@
 import { ComponentFixture, TestBed, async } from '@angular/core/testing'
 import { By } from '@angular/platform-browser'
+import { Store } from '@ngrx/store'
+import { MockStore, provideMockStore } from '@ngrx/store/testing'
 import { addPropertyAsBehaviorSubject } from 'angular-unit-test-helper'
 import { of } from 'rxjs'
 
+import { ICurrentWeather } from '../interfaces'
 import { MaterialModule } from '../material.module'
-import { WeatherService } from '../weather/weather.service'
+import { WeatherService, defaultWeather } from '../weather/weather.service'
 import { fakeWeather } from '../weather/weather.service.fake'
 import { CurrentWeatherComponent } from './current-weather.component'
 
@@ -12,6 +15,8 @@ describe('CurrentWeatherComponent', () => {
   let component: CurrentWeatherComponent
   let fixture: ComponentFixture<CurrentWeatherComponent>
   let weatherServiceMock: jasmine.SpyObj<WeatherService>
+  let store: MockStore<{ search: { current: ICurrentWeather } }>
+  const initialState = { search: { current: defaultWeather } }
 
   beforeEach(async(() => {
     const weatherServiceSpy = jasmine.createSpyObj('WeatherService', [
@@ -21,11 +26,15 @@ describe('CurrentWeatherComponent', () => {
 
     TestBed.configureTestingModule({
       declarations: [CurrentWeatherComponent],
-      providers: [{ provide: WeatherService, useValue: weatherServiceSpy }],
+      providers: [
+        { provide: WeatherService, useValue: weatherServiceSpy },
+        provideMockStore({ initialState }),
+      ],
       imports: [MaterialModule],
     }).compileComponents()
 
     weatherServiceMock = TestBed.get(WeatherService)
+    store = TestBed.get(Store)
   }))
 
   beforeEach(() => {
@@ -46,15 +55,19 @@ describe('CurrentWeatherComponent', () => {
 
   it('should get currentWeather from weatherService', () => {
     // Arrange
+    store.setState({ search: { current: fakeWeather } })
     weatherServiceMock.currentWeather$.next(fakeWeather)
 
     // Act
     fixture.detectChanges() // triggers ngOnInit()
 
     // Assert
-    expect(component.current).toBeDefined()
-    expect(component.current.city).toEqual('Bethesda')
-    expect(component.current.temperature).toEqual(280.32)
+    expect(component.current$).toBeDefined()
+
+    component.current$.subscribe(current => {
+      expect(current.city).toEqual('Bethesda')
+      expect(current.temperature).toEqual(280.32)
+    })
   })
 
   xit('should get currentWeather from weatherService', () => {
@@ -76,9 +89,11 @@ describe('CurrentWeatherComponent', () => {
     fixture.detectChanges() // triggers ngOnInit()
 
     // Assert
-    expect(component.current).toBeDefined()
-    expect(component.current.city).toEqual('Bethesda')
-    expect(component.current.temperature).toEqual(280.32)
+    expect(component.current$).toBeDefined()
+    component.current$.subscribe(current => {
+      expect(current.city).toEqual('Bethesda')
+      expect(current.temperature).toEqual(280.32)
+    })
 
     // Assert on DOM
     const debugEl = fixture.debugElement
