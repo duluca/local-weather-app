@@ -19,7 +19,7 @@ describe('CurrentWeatherComponent', () => {
   const initialState = { search: { current: defaultWeather } }
 
   beforeEach(async(() => {
-    const weatherServiceSpy = jasmine.createSpyObj('WeatherService', [
+    const weatherServiceSpy = jasmine.createSpyObj(WeatherService.name, [
       'getCurrentWeather',
     ])
     addPropertyAsBehaviorSubject(weatherServiceSpy, 'currentWeather$')
