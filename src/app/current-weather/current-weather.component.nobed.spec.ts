@@ -1,7 +1,13 @@
-import { WeatherService } from '../weather/weather.service'
+import { Store } from '@ngrx/store'
+import { MockStore, provideMockStore } from '@ngrx/store/testing'
+import { addPropertyAsBehaviorSubject } from 'angular-unit-test-helper'
+import { of } from 'rxjs'
+
+import { ICurrentWeather } from '../interfaces'
+import { AppState } from '../reducers'
+import { WeatherService, defaultWeather } from '../weather/weather.service'
 import { fakeWeather } from '../weather/weather.service.fake'
 import { CurrentWeatherComponent } from './current-weather.component'
-import { addPropertyAsBehaviorSubject } from './current-weather.component.spec'
 
 // ###################################################################
 // Advanced High-Performance Unit Test Setup sans TestBed
@@ -20,14 +26,18 @@ import { addPropertyAsBehaviorSubject } from './current-weather.component.spec'
 
 describe('CurrentWeatherComponent (no TestBed)', () => {
   let component: CurrentWeatherComponent
-  let weatherServiceMock: WeatherService
+  let weatherServiceMock: jasmine.SpyObj<WeatherService>
+  let store: jasmine.SpyObj<Store<AppState>>
+  const initialState = { search: { current: defaultWeather } }
 
   beforeEach(() => {
     weatherServiceMock = jasmine.createSpyObj('WeatherService', ['getCurrentWeather'])
     addPropertyAsBehaviorSubject(weatherServiceMock, 'currentWeather$')
+    store = jasmine.createSpyObj('AppState Store', ['pipe'])
+    store.pipe.and.returnValue(of())
 
     // Create the class under test manually
-    component = new CurrentWeatherComponent(weatherServiceMock)
+    component = new CurrentWeatherComponent(weatherServiceMock, store)
   })
 
   it('should create', () => {
@@ -42,8 +52,10 @@ describe('CurrentWeatherComponent (no TestBed)', () => {
     component.ngOnInit() // You have to call lifecycle hooks manually
 
     // Assert
-    expect(component.current).toBeDefined()
-    expect(component.current.city).toEqual('Bethesda')
-    expect(component.current.temperature).toEqual(280.32)
+    expect(component.current$).toBeDefined()
+    component.current$.subscribe(current => {
+      expect(current.city).toEqual('Bethesda')
+      expect(current.temperature).toEqual(280.32)
+    })
   })
 })

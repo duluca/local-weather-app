@@ -3,7 +3,9 @@ import {
   HttpTestingController,
 } from '@angular/common/http/testing'
 import { TestBed, async, inject } from '@angular/core/testing'
+import { of } from 'rxjs'
 
+import { IPostalCode, PostalCodeService } from '../postal-code/postal-code.service'
 import { ICurrentWeatherData, WeatherService } from './weather.service'
 
 const fakeWeatherData: ICurrentWeatherData = {
@@ -25,14 +27,23 @@ const fakeWeatherData: ICurrentWeatherData = {
 
 describe('WeatherService', () => {
   let weatherService: WeatherService
+  let postalCodeServiceMock: jasmine.SpyObj<PostalCodeService>
 
   beforeEach(() => {
+    const postalCodeServiceSpy = jasmine.createSpyObj('PostalCodeService', [
+      'resolvePostalCode',
+    ])
+
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      providers: [WeatherService],
+      providers: [
+        WeatherService,
+        { provide: PostalCodeService, useValue: postalCodeServiceSpy },
+      ],
     })
 
     weatherService = TestBed.get(WeatherService)
+    postalCodeServiceMock = TestBed.get(PostalCodeService)
   })
 
   it('should be created', async(
@@ -46,6 +57,7 @@ describe('WeatherService', () => {
       // Arrange
       const httpMock = TestBed.get(HttpTestingController)
       const uriParams = 'q=Bursa'
+      postalCodeServiceMock.resolvePostalCode.and.returnValue(of(null))
 
       // Act
       weatherService.getCurrentWeather('Bursa').subscribe(data => {
@@ -70,10 +82,19 @@ describe('WeatherService', () => {
     it('should return value given zip code', () => {
       // Arrange
       const httpMock = TestBed.get(HttpTestingController)
-      const uriParams = 'zip=22201'
+      const uriParams = 'lat=38.887103&lon=-77.093197'
+      postalCodeServiceMock.resolvePostalCode.and.returnValue(
+        of({
+          postalCode: '22201',
+          lat: 38.887103,
+          lng: -77.093197,
+          countryCode: 'US',
+          placeName: 'Arlington',
+        } as IPostalCode)
+      )
 
       // Act
-      weatherService.getCurrentWeather(22201).subscribe()
+      weatherService.getCurrentWeather('22201').subscribe()
 
       // Assert
       const request = httpMock.expectOne(
