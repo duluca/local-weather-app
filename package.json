@@ -63,6 +63,7 @@
     "hammerjs": "^2.0.8",
     "ngrx-store-freeze": "^0.2.4",
     "rxjs": "6.5.2",
+    "subsink": "^1.0.0",
     "zone.js": "^0.9.1"
   },
   "devDependencies": {

@@ -1,5 +1,3 @@
-import { stat } from 'fs'
-
 import { SearchActions } from '../actions/search.actions'
 import { ICurrentWeather } from '../interfaces'
 import { defaultWeather } from '../weather/weather.service'
