@@ -5,6 +5,8 @@
 
 [![Waffle.io - Columns and their card count](https://badge.waffle.io/duluca/local-weather-app.svg?columns=all)](https://waffle.io/duluca/local-weather-app)
 
+![mat-style4](https://user-images.githubusercontent.com/822159/56008986-210ad880-5cac-11e9-812f-6514b2dc0f97.PNG)
+
 ## Get the book
 LocalCast Weather has been developed in support of my book _Angular for Enterprise-Ready Web Applications_. You can get the book on http://AngularForEnterprise.com.
 
@@ -15,6 +17,14 @@ Build, debug and publish Docker images with [**npm Scripts for Docker**](bit.ly/
 ## Build
 - `npm run build:prod` to build a production optimized version of the app.
 - `npm run docker:debug` to run tests and build a containerized version of the app.
+
+## Waffle.io
+Sadly Waffle.io no longer exists. I recommend using GitHub Projects as a free replacement.
+
+## Using Zeit Now with Docker
+Unfortunately Zeit Now no longer allows publication of arbitrary `Dockerfile` images. Using Zeit v2 you can publish the output of your `dist` folder and still be able to host your application for free.
+
+A replacement for publishing arbitrary Docker images would be a new service called [Google Cloud Run](https://cloud.google.com/run/). A sample command would look like `gcloud beta run deploy --image localcast-weather`.
 
 ## Developers
 ### Pre-requisites
