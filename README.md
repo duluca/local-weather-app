@@ -3,7 +3,6 @@
 
 [![CircleCI](https://circleci.com/gh/duluca/local-weather-app.svg?style=svg)](https://circleci.com/gh/duluca/local-weather-app)
 [![DeepScan grade](https://deepscan.io/api/teams/1906/projects/5034/branches/39254/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=1906&pid=5034&bid=39254)
-[![Waffle.io - Columns and their card count](https://badge.waffle.io/duluca/local-weather-app.svg?columns=all)](https://waffle.io/duluca/local-weather-app)
 
 ![mat-style4](https://user-images.githubusercontent.com/822159/56008986-210ad880-5cac-11e9-812f-6514b2dc0f97.PNG)
 
@@ -18,10 +17,10 @@ Build, debug and publish Docker images with [**npm Scripts for Docker**](bit.ly/
 - `npm run build:prod` to build a production optimized version of the app.
 - `npm run docker:debug` to run tests and build a containerized version of the app.
 
-## Waffle.io
+## _Deprecated: Waffle.io_
 Sadly Waffle.io no longer exists. I recommend using GitHub Projects as a free replacement.
 
-## Using Zeit Now with Docker
+## _Deprecated: Using Zeit Now with Docker_
 Unfortunately Zeit Now no longer allows publication of arbitrary `Dockerfile` images. Using Zeit v2 you can publish the output of your `dist` folder and still be able to host your application for free.
 
 A replacement for publishing arbitrary Docker images would be a new service called [Google Cloud Run](https://cloud.google.com/run/). A sample command would look like `gcloud beta run deploy --image localcast-weather`.
