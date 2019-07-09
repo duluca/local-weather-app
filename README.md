@@ -18,6 +18,14 @@ Build, debug and publish Docker images with [**npm Scripts for Docker**](bit.ly/
 - `npm run build:prod` to build a production optimized version of the app.
 - `npm run docker:debug` to run tests and build a containerized version of the app.
 
+## Waffle.io
+Sadly Waffle.io no longer exists. I recommend using GitHub Projects as a free replacement.
+
+## Using Zeit Now with Docker
+Unfortunately Zeit Now no longer allows publication of arbitrary `Dockerfile` images. Using Zeit v2 you can publish the output of your `dist` folder and still be able to host your application for free.
+
+A replacement for publishing arbitrary Docker images would be a new service called [Google Cloud Run](https://cloud.google.com/run/). A sample command would look like `gcloud beta run deploy --image localcast-weather`.
+
 ## Developers
 ### Pre-requisites
 - Do NOT install `@angular/cli` or `typescript` globally to avoid version mismatch issues across multiple projects.
