@@ -15,11 +15,10 @@ import { AppComponent } from './app.component'
 import { CitySearchTpldrivenComponent } from './city-search-tpldriven/city-search-tpldriven.component'
 import { CitySearchComponent } from './city-search/city-search.component'
 import { CurrentWeatherComponent } from './current-weather/current-weather.component'
-import { CurrentWeatherEffects } from './effects/current-weather.effects'
+import { AppEffects } from './effects/app.effects'
 import { MaterialModule } from './material.module'
 import { PostalCodeService } from './postal-code/postal-code.service'
 import { metaReducers, reducers } from './reducers'
-import * as fromSearch from './reducers/search.reducer'
 import { WeatherService } from './weather/weather.service'
 
 @NgModule({
@@ -41,8 +40,8 @@ import { WeatherService } from './weather/weather.service'
       metaReducers,
       runtimeChecks: { strictStateImmutability: true, strictActionImmutability: true },
     }),
-    !environment.production ? StoreDevtoolsModule.instrument() : [],
-    EffectsModule.forRoot([CurrentWeatherEffects]),
+    EffectsModule.forRoot([AppEffects]),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
   ],
   providers: [WeatherService, PostalCodeService],
   bootstrap: [AppComponent],
