@@ -6,11 +6,11 @@ import { Observable } from 'rxjs'
 
 import { ICurrentWeather } from '../interfaces'
 import { WeatherService, defaultWeather } from '../weather/weather.service'
-import { AppEffects } from './app.effects'
+import { CurrentWeatherEffects } from './current-weather.effects'
 
-describe('AppEffects', () => {
+describe('CurrentWeatherEffects', () => {
   let actions$: Observable<any>
-  let effects: AppEffects
+  let effects: CurrentWeatherEffects
   let store: MockStore<{ search: { current: ICurrentWeather } }>
   const initialState = { search: { current: defaultWeather } }
   let weatherServiceMock: jasmine.SpyObj<WeatherService>
@@ -22,14 +22,14 @@ describe('AppEffects', () => {
 
     TestBed.configureTestingModule({
       providers: [
-        AppEffects,
+        CurrentWeatherEffects,
         provideMockActions(() => actions$),
         provideMockStore({ initialState }),
         { provide: WeatherService, useValue: weatherServiceSpy },
       ],
     })
 
-    effects = TestBed.get(AppEffects)
+    effects = TestBed.get(CurrentWeatherEffects)
     store = TestBed.get(Store)
     weatherServiceMock = TestBed.get(WeatherService)
   })
