@@ -41,7 +41,8 @@
     "prenow:publish:docker": "npm run build:prod",
     "now:publish:docker": "now --local-config now-v1.json",
     "pretest:accessibility": "npm start",
-    "test:accessbility": "pa11y --standard Section508 http://localhost:5000"
+    "test:accessbility": "pa11y --standard Section508 http://localhost:5000",
+    "gcloud:deploy": "gcloud beta run deploy --image localcast-weather"
   },
   "private": true,
   "dependencies": {

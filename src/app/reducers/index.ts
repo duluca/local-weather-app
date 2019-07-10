@@ -1,12 +1,4 @@
-import {
-  ActionReducer,
-  ActionReducerMap,
-  MetaReducer,
-  combineReducers,
-  compose,
-  createFeatureSelector,
-  createSelector,
-} from '@ngrx/store'
+import { ActionReducer, ActionReducerMap, MetaReducer } from '@ngrx/store'
 import { storeFreeze } from 'ngrx-store-freeze'
 
 import { environment } from '../../environments/environment'
@@ -22,7 +14,6 @@ export const reducers: ActionReducerMap<AppState> = {
 
 export const selectCurrentWeather = (state: AppState) => state.search.current
 
-// console.log all actions
 export function logger(reducer: ActionReducer<AppState>): ActionReducer<AppState> {
   return (state, action) => {
     const result = reducer(state, action)
@@ -39,17 +30,3 @@ export function logger(reducer: ActionReducer<AppState>): ActionReducer<AppState
 export const metaReducers: MetaReducer<AppState>[] = !environment.production
   ? [logger, storeFreeze]
   : []
-
-// const developmentReducer: ActionReducer<State> = compose(
-//   storeFreeze,
-//   combineReducers
-// )(reducers)
-// const productionReducer: ActionReducer<State> = combineReducers(reducers)
-
-// export function reducer(state: any, action: any) {
-//   if (environment.production) {
-//     return productionReducer(state, action);
-//   } else {
-//     return developmentReducer(state, action);
-//   }
-// }
