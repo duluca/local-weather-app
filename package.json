@@ -10,7 +10,8 @@
   },
   "scripts": {
     "ng": "ng",
-    "standardize": "import-sort --write \"**/*.ts\" && prettier --write \"**/*.ts\" && js-beautify \"src/**/*.html\"",
+    "standardize": "import-sort --write \"**/*.ts\" && prettier --write \"**/*.ts\" && js-beautify --editorconfig \"src/**/*.html\"",
+    "standardize:ci": "import-sort -l \"**/*.ts\" && prettier --check \"**/*.ts\"",
     "start": "npm run standardize && ng serve --port 5000",
     "build": "npm run standardize && ng build",
     "test": "ng test",
