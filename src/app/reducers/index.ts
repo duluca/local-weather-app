@@ -1,4 +1,4 @@
-import { ActionReducer, ActionReducerMap, MetaReducer } from '@ngrx/store'
+import { ActionReducer, ActionReducerMap, MetaReducer, createSelector } from '@ngrx/store'
 
 import { environment } from '../../environments/environment'
 import * as fromSearch from './search.reducer'
@@ -11,7 +11,10 @@ export const reducers: ActionReducerMap<State> = {
   search: fromSearch.reducer,
 }
 
-export const selectCurrentWeather = (state: State) => state.search.current
+export const selectCurrentWeather = createSelector(
+  (state: State) => state.search.current,
+  current => current
+)
 
 export function logger(reducer: ActionReducer<State>): ActionReducer<State> {
   return (state, action) => {
