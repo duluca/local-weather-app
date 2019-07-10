@@ -21,7 +21,7 @@ export class CurrentWeatherComponent implements OnInit, OnDestroy {
 
   constructor(
     private weatherService: WeatherService,
-    private store: Store<appStore.AppState>
+    private store: Store<appStore.State>
   ) {
     this.current$ = merge(
       this.store.pipe(select(appStore.selectCurrentWeather)),

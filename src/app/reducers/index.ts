@@ -3,17 +3,17 @@ import { ActionReducer, ActionReducerMap, MetaReducer } from '@ngrx/store'
 import { environment } from '../../environments/environment'
 import * as fromSearch from './search.reducer'
 
-export interface AppState {
+export interface State {
   search: fromSearch.State
 }
 
-export const reducers: ActionReducerMap<AppState> = {
+export const reducers: ActionReducerMap<State> = {
   search: fromSearch.reducer,
 }
 
-export const selectCurrentWeather = (state: AppState) => state.search.current
+export const selectCurrentWeather = (state: State) => state.search.current
 
-export function logger(reducer: ActionReducer<AppState>): ActionReducer<AppState> {
+export function logger(reducer: ActionReducer<State>): ActionReducer<State> {
   return (state, action) => {
     const result = reducer(state, action)
     console.groupCollapsed(action.type)
@@ -26,6 +26,4 @@ export function logger(reducer: ActionReducer<AppState>): ActionReducer<AppState
   }
 }
 
-export const metaReducers: MetaReducer<AppState>[] = !environment.production
-  ? [logger]
-  : []
+export const metaReducers: MetaReducer<State>[] = !environment.production ? [logger] : []

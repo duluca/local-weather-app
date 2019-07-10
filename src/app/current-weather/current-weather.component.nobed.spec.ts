@@ -2,7 +2,7 @@ import { Store } from '@ngrx/store'
 import { addPropertyAsBehaviorSubject } from 'angular-unit-test-helper'
 import { of } from 'rxjs'
 
-import { AppState } from '../reducers'
+import { State } from '../reducers'
 import { WeatherService } from '../weather/weather.service'
 import { fakeWeather } from '../weather/weather.service.fake'
 import { CurrentWeatherComponent } from './current-weather.component'
@@ -25,7 +25,7 @@ import { CurrentWeatherComponent } from './current-weather.component'
 describe('CurrentWeatherComponent (no TestBed)', () => {
   let component: CurrentWeatherComponent
   let weatherServiceMock: jasmine.SpyObj<WeatherService>
-  let store: jasmine.SpyObj<Store<AppState>>
+  let store: jasmine.SpyObj<Store<State>>
 
   beforeEach(() => {
     weatherServiceMock = jasmine.createSpyObj(WeatherService.name, ['getCurrentWeather'])
