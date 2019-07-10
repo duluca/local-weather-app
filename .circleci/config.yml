@@ -22,6 +22,8 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
+      - run: npm run standardize:ci
+
       - run: npm run build:prod
 
       - run: npm test -- --watch=false
