@@ -13,13 +13,11 @@ export class CurrentWeatherEffects {
   getCurrentWeather$ = createEffect(() =>
     this.actions$.pipe(
       ofType(SearchActions.search),
-      exhaustMap(action => {
-        return this.doSearch(action)
-      })
+      exhaustMap(action => this.doSearch(action))
     )
   )
 
-  private doSearch(action) {
+  private doSearch(action: { searchText: string; country?: string }) {
     return this.weatherService.getCurrentWeather(action.searchText, action.country).pipe(
       map(weather => SearchActions.weatherLoaded({ current: weather })),
       catchError(() => EMPTY)
