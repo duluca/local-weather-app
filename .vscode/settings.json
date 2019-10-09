@@ -54,5 +54,6 @@
     "statusBarItem.hoverBackground": "#d04649",
     "statusBar.foreground": "#e7e7e7"
   },
-  "ng-evergreen.checkFrequency": "Daily"
+  "ng-evergreen.checkFrequency": "Daily",
+  "peacock.color": "#b52e31"
 }
