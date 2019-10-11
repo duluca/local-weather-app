@@ -17,6 +17,8 @@ jobs:
 
       - run: yes | npm ci || true
 
+      - run: cd ./node_modules/protractor && npm i webdriver-manager@latest
+
       - save_cache:
           paths:
             - node_modules
