@@ -66,6 +66,7 @@
     "hammerjs": "^2.0.8",
     "rxjs": "6.5.3",
     "subsink": "^1.0.0",
+    "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
   },
   "devDependencies": {
