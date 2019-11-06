@@ -1,26 +1,18 @@
 {
-  "compileOnSave": false,
+  "extends": "./tsconfig.json",
   "compilerOptions": {
-    "baseUrl": "./",
-    "outDir": "./dist/out-tsc",
-    "sourceMap": true,
-    "declaration": false,
-    "downlevelIteration": true,
-    "experimentalDecorators": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "importHelpers": true,
-    "target": "es2015",
-    "typeRoots": [
-      "node_modules/@types"
-    ],
-    "lib": [
-      "es2018",
-      "dom"
+    "outDir": "./out-tsc/spec",
+    "types": [
+      "jasmine",
+      "node"
     ]
   },
-  "angularCompilerOptions": {
-    "fullTemplateTypeCheck": true,
-    "strictInjectionParameters": true
-  }
+  "files": [
+    "src/test.ts",
+    "src/polyfills.ts"
+  ],
+  "include": [
+    "src/**/*.spec.ts",
+    "src/**/*.d.ts"
+  ]
 }
