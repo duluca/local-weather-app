@@ -34,9 +34,9 @@ jobs:
       - run: npm run e2e
 
       - persist_to_workspace:
-        root: workspace
-        paths:
-          - dist/local-weather-app
+          root: workspace
+          paths:
+            - dist/local-weather-app
 
       - run: tar zcf dist.tar.gz dist/local-weather-app
 
@@ -48,7 +48,7 @@ jobs:
     working_directory: ~/repo
     steps:
       - attach_workspace:
-        at: /dist
+          at: /dist
       - run: npx now --platform-version 2 --prod dist
 
 workflows:
