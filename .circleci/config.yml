@@ -27,6 +27,9 @@ jobs:
       - run: npm test -- --watch=false
       - run: npm run e2e
 
+      - store_test_results:
+          path: ./test_results
+
       - run:
           name: Tar & Gzip compiled app
           command: tar zcf dist.tar.gz dist/local-weather-app
