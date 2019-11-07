@@ -1,6 +1,6 @@
 {
   "name": "localcast-weather",
-  "version": "8.0.0",
+  "version": "9.0.0",
   "license": "MIT",
   "config": {
     "imageRepo": "duluca/localcast-weather",
