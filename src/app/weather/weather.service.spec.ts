@@ -67,7 +67,7 @@ describe('WeatherService', () => {
 
       // Assert
       const request = httpMock.expectOne(
-        `http://api.openweathermap.org/data/2.5/weather?` +
+        `//api.openweathermap.org/data/2.5/weather?` +
           `${uriParams}&appid=01ff1417eeb4a81b09ac68b15958d453`,
         'call to api'
       )
@@ -98,7 +98,7 @@ describe('WeatherService', () => {
 
       // Assert
       const request = httpMock.expectOne(
-        `http://api.openweathermap.org/data/2.5/weather?` +
+        `//api.openweathermap.org/data/2.5/weather?` +
           `${uriParams}&appid=01ff1417eeb4a81b09ac68b15958d453`,
         'call to api'
       )
