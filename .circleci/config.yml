@@ -38,11 +38,11 @@ jobs:
           command: |
             set -exu
             mkdir -p /tmp/workspace/dist
-            mv dist/local-weather-app /tmp/workspace/dist
+            mv dist/local-weather-app /tmp/workspace/dist/
       - persist_to_workspace:
           root: /tmp/workspace
           paths:
-            - dist
+            - dist/local-weather-app
   deploy:
     docker:
       - image: circleci/node:lts
@@ -50,7 +50,7 @@ jobs:
     steps:
       - attach_workspace:
           at: /tmp/workspace
-      - run: npx now --token $NOW_TOKEN --platform-version 2 --prod /tmp/workspace/dist
+      - run: npx now --token $NOW_TOKEN --platform-version 2 --prod --name localcast-weather /tmp/workspace/dist/local-weather-app
 
 workflows:
   version: 2
