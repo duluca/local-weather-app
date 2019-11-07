@@ -50,7 +50,7 @@ jobs:
     steps:
       - attach_workspace:
           at: /tmp/workspace
-      - run: npx now --platform-version 2 --prod /tmp/workspace/dist
+      - run: npx now --token $NOW_TOKEN --platform-version 2 --prod /tmp/workspace/dist
 
 workflows:
   version: 2
