@@ -33,10 +33,17 @@ jobs:
 
       - run: npm run e2e
 
+      - run:
+          name: Move compiled app to workspace
+          command: |
+            set -exu
+            mkdir -p /tmp/workspace/dist
+            mv dist/local-weather-app /tmp/workspace/dist
+
       - persist_to_workspace:
           root: /tmp/workspace
           paths:
-            - dist/local-weather-app
+            - dist
 
       - run: tar zcf dist.tar.gz dist/local-weather-app
 
