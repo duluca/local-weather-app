@@ -12,7 +12,7 @@ describe('PostalCodeService', () => {
   )
 
   it('should be created', () => {
-    const service: PostalCodeService = TestBed.get(PostalCodeService)
+    const service: PostalCodeService = TestBed.inject(PostalCodeService)
     expect(service).toBeTruthy()
   })
 })

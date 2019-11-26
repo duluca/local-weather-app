@@ -43,8 +43,8 @@ describe('WeatherService', () => {
       ],
     })
 
-    weatherService = TestBed.get(WeatherService)
-    postalCodeServiceMock = TestBed.get(PostalCodeService)
+    weatherService = TestBed.inject(WeatherService)
+    postalCodeServiceMock = TestBed.inject(PostalCodeService) as any
   })
 
   it('should be created', async(
@@ -56,7 +56,7 @@ describe('WeatherService', () => {
   describe('getCurrentWeather', () => {
     it('should return value given city name', () => {
       // Arrange
-      const httpMock = TestBed.get(HttpTestingController)
+      const httpMock = TestBed.inject(HttpTestingController)
       const uriParams = 'q=Bursa'
       postalCodeServiceMock.resolvePostalCode.and.returnValue(of(null))
 
@@ -82,7 +82,7 @@ describe('WeatherService', () => {
 
     it('should return value given zip code', () => {
       // Arrange
-      const httpMock = TestBed.get(HttpTestingController)
+      const httpMock = TestBed.inject(HttpTestingController)
       const uriParams = 'lat=38.887103&lon=-77.093197'
       postalCodeServiceMock.resolvePostalCode.and.returnValue(
         of({

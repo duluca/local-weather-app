@@ -1,4 +1,4 @@
-import { TestBed, inject } from '@angular/core/testing'
+import { TestBed } from '@angular/core/testing'
 import { provideMockActions } from '@ngrx/effects/testing'
 import { Store } from '@ngrx/store'
 import { MockStore, provideMockStore } from '@ngrx/store/testing'
@@ -9,7 +9,7 @@ import { WeatherService, defaultWeather } from '../weather/weather.service'
 import { CurrentWeatherEffects } from './current-weather.effects'
 
 describe('CurrentWeatherEffects', () => {
-  let actions$: Observable<any>
+  const actions$: Observable<any> = null
   let effects: CurrentWeatherEffects
   let store: MockStore<{ search: { current: ICurrentWeather } }>
   const initialState = { search: { current: defaultWeather } }
@@ -29,9 +29,9 @@ describe('CurrentWeatherEffects', () => {
       ],
     })
 
-    effects = TestBed.get(CurrentWeatherEffects)
-    store = TestBed.get(Store)
-    weatherServiceMock = TestBed.get(WeatherService)
+    effects = TestBed.inject(CurrentWeatherEffects)
+    store = TestBed.inject(Store) as any
+    weatherServiceMock = TestBed.inject(WeatherService) as any
   })
 
   it('should be created', () => {

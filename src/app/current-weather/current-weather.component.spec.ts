@@ -34,8 +34,8 @@ describe('CurrentWeatherComponent', () => {
       imports: [MaterialModule],
     }).compileComponents()
 
-    weatherServiceMock = TestBed.get(WeatherService)
-    store = TestBed.get(Store)
+    weatherServiceMock = TestBed.inject(WeatherService) as any
+    store = TestBed.inject(Store) as any
   }))
 
   beforeEach(() => {

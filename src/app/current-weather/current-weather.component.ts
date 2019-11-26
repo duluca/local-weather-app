@@ -1,8 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core'
 import { Store, select } from '@ngrx/store'
-import { Observable, Subscription, merge } from 'rxjs'
-import { map } from 'rxjs/operators'
-import { SubSink } from 'subsink'
+import { Observable, merge } from 'rxjs'
 
 import { ICurrentWeather } from '../interfaces'
 import * as appStore from '../reducers'

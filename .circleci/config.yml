@@ -24,7 +24,9 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-      - run: npm run standardize:ci
+      - run: npm run style
+      - run: npm run lint
+
       - run: npm run build:prod
       - run: npm test -- --watch=false
       - run: npm run test:coverage -- --watch=false

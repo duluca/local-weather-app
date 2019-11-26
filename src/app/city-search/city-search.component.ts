@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component } from '@angular/core'
 import { FormControl, Validators } from '@angular/forms'
 import { Store } from '@ngrx/store'
 import { debounceTime, filter, tap } from 'rxjs/operators'
@@ -31,7 +31,8 @@ export class CitySearchComponent {
   }
 
   // ngOnInit() {
-  //   this.search.valueChanges.pipe(debounceTime(1000)).subscribe((searchValue: string) => {
+  //   this.search.valueChanges.pipe(debounceTime(1000)).subscribe(
+  //   (searchValue: string) => {
   //     if (!this.search.invalid) {
   //       const userInput = searchValue.split(',').map(s => s.trim())
   //       const searchText = userInput[0]
