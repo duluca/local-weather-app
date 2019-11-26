@@ -5,6 +5,7 @@ import {
 import { TestBed, async, inject } from '@angular/core/testing'
 import { of } from 'rxjs'
 
+import { environment } from '../../environments/environment'
 import { IPostalCode, PostalCodeService } from '../postal-code/postal-code.service'
 import { ICurrentWeatherData, WeatherService } from './weather.service'
 
@@ -67,7 +68,7 @@ describe('WeatherService', () => {
 
       // Assert
       const request = httpMock.expectOne(
-        `//api.openweathermap.org/data/2.5/weather?` +
+        `${environment.baseUrl}api.openweathermap.org/data/2.5/weather?` +
           `${uriParams}&appid=01ff1417eeb4a81b09ac68b15958d453`,
         'call to api'
       )
@@ -98,7 +99,7 @@ describe('WeatherService', () => {
 
       // Assert
       const request = httpMock.expectOne(
-        `//api.openweathermap.org/data/2.5/weather?` +
+        `${environment.baseUrl}api.openweathermap.org/data/2.5/weather?` +
           `${uriParams}&appid=01ff1417eeb4a81b09ac68b15958d453`,
         'call to api'
       )
