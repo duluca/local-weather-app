@@ -1,6 +1,13 @@
 {
-  "extends": "tslint:recommended",
+  "extends": [
+    "tslint:recommended",
+    "tslint-config-prettier",
+    "tslint-plugin-prettier",
+    "tslint-etc"
+  ],
   "rules": {
+    "prettier": true,
+    "no-unused-declaration": true,
     "array-type": false,
     "arrow-parens": false,
     "deprecation": {
@@ -67,10 +74,7 @@
     ],
     "object-literal-sort-keys": false,
     "ordered-imports": false,
-    "quotemark": [
-      true,
-      "single"
-    ],
+    "quotemark": [true, "single", "avoid-escape"],
     "trailing-comma": false,
     "semicolon": [
       true,
