@@ -4,7 +4,7 @@
 > View live demo: https://localcast-weather.duluca.now.sh/
 
 [![CircleCI](https://circleci.com/gh/duluca/local-weather-app/tree/master.svg?style=svg)](https://circleci.com/gh/duluca/local-weather-app/tree/master)
-[![DeepScan grade](https://deepscan.io/api/teams/1906/projects/5034/branches/39625/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=1906&pid=5034&bid=39625)
+[![DeepScan grade](https://deepscan.io/api/teams/1906/projects/5034/branches/39254/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=1906&pid=5034&bid=39254)
 [![Coverage Status](https://coveralls.io/repos/github/duluca/local-weather-app/badge.svg?branch=master)](https://coveralls.io/github/duluca/local-weather-app?branch=master)
 [![Kanban Board](https://img.shields.io/badge/Kanban-View%20Project%20Status-blue)](https://github.com/duluca/local-weather-app/projects/1)
 
@@ -21,10 +21,10 @@ Build, debug and publish Docker images with [**npm Scripts for Docker**](bit.ly/
 - `npm run build:prod` to build a production optimized version of the app.
 - `npm run docker:debug` to run tests and build a containerized version of the app.
 
-## Waffle.io
+## _Deprecated: Waffle.io_
 Sadly Waffle.io no longer exists. I recommend using GitHub Projects as a free replacement.
 
-## Using Zeit Now with Docker
+## _Deprecated: Using Zeit Now with Docker_
 Unfortunately Zeit Now no longer allows publication of arbitrary `Dockerfile` images. Using Zeit v2 you can publish the output of your `dist` folder and still be able to host your application for free.
 
 A replacement for publishing arbitrary Docker images would be a new service called [Google Cloud Run](https://cloud.google.com/run/). A sample command would look like `gcloud beta run deploy --image localcast-weather`.
