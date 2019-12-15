@@ -10,8 +10,8 @@
   },
   "scripts": {
     "ng": "ng",
-    "style:fix": "import-sort --write \"**/*.ts\" && prettier --write \"**/*.ts\"",
-    "style": "import-sort -l \"**/*.ts\" && prettier --check \"**/*.ts\"",
+    "style:fix": "import-sort --write \"**/*.ts\" && prettier --write \"**/*.{*css,ts}\" && js-beautify \"src/**/*.html\"",
+    "style": "import-sort -l \"**/*.ts\" && prettier --check \"**/*.{*css,ts}\"",
     "start": "ng serve --port 5000",
     "build": "ng build",
     "test": "ng test",
