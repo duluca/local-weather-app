@@ -1,9 +1,10 @@
 {
   "debug.openExplorerOnEnd": true,
-
   "editor.tabSize": 2,
-  "editor.rulers": [90],
-  "editor.autoIndent": true,
+  "editor.rulers": [
+    90
+  ],
+  "editor.autoIndent": "full",
   "editor.cursorBlinking": "solid",
   "editor.formatOnType": false,
   "editor.formatOnPaste": false,
@@ -11,26 +12,18 @@
   "editor.minimap.enabled": false,
   "editor.codeActionsOnSave": {
     "source.organizeImports": false,
-    "source.fixAll.tslint": true,
+    "source.fixAll.tslint": true
   },
-
   "explorer.openEditors.visible": 0,
-
   "files.trimTrailingWhitespace": true,
   "files.autoSave": "onFocusChange",
-
   "git.confirmSync": false,
   "git.enableSmartCommit": true,
-
   "npm.enableScriptExplorer": true,
-
   "typescript.tsdk": "node_modules/typescript/lib",
-
   "workbench.iconTheme": "material-icon-theme",
-
   "auto-close-tag.SublimeText3Mode": true,
   "html.autoClosingTags": false,
-
   "peacock.affectActivityBar": true,
   "peacock.affectStatusBar": true,
   "peacock.affectTitleBar": false,
@@ -45,11 +38,13 @@
     "statusBarItem.hoverBackground": "#d04649",
     "statusBar.foreground": "#e7e7e7"
   },
-
   "peacock.color": "#b52e31",
-
   "gitlens.menus": {
     "editorGroup": false
   },
-  "ng-evergreen.upgradeChannel": "Latest"
+  "ng-evergreen.upgradeChannel": "Latest",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[html]": {
+    "editor.defaultFormatter": "HookyQR.beautify"
+  }
 }

@@ -74,7 +74,11 @@
     ],
     "object-literal-sort-keys": false,
     "ordered-imports": false,
-    "quotemark": [true, "single", "avoid-escape"],
+    "quotemark": [
+      true,
+      "single",
+      "avoid-escape"
+    ],
     "trailing-comma": false,
     "semicolon": [
       true,
@@ -95,5 +99,18 @@
   },
   "rulesDirectory": [
     "codelyzer"
+  ],
+  "max-line-length": [
+    true,
+    90
+  ],
+  "quotemark": [
+    true,
+    "single",
+    "avoid-escape"
+  ],
+  "semicolon": [
+    true,
+    "never"
   ]
 }
