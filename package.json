@@ -42,7 +42,6 @@
     "now:publish": "now --platform-version 2 --prod dist/local-weather-app",
     "prenow:publish:docker": "npm run build:prod",
     "now:publish:docker": "now --local-config now-v1.json",
-    "pretest:a11y": "npm start",
     "test:a11y": "pa11y --standard Section508 http://localhost:5000",
     "test:a11y:ci": "pa11y-ci",
     "gcloud:deploy": "gcloud beta run deploy --image localcast-weather"
