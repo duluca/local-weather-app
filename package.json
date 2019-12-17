@@ -44,7 +44,7 @@
     "now:publish:docker": "now --local-config now-v1.json",
     "test:a11y": "pa11y --standard Section508 http://localhost:5000",
     "test:a11y:ci": "pa11y-ci",
-    "gcloud:deploy": "gcloud beta run deploy --image localcast-weather"
+    "gcloud:deploy": "gcloud run deploy --image gcr.io/localcast-weather/localcast-weather:latest --platform managed --project localcast-weather"
   },
   "private": true,
   "dependencies": {
