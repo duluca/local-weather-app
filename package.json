@@ -21,7 +21,7 @@
     "lint:fix": "tslint --config tslint.json --fix --project . -e \"**/{test,polyfills}.ts\"",
     "e2e": "ng e2e",
     "build:prod": "ng build --prod",
-    "predocker:build": "npm run build:prod && npm test -- --watch=false && npm run e2e",
+    "predocker:build": "npm run build:prod && npm test -- --watch=false",
     "docker:build": "cross-conf-env docker image build . -t $npm_package_config_imageRepo:$npm_package_version",
     "postdocker:build": "npm run docker:tag",
     "docker:tag": " cross-conf-env docker image tag $npm_package_config_imageRepo:$npm_package_version $npm_package_config_imageRepo:latest",
@@ -44,9 +44,10 @@
     "now:publish:docker": "now --local-config now-v1.json",
     "test:a11y": "pa11y --standard Section508 http://localhost:5000",
     "test:a11y:ci": "pa11y-ci",
-    "gcloud:tag": "docker tag duluca/localcast-weather:latest gcr.io/localcast-weather/localcast-weather:latest",
-    "gcloud:push": "docker push gcr.io/localcast-weather/localcast-weather:latest",
-    "gcloud:deploy": "gcloud run deploy --image gcr.io/localcast-weather/localcast-weather:latest --platform managed --project localcast-weather"
+    "gcloud:tag": "docker tag duluca/localcast-weather gcr.io/localcast-weather/localcast-weather",
+    "gcloud:push": "docker push gcr.io/localcast-weather/localcast-weather",
+    "gcloud:build": "gcloud builds submit --tag gcr.io/localcast-weather/localcast-weather --project localcast-weather",
+    "gcloud:deploy": "gcloud run deploy --image gcr.io/localcast-weather/localcast-weather --platform managed --project localcast-weather --region us-east1"
   },
   "private": true,
   "dependencies": {
