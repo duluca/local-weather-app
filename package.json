@@ -47,7 +47,8 @@
     "gcloud:tag": "docker tag duluca/localcast-weather gcr.io/localcast-weather/localcast-weather",
     "gcloud:push": "docker push gcr.io/localcast-weather/localcast-weather",
     "gcloud:build": "gcloud builds submit --tag gcr.io/localcast-weather/localcast-weather --project localcast-weather",
-    "gcloud:deploy": "gcloud run deploy --image gcr.io/localcast-weather/localcast-weather --platform managed --project localcast-weather --region us-east1"
+    "gcloud:deploy": "gcloud run deploy --image gcr.io/localcast-weather/localcast-weather --platform managed --project localcast-weather --region us-east1",
+    "init:env": "init-dev-env generate-dot-env example.env -f"
   },
   "private": true,
   "dependencies": {
@@ -89,6 +90,7 @@
     "import-sort-cli": "^6.0.0",
     "import-sort-parser-typescript": "^6.0.0",
     "import-sort-style-module": "^6.0.0",
+    "init-dev-env": "^1.0.0",
     "jasmine": "^3.5.0",
     "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~4.2.1",
@@ -106,6 +108,7 @@
     "pa11y-ci": "^2.3.0",
     "prettier": "^1.19.1",
     "protractor": "~5.4.2",
+    "rimraf": "^3.0.0",
     "ts-node": "^8.5.4",
     "tslint": "^5.20.1",
     "tslint-config-prettier": "^1.18.0",
