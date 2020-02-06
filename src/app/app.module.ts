@@ -6,12 +6,19 @@ import { FlexLayoutModule } from '@angular/flex-layout'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { BrowserModule } from '@angular/platform-browser'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { EffectsModule } from '@ngrx/effects'
+import { StoreModule } from '@ngrx/store'
+import { StoreDevtoolsModule } from '@ngrx/store-devtools'
 
+import { environment } from '../environments/environment'
 import { AppComponent } from './app.component'
 import { CitySearchTpldrivenComponent } from './city-search-tpldriven/city-search-tpldriven.component'
 import { CitySearchComponent } from './city-search/city-search.component'
 import { CurrentWeatherComponent } from './current-weather/current-weather.component'
+import { CurrentWeatherEffects } from './effects/current-weather.effects'
 import { MaterialModule } from './material.module'
+import { PostalCodeService } from './postal-code/postal-code.service'
+import { metaReducers, reducers } from './reducers'
 import { WeatherService } from './weather/weather.service'
 
 @NgModule({
@@ -25,12 +32,18 @@ import { WeatherService } from './weather/weather.service'
     BrowserModule,
     HttpClientModule,
     MaterialModule,
-    BrowserAnimationsModule,
     FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
+    StoreModule.forRoot(reducers, {
+      metaReducers,
+      runtimeChecks: { strictStateImmutability: true, strictActionImmutability: true },
+    }),
+    EffectsModule.forRoot([CurrentWeatherEffects]),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
   ],
-  providers: [WeatherService],
+  providers: [WeatherService, PostalCodeService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,15 +1,19 @@
 # LocalCast Weather
 > Learn Angular, Angular Material, RxJS fundementals with LocalCast Weather using the Kanban method.
 
-[![CircleCI](https://circleci.com/gh/duluca/local-weather-app.svg?style=svg)](https://circleci.com/gh/duluca/local-weather-app)
+> View live demo: https://localcast-weather.duluca.now.sh/
+
+[![CircleCI](https://circleci.com/gh/duluca/local-weather-app/tree/master.svg?style=svg)](https://circleci.com/gh/duluca/local-weather-app/tree/master)
 [![DeepScan grade](https://deepscan.io/api/teams/1906/projects/5034/branches/39254/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=1906&pid=5034&bid=39254)
+[![Coverage Status](https://coveralls.io/repos/github/duluca/local-weather-app/badge.svg?branch=master)](https://coveralls.io/github/duluca/local-weather-app?branch=master)
+[![Kanban Board](https://img.shields.io/badge/Kanban-View%20Project%20Status-blue)](https://github.com/duluca/local-weather-app/projects/1)
 
 ![mat-style4](https://user-images.githubusercontent.com/822159/56008986-210ad880-5cac-11e9-812f-6514b2dc0f97.PNG)
 
 ## Get the book
-LocalCast Weather has been developed in support of my book _Angular 6 for Enterprise-Ready Web Applications_. You can get the book on http://AngularForEnterprise.com.
+LocalCast Weather has been developed in support of my book _Angular for Enterprise-Ready Web Applications_. You can get the book on http://AngularForEnterprise.com.
 
-Check out **LemonMart**, an Angular 6 Grocery Store LOB App implemented with a Router-first architecture, at https://github.com/duluca/lemon-mart.
+Check out **LemonMart**, an Angular Grocery Store LOB App implemented with a Router-first architecture, at https://github.com/duluca/lemon-mart.
 
 Build, debug and publish Docker images with [**npm Scripts for Docker**](bit.ly/npmScriptsForDocker) and achieve Blue-Green deployments on AWS Fargate with [**npm Scripts for AWS**](bit.ly/npmScriptsForAWS).
 

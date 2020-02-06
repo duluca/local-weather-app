@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed, async } from '@angular/core/testing'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { NoopAnimationsModule } from '@angular/platform-browser/animations'
+import { Store } from '@ngrx/store'
 
 import { MaterialModule } from '../material.module'
 import { WeatherService } from '../weather/weather.service'
@@ -14,7 +15,10 @@ describe('CitySearchComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [CitySearchComponent],
-      providers: [{ provide: WeatherService, useClass: WeatherServiceFake }],
+      providers: [
+        { provide: WeatherService, useClass: WeatherServiceFake },
+        { provide: Store, useValue: null },
+      ],
       imports: [FormsModule, ReactiveFormsModule, MaterialModule, NoopAnimationsModule],
     }).compileComponents()
   }))
