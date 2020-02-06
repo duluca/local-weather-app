@@ -57,7 +57,7 @@
     "@angular/common": "9.0.0",
     "@angular/compiler": "9.0.0",
     "@angular/core": "9.0.0",
-    "@angular/flex-layout": "^9.0.0-beta.28",
+    "@angular/flex-layout": "^9.0.0-beta.29",
     "@angular/forms": "9.0.0",
     "@angular/material": "9.0.0",
     "@angular/platform-browser": "9.0.0",
@@ -68,7 +68,7 @@
     "@ngrx/store": "^8.6.0",
     "@ngrx/store-devtools": "^8.6.0",
     "hammerjs": "^2.0.8",
-    "rxjs": "^6.5.3",
+    "rxjs": "^6.5.4",
     "subsink": "^1.0.1",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
