@@ -17,9 +17,7 @@ import { CitySearchComponent } from './city-search/city-search.component'
 import { CurrentWeatherComponent } from './current-weather/current-weather.component'
 import { CurrentWeatherEffects } from './effects/current-weather.effects'
 import { MaterialModule } from './material.module'
-import { PostalCodeService } from './postal-code/postal-code.service'
 import { metaReducers, reducers } from './reducers'
-import { WeatherService } from './weather/weather.service'
 
 @NgModule({
   declarations: [
@@ -43,7 +41,7 @@ import { WeatherService } from './weather/weather.service'
     EffectsModule.forRoot([CurrentWeatherEffects]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
   ],
-  providers: [WeatherService, PostalCodeService],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

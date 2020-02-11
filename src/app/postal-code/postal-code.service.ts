@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http'
+import { HttpClient, HttpParams } from '@angular/common/http'
 import { Injectable } from '@angular/core'
 import { Observable } from 'rxjs'
 import { defaultIfEmpty, flatMap } from 'rxjs/operators'
@@ -20,17 +20,22 @@ export interface IPostalCodeService {
   resolvePostalCode(postalCode: string): Observable<IPostalCode>
 }
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class PostalCodeService implements IPostalCodeService {
   constructor(private httpClient: HttpClient) {}
 
   resolvePostalCode(postalCode: string): Observable<IPostalCode> {
-    const uriParams = `postalcode=${postalCode}`
+    const uriParams = new HttpParams()
+      .set('maxRows', '1')
+      .set('username', environment.username)
+      .set('postalcode', postalCode)
 
     return this.httpClient
       .get<IPostalCodeData>(
-        `${environment.baseUrl}${environment.geonamesApi}.geonames.org/postalCodeSearchJSON?` +
-          `${uriParams}&maxRows=1&username=${environment.username}`
+        `${environment.baseUrl}${environment.geonamesApi}.geonames.org/postalCodeSearchJSON`,
+        { params: uriParams }
       )
       .pipe(
         flatMap(data => data.postalCodes),
