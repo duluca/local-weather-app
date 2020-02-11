@@ -68,6 +68,11 @@ describe('CurrentWeatherComponent', () => {
     component.current$.subscribe(current => {
       expect(current.city).toEqual('Bethesda')
       expect(current.temperature).toEqual(280.32)
+
+      // Assert on DOM
+      const debugEl = fixture.debugElement
+      const titleEl: HTMLElement = debugEl.query(By.css('.mat-title')).nativeElement
+      expect(titleEl.textContent).toContain('Bethesda')
     })
   })
 
@@ -98,7 +103,7 @@ describe('CurrentWeatherComponent', () => {
 
     // Assert on DOM
     const debugEl = fixture.debugElement
-    const titleEl: HTMLElement = debugEl.query(By.css('.mat-title')).nativeElement
+    const titleEl: HTMLElement = debugEl.query(By.css('span')).nativeElement
     expect(titleEl.textContent).toContain('Bethesda')
   })
 })
