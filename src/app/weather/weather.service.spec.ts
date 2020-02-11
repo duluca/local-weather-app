@@ -38,7 +38,6 @@ describe('WeatherService', () => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
       providers: [
-        WeatherService,
         { provide: PostalCodeService, useValue: postalCodeServiceSpy },
       ],
     })

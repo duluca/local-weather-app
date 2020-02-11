@@ -7,7 +7,6 @@ describe('PostalCodeService', () => {
   beforeEach(() =>
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      providers: [PostalCodeService],
     })
   )
 
