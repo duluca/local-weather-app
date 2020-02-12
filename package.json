@@ -67,7 +67,6 @@
     "@ngrx/effects": "^8.6.0",
     "@ngrx/store": "^8.6.0",
     "@ngrx/store-devtools": "^8.6.0",
-    "hammerjs": "^2.0.8",
     "rxjs": "^6.5.4",
     "subsink": "^1.0.1",
     "tslib": "^1.10.0",
