@@ -37,9 +37,7 @@ describe('WeatherService', () => {
 
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      providers: [
-        { provide: PostalCodeService, useValue: postalCodeServiceSpy },
-      ],
+      providers: [{ provide: PostalCodeService, useValue: postalCodeServiceSpy }],
     })
 
     weatherService = TestBed.inject(WeatherService)
