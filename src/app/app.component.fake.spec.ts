@@ -1,5 +1,5 @@
 import { TestBed, async } from '@angular/core/testing'
-import { ReactiveFormsModule } from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { NoopAnimationsModule } from '@angular/platform-browser/animations'
 import { provideMockStore } from '@ngrx/store/testing'
 
@@ -20,7 +20,7 @@ describe('AppComponent', () => {
         { provide: WeatherService, useClass: WeatherServiceFake },
         provideMockStore({ initialState }),
       ],
-      imports: [ReactiveFormsModule, MaterialModule, NoopAnimationsModule],
+      imports: [FormsModule, ReactiveFormsModule, MaterialModule, NoopAnimationsModule],
     }).compileComponents()
   }))
   it('should create the app', async(() => {
