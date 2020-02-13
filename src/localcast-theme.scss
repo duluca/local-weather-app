@@ -15,7 +15,7 @@ $local-weather-app-primary: mat-palette($mat-red, 500);
 $local-weather-app-accent: mat-palette($mat-indigo, A400);
 
 // The warn palette is optional (defaults to red).
-$local-weather-app-warn: mat-palette($mat-yellow);
+$local-weather-app-warn: mat-palette($mat-red);
 
 // Create the theme object (a Sass map containing all of the palettes).
 $local-weather-app-theme: mat-light-theme(
