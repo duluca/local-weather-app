@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed, async } from '@angular/core/testing'
-import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { ReactiveFormsModule } from '@angular/forms'
 import { NoopAnimationsModule } from '@angular/platform-browser/animations'
 import { Store } from '@ngrx/store'
 
@@ -19,7 +19,7 @@ describe('CitySearchComponent', () => {
         { provide: WeatherService, useClass: WeatherServiceFake },
         { provide: Store, useValue: null },
       ],
-      imports: [FormsModule, ReactiveFormsModule, MaterialModule, NoopAnimationsModule],
+      imports: [ReactiveFormsModule, MaterialModule, NoopAnimationsModule],
     }).compileComponents()
   }))
 
