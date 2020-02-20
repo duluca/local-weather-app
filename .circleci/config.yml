@@ -22,9 +22,9 @@ jobs:
       # because we use "npm ci" to install NPM dependencies
       # we cache "~/.npm" folder
       - save_cache:
-        paths:
-          - ~/.npm
-        key: v1-dependencies-{{ checksum "package.json" }}
+          paths:
+            - ~/.npm
+          key: v1-dependencies-{{ checksum "package.json" }}
 
       - run: npm run style
       - run: npm run lint
