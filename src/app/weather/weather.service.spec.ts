@@ -3,7 +3,6 @@ import {
   HttpTestingController,
 } from '@angular/common/http/testing'
 import { TestBed, async, inject } from '@angular/core/testing'
-import { injectOne } from 'angular-unit-test-helper'
 import { of } from 'rxjs'
 
 import { environment } from '../../environments/environment'
@@ -42,7 +41,7 @@ describe('WeatherService', () => {
     })
 
     weatherService = TestBed.inject(WeatherService)
-    postalCodeServiceMock = injectOne(PostalCodeService)
+    postalCodeServiceMock = TestBed.inject(PostalCodeService) as any
   })
 
   it('should be created', async(
