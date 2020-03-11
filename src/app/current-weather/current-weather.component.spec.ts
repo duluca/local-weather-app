@@ -2,7 +2,11 @@ import { ComponentFixture, TestBed, async } from '@angular/core/testing'
 import { By } from '@angular/platform-browser'
 import { Store } from '@ngrx/store'
 import { MockStore, provideMockStore } from '@ngrx/store/testing'
-import { ObservablePropertyStrategy, autoSpyObj } from 'angular-unit-test-helper'
+import {
+  ObservablePropertyStrategy,
+  autoSpyObj,
+  injectOne,
+} from 'angular-unit-test-helper'
 import { of } from 'rxjs'
 
 import { ICurrentWeather } from '../interfaces'
@@ -34,7 +38,7 @@ describe('CurrentWeatherComponent', () => {
       imports: [MaterialModule],
     }).compileComponents()
 
-    weatherServiceMock = TestBed.inject(WeatherService) as any
+    weatherServiceMock = injectOne(WeatherService)
     store = TestBed.inject(Store) as any
   }))
 

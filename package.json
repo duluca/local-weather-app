@@ -81,7 +81,7 @@
     "@types/jasmine": "^3.5.3",
     "@types/jasminewd2": "~2.0.8",
     "@types/node": "^13.7.0",
-    "angular-unit-test-helper": "^1.4.1",
+    "angular-unit-test-helper": "^9.1.7",
     "codelyzer": "^5.2.1",
     "cross-conf-env": "^1.1.2",
     "dev-norms": "1.7.0",

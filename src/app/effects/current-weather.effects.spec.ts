@@ -2,6 +2,7 @@ import { TestBed } from '@angular/core/testing'
 import { provideMockActions } from '@ngrx/effects/testing'
 import { Store } from '@ngrx/store'
 import { MockStore, provideMockStore } from '@ngrx/store/testing'
+import { injectOne } from 'angular-unit-test-helper'
 import { Observable, of } from 'rxjs'
 
 import { ICurrentWeather } from '../interfaces'
@@ -32,7 +33,7 @@ describe('CurrentWeatherEffects', () => {
 
     effects = TestBed.inject(CurrentWeatherEffects)
     store = TestBed.inject(Store) as any
-    weatherServiceMock = TestBed.inject(WeatherService) as any
+    weatherServiceMock = injectOne(WeatherService)
   })
 
   it('should be created', () => {
