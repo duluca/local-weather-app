@@ -18,10 +18,18 @@ fs.readdirSync(root).forEach(module => {
   const npmCommandsArray = [build, test, e2e]
 
   npmCommandsArray.forEach(command => {
-    cp.spawn(/^win/.test(process.platform) ? 'npm.cmd' : 'npm', command, {
-      env: process.env,
-      cwd: modulePath,
-      stdio: 'inherit',
-    })
+    const spawn = cp.spawnSync(
+      /^win/.test(process.platform) ? 'npm.cmd' : 'npm',
+      command,
+      {
+        env: process.env,
+        cwd: modulePath,
+        stdio: 'inherit',
+      }
+    )
+
+    if (spawn.status != 0) {
+      throw `Error: npm ${command.join(' ')} failed`
+    }
   })
 })
