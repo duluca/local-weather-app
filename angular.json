@@ -104,6 +104,123 @@
           }
         }
       }
+    },
+    "ch2": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/ch2",
+      "sourceRoot": "projects/ch2/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/ch2",
+            "index": "projects/ch2/src/index.html",
+            "main": "projects/ch2/src/main.ts",
+            "polyfills": "projects/ch2/src/polyfills.ts",
+            "tsConfig": "projects/ch2/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/ch2/src/favicon.ico",
+              "projects/ch2/src/assets"
+            ],
+            "styles": [
+              "projects/ch2/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/ch2/src/environments/environment.ts",
+                  "with": "projects/ch2/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ch2:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ch2:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ch2:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ch2/src/test.ts",
+            "polyfills": "projects/ch2/src/polyfills.ts",
+            "tsConfig": "projects/ch2/tsconfig.spec.json",
+            "karmaConfig": "projects/ch2/karma.conf.js",
+            "assets": [
+              "projects/ch2/src/favicon.ico",
+              "projects/ch2/src/assets"
+            ],
+            "styles": [
+              "projects/ch2/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ch2/tsconfig.app.json",
+              "projects/ch2/tsconfig.spec.json",
+              "projects/ch2/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/ch2/e2e/protractor.conf.js",
+            "devServerTarget": "ch2:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ch2:serve:production"
+            }
+          }
+        }
+      }
     }
   },
   "defaultProject": "local-weather-app"

@@ -29,6 +29,9 @@ jobs:
       - run: npm run style
       - run: npm run lint
 
+      # this command is only here to verify sample code from the book, remove it in your own projects
+      - run: node ./bin/verifyProjects.js
+
       - run: npm run build:prod
       - run: npm test -- --watch=false
       - run: npm run test:coverage -- --watch=false
