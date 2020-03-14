@@ -11,15 +11,15 @@ fs.readdirSync(root).forEach(module => {
 
   const project = ['--project', module]
 
-  const build = ['run', 'build', '--', '--prod'].concat(project)
-  const test = ['run', 'test', '--', '--watch=false'].concat(project)
-  const e2e = ['run', 'e2e', module]
+  const build = ['ng', 'build', '--prod'].concat(project)
+  const test = ['ng', 'test', '--watch=false'].concat(project)
+  const e2e = ['ng', 'e2e', module]
 
   const npmCommandsArray = [build, test, e2e]
 
   npmCommandsArray.forEach(command => {
     const spawn = cp.spawnSync(
-      /^win/.test(process.platform) ? 'npm.cmd' : 'npm',
+      /^win/.test(process.platform) ? 'npx.cmd' : 'npx',
       command,
       {
         env: process.env,
@@ -29,7 +29,7 @@ fs.readdirSync(root).forEach(module => {
     )
 
     if (spawn.status != 0) {
-      throw `Error: npm ${command.join(' ')} failed`
+      throw `Error: npx ${command.join(' ')} failed`
     }
   })
 })
