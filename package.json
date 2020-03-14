@@ -19,7 +19,7 @@
     "test:coverage": "ng test --code-coverage",
     "lint": "tslint --config tslint.json --project . -e \"**/{test,polyfills}.ts\"",
     "lint:fix": "tslint --config tslint.json --fix --project . -e \"**/{test,polyfills}.ts\"",
-    "e2e": "ng e2e",
+    "e2e": "ng e2e local-weather-app",
     "build:prod": "ng build --prod",
     "predocker:build": "npm run build:prod && npm test -- --watch=false",
     "docker:build": "cross-conf-env docker image build . -t $npm_package_config_imageRepo:$npm_package_version",
