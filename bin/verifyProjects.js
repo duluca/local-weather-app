@@ -9,13 +9,15 @@ fs.readdirSync(root).forEach(module => {
   const modulePath = path.join(root, module)
   console.log(modulePath)
 
+  const skipTests = module === 'ch3'
+
   const project = ['--project', module]
 
   const build = ['ng', 'build', '--prod'].concat(project)
   const test = ['ng', 'test', '--watch=false'].concat(project)
   const e2e = ['ng', 'e2e', module]
 
-  const npmCommandsArray = [build, test, e2e]
+  const npmCommandsArray = skipTests ? [build] : [build, test, e2e]
 
   npmCommandsArray.forEach(command => {
     const spawn = cp.spawnSync(
