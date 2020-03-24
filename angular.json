@@ -545,7 +545,10 @@
             "tsConfig": "projects/ch6/tsconfig.app.json",
             "aot": true,
             "assets": ["projects/ch6/src/favicon.ico", "projects/ch6/src/assets"],
-            "styles": ["projects/ch6/src/styles.css"],
+            "styles": [
+              "projects/ch6/src/localcast-theme.scss",
+              "projects/ch6/src/styles.css"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -650,7 +653,10 @@
             "tsConfig": "projects/ch12/tsconfig.app.json",
             "aot": true,
             "assets": ["projects/ch12/src/favicon.ico", "projects/ch12/src/assets"],
-            "styles": ["projects/ch12/src/styles.css"],
+            "styles": [
+              "projects/ch12/src/localcast-theme.scss",
+              "projects/ch12/src/styles.css"
+            ],
             "scripts": []
           },
           "configurations": {
