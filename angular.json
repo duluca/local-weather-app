@@ -18,8 +18,14 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["src/localcast-theme.scss", "src/styles.css"],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/localcast-theme.scss",
+              "src/styles.css"
+            ],
             "scripts": [],
             "es5BrowserSupport": true
           },
@@ -79,16 +85,27 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["src/styles.css"],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.css"
+            ],
             "scripts": []
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["tsconfig.app.json", "tsconfig.spec.json", "e2e/tsconfig.json"],
-            "exclude": ["**/node_modules/**"]
+            "tsConfig": [
+              "tsconfig.app.json",
+              "tsconfig.spec.json",
+              "e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         },
         "e2e": {
@@ -477,6 +494,7 @@
               "projects/ch5/src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "projects/ch5/src/styles.css"
             ],
             "scripts": []
@@ -541,6 +559,7 @@
               "projects/ch5/src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "projects/ch5/src/styles.css"
             ],
             "scripts": []
