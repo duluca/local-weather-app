@@ -1,7 +1,5 @@
 import { Component } from '@angular/core'
 
-import { WeatherService } from './weather/weather.service'
-
 @Component({
   selector: 'app-root',
   template: `
