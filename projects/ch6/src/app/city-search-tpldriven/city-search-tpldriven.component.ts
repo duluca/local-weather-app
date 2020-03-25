@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component } from '@angular/core'
 
 import { WeatherService } from '../weather/weather.service'
 
@@ -7,13 +7,11 @@ import { WeatherService } from '../weather/weather.service'
   templateUrl: './city-search-tpldriven.component.html',
   styleUrls: ['./city-search-tpldriven.component.css'],
 })
-export class CitySearchTpldrivenComponent implements OnInit {
+export class CitySearchTpldrivenComponent {
   model = {
     search: '',
   }
   constructor(private weatherService: WeatherService) {}
-
-  ngOnInit() {}
 
   doSearch(searchValue) {
     const userInput = searchValue.split(',').map(s => s.trim())

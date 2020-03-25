@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core'
+import { Component } from '@angular/core'
+import { Observable } from 'rxjs'
 
 import { ICurrentWeather } from '../interfaces'
 import { WeatherService } from '../weather/weather.service'
@@ -8,14 +9,28 @@ import { WeatherService } from '../weather/weather.service'
   templateUrl: './current-weather.component.html',
   styleUrls: ['./current-weather.component.css'],
 })
-export class CurrentWeatherComponent implements OnInit {
-  constructor(private weatherService: WeatherService) {}
-  // @Input() current: ICurrentWeather // Alternate event-based implementation
-  current: ICurrentWeather
+export class CurrentWeatherComponent {
+  // implements OnInit, OnDestroy { // Imperative implementation
 
-  ngOnInit(): void {
-    this.weatherService.currentWeather$.subscribe(data => (this.current = data))
+  // current: ICurrentWeather // Imperative implementation
+  // @Input() current: ICurrentWeather // Alternate event-based implementation
+  current$: Observable<ICurrentWeather>
+
+  // private subscriptions = new SubSink() // Imperative implementation
+
+  constructor(private weatherService: WeatherService) {
+    this.current$ = this.weatherService.currentWeather$
   }
+
+  // ngOnInit(): void { // Imperative implementation
+  //   this.subscriptions.add(
+  //     this.weatherService.currentWeather$.subscribe(data => (this.current = data))
+  //   )
+  // }
+
+  // ngOnDestroy(): void { // Imperative implementation
+  //   this.subscriptions.unsubscribe()
+  // }
 
   getOrdinal(date: number) {
     const n = new Date(date).getDate()
