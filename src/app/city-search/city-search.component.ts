@@ -13,7 +13,6 @@ import { WeatherService } from '../weather/weather.service'
   styleUrls: ['./city-search.component.css'],
 })
 export class CitySearchComponent {
-  // implements OnInit
   useNgRx = false
   search = new FormControl('', [Validators.required, Validators.minLength(2)])
 
@@ -29,19 +28,6 @@ export class CitySearchComponent {
       )
       .subscribe()
   }
-
-  // ngOnInit() {
-  //   this.search.valueChanges.pipe(debounceTime(1000)).subscribe(
-  //   (searchValue: string) => {
-  //     if (!this.search.invalid) {
-  //       const userInput = searchValue.split(',').map(s => s.trim())
-  //       const searchText = userInput[0]
-  //       const country = userInput.length > 1 ? userInput[1] : undefined
-
-  //       this.behaviorSubjectBasedSearch(searchText, country)
-  //     }
-  //   })
-  // }
 
   doSearch(searchValue: string) {
     const userInput = searchValue.split(',').map(s => s.trim())

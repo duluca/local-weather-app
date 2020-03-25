@@ -12,8 +12,6 @@ export class CurrentWeatherComponent implements OnInit {
   constructor(private weatherService: WeatherService) {}
   current: ICurrentWeather
 
-  fakeDate = new Date(2020, 2, 23)
-
   ngOnInit(): void {
     this.weatherService
       .getCurrentWeather('Bethesda', 'US')

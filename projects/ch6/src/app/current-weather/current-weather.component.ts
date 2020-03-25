@@ -10,14 +10,11 @@ import { WeatherService } from '../weather/weather.service'
 })
 export class CurrentWeatherComponent implements OnInit {
   constructor(private weatherService: WeatherService) {}
+  // @Input() current: ICurrentWeather // Alternate event-based implementation
   current: ICurrentWeather
 
-  fakeDate = new Date(2020, 2, 23)
-
   ngOnInit(): void {
-    this.weatherService
-      .getCurrentWeather('Bethesda', 'US')
-      .subscribe(data => (this.current = data))
+    this.weatherService.currentWeather$.subscribe(data => (this.current = data))
   }
 
   getOrdinal(date: number) {
