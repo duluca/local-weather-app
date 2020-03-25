@@ -50,20 +50,6 @@ export class WeatherService implements IWeatherService {
     private postalCodeService: PostalCodeService
   ) {}
 
-  // getCurrentWeather(
-  //   search: string | number,
-  //   country?: string
-  // ): Observable<ICurrentWeather> {
-  //   let uriParams = new HttpParams()
-  //   if (typeof search === 'string') {
-  //     uriParams = uriParams.set('q', country ? `${search},${country}` : search)
-  //   } else {
-  //     uriParams = uriParams.set('zip', 'search')
-  //   }
-
-  //   return this.getCurrentWeatherHelper(uriParams)
-  // }
-
   getCurrentWeather(searchText: string, country?: string): Observable<ICurrentWeather> {
     return this.postalCodeService.resolvePostalCode(searchText).pipe(
       switchMap(postalCode => {
