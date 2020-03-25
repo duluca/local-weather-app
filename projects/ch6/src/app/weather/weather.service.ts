@@ -7,7 +7,8 @@ import { environment } from '../../environments/environment'
 import { ICurrentWeather } from '../interfaces'
 import { PostalCodeService } from '../postal-code/postal-code.service'
 
-interface ICurrentWeatherData {
+export interface ICurrentWeatherData {
+  // exported to support unit testing
   weather: [
     {
       description: string
