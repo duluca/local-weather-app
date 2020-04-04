@@ -38,7 +38,7 @@ export class PostalCodeService implements IPostalCodeService {
         { params: uriParams }
       )
       .pipe(
-        flatMap(data => data.postalCodes),
+        flatMap((data) => data.postalCodes),
         defaultIfEmpty(null)
       )
   }

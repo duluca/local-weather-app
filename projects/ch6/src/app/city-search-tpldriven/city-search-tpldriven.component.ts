@@ -14,9 +14,9 @@ export class CitySearchTpldrivenComponent {
   constructor(private weatherService: WeatherService) {}
 
   doSearch(searchValue) {
-    const userInput = searchValue.split(',').map(s => s.trim())
+    const userInput = searchValue.split(',').map((s) => s.trim())
     this.weatherService
       .getCurrentWeather(userInput[0], userInput.length > 1 ? userInput[1] : undefined)
-      .subscribe(data => console.log(data))
+      .subscribe((data) => console.log(data))
   }
 }

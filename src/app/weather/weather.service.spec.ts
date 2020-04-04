@@ -58,7 +58,7 @@ describe('WeatherService', () => {
       postalCodeServiceMock.resolvePostalCode.and.returnValue(of(null))
 
       // Act
-      weatherService.getCurrentWeather('Bursa').subscribe(data => {
+      weatherService.getCurrentWeather('Bursa').subscribe((data) => {
         // Assert
         expect(data.city).toEqual('Bursa')
       })

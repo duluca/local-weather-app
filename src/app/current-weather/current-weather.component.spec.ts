@@ -65,7 +65,7 @@ describe('CurrentWeatherComponent', () => {
     // Assert
     expect(component.current$).toBeDefined()
 
-    component.current$.subscribe(current => {
+    component.current$.subscribe((current) => {
       expect(current.city).toEqual('Bethesda')
       expect(current.temperature).toEqual(280.32)
 
@@ -96,7 +96,7 @@ describe('CurrentWeatherComponent', () => {
 
     // Assert
     expect(component.current$).toBeDefined()
-    component.current$.subscribe(current => {
+    component.current$.subscribe((current) => {
       expect(current.city).toEqual('Bethesda')
       expect(current.temperature).toEqual(280.32)
     })
