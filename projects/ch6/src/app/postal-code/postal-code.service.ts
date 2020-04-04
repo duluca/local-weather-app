@@ -2,7 +2,8 @@ import { HttpClient, HttpParams } from '@angular/common/http'
 import { Injectable } from '@angular/core'
 import { Observable } from 'rxjs'
 import { defaultIfEmpty, flatMap } from 'rxjs/operators'
-import { environment } from 'src/environments/environment'
+
+import { environment } from '../../environments/environment'
 
 export interface IPostalCode {
   countryCode: string
@@ -24,7 +25,7 @@ export interface IPostalCodeService {
   providedIn: 'root',
 })
 export class PostalCodeService implements IPostalCodeService {
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient) { }
 
   resolvePostalCode(postalCode: string): Observable<IPostalCode> {
     const uriParams = new HttpParams()
