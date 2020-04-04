@@ -1,0 +1,10 @@
+<form style="margin-bottom: 32px">
+  <mat-form-field>
+    <mat-icon matPrefix>search</mat-icon>
+    <input matInput placeholder="Enter city or zip" aria-label="City or Zip"
+      [(ngModel)]="model.search" (ngModelChange)="doSearch($event)" minlength="2"
+      name="search" #search="ngModel" />
+    <mat-hint>Specify country code like 'Paris, US'</mat-hint>
+    <mat-error *ngIf="search.invalid"> Type more than one character to search </mat-error>
+  </mat-form-field>
+</form>

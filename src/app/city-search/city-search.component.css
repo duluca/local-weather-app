@@ -1,0 +1,17 @@
+.search-box-partial {
+  width: 260px;
+}
+
+.search-box-full {
+  width: 300px;
+}
+
+.clear-button {
+  display: inline-block;
+  width: 40px;
+  color: gray;
+}
+
+.center {
+  text-align: center;
+}

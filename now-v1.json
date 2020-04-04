@@ -1,0 +1,7 @@
+{
+  "version": 1,
+  "name": "local-weather-app",
+  "files": ["dist/local-weather-app"],
+  "type": "docker",
+  "public": true
+}

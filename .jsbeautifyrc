@@ -1,4 +1,10 @@
 {
   "indent_size": 2,
-  "wrap_line_length": 90
+  "wrap_line_length": 90,
+  "language": {
+    "html": [
+      "html"
+    ]
+  },
+  "end_with_newline": true
 }
