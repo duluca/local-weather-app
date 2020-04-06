@@ -30,7 +30,7 @@ export class CitySearchComponent {
   }
 
   doSearch(searchValue: string) {
-    const userInput = searchValue.split(',').map(s => s.trim())
+    const userInput = searchValue.split(',').map((s) => s.trim())
     const searchText = userInput[0]
     const country = userInput.length > 1 ? userInput[1] : undefined
 

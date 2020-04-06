@@ -52,7 +52,7 @@ export class WeatherService implements IWeatherService {
 
   getCurrentWeather(searchText: string, country?: string): Observable<ICurrentWeather> {
     return this.postalCodeService.resolvePostalCode(searchText).pipe(
-      switchMap(postalCode => {
+      switchMap((postalCode) => {
         if (postalCode) {
           return this.getCurrentWeatherByCoords({
             latitude: postalCode.lat,
@@ -78,7 +78,7 @@ export class WeatherService implements IWeatherService {
   }
 
   updateCurrentWeather(search: string, country?: string): void {
-    this.getCurrentWeather(search, country).subscribe(weather =>
+    this.getCurrentWeather(search, country).subscribe((weather) =>
       this.currentWeather$.next(weather)
     )
   }
@@ -90,7 +90,7 @@ export class WeatherService implements IWeatherService {
         `${environment.baseUrl}api.openweathermap.org/data/2.5/weather`,
         { params: uriParams }
       )
-      .pipe(map(data => this.transformToICurrentWeather(data)))
+      .pipe(map((data) => this.transformToICurrentWeather(data)))
   }
 
   private transformToICurrentWeather(data: ICurrentWeatherData): ICurrentWeather {

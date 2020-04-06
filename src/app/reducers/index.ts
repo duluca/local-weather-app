@@ -13,7 +13,7 @@ export const reducers: ActionReducerMap<State> = {
 
 export const selectCurrentWeather = createSelector(
   (state: State) => state.search.current,
-  current => current
+  (current) => current
 )
 
 export function logger(reducer: ActionReducer<State>): ActionReducer<State> {

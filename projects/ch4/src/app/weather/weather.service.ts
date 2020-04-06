@@ -43,7 +43,7 @@ export class WeatherService implements IWeatherService {
         `${environment.baseUrl}api.openweathermap.org/data/2.5/weather`,
         { params: uriParams }
       )
-      .pipe(map(data => this.transformToICurrentWeather(data)))
+      .pipe(map((data) => this.transformToICurrentWeather(data)))
   }
 
   private transformToICurrentWeather(data: ICurrentWeatherData): ICurrentWeather {

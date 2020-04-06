@@ -53,7 +53,7 @@ describe('CurrentWeatherComponent (no TestBed)', () => {
   // When testing data inside a subscribe block, using a callback like 'done'...
   // ...ensures the code inside get called, and causes an AsyncTimeout if not
   // Jasmine tests pass by default, so ensuring the expect(s) are called is critical
-  it('should get currentWeather from weatherService', done => {
+  it('should get currentWeather from weatherService', (done) => {
     // Arrange
     weatherServiceMock.currentWeather$.next(fakeWeather)
 
@@ -62,7 +62,7 @@ describe('CurrentWeatherComponent (no TestBed)', () => {
 
     // Assert
     expect(component.current$).toBeDefined()
-    component.current$.subscribe(current => {
+    component.current$.subscribe((current) => {
       if (current) {
         expect(current.city).toEqual('Bethesda')
         expect(current.temperature).toEqual(280.32)
@@ -89,7 +89,7 @@ describe('CurrentWeatherComponent (no TestBed)', () => {
       expect(weatherServiceMock.getCurrentWeather).toHaveBeenCalledTimes(1)
     })
 
-    it('should eagerly load currentWeather in Bethesda from weatherService', done => {
+    it('should eagerly load currentWeather in Bethesda from weatherService', (done) => {
       // Arrange
       weatherServiceMock.getCurrentWeather.and.returnValue(of(fakeWeather))
 
@@ -99,7 +99,7 @@ describe('CurrentWeatherComponent (no TestBed)', () => {
 
       // Assert
       expect(component.current$).toBeDefined()
-      component.current$.subscribe(current => {
+      component.current$.subscribe((current) => {
         if (current) {
           expect(current.city).toEqual('Bethesda')
           expect(current.temperature).toEqual(280.32)
