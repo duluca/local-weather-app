@@ -80,7 +80,7 @@
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["src/styles.css"],
+            "styles": ["src/localcast-theme.scss", "src/styles.css"],
             "scripts": []
           }
         },
@@ -499,7 +499,10 @@
             "tsConfig": "projects/ch5/tsconfig.spec.json",
             "karmaConfig": "projects/ch5/karma.conf.js",
             "assets": ["projects/ch5/src/favicon.ico", "projects/ch5/src/assets"],
-            "styles": ["projects/ch5/src/styles.css"],
+            "styles": [
+              "projects/ch5/src/localcast-theme.scss",
+              "projects/ch5/src/styles.css"
+            ],
             "scripts": []
           }
         },
@@ -607,7 +610,10 @@
             "tsConfig": "projects/ch6/tsconfig.spec.json",
             "karmaConfig": "projects/ch6/karma.conf.js",
             "assets": ["projects/ch6/src/favicon.ico", "projects/ch6/src/assets"],
-            "styles": ["projects/ch6/src/styles.css"],
+            "styles": [
+              "projects/ch6/src/localcast-theme.scss",
+              "projects/ch6/src/styles.css"
+            ],
             "scripts": []
           }
         },
@@ -715,7 +721,10 @@
             "tsConfig": "projects/ch12/tsconfig.spec.json",
             "karmaConfig": "projects/ch12/karma.conf.js",
             "assets": ["projects/ch12/src/favicon.ico", "projects/ch12/src/assets"],
-            "styles": ["projects/ch12/src/styles.css"],
+            "styles": [
+              "projects/ch12/src/localcast-theme.scss",
+              "projects/ch12/src/styles.css"
+            ],
             "scripts": []
           }
         },
