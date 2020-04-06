@@ -101,8 +101,8 @@ workflows:
   version: 2
   build-test-and-approval-deploy:
     jobs:
+      - verifyProjects # this job is only here to verify sample code from the book, remove it in your own projects
       - build
-      - verifyProjects
       - hold:
           type: approval
           requires:
