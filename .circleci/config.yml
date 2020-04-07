@@ -31,10 +31,10 @@ commands:
       - run: npm run style
       - run: npm run lint
 
-      - run: npm run build:prod --project << parameters.project >>
-      - run: npm test -- --watch=false --project << parameters.project >>
-      - run: npm run test:coverage -- --watch=false --project << parameters.project >>
-      - run: npm run e2e --project << parameters.project >>
+      - run: npx ng build --prod --project << parameters.project >>
+      - run: npx ng test --watch=false --project << parameters.project >>
+      - run: npx ng test --code-coverage --watch=false --project << parameters.project >>
+      - run: npm run e2e << parameters.project >>
 
       - store_test_results:
           path: ./test_results
@@ -70,7 +70,6 @@ jobs:
     steps:
       - build:
           project: 'local-weather-app'
-
   deploy:
     docker:
       - image: circleci/node:lts
@@ -79,41 +78,60 @@ jobs:
       - attach_workspace:
           at: /tmp/workspace
       - run: npx now --token $NOW_TOKEN --platform-version 2 --prod --name localcast-weather /tmp/workspace/dist/local-weather-app --confirm
-  verifyProjects:
-    # this job is only here to verify sample code from the book, remove it in your own projects
+
+  ch2: # this job is only here to verify sample code from the book, remove it in your own projects
     docker:
       - image: circleci/node:lts-browsers
     working_directory: ~/repo
     steps:
-      - checkout
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-            # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
-
-      - run: npm ci
-
-      # force update the webdriver, so it runs with latest version of Chrome
-      - run: cd ./node_modules/protractor && npm i webdriver-manager@latest
-
-      # because we use "npm ci" to install NPM dependencies
-      # we cache "~/.npm" folder
-      - save_cache:
-          paths:
-            - ~/.npm
-          key: v1-dependencies-{{ checksum "package.json" }}
-
-      - run:
-          name: Verify sample codes for the book chapters
-          command: node ./bin/verifyProjects.js
-
+      - build:
+          project: 'ch2'
+  ch3: # this job is only here to verify sample code from the book, remove it in your own projects
+    docker:
+      - image: circleci/node:lts-browsers
+    working_directory: ~/repo
+    steps:
+      - build:
+          project: 'ch3'
+  ch4: # this job is only here to verify sample code from the book, remove it in your own projects
+    docker:
+      - image: circleci/node:lts-browsers
+    working_directory: ~/repo
+    steps:
+      - build:
+          project: 'ch4'
+  ch5: # this job is only here to verify sample code from the book, remove it in your own projects
+    docker:
+      - image: circleci/node:lts-browsers
+    working_directory: ~/repo
+    steps:
+      - build:
+          project: 'ch5'
+  ch6: # this job is only here to verify sample code from the book, remove it in your own projects
+    docker:
+      - image: circleci/node:lts-browsers
+    working_directory: ~/repo
+    steps:
+      - build:
+          project: 'ch6'
+  ch12: # this job is only here to verify sample code from the book, remove it in your own projects
+    docker:
+      - image: circleci/node:lts-browsers
+    working_directory: ~/repo
+    steps:
+      - build:
+          project: 'ch12'
 workflows:
   version: 2
   build-test-and-approval-deploy:
     jobs:
-      # - verifyProjects # this job is only here to verify sample code from the book, remove it in your own projects
       - master
+      - ch2 # this job is only here to verify sample code from the book, remove it in your own projects
+      - ch3 # this job is only here to verify sample code from the book, remove it in your own projects
+      - ch4 # this job is only here to verify sample code from the book, remove it in your own projects
+      - ch5 # this job is only here to verify sample code from the book, remove it in your own projects
+      - ch6 # this job is only here to verify sample code from the book, remove it in your own projects
+      # - ch12 # this job is only here to verify sample code from the book, remove it in your own projects
       - hold:
           type: approval
           requires:
