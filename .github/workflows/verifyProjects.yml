@@ -5,9 +5,9 @@ name: Verify Projects per Book Chapter
 
 on:
   push:
-    branches: [ master ]
+    branches: [ '*' ]
   pull_request:
-    branches: [ master ]
+    branches: [ '*' ]
 
 jobs:
   setup:
@@ -47,7 +47,8 @@ jobs:
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
-          
+      - run: npm ci    
+        
       - run: npx ng build --prod --project $PROJECT
       - run: npx ng test --watch=false --project $PROJECT
       - run: npx ng test --code-coverage --watch=false --project $PROJECT
@@ -71,6 +72,7 @@ jobs:
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
+      - run: npm ci   
           
       - run: npx ng build --prod --project $PROJECT
       - run: npx ng test --watch=false --project $PROJECT
