@@ -5,37 +5,37 @@ name: Verify Book Sample Code by Chapter
 
 on:
   push:
-    branches: [ '*' ]
+    branches: ['*']
   pull_request:
-    branches: [ '*' ]
+    branches: ['*']
 
 jobs:
   setup:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    
-    - name: Cache node modules
-      uses: actions/cache@v1
-      env:
-        cache-name: cache-node-modules
-      with:
-        path: ~/.npm # npm cache files are stored in `~/.npm` on Linux/macOS
-        key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-build-${{ env.cache-name }}-
-          ${{ runner.os }}-build-
-          ${{ runner.os }}-
-          
-    - run: npm ci         
+      - uses: actions/checkout@v2
+
+      - name: Cache node modules
+        uses: actions/cache@v1
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: ~/.npm # npm cache files are stored in `~/.npm` on Linux/macOS
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - run: npm ci
   ch2:
-    env: 
+    env:
       PROJECT: ch2
     needs: setup
     runs-on: ubuntu-latest
-    steps:  
+    steps:
       - uses: actions/checkout@v2
-    
+
       - name: Cache node modules
         uses: actions/cache@v1
         env:
@@ -47,19 +47,19 @@ jobs:
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
-      - run: npm ci    
-        
+      - run: npm ci
+
       - run: npx ng build --prod --project $PROJECT
-      - run: npx ng test --watch=false --project $PROJECT
-      - run: npm run e2e $PROJECT
+      - run: npx ng test --configuration=ci --project $PROJECT
+      - run: ngx ng e2e --configuration=ci $PROJECT
   ch3:
-    env: 
+    env:
       PROJECT: ch3
     needs: setup
     runs-on: ubuntu-latest
-    steps:  
+    steps:
       - uses: actions/checkout@v2
-    
+
       - name: Cache node modules
         uses: actions/cache@v1
         env:
@@ -71,19 +71,19 @@ jobs:
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
-      - run: npm ci   
-          
+      - run: npm ci
+
       - run: npx ng build --prod --project $PROJECT
-      # - run: npx ng test --watch=false --project $PROJECT #Intentionally failing tests
-      - run: npm run e2e $PROJECT
+      # - run: npx ng test --configuration=ci --project $PROJECT #Intentionally failing tests
+      - run: ngx ng e2e --configuration=ci $PROJECT
   ch4:
-    env: 
+    env:
       PROJECT: ch4
     needs: setup
     runs-on: ubuntu-latest
-    steps:  
+    steps:
       - uses: actions/checkout@v2
-    
+
       - name: Cache node modules
         uses: actions/cache@v1
         env:
@@ -95,19 +95,19 @@ jobs:
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
-      - run: npm ci   
-          
+      - run: npm ci
+
       - run: npx ng build --prod --project $PROJECT
-      - run: npx ng test --watch=false --project $PROJECT
-      - run: npm run e2e $PROJECT
+      - run: npx ng test --configuration=ci --project $PROJECT
+      - run: ngx ng e2e --configuration=ci $PROJECT
   ch5:
-    env: 
+    env:
       PROJECT: ch5
     needs: setup
     runs-on: ubuntu-latest
-    steps:  
+    steps:
       - uses: actions/checkout@v2
-    
+
       - name: Cache node modules
         uses: actions/cache@v1
         env:
@@ -119,19 +119,19 @@ jobs:
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
-      - run: npm ci   
-          
+      - run: npm ci
+
       - run: npx ng build --prod --project $PROJECT
-      - run: npx ng test --watch=false --project $PROJECT
-      - run: npm run e2e $PROJECT
+      - run: npx ng test --configuration=ci --project $PROJECT
+      - run: ngx ng e2e --configuration=ci $PROJECT
   ch6:
-    env: 
+    env:
       PROJECT: ch6
     needs: setup
     runs-on: ubuntu-latest
-    steps:  
+    steps:
       - uses: actions/checkout@v2
-    
+
       - name: Cache node modules
         uses: actions/cache@v1
         env:
@@ -143,8 +143,30 @@ jobs:
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
-      - run: npm ci   
-          
+      - run: npm ci
+
       - run: npx ng build --prod --project $PROJECT
-      - run: npx ng test --watch=false --project $PROJECT
-      - run: npm run e2e $PROJECT
+      - run: npx ng test --configuration=ci --project $PROJECT
+      - run: ngx ng e2e --configuration=ci $PROJECT
+  # ch12:
+  #   env:
+  #     PROJECT: ch12
+  #   needs: setup
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - name: Cache node modules
+  #       uses: actions/cache@v1
+  #       env:
+  #         cache-name: cache-node-modules
+  #       with:
+  #         path: ~/.npm # npm cache files are stored in `~/.npm` on Linux/macOS
+  #         key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+  #         restore-keys: |
+  #           ${{ runner.os }}-build-${{ env.cache-name }}-
+  #           ${{ runner.os }}-build-
+  #           ${{ runner.os }}-
+  #     - run: npm ci
+  #     - run: npx ng build --prod --project $PROJECT
+  #     - run: npx ng test --configuration=ci --project $PROJECT
+  #     - run: ngx ng e2e --configuration=ci $PROJECT
