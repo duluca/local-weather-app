@@ -14,24 +14,65 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Use Node.js
-      uses: actions/setup-node@v1
+    
+    - name: Cache node modules
+      uses: actions/cache@v1
+      env:
+        cache-name: cache-node-modules
       with:
-        node-version: 12.x
+        path: ~/.npm # npm cache files are stored in `~/.npm` on Linux/macOS
+        key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-build-${{ env.cache-name }}-
+          ${{ runner.os }}-build-
+          ${{ runner.os }}-
+          
     - run: npm ci         
   ch2:
+    env: 
+      PROJECT: ch2
     needs: setup
     runs-on: ubuntu-latest
     steps:  
-    - run: npx ng build --prod --project ch2
-    - run: npx ng test --watch=false --project ch2
-    - run: npx ng test --code-coverage --watch=false --project ch2
-    - run: npm run e2e ch2
+      - uses: actions/checkout@v2
+    
+      - name: Cache node modules
+        uses: actions/cache@v1
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: ~/.npm # npm cache files are stored in `~/.npm` on Linux/macOS
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+          
+      - run: npx ng build --prod --project $PROJECT
+      - run: npx ng test --watch=false --project $PROJECT
+      - run: npx ng test --code-coverage --watch=false --project $PROJECT
+      - run: npm run e2e $PROJECT
   ch3:
+    env: 
+      PROJECT: ch3
     needs: setup
     runs-on: ubuntu-latest
-    steps:      
-    - run: npx ng build --prod --project ch3
-    - run: npx ng test --watch=false --project ch3
-    - run: npx ng test --code-coverage --watch=false --project ch3
-    - run: npm run e2e ch3
+    steps:  
+      - uses: actions/checkout@v2
+    
+      - name: Cache node modules
+        uses: actions/cache@v1
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: ~/.npm # npm cache files are stored in `~/.npm` on Linux/macOS
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+          
+      - run: npx ng build --prod --project $PROJECT
+      - run: npx ng test --watch=false --project $PROJECT
+      - run: npx ng test --code-coverage --watch=false --project $PROJECT
+      - run: npm run e2e $PROJECT
