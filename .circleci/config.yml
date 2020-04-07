@@ -8,9 +8,6 @@ commands:
       project:
         type: string
         default: ''
-    docker:
-      - image: circleci/node:lts-browsers
-    working_directory: ~/repo
     steps:
       - checkout
       - restore_cache:
@@ -67,6 +64,9 @@ commands:
             - dist/<< parameters.project >>
 jobs:
   master:
+    docker:
+      - image: circleci/node:lts-browsers
+    working_directory: ~/repo
     steps:
       - build:
           project: 'local-eather-app'
