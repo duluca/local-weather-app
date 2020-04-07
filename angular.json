@@ -106,6 +106,9 @@
           },
           "configurations": {
             "production": {
+              "devServerTarget": "local-weather-app:serve:production"
+            },
+            "ci": {
               "devServerTarget": "local-weather-app:serve:production",
               "protractorConfig": "e2e/protractor-ci.conf.js"
             }
@@ -219,6 +222,9 @@
           },
           "configurations": {
             "production": {
+              "devServerTarget": "ch2:serve:production"
+            },
+            "ci": {
               "devServerTarget": "ch2:serve:production",
               "protractorConfig": "e2e/protractor-ci.conf.js"
             }
@@ -332,6 +338,9 @@
           },
           "configurations": {
             "production": {
+              "devServerTarget": "ch3:serve:production"
+            },
+            "ci": {
               "devServerTarget": "ch3:serve:production",
               "protractorConfig": "e2e/protractor-ci.conf.js"
             }
@@ -445,6 +454,9 @@
           },
           "configurations": {
             "production": {
+              "devServerTarget": "ch4:serve:production"
+            },
+            "ci": {
               "devServerTarget": "ch4:serve:production",
               "protractorConfig": "e2e/protractor-ci.conf.js"
             }
@@ -564,6 +576,9 @@
           },
           "configurations": {
             "production": {
+              "devServerTarget": "ch5:serve:production"
+            },
+            "ci": {
               "devServerTarget": "ch5:serve:production",
               "protractorConfig": "e2e/protractor-ci.conf.js"
             }
@@ -683,6 +698,9 @@
           },
           "configurations": {
             "production": {
+              "devServerTarget": "ch6:serve:production"
+            },
+            "ci": {
               "devServerTarget": "ch6:serve:production",
               "protractorConfig": "e2e/protractor-ci.conf.js"
             }
@@ -802,6 +820,9 @@
           },
           "configurations": {
             "production": {
+              "devServerTarget": "ch12:serve:production"
+            },
+            "ci": {
               "devServerTarget": "ch12:serve:production",
               "protractorConfig": "e2e/protractor-ci.conf.js"
             }
