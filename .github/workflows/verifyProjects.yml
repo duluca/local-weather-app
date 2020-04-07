@@ -1,7 +1,7 @@
 # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: Verify Book Sample Code by Chapter
+name: Book Sample Code Projects by Chapter
 
 on:
   push:
@@ -10,28 +10,9 @@ on:
     branches: ['*']
 
 jobs:
-  setup:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Cache node modules
-        uses: actions/cache@v1
-        env:
-          cache-name: cache-node-modules
-        with:
-          path: ~/.npm # npm cache files are stored in `~/.npm` on Linux/macOS
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
-
-      - run: npm ci
   ch2:
     env:
       PROJECT: ch2
-    needs: setup
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -55,7 +36,6 @@ jobs:
   ch3:
     env:
       PROJECT: ch3
-    needs: setup
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -79,7 +59,6 @@ jobs:
   ch4:
     env:
       PROJECT: ch4
-    needs: setup
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -103,7 +82,6 @@ jobs:
   ch5:
     env:
       PROJECT: ch5
-    needs: setup
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -127,7 +105,6 @@ jobs:
   ch6:
     env:
       PROJECT: ch6
-    needs: setup
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -151,7 +128,6 @@ jobs:
   # ch12:
   #   env:
   #     PROJECT: ch12
-  #   needs: setup
   #   runs-on: ubuntu-latest
   #   steps:
   #     - uses: actions/checkout@v2
