@@ -32,7 +32,7 @@ jobs:
 
       - run: npx ng build --prod --project $PROJECT
       - run: npx ng test --configuration=ci --project $PROJECT
-      - run: ngx ng e2e --configuration=ci $PROJECT
+      - run: npx ng e2e --configuration=ci $PROJECT
   ch3:
     env:
       PROJECT: ch3
@@ -55,7 +55,7 @@ jobs:
 
       - run: npx ng build --prod --project $PROJECT
       # - run: npx ng test --configuration=ci --project $PROJECT #Intentionally failing tests
-      - run: ngx ng e2e --configuration=ci $PROJECT
+      - run: npx ng e2e --configuration=ci $PROJECT
   ch4:
     env:
       PROJECT: ch4
@@ -78,7 +78,7 @@ jobs:
 
       - run: npx ng build --prod --project $PROJECT
       - run: npx ng test --configuration=ci --project $PROJECT
-      - run: ngx ng e2e --configuration=ci $PROJECT
+      - run: npx ng e2e --configuration=ci $PROJECT
   ch5:
     env:
       PROJECT: ch5
@@ -101,7 +101,7 @@ jobs:
 
       - run: npx ng build --prod --project $PROJECT
       - run: npx ng test --configuration=ci --project $PROJECT
-      - run: ngx ng e2e --configuration=ci $PROJECT
+      - run: npx ng e2e --configuration=ci $PROJECT
   ch6:
     env:
       PROJECT: ch6
@@ -124,7 +124,7 @@ jobs:
 
       - run: npx ng build --prod --project $PROJECT
       - run: npx ng test --configuration=ci --project $PROJECT
-      - run: ngx ng e2e --configuration=ci $PROJECT
+      - run: npx ng e2e --configuration=ci $PROJECT
   # ch12:
   #   env:
   #     PROJECT: ch12
@@ -145,4 +145,4 @@ jobs:
   #     - run: npm ci
   #     - run: npx ng build --prod --project $PROJECT
   #     - run: npx ng test --configuration=ci --project $PROJECT
-  #     - run: ngx ng e2e --configuration=ci $PROJECT
+  #     - run: npx ng e2e --configuration=ci $PROJECT
