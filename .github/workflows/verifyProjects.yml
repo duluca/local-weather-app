@@ -10,17 +10,28 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
-
+  setup:
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
     - name: Use Node.js
       uses: actions/setup-node@v1
       with:
         node-version: 12.x
-    - run: npm ci
-    - run: node bin/verifyProjects.js
-      env:
-        CI: true
+    - run: npm ci         
+  ch2:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:  
+    - run: npx ng build --prod --project ch2
+    - run: npx ng test --watch=false --project ch2
+    - run: npx ng test --code-coverage --watch=false --project ch2
+    - run: npm run e2e ch2
+  ch3:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:      
+    - run: npx ng build --prod --project ch3
+    - run: npx ng test --watch=false --project ch3
+    - run: npx ng test --code-coverage --watch=false --project ch3
+    - run: npm run e2e ch3
