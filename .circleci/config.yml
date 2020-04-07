@@ -1,8 +1,13 @@
 version: 2.1
 orbs:
   coveralls: coveralls/coveralls@1.0.4
-jobs:
+commands:
   build:
+    description: 'Build command that accepts Angular project name as parameter'
+    parameters:
+      project:
+        type: string
+        default: ''
     docker:
       - image: circleci/node:lts-browsers
     working_directory: ~/repo
@@ -29,10 +34,10 @@ jobs:
       - run: npm run style
       - run: npm run lint
 
-      - run: npm run build:prod
-      - run: npm test -- --watch=false
-      - run: npm run test:coverage -- --watch=false
-      - run: npm run e2e
+      - run: npm run build:prod --project << parameters.project >>
+      - run: npm test -- --watch=false --project << parameters.project >>
+      - run: npm run test:coverage -- --watch=false --project << parameters.project >>
+      - run: npm run e2e --project << parameters.project >>
 
       - store_test_results:
           path: ./test_results
@@ -46,7 +51,7 @@ jobs:
 
       - run:
           name: Tar & Gzip compiled app
-          command: tar zcf dist.tar.gz dist/local-weather-app
+          command: tar zcf dist.tar.gz dist/<< parameters.project >>
       - store_artifacts:
           path: dist.tar.gz
 
@@ -55,11 +60,16 @@ jobs:
           command: |
             set -exu
             mkdir -p /tmp/workspace/dist
-            mv dist/local-weather-app /tmp/workspace/dist/
+            mv dist/<< parameters.project >> /tmp/workspace/dist/
       - persist_to_workspace:
           root: /tmp/workspace
           paths:
-            - dist/local-weather-app
+            - dist/<< parameters.project >>
+jobs:
+  master:
+    steps:
+      - build:
+          project: 'local-eather-app'
   deploy:
     docker:
       - image: circleci/node:lts
@@ -101,12 +111,12 @@ workflows:
   version: 2
   build-test-and-approval-deploy:
     jobs:
-      - verifyProjects # this job is only here to verify sample code from the book, remove it in your own projects
-      - build
+      # - verifyProjects # this job is only here to verify sample code from the book, remove it in your own projects
+      - master
       - hold:
           type: approval
           requires:
-            - build
+            - master
           filters:
             branches:
               only: master
