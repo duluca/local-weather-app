@@ -1,4 +1,5 @@
 # LocalCast Weather
+
 > Learn Angular, Angular Material, RxJS fundementals with LocalCast Weather using the Kanban method.
 
 > View live demo: https://localcast-weather.duluca.now.sh/
@@ -10,10 +11,11 @@
 
 ![mat-style4](https://user-images.githubusercontent.com/822159/56008986-210ad880-5cac-11e9-812f-6514b2dc0f97.PNG)
 
-## Get the book ![Book Sample Code Projects by Chapter](https://github.com/duluca/local-weather-app/workflows/Book%20Sample%20Code%20Projects%20by%20Chapter/badge.svg?branch=master)
+## Get the book
+
 LocalCast Weather has been developed in support of my book _Angular for Enterprise-Ready Web Applications_. You can get the book at any major bookstore or find the links at http://AngularForEnterprise.com.
 
-Watch the talk on `Architecture for Scalable Angular Apps` on [Pluralsight](https://www.pluralsight.com/courses/angular-denver-2019-session-28). 
+Watch the talk on `Architecture for Scalable Angular Apps` on [Pluralsight](https://www.pluralsight.com/courses/angular-denver-2019-session-28).
 
 Check out the slides for `Architecture for Scalable Angular Apps` _free_ at [Slides.com](https://slides.com/doguhanuluca/architecture-for-scalable-angular-apps#).
 
@@ -22,18 +24,12 @@ Check out **LemonMart**, an Angular Grocery Store LOB App implemented with a Rou
 Build, debug and publish Docker images with [**npm Scripts for Docker**](bit.ly/npmScriptsForDocker) and achieve Blue-Green deployments on AWS Fargate with [**npm Scripts for AWS**](bit.ly/npmScriptsForAWS).
 
 ## Build
+
 - `npm run build:prod` to build a production optimized version of the app.
 - `npm run docker:debug` to run tests and build a containerized version of the app.
 
-## _Deprecated: Waffle.io_
-Sadly Waffle.io no longer exists. I recommend using GitHub Projects as a free replacement.
-
-## _Deprecated: Using Zeit Now with Docker_
-Unfortunately Zeit Now no longer allows publication of arbitrary `Dockerfile` images. Using Zeit v2 you can publish the output of your `dist` folder and still be able to host your application for free.
-
-A replacement for publishing arbitrary Docker images would be a new service called [Google Cloud Run](https://cloud.google.com/run/). A sample command would look like `gcloud beta run deploy --image localcast-weather`.
-
 ## Developers
+
 This app was developed to demonstrate Angular fundementals, unit testing, and different techniques for building Angular apps using reactive patterns. The app is a good blueprint if you intend to build largely a single screen app experience. Questions? Consider creating an issue on this repo and buying my book at http://AngularForEnterprise.com.
 
 ### Pre-requisites
@@ -46,7 +42,7 @@ This app was developed to demonstrate Angular fundementals, unit testing, and di
 
 ### Adapting the template
 
-- Fork and clone this repo. 
+- Fork and clone this repo.
 - Rename the repo on GitHub to match the name of your project.
 - Search and replace references to `lemon-mart` with your project name and git repo.
 - Remove `manager`, `pos`, and `inventory` folders and references to them from `app-routing.module.ts`.
@@ -57,7 +53,7 @@ This app was developed to demonstrate Angular fundementals, unit testing, and di
 
 ### During Development
 
-- Run `npm start` for a developmenet web server. 
+- Run `npm start` for a developmenet web server.
 - Navigate to `http://localhost:5000/`. The app will automatically reload if you change any of the source files.
   - Note that the port is different than the default Angular port of `4200` intentionally, so you can run test projects or proof of concepts side-by-side without the hassle of specifiying a new port.
 - Run `npm test` to execute the unit tests via [Karma](https://karma-runner.github.io).
@@ -74,3 +70,15 @@ This app was developed to demonstrate Angular fundementals, unit testing, and di
 ### Full-Stack Setup with Docker Compose and Deploying to AWS
 
 See the example project here https://github.com/duluca/lemon-mart-server
+
+## Deprecations
+
+### _Waffle.io_
+
+Sadly Waffle.io no longer exists. I recommend using GitHub Projects as a free replacement.
+
+### _Using Zeit Now with Docker_
+
+Unfortunately Zeit Now no longer allows publication of arbitrary `Dockerfile` images. Using Zeit v2 you can publish the output of your `dist` folder and still be able to host your application for free.
+
+A replacement for publishing arbitrary Docker images would be a new service called [Google Cloud Run](https://cloud.google.com/run/). A sample command would look like `gcloud beta run deploy --image localcast-weather`.
