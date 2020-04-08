@@ -38,6 +38,7 @@ commands:
         type: boolean
         default: true
     steps:
+      - run: ngcc --properties es2015 browser module main --async false # temp CI build fix
       - run: npx ng build --prod --project << parameters.project >>
       - when:
           condition: << parameters.run-tests >>
