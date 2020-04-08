@@ -14,12 +14,12 @@ jobs:
     env:
       PROJECT: ch2
     runs-on: ubuntu-latest
-    container: 
-      image: circleci/node:lts-browsers
+    
     steps:
-      - working-directory: ~/repo
-        
       - uses: actions/checkout@v2
+      - uses: cypress-io/github-action@v1
+        with:
+          browser: chrome
 
       - name: Cache node modules
         uses: actions/cache@v1
