@@ -8,11 +8,9 @@ commands:
       - checkout
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-            # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
+            - node_modules-{{ checksum "package-lock.json" }}
 
-      - run: npm ci
+      - run: npm install
 
       - run: npx ngcc --properties es2015 --async false # temp CI build fix
 
@@ -22,9 +20,10 @@ commands:
       # because we use "npm ci" to install NPM dependencies
       # we cache "~/.npm" folder
       - save_cache:
+          key: node_modules-{{ checksum "package.json" }}
           paths:
+            - node_modules
             - ~/.npm
-          key: v1-dependencies-{{ checksum "package.json" }}
   lint:
     description: 'Check for code style and linting errors'
     steps:
