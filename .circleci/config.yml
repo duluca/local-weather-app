@@ -77,16 +77,16 @@ commands:
           root: /tmp/workspace
           paths:
             - dist/<< parameters.project >>
-    deploy_now:
-      description: 'Deploys project to Zeit Now --> https://now.sh'
-      parameters:
-        project:
-          type: string
-          default: 'local-weather-app'
-      steps:
-        - attach_workspace:
-            at: /tmp/workspace
-        - run: npx now --token $NOW_TOKEN --platform-version 2 --prod /tmp/workspace/dist/<< parameters.project >> --confirm
+  deploy_now:
+    description: 'Deploys project to Zeit Now --> https://now.sh'
+    parameters:
+      project:
+        type: string
+        default: 'local-weather-app'
+    steps:
+      - attach_workspace:
+          at: /tmp/workspace
+      - run: npx now --token $NOW_TOKEN --platform-version 2 --prod /tmp/workspace/dist/<< parameters.project >> --confirm
 jobs:
   master:
     docker:
