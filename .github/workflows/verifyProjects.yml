@@ -14,8 +14,11 @@ jobs:
     env:
       PROJECT: ch2
     runs-on: ubuntu-latest
-    container: circleci/node:lts-browsers
+    container: 
+      image: circleci/node:lts-browsers
     steps:
+      - working-directory: ~/repo
+        
       - uses: actions/checkout@v2
 
       - name: Cache node modules
