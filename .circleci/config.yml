@@ -4,26 +4,27 @@ orbs:
 commands:
   install:
     description: 'Install project dependencies'
+    parameters:
+      warm-cache:
+        type: boolean
+        default: false
     steps:
       - checkout
       - restore_cache:
           keys:
             - node_modules-{{ checksum "package-lock.json" }}
-
-      - run: npm install
-
-      - run: npx ngcc --properties es2015 --async false # temp CI build fix
-
-      # force update the webdriver, so it runs with latest version of Chrome
-      - run: cd ./node_modules/protractor && npm i webdriver-manager@latest
-
-      # because we use "npm ci" to install NPM dependencies
-      # we cache "~/.npm" folder
-      - save_cache:
-          key: node_modules-{{ checksum "package-lock.json" }}
-          paths:
-            - node_modules
-            - ~/.npm
+      - when:
+          condition: << parameters.warm-cache >>
+          steps:
+            - run: npm install
+            # Pre-build Angular modules
+            - run: npx ngcc --properties es2015 --async false # async false is temp CI build fix
+            # force update the webdriver, so it runs with latest version of Chrome
+            - run: cd ./node_modules/protractor && npm i webdriver-manager@latest
+            - save_cache:
+                key: node_modules-{{ checksum "package-lock.json" }}
+                paths:
+                  - node_modules
   lint:
     description: 'Check for code style and linting errors'
     steps:
@@ -94,7 +95,8 @@ jobs:
       - image: circleci/node:lts-browsers
     working_directory: ~/repo
     steps:
-      - install
+      - install:
+          warm-cache: true
   default:
     docker:
       - image: circleci/node:lts-browsers
