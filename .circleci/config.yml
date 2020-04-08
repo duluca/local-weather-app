@@ -14,6 +14,8 @@ commands:
 
       - run: npm ci
 
+      - run: npx ngcc --properties es2015 --async false # temp CI build fix
+
       # force update the webdriver, so it runs with latest version of Chrome
       - run: cd ./node_modules/protractor && npm i webdriver-manager@latest
 
@@ -38,7 +40,6 @@ commands:
         type: boolean
         default: true
     steps:
-      - run: npx ngcc --properties es2015 browser module main --async false # temp CI build fix
       - run: npx ng build --prod --project << parameters.project >>
       - when:
           condition: << parameters.run-tests >>
