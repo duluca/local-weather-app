@@ -181,7 +181,7 @@ workflows:
       - hold:
           type: approval
           requires:
-            - master
+            - default
           filters:
             branches:
               only: master
