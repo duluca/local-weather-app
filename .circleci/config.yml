@@ -20,7 +20,7 @@ commands:
       # because we use "npm ci" to install NPM dependencies
       # we cache "~/.npm" folder
       - save_cache:
-          key: node_modules-{{ checksum "package.json" }}
+          key: node_modules-{{ checksum "package-lock.json" }}
           paths:
             - node_modules
             - ~/.npm
