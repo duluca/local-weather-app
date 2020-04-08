@@ -16,7 +16,7 @@ commands:
       - when:
           condition: << parameters.warm-cache >>
           steps:
-            - run: npm ci
+            - run: npm install
             # Pre-build Angular modules
             - run: npx ngcc --properties es2015 --async false # async false is temp CI build fix
             # force update the webdriver, so it runs with latest version of Chrome
