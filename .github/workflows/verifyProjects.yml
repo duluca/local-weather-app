@@ -16,9 +16,9 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+      - uses: aquariuslt/node-browsers-github-actions@v1.0.0
       - uses: actions/checkout@v2
-      - name: Cache node modules
-        uses: actions/cache@v1
+      - uses: actions/cache@v1
         env:
           cache-name: cache-node-modules
         with:
@@ -31,6 +31,7 @@ jobs:
       - run: npm ci
 
       - run: npx ng build --prod --project $PROJECT
+      
       - run: npx ng test --watch=false --project $PROJECT
       - run: npx ng e2e $PROJECT
 #   ch3:
