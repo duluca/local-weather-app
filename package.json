@@ -17,8 +17,8 @@
     "test": "ng test local-weather-app",
     "test:debug": "npm test -- --source-map",
     "test:coverage": "npm test -- --code-coverage",
-    "lint": "tslint --config tslint.json --project . -e \"**/{test,polyfills}.ts\"",
-    "lint:fix": "tslint --config tslint.json --fix --project . -e \"**/{test,polyfills}.ts\"",
+    "lint": "run-p lint:ts lint:tsc",
+    "lint:fix": "run-p lint:ts:fix lint:tsc",
     "e2e": "ng e2e local-weather-app",
     "build:prod": "ng build --prod",
     "predocker:build": "npm run build:prod && npm test -- --watch=false",
@@ -48,7 +48,10 @@
     "gcloud:push": "docker push gcr.io/localcast-weather/localcast-weather",
     "gcloud:build": "gcloud builds submit --tag gcr.io/localcast-weather/localcast-weather --project localcast-weather",
     "gcloud:deploy": "gcloud run deploy --image gcr.io/localcast-weather/localcast-weather --platform managed --project localcast-weather --region us-east1",
-    "init:env": "init-dev-env generate-dot-env example.env -f"
+    "init:env": "init-dev-env generate-dot-env example.env -f",
+    "lint:ts": "tslint --config tslint.json --project . -e \"**/{test,polyfills}.ts\"",
+    "lint:ts:fix": "tslint --config tslint.json --fix --project . -e \"**/{test,polyfills}.ts\"",
+    "lint:tsc": "tsc --noEmit --skipLibCheck"
   },
   "private": true,
   "dependencies": {
