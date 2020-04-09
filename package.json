@@ -18,7 +18,7 @@
     "test:debug": "npm test -- --source-map",
     "test:coverage": "npm test -- --code-coverage",
     "lint": "run-p lint:ts lint:tsc",
-    "lint:fix": "run-p lint:ts:fix lint:tsc",
+    "lint:fix": "run-s lint:ts:fix lint:tsc",
     "e2e": "ng e2e local-weather-app",
     "build:prod": "ng build --prod",
     "predocker:build": "npm run build:prod && npm test -- --watch=false",
