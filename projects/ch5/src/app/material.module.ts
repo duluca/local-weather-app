@@ -7,8 +7,6 @@ import { MatToolbarModule } from '@angular/material/toolbar'
 const modules = [MatButtonModule, MatToolbarModule, MatIconModule, MatCardModule]
 
 @NgModule({
-  declarations: [],
-  imports: modules,
   exports: modules,
 })
 export class MaterialModule {}
