@@ -77,7 +77,7 @@ jobs:
           command: >
             GCP_API_RESULTS=$(curl -s "$GCP_DEPLOY_ENDPOINT")
 
-            if echo "$GCP_API_RESULTS" | grep -nwo "LocalCast Weather"; then
+            if ! echo "$GCP_API_RESULTS" | grep -nwo "LocalCast Weather"; then
               echo "Result is unexpected"
               echo 'Result: '
               curl -s "$GCP_DEPLOY_ENDPOINT"
