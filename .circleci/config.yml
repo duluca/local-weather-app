@@ -57,7 +57,6 @@ jobs:
       - image: 'cimg/base:stable'
     steps:
       working_directory: ~/repo
-    steps:
       - attach_workspace:
           at: /tmp/workspace
       - checkout
