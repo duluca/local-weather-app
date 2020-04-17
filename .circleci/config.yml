@@ -30,7 +30,7 @@ jobs:
       - run: npm run lint
 
       - run: npx ng build ch6 --prod
-      - run: npx ng test --weather=false --project ch6
+      - run: npx ng test --watch=false --project ch6
       - run: npx ng e2e --project ch6
 
       - store_test_results:
