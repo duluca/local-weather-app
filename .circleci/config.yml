@@ -75,15 +75,9 @@ jobs:
           unauthenticated: true
       - run:
           command: >
-            # A simple example of how a deployed managed service could be
-            verified or further tested.
-
-            # This step will send request our "API" and fail if there is
-            unexpected output.
-
             GCP_API_RESULTS=$(curl -s "$GCP_DEPLOY_ENDPOINT")
 
-            if [ "$GCP_API_RESULTS" != "Hello World!" ]; then
+            if echo "$GCP_API_RESULTS" | grep -q "LocalCast Weather"; then
               echo "Result is unexpected"
               echo 'Result: '
               curl -s "$GCP_DEPLOY_ENDPOINT"
