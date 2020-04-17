@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  gcp-cloud-run: circleci/gcp-cloud-run@1.0.2
+  cloudrun: circleci/gcp-cloud-run@1.0.2
 jobs:
   build:
     docker:
@@ -55,8 +55,8 @@ jobs:
   deploy_cloudrun:
     docker:
       - image: 'cimg/base:stable'
+    working_directory: ~/repo
     steps:
-      working_directory: ~/repo
       - attach_workspace:
           at: /tmp/workspace
       - checkout
