@@ -62,7 +62,7 @@ jobs:
       - checkout
       - run:
           name: Copy built app to dist folder
-          command: cp -R /tmp/workspace/dist/ch6 dist/ch6/
+          command: mkdir dist/ch6 && cp -R /tmp/workspace/dist/ch6 dist/ch6/
       - cloudrun/init
       - cloudrun/build:
           tag: 'gcr.io/${GOOGLE_PROJECT_ID}/test-${CIRCLE_SHA1}'
