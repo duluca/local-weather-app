@@ -1,6 +1,4 @@
 version: 2.1
-orbs:
-  coveralls: coveralls/coveralls@1.0.4
 jobs:
   build:
     docker:
@@ -29,23 +27,16 @@ jobs:
       - run: npm run style
       - run: npm run lint
 
-      - run: npm run build:prod
-      - run: npm run test:coverage -- --watch=false
-      - run: npm run e2e
+      - run: npx ng build ch6 --prod
+      - run: npx ng test --watch=false --project ch6
+      - run: npx ng e2e --project ch6
 
       - store_test_results:
           path: ./test_results
-      - store_artifacts:
-          path: ./coverage
-
-      # upload coverage report to coveralls for readme badge support
-      # requires config.yml version 2.1 and orbs: coveralls: coveralls/coveralls@1.0.4
-      # requires coveralls account and token named COVERALLS_REPO_TOKEN specific to repo to be stored in CircleCI
-      - coveralls/upload
 
       - run:
           name: Tar & Gzip compiled app
-          command: tar zcf dist.tar.gz dist/local-weather-app
+          command: tar zcf dist.tar.gz dist/ch6
       - store_artifacts:
           path: dist.tar.gz
 
@@ -54,11 +45,11 @@ jobs:
           command: |
             set -exu
             mkdir -p /tmp/workspace/dist
-            mv dist/local-weather-app /tmp/workspace/dist/
+            mv dist/ch6 /tmp/workspace/dist/
       - persist_to_workspace:
           root: /tmp/workspace
           paths:
-            - dist/local-weather-app
+            - dist/ch6
   deploy:
     docker:
       - image: circleci/node:lts
@@ -66,7 +57,7 @@ jobs:
     steps:
       - attach_workspace:
           at: /tmp/workspace
-      - run: npx now --token $NOW_TOKEN --platform-version 2 --prod /tmp/workspace/dist/local-weather-app --confirm
+      - run: npx now --token $NOW_TOKEN --platform-version 2 --prod /tmp/workspace/dist/ch6 --confirm
 
 workflows:
   version: 2
