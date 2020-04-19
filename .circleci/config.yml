@@ -73,13 +73,17 @@ workflows:
   build-test-and-approval-deploy:
     jobs:
       - build
-      - hold:
-          type: approval
+      - deploy
           requires:
             - build
-          filters:
-            branches:
-              only: master
-      - deploy:
-          requires:
-            - hold
+      # Example of conditional deployments
+      # - hold:
+      #     type: approval
+      #     requires:
+      #       - build
+      #     filters:
+      #       branches:
+      #         only: master
+      # - deploy:
+      #     requires:
+      #       - hold
