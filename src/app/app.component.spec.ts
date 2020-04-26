@@ -1,8 +1,8 @@
 import { TestBed, async } from '@angular/core/testing'
-
-import { AppComponent } from './app.component'
-import { AppMaterialModule } from './app-material.module'
 import { createComponentMock } from 'angular-unit-test-helper'
+
+import { AppMaterialModule } from './app-material.module'
+import { AppComponent } from './app.component'
 
 describe('AppComponent', () => {
   beforeEach(async(() => {

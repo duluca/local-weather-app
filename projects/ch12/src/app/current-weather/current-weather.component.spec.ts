@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed, async } from '@angular/core/testing'
+import { By } from '@angular/platform-browser'
 import {
   ObservablePropertyStrategy,
   autoSpyObj,
   injectSpy,
 } from 'angular-unit-test-helper'
+import { of } from 'rxjs'
 
 import { AppMaterialModule } from '../app-material.module'
-import { By } from '@angular/platform-browser'
-import { CurrentWeatherComponent } from './current-weather.component'
 import { WeatherService } from '../weather/weather.service'
 import { fakeWeather } from '../weather/weather.service.fake'
-import { of } from 'rxjs'
+import { CurrentWeatherComponent } from './current-weather.component'
 
 describe('CurrentWeatherComponent', () => {
   let component: CurrentWeatherComponent

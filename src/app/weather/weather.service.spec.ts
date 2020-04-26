@@ -2,13 +2,13 @@ import {
   HttpClientTestingModule,
   HttpTestingController,
 } from '@angular/common/http/testing'
-import { ICurrentWeatherData, WeatherService } from './weather.service'
-import { IPostalCode, PostalCodeService } from '../postal-code/postal-code.service'
 import { TestBed, async, inject } from '@angular/core/testing'
 import { autoSpyObj, injectClass, injectSpy } from 'angular-unit-test-helper'
+import { of } from 'rxjs'
 
 import { environment } from '../../environments/environment'
-import { of } from 'rxjs'
+import { IPostalCode, PostalCodeService } from '../postal-code/postal-code.service'
+import { ICurrentWeatherData, WeatherService } from './weather.service'
 
 const fakeWeatherData: ICurrentWeatherData = {
   weather: [
