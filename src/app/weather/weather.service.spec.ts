@@ -2,12 +2,13 @@ import {
   HttpClientTestingModule,
   HttpTestingController,
 } from '@angular/common/http/testing'
+import { ICurrentWeatherData, WeatherService } from './weather.service'
+import { IPostalCode, PostalCodeService } from '../postal-code/postal-code.service'
 import { TestBed, async, inject } from '@angular/core/testing'
-import { of } from 'rxjs'
+import { autoSpyObj, injectClass, injectSpy } from 'angular-unit-test-helper'
 
 import { environment } from '../../environments/environment'
-import { IPostalCode, PostalCodeService } from '../postal-code/postal-code.service'
-import { ICurrentWeatherData, WeatherService } from './weather.service'
+import { of } from 'rxjs'
 
 const fakeWeatherData: ICurrentWeatherData = {
   weather: [
@@ -31,17 +32,15 @@ describe('WeatherService', () => {
   let postalCodeServiceMock: jasmine.SpyObj<PostalCodeService>
 
   beforeEach(() => {
-    const postalCodeServiceSpy = jasmine.createSpyObj('PostalCodeService', [
-      'resolvePostalCode',
-    ])
-
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      providers: [{ provide: PostalCodeService, useValue: postalCodeServiceSpy }],
+      providers: [
+        { provide: PostalCodeService, useValue: autoSpyObj(PostalCodeService) },
+      ],
     })
 
-    weatherService = TestBed.inject(WeatherService)
-    postalCodeServiceMock = TestBed.inject(PostalCodeService) as any
+    weatherService = injectClass(WeatherService)
+    postalCodeServiceMock = injectSpy(PostalCodeService)
   })
 
   it('should be created', async(

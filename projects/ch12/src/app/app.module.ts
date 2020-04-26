@@ -1,14 +1,14 @@
-import { HttpClientModule } from '@angular/common/http'
-import { NgModule } from '@angular/core'
-import { FlexLayoutModule } from '@angular/flex-layout'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
-import { BrowserModule } from '@angular/platform-browser'
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 import { AppComponent } from './app.component'
+import { AppMaterialModule } from './app-material.module'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { BrowserModule } from '@angular/platform-browser'
 import { CitySearchComponent } from './city-search/city-search.component'
 import { CurrentWeatherComponent } from './current-weather/current-weather.component'
-import { MaterialModule } from './material.module'
+import { FlexLayoutModule } from '@angular/flex-layout'
+import { HttpClientModule } from '@angular/common/http'
+import { NgModule } from '@angular/core'
 
 @NgModule({
   declarations: [AppComponent, CurrentWeatherComponent, CitySearchComponent],
@@ -17,7 +17,7 @@ import { MaterialModule } from './material.module'
     HttpClientModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
-    MaterialModule,
+    AppMaterialModule,
     FormsModule,
     ReactiveFormsModule,
   ],

@@ -1,15 +1,19 @@
 import { ComponentFixture, TestBed, async } from '@angular/core/testing'
-import { By } from '@angular/platform-browser'
-import { Store } from '@ngrx/store'
 import { MockStore, provideMockStore } from '@ngrx/store/testing'
-import { ObservablePropertyStrategy, autoSpyObj } from 'angular-unit-test-helper'
-import { of } from 'rxjs'
-
-import { ICurrentWeather } from '../interfaces'
-import { MaterialModule } from '../material.module'
+import {
+  ObservablePropertyStrategy,
+  autoSpyObj,
+  injectSpy,
+} from 'angular-unit-test-helper'
 import { WeatherService, defaultWeather } from '../weather/weather.service'
-import { fakeWeather } from '../weather/weather.service.fake'
+
+import { AppMaterialModule } from '../app-material.module'
+import { By } from '@angular/platform-browser'
 import { CurrentWeatherComponent } from './current-weather.component'
+import { ICurrentWeather } from '../interfaces'
+import { Store } from '@ngrx/store'
+import { fakeWeather } from '../weather/weather.service.fake'
+import { of } from 'rxjs'
 
 describe('CurrentWeatherComponent', () => {
   let component: CurrentWeatherComponent
@@ -27,14 +31,14 @@ describe('CurrentWeatherComponent', () => {
 
     TestBed.configureTestingModule({
       declarations: [CurrentWeatherComponent],
+      imports: [AppMaterialModule],
       providers: [
         { provide: WeatherService, useValue: weatherServiceSpy },
         provideMockStore({ initialState }),
       ],
-      imports: [MaterialModule],
     }).compileComponents()
 
-    weatherServiceMock = TestBed.inject(WeatherService) as any
+    weatherServiceMock = injectSpy(WeatherService)
     store = TestBed.inject(Store) as any
   }))
 

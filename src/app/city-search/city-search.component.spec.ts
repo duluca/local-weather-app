@@ -1,14 +1,17 @@
 import { ComponentFixture, TestBed, async } from '@angular/core/testing'
-import { Store } from '@ngrx/store'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import {
   ObservablePropertyStrategy,
   autoSpyObj,
   injectSpy,
 } from 'angular-unit-test-helper'
-import { of } from 'rxjs'
 
-import { WeatherService } from '../weather/weather.service'
+import { AppMaterialModule } from '../app-material.module'
 import { CitySearchComponent } from './city-search.component'
+import { NoopAnimationsModule } from '@angular/platform-browser/animations'
+import { Store } from '@ngrx/store'
+import { WeatherService } from '../weather/weather.service'
+import { of } from 'rxjs'
 
 describe('CitySearchComponent', () => {
   let component: CitySearchComponent
@@ -25,6 +28,12 @@ describe('CitySearchComponent', () => {
 
     TestBed.configureTestingModule({
       declarations: [CitySearchComponent],
+      imports: [
+        AppMaterialModule,
+        FormsModule,
+        ReactiveFormsModule,
+        NoopAnimationsModule,
+      ],
       providers: [
         { provide: WeatherService, useValue: weatherServiceSpy },
         { provide: Store, useValue: null },

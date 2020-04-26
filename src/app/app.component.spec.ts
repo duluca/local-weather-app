@@ -1,8 +1,8 @@
 import { TestBed, async } from '@angular/core/testing'
-import { createComponentMock } from 'angular-unit-test-helper'
 
 import { AppComponent } from './app.component'
-import { MaterialModule } from './material.module'
+import { AppMaterialModule } from './app-material.module'
+import { createComponentMock } from 'angular-unit-test-helper'
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -12,7 +12,7 @@ describe('AppComponent', () => {
         createComponentMock('CurrentWeatherComponent'),
         createComponentMock('CitySearchComponent'),
       ],
-      imports: [MaterialModule],
+      imports: [AppMaterialModule],
     }).compileComponents()
   }))
   it('should create the app', async(() => {

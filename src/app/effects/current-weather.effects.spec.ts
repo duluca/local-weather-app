@@ -1,12 +1,13 @@
-import { TestBed } from '@angular/core/testing'
-import { provideMockActions } from '@ngrx/effects/testing'
-import { Store } from '@ngrx/store'
 import { MockStore, provideMockStore } from '@ngrx/store/testing'
 import { Observable, of } from 'rxjs'
-
-import { ICurrentWeather } from '../interfaces'
 import { WeatherService, defaultWeather } from '../weather/weather.service'
+import { autoSpyObj, injectClass, injectSpy } from 'angular-unit-test-helper'
+
 import { CurrentWeatherEffects } from './current-weather.effects'
+import { ICurrentWeather } from '../interfaces'
+import { Store } from '@ngrx/store'
+import { TestBed } from '@angular/core/testing'
+import { provideMockActions } from '@ngrx/effects/testing'
 
 describe('CurrentWeatherEffects', () => {
   const actions$: Observable<any> = null
@@ -17,22 +18,18 @@ describe('CurrentWeatherEffects', () => {
   let weatherServiceMock: jasmine.SpyObj<WeatherService>
 
   beforeEach(() => {
-    const weatherServiceSpy = jasmine.createSpyObj('WeatherService', [
-      'getCurrentWeather',
-    ])
-
     TestBed.configureTestingModule({
       providers: [
         CurrentWeatherEffects,
         provideMockActions(() => actions$),
         provideMockStore({ initialState }),
-        { provide: WeatherService, useValue: weatherServiceSpy },
+        { provide: WeatherService, useValue: autoSpyObj(WeatherService) },
       ],
     })
 
-    effects = TestBed.inject(CurrentWeatherEffects)
+    effects = injectClass(CurrentWeatherEffects)
     store = TestBed.inject(Store) as any
-    weatherServiceMock = TestBed.inject(WeatherService) as any
+    weatherServiceMock = injectSpy(WeatherService)
   })
 
   it('should be created', () => {
