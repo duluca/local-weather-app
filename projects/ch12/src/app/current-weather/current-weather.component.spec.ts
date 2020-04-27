@@ -1,5 +1,7 @@
 import { ComponentFixture, TestBed, async } from '@angular/core/testing'
 import { By } from '@angular/platform-browser'
+import { Store } from '@ngrx/store'
+import { MockStore, provideMockStore } from '@ngrx/store/testing'
 import {
   ObservablePropertyStrategy,
   autoSpyObj,
@@ -8,7 +10,8 @@ import {
 import { of } from 'rxjs'
 
 import { AppMaterialModule } from '../app-material.module'
-import { WeatherService } from '../weather/weather.service'
+import { ICurrentWeather } from '../interfaces'
+import { WeatherService, defaultWeather } from '../weather/weather.service'
 import { fakeWeather } from '../weather/weather.service.fake'
 import { CurrentWeatherComponent } from './current-weather.component'
 
@@ -16,6 +19,8 @@ describe('CurrentWeatherComponent', () => {
   let component: CurrentWeatherComponent
   let fixture: ComponentFixture<CurrentWeatherComponent>
   let weatherServiceMock: jasmine.SpyObj<WeatherService>
+  let store: MockStore<{ search: { current: ICurrentWeather } }>
+  const initialState = { search: { current: defaultWeather } }
 
   beforeEach(async(() => {
     const weatherServiceSpy = autoSpyObj(
@@ -27,10 +32,14 @@ describe('CurrentWeatherComponent', () => {
     TestBed.configureTestingModule({
       declarations: [CurrentWeatherComponent],
       imports: [AppMaterialModule],
-      providers: [{ provide: WeatherService, useValue: weatherServiceSpy }],
+      providers: [
+        { provide: WeatherService, useValue: weatherServiceSpy },
+        provideMockStore({ initialState }),
+      ],
     }).compileComponents()
 
     weatherServiceMock = injectSpy(WeatherService)
+    store = TestBed.inject(Store) as any
   }))
 
   beforeEach(() => {
@@ -49,20 +58,10 @@ describe('CurrentWeatherComponent', () => {
     expect(component).toBeTruthy()
   })
 
-  xit('should get currentWeather from weatherService onInit', () => {
+  it('should get currentWeather from weatherService', (done) => {
     // Arrange
-    weatherServiceMock.getCurrentWeather.and.returnValue(of())
-
-    // Act
-    fixture.detectChanges() // triggers ngOnInit()
-
-    // Assert
-    expect(weatherServiceMock.getCurrentWeather).toHaveBeenCalledTimes(1)
-  })
-
-  xit('should eagerly load currentWeather in Bethesda from weatherService', () => {
-    // Arrange
-    weatherServiceMock.getCurrentWeather.and.returnValue(of(fakeWeather))
+    store.setState({ search: { current: fakeWeather } })
+    weatherServiceMock.currentWeather$.next(fakeWeather)
 
     // Act
     fixture.detectChanges() // triggers ngOnInit()
@@ -73,11 +72,12 @@ describe('CurrentWeatherComponent', () => {
     component.current$.subscribe((current) => {
       expect(current.city).toEqual('Bethesda')
       expect(current.temperature).toEqual(280.32)
-    })
 
-    // Assert on DOM
-    const debugEl = fixture.debugElement
-    const titleEl: HTMLElement = debugEl.query(By.css('.mat-title')).nativeElement
-    expect(titleEl.textContent).toContain('Bethesda')
+      // Assert on DOM
+      const debugEl = fixture.debugElement
+      const titleEl: HTMLElement = debugEl.query(By.css('.mat-title')).nativeElement
+      expect(titleEl.textContent).toContain('Bethesda')
+      done()
+    })
   })
 })

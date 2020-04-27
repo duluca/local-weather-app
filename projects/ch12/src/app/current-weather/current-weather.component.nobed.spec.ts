@@ -20,7 +20,8 @@ import { CurrentWeatherComponent } from './current-weather.component'
 //    - Forces higher knowledge of how the lifecycle interactes with your component
 //    - Allows you to better separate Unit (fast) and Integration (slow) tests
 //        into separate scripts or pipeline stages
-//
+// Note that with Angular 9+ tests run faster compared to prior versions. So,
+//  the performance gains will likely be less.
 // ###################################################################
 
 describe('CurrentWeatherComponent (no TestBed)', () => {

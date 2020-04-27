@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed, async } from '@angular/core/testing'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { NoopAnimationsModule } from '@angular/platform-browser/animations'
+import { Store } from '@ngrx/store'
 import {
   ObservablePropertyStrategy,
   autoSpyObj,
@@ -33,7 +34,10 @@ describe('CitySearchComponent', () => {
         ReactiveFormsModule,
         NoopAnimationsModule,
       ],
-      providers: [{ provide: WeatherService, useValue: weatherServiceSpy }],
+      providers: [
+        { provide: WeatherService, useValue: weatherServiceSpy },
+        { provide: Store, useValue: null },
+      ],
     }).compileComponents()
 
     weatherServiceMock = injectSpy(WeatherService)

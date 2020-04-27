@@ -8,4 +8,10 @@
       Type more than one character to search
     </mat-error>
   </mat-form-field>
+  <div class="center">
+    <mat-slide-toggle color="accent" [(ngModel)]="useNgRx"
+      (ngModelChange)="doSearch(search.value)" [ngModelOptions]="{standalone: true}">
+      {{useNgRx ? 'Using NgRX' : 'Using BehaviorSubject'}}
+    </mat-slide-toggle>
+  </div>
 </form>
