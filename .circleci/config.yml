@@ -32,7 +32,7 @@ jobs:
 
       - run:
           name: Tar & Gzip compiled app
-          command: tar zcf dist.tar.gz dist/local-weather-app
+          command: tar zcf dist.tar.gz dist/ch4
       - store_artifacts:
           path: dist.tar.gz
 workflows:
