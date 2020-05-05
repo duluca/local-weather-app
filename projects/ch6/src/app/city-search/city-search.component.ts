@@ -24,12 +24,12 @@ export class CitySearchComponent {
       .subscribe()
   }
 
-  // Imperative-style
+  // // Imperative-style
   // ngOnInit(): void {
   //   this.search.valueChanges.pipe(debounceTime(1000)).subscribe((searchValue: string) => {
   //     if (!this.search.invalid) {
   //       // this.searchEvent.emit(searchValue) // Alternate event-based implementation
-  //       const userInput = searchValue.split(',').map(s => s.trim())
+  //       const userInput = searchValue.split(',').map((s) => s.trim())
   //       this.weatherService.updateCurrentWeather(
   //         userInput[0],
   //         userInput.length > 1 ? userInput[1] : undefined
