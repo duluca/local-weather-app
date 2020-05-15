@@ -2,11 +2,12 @@ import { Store } from '@ngrx/store'
 import { addPropertyAsBehaviorSubject } from 'angular-unit-test-helper'
 import { of } from 'rxjs'
 
-// @ts-ignore
 import { State } from '../reducers'
 import { WeatherService } from '../weather/weather.service'
 import { fakeWeather } from '../weather/weather.service.fake'
 import { CurrentWeatherComponent } from './current-weather.component'
+
+// @ts-ignore
 
 // ###################################################################
 // Advanced High-Performance Unit Test Setup sans TestBed
