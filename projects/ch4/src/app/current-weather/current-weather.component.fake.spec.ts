@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, async } from '@angular/core/testing'
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing'
 
 import { WeatherService } from '../weather/weather.service'
 import { WeatherServiceFake } from '../weather/weather.service.fake'
@@ -8,7 +8,7 @@ describe('CurrentWeatherComponent', () => {
   let component: CurrentWeatherComponent
   let fixture: ComponentFixture<CurrentWeatherComponent>
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [CurrentWeatherComponent],
       providers: [{ provide: WeatherService, useClass: WeatherServiceFake }],

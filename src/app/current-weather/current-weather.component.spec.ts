@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, async } from '@angular/core/testing'
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing'
 import { By } from '@angular/platform-browser'
 import { Store } from '@ngrx/store'
 import { MockStore, provideMockStore } from '@ngrx/store/testing'
@@ -22,7 +22,7 @@ describe('CurrentWeatherComponent', () => {
   let store: MockStore<{ search: { current: ICurrentWeather } }>
   const initialState = { search: { current: defaultWeather } }
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     const weatherServiceSpy = autoSpyObj(
       WeatherService,
       ['currentWeather$'],

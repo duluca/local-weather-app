@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, async } from '@angular/core/testing'
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing'
 import { By } from '@angular/platform-browser'
 import { injectSpy } from 'angular-unit-test-helper'
 import { of } from 'rxjs'
@@ -12,7 +12,7 @@ describe('CurrentWeatherComponent', () => {
   let fixture: ComponentFixture<CurrentWeatherComponent>
   let weatherServiceMock: jasmine.SpyObj<WeatherService>
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     const weatherServiceSpy = jasmine.createSpyObj('WeatherService', [
       'getCurrentWeather',
     ])

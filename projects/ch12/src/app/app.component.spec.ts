@@ -1,11 +1,11 @@
-import { TestBed, async } from '@angular/core/testing'
+import { TestBed, waitForAsync } from '@angular/core/testing'
 import { createComponentMock } from 'angular-unit-test-helper'
 
 import { AppMaterialModule } from './app-material.module'
 import { AppComponent } from './app.component'
 
 describe('AppComponent', () => {
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent,

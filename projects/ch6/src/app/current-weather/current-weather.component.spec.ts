@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, async } from '@angular/core/testing'
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing'
 import {
   ObservablePropertyStrategy,
   autoSpyObj,
@@ -15,7 +15,7 @@ describe('CurrentWeatherComponent', () => {
   let fixture: ComponentFixture<CurrentWeatherComponent>
   let weatherServiceMock: jasmine.SpyObj<WeatherService>
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     const weatherServiceSpy = autoSpyObj(
       WeatherService,
       ['currentWeather$'],

@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, async } from '@angular/core/testing'
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing'
 import { FormsModule } from '@angular/forms'
 import { NoopAnimationsModule } from '@angular/platform-browser/animations'
 import {
@@ -17,7 +17,7 @@ describe('CitySearchTpldrivenComponent', () => {
   let fixture: ComponentFixture<CitySearchTpldrivenComponent>
   let weatherServiceMock: jasmine.SpyObj<WeatherService>
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     const weatherServiceSpy = autoSpyObj(
       WeatherService,
       ['currentWeather$'],

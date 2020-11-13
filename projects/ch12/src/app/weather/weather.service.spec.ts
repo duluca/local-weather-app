@@ -2,7 +2,7 @@ import {
   HttpClientTestingModule,
   HttpTestingController,
 } from '@angular/common/http/testing'
-import { TestBed, async, inject } from '@angular/core/testing'
+import { TestBed, inject, waitForAsync } from '@angular/core/testing'
 import { autoSpyObj, injectClass, injectSpy } from 'angular-unit-test-helper'
 import { of } from 'rxjs'
 
@@ -43,7 +43,7 @@ describe('WeatherService', () => {
     postalCodeServiceMock = injectSpy(PostalCodeService)
   })
 
-  it('should be created', async(
+  it('should be created', waitForAsync(
     inject([WeatherService], (service: WeatherService) => {
       expect(service).toBeTruthy()
     })
