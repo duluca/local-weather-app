@@ -43,11 +43,14 @@ describe('WeatherService', () => {
     postalCodeServiceMock = injectSpy(PostalCodeService)
   })
 
-  it('should be created', waitForAsync(
-    inject([WeatherService], (service: WeatherService) => {
-      expect(service).toBeTruthy()
-    })
-  ))
+  it(
+    'should be created',
+    waitForAsync(
+      inject([WeatherService], (service: WeatherService) => {
+        expect(service).toBeTruthy()
+      })
+    )
+  )
 
   describe('getCurrentWeather', () => {
     it('should return value given city name', () => {
