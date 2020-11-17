@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, async } from '@angular/core/testing'
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing'
 import {
   ObservablePropertyStrategy,
   autoSpyObj,
@@ -15,21 +15,23 @@ describe('CurrentWeatherComponent', () => {
   let fixture: ComponentFixture<CurrentWeatherComponent>
   let weatherServiceMock: jasmine.SpyObj<WeatherService>
 
-  beforeEach(async(() => {
-    const weatherServiceSpy = autoSpyObj(
-      WeatherService,
-      ['currentWeather$'],
-      ObservablePropertyStrategy.BehaviorSubject
-    )
+  beforeEach(
+    waitForAsync(() => {
+      const weatherServiceSpy = autoSpyObj(
+        WeatherService,
+        ['currentWeather$'],
+        ObservablePropertyStrategy.BehaviorSubject
+      )
 
-    TestBed.configureTestingModule({
-      declarations: [CurrentWeatherComponent],
-      imports: [MaterialModule],
-      providers: [{ provide: WeatherService, useValue: weatherServiceSpy }],
-    }).compileComponents()
+      TestBed.configureTestingModule({
+        declarations: [CurrentWeatherComponent],
+        imports: [MaterialModule],
+        providers: [{ provide: WeatherService, useValue: weatherServiceSpy }],
+      }).compileComponents()
 
-    weatherServiceMock = injectSpy(WeatherService)
-  }))
+      weatherServiceMock = injectSpy(WeatherService)
+    })
+  )
 
   beforeEach(() => {
     fixture = TestBed.createComponent(CurrentWeatherComponent)

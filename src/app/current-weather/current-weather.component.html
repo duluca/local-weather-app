@@ -1,7 +1,8 @@
 <div *ngIf="current$ | async as current">
   <div fxLayout="row">
     <div fxFlex="66%" class="mat-title no-margin">{{ current.city }},
-      {{ current.country }}</div>
+      {{ current.country }}
+    </div>
     <div fxFlex class="mat-subheading-2 no-margin">
       {{ current.date | date: 'EEEE MMM d' }}{{ getOrdinal(current.date) }}
     </div>

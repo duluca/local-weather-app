@@ -1,21 +1,23 @@
-import { TestBed, async } from '@angular/core/testing'
+import { TestBed, waitForAsync } from '@angular/core/testing'
 import { createComponentMock } from 'angular-unit-test-helper'
 
 import { AppComponent } from './app.component'
 import { MaterialModule } from './material.module'
 
 describe('AppComponent', () => {
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [
-        AppComponent,
-        createComponentMock('CurrentWeatherComponent'),
-        createComponentMock('CitySearchComponent'),
-        createComponentMock('CitySearchTpldrivenComponent'),
-      ],
-      imports: [MaterialModule],
-    }).compileComponents()
-  }))
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        declarations: [
+          AppComponent,
+          createComponentMock('CurrentWeatherComponent'),
+          createComponentMock('CitySearchComponent'),
+          createComponentMock('CitySearchTpldrivenComponent'),
+        ],
+        imports: [MaterialModule],
+      }).compileComponents()
+    })
+  )
 
   it('should create the app', () => {
     const fixture = TestBed.createComponent(AppComponent)

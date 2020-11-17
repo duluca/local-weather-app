@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, async } from '@angular/core/testing'
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { NoopAnimationsModule } from '@angular/platform-browser/animations'
 import {
@@ -18,21 +18,23 @@ describe('CitySearchComponent', () => {
 
   let weatherServiceMock: jasmine.SpyObj<WeatherService>
 
-  beforeEach(async(() => {
-    const weatherServiceSpy = autoSpyObj(
-      WeatherService,
-      ['currentWeather$'],
-      ObservablePropertyStrategy.BehaviorSubject
-    )
+  beforeEach(
+    waitForAsync(() => {
+      const weatherServiceSpy = autoSpyObj(
+        WeatherService,
+        ['currentWeather$'],
+        ObservablePropertyStrategy.BehaviorSubject
+      )
 
-    TestBed.configureTestingModule({
-      declarations: [CitySearchComponent],
-      imports: [MaterialModule, FormsModule, ReactiveFormsModule, NoopAnimationsModule],
-      providers: [{ provide: WeatherService, useValue: weatherServiceSpy }],
-    }).compileComponents()
+      TestBed.configureTestingModule({
+        declarations: [CitySearchComponent],
+        imports: [MaterialModule, FormsModule, ReactiveFormsModule, NoopAnimationsModule],
+        providers: [{ provide: WeatherService, useValue: weatherServiceSpy }],
+      }).compileComponents()
 
-    weatherServiceMock = injectSpy(WeatherService)
-  }))
+      weatherServiceMock = injectSpy(WeatherService)
+    })
+  )
 
   beforeEach(() => {
     fixture = TestBed.createComponent(CitySearchComponent)

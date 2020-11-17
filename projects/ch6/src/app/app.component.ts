@@ -36,9 +36,7 @@ import { Component } from '@angular/core'
     </div>
     <div class="example">
       <div fxLayoutAlign="center" style="margin-top: 64px">
-        <div class="mat-h3">
-          Template-driven Form Input
-        </div>
+        <div class="mat-h3">Template-driven Form Input</div>
       </div>
       <div fxLayoutAlign="center">
         <app-city-search-tpldriven></app-city-search-tpldriven>
