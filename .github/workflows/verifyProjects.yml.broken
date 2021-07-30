@@ -30,7 +30,7 @@ jobs:
             ${{ runner.os }}-
       - run: npm ci
 
-      - run: npx ng build --prod --project $PROJECT
+      - run: npx ng build --configuration production --project $PROJECT
 
       - run: npx ng test --watch=false --project $PROJECT
       - run: npx ng e2e $PROJECT
@@ -54,7 +54,7 @@ jobs:
             ${{ runner.os }}-
       - run: npm ci
 
-      - run: npx ng build --prod --project $PROJECT
+      - run: npx ng build --configuration production --project $PROJECT
       # - run: npx ng test --configuration=ci --project $PROJECT #Intentionally failing tests
       - run: npx ng e2e --configuration=ci $PROJECT
   ch4:
@@ -77,7 +77,7 @@ jobs:
             ${{ runner.os }}-
       - run: npm ci
 
-      - run: npx ng build --prod --project $PROJECT
+      - run: npx ng build --configuration production --project $PROJECT
       - run: npx ng test --configuration=ci --project $PROJECT
       - run: npx ng e2e --configuration=ci $PROJECT
   ch5:
@@ -100,7 +100,7 @@ jobs:
             ${{ runner.os }}-
       - run: npm ci
 
-      - run: npx ng build --prod --project $PROJECT
+      - run: npx ng build --configuration production --project $PROJECT
       - run: npx ng test --configuration=ci --project $PROJECT
       - run: npx ng e2e --configuration=ci $PROJECT
   ch6:
@@ -123,7 +123,7 @@ jobs:
             ${{ runner.os }}-
       - run: npm ci
 
-      - run: npx ng build --prod --project $PROJECT
+      - run: npx ng build --configuration production --project $PROJECT
       - run: npx ng test --configuration=ci --project $PROJECT
       - run: npx ng e2e --configuration=ci $PROJECT
 ch12:
@@ -144,6 +144,6 @@ ch12:
           ${{ runner.os }}-build-
           ${{ runner.os }}-
     - run: npm ci
-    - run: npx ng build --prod --project $PROJECT
+    - run: npx ng build --configuration production --project $PROJECT
     - run: npx ng test --configuration=ci --project $PROJECT
     - run: npx ng e2e --configuration=ci $PROJECT
