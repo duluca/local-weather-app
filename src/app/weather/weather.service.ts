@@ -36,7 +36,7 @@ export const defaultWeather: ICurrentWeather = {
 export interface IWeatherService {
   readonly currentWeather$: BehaviorSubject<ICurrentWeather>
   getCurrentWeather(city: string, country?: string): Observable<ICurrentWeather>
-  getCurrentWeatherByCoords(coords: Coordinates): Observable<ICurrentWeather>
+  getCurrentWeatherByCoords(coords: GeolocationCoordinates): Observable<ICurrentWeather>
   updateCurrentWeather(searchText: string, country?: string): void
 }
 
