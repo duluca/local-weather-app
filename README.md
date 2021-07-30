@@ -4,7 +4,7 @@
 
 > View live demo: https://localcast-weather.duluca.now.sh/
 
-![Angular Version](https://img.shields.io/badge/angular-v11-326839)
+![Angular Version](https://img.shields.io/badge/angular-v12-326839)
 [![CircleCI](https://circleci.com/gh/duluca/local-weather-app/tree/master.svg?style=svg)](https://circleci.com/gh/duluca/local-weather-app/tree/master)
 [![DeepScan grade](https://deepscan.io/api/teams/1906/projects/5034/branches/39254/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=1906&pid=5034&bid=39254)
 [![Coverage Status](https://coveralls.io/repos/github/duluca/local-weather-app/badge.svg?branch=master)](https://coveralls.io/github/duluca/local-weather-app?branch=master)
