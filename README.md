@@ -66,7 +66,7 @@ This app was developed to demonstrate Angular fundementals, unit testing, and di
 
 ### Further help with Angular CLI
 
-> To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/main/README.md).
+> To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
 ### Full-Stack Setup with Docker Compose and Deploying to AWS
 
