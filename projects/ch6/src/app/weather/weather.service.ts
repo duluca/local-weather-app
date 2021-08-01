@@ -67,7 +67,7 @@ export class WeatherService implements IWeatherService {
   getCurrentWeather(searchText: string, country?: string): Observable<ICurrentWeather> {
     return this.postalCodeService.resolvePostalCode(searchText).pipe(
       switchMap((postalCode) => {
-        if (postalCode) {
+        if (postalCode && postalCode !== defaultPostalCode) {
           return this.getCurrentWeatherByCoords({
             latitude: postalCode.lat,
             longitude: postalCode.lng,
