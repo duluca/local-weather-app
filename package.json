@@ -34,10 +34,10 @@
     "docker:taillogs": "echo Web Server Logs: && cross-conf-env docker logs -f $npm_package_config_imageName",
     "docker:debugmessage": "echo Docker Debug Completed Successfully! Hit Ctrl+C to terminate log tailing.",
     "docker:debug": "run-s -cs docker:build docker:run docker:open docker:debugmessage docker:taillogs",
-    "prenow:publish": "npm run build:prod",
-    "now:publish": "now --platform-version 2 --configuration production dist/local-weather-app",
-    "prenow:publish:docker": "npm run build:prod",
-    "now:publish:docker": "now --local-config now-v1.json",
+    "prevercel:publish": "npm run build:prod",
+    "vercel:publish": "vercel --platform-version 2 --prod dist/local-weather-app",
+    "prevercel:publish:docker": "npm run build:prod",
+    "vercel:publish:docker": "vercel --local-config now-v1.json",
     "test:a11y": "pa11y --standard Section508 http://localhost:5000",
     "test:a11y:ci": "pa11y-ci",
     "gcloud:tag": "docker tag duluca/localcast-weather gcr.io/localcast-weather/localcast-weather",
@@ -102,7 +102,6 @@
     "karma-jasmine": "~4.0.1",
     "karma-jasmine-html-reporter": "^1.7.0",
     "karma-junit-reporter": "^2.0.1",
-    "now": "^19.1.1",
     "npm-run-all": "^4.1.5",
     "open-cli": "^7.0.0",
     "pa11y": "^6.0.1",
@@ -116,7 +115,8 @@
     "tslint-etc": "^1.13.10",
     "tslint-plugin-prettier": "^2.3.0",
     "tsutils": "^3.21.0",
-    "typescript": "^4.3.5"
+    "typescript": "^4.3.5",
+    "vercel": "^23.0.1"
   },
   "importSort": {
     ".ts, .tsx": {
