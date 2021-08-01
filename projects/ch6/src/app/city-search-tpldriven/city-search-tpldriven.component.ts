@@ -13,7 +13,7 @@ export class CitySearchTpldrivenComponent {
   }
   constructor(private weatherService: WeatherService) {}
 
-  doSearch(searchValue) {
+  doSearch(searchValue: string) {
     const userInput = searchValue.split(',').map((s) => s.trim())
     this.weatherService
       .getCurrentWeather(userInput[0], userInput.length > 1 ? userInput[1] : undefined)

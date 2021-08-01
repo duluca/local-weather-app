@@ -13,6 +13,14 @@ export interface IPostalCode {
   lat: number
 }
 
+export const defaultPostalCode: IPostalCode = {
+  countryCode: '--',
+  postalCode: '--',
+  placeName: '--',
+  lng: 0,
+  lat: 0,
+}
+
 export interface IPostalCodeData {
   postalCodes: [IPostalCode]
 }
@@ -40,7 +48,7 @@ export class PostalCodeService implements IPostalCodeService {
       )
       .pipe(
         mergeMap((data) => data.postalCodes),
-        defaultIfEmpty(null)
+        defaultIfEmpty(defaultPostalCode)
       )
   }
 }
