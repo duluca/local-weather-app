@@ -5,9 +5,9 @@
 > View live demo: https://local-weather-app-duluca.vercel.app _Note: See deprecations section below regarding changes to `now`_
 
 ![Angular Version](https://img.shields.io/badge/angular-v12-326839)
-[![CircleCI](https://circleci.com/gh/duluca/local-weather-app/tree/master.svg?style=svg)](https://circleci.com/gh/duluca/local-weather-app/tree/master)
+[![CircleCI](https://circleci.com/gh/duluca/local-weather-app/tree/main.svg?style=svg)](https://circleci.com/gh/duluca/local-weather-app/tree/main)
 [![DeepScan grade](https://deepscan.io/api/teams/1906/projects/5034/branches/39254/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=1906&pid=5034&bid=39254)
-[![Coverage Status](https://coveralls.io/repos/github/duluca/local-weather-app/badge.svg?branch=master)](https://coveralls.io/github/duluca/local-weather-app?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/duluca/local-weather-app/badge.svg?branch=main)](https://coveralls.io/github/duluca/local-weather-app?branch=main)
 [![Kanban Board](https://img.shields.io/badge/Kanban-View%20Project%20Status-blue)](https://github.com/duluca/local-weather-app/projects/1)
 
 ![mat-style4](https://user-images.githubusercontent.com/822159/56008986-210ad880-5cac-11e9-812f-6514b2dc0f97.PNG)
@@ -66,13 +66,22 @@ This app was developed to demonstrate Angular fundementals, unit testing, and di
 
 ### Further help with Angular CLI
 
-> To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+> To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/main/README.md).
 
 ### Full-Stack Setup with Docker Compose and Deploying to AWS
 
 See the example project here https://github.com/duluca/lemon-mart-server
 
 ## Deprecations
+
+### Renamed `master` branch to `main`
+If you already have a `master` branch locally, then execute the following commands: 
+```
+git branch -m master main
+git fetch origin
+git branch -u origin/main main
+git remote set-head origin -a
+```
 
 ### _Now_
 
