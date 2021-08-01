@@ -7,7 +7,11 @@ import { autoSpyObj, injectClass, injectSpy } from 'angular-unit-test-helper'
 import { of } from 'rxjs'
 
 import { environment } from '../../environments/environment'
-import { IPostalCode, PostalCodeService } from '../postal-code/postal-code.service'
+import {
+  IPostalCode,
+  PostalCodeService,
+  defaultPostalCode,
+} from '../postal-code/postal-code.service'
 import { ICurrentWeatherData, WeatherService } from './weather.service'
 
 const fakeWeatherData: ICurrentWeatherData = {
@@ -57,7 +61,7 @@ describe('WeatherService', () => {
       // Arrange
       const httpMock = TestBed.inject(HttpTestingController)
       const uriParams = 'q=Bursa'
-      postalCodeServiceMock.resolvePostalCode.and.returnValue(of(null))
+      postalCodeServiceMock.resolvePostalCode.and.returnValue(of(defaultPostalCode))
 
       // Act
       weatherService.getCurrentWeather('Bursa').subscribe((data) => {

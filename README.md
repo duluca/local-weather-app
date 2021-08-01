@@ -2,7 +2,9 @@
 
 > Learn Angular, Angular Material, RxJS fundementals with LocalCast Weather using the Kanban method.
 
-> View live demo: https://local-weather-app-duluca.vercel.app _Note: See deprecations section below regarding changes to `now`_
+> View live demo: https://local-weather-app-duluca.vercel.app
+
+> See [Changes](#changes) section for important or breaking changes made to the project.
 
 ![Angular Version](https://img.shields.io/badge/angular-v12-326839)
 [![CircleCI](https://circleci.com/gh/duluca/local-weather-app/tree/main.svg?style=svg)](https://circleci.com/gh/duluca/local-weather-app/tree/main)
@@ -72,10 +74,22 @@ This app was developed to demonstrate Angular fundementals, unit testing, and di
 
 See the example project here https://github.com/duluca/lemon-mart-server
 
-## Deprecations
+# Changes
 
-### Renamed `master` branch to `main`
-If you already have a `master` branch locally, then execute the following commands: 
+Changes are inevitable to keep the project up-to-date with libraries, tools, patterns and practices. Below are some notable changes that differ from the 1st and 2nd edition of my book.
+
+## Angular 12 configuration changes
+
+- Enabled bundle budgets
+- Introduction `development` configuration
+- Made `production` configuration the default one
+- Added `npm run watch` command
+- Strict settings on by default
+
+## Renamed `master` branch to `main`
+
+If you already have a `master` branch locally, then execute the following commands:
+
 ```
 git branch -m master main
 git fetch origin
@@ -83,18 +97,18 @@ git branch -u origin/main main
 git remote set-head origin -a
 ```
 
-### _Now_
+## _Now_
 
 - `now` package has been replaced with `vercel`.
 - CircleCI variable renamed from `$NOW_TOKEN` to `$VERCEL_TOKEN`.
 - `npm run now:publish` renamed to `npm run vercel:publish`.
 - `now` v1 configuration with docker deployment is removed.
 
-### _Waffle.io_
+## _Waffle.io_
 
 Sadly Waffle.io no longer exists. I recommend using GitHub Projects as a free replacement.
 
-### _Using Zeit Now with Docker_
+## _Using Zeit Now with Docker_
 
 Unfortunately Zeit Now no longer allows publication of arbitrary `Dockerfile` images. Using Zeit v2 you can publish the output of your `dist` folder and still be able to host your application for free.
 

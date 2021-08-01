@@ -5,7 +5,7 @@ import { map, switchMap } from 'rxjs/operators'
 
 import { environment } from '../../environments/environment'
 import { ICurrentWeather } from '../interfaces'
-import { PostalCodeService } from '../postal-code/postal-code.service'
+import { PostalCodeService, defaultPostalCode } from '../postal-code/postal-code.service'
 
 export interface ICurrentWeatherData {
   // exported to support unit testing
@@ -55,7 +55,7 @@ export class WeatherService implements IWeatherService {
   getCurrentWeather(searchText: string, country?: string): Observable<ICurrentWeather> {
     return this.postalCodeService.resolvePostalCode(searchText).pipe(
       switchMap((postalCode) => {
-        if (postalCode) {
+        if (postalCode && postalCode !== defaultPostalCode) {
           return this.getCurrentWeatherByCoords({
             latitude: postalCode.lat,
             longitude: postalCode.lng,

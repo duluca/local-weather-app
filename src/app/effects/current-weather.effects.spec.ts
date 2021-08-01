@@ -10,7 +10,7 @@ import { WeatherService, defaultWeather } from '../weather/weather.service'
 import { CurrentWeatherEffects } from './current-weather.effects'
 
 describe('CurrentWeatherEffects', () => {
-  const actions$: Observable<any> = null
+  const actions$: Observable<any> = of(null)
   const initialState = { search: { current: defaultWeather } }
 
   let effects: CurrentWeatherEffects
@@ -34,7 +34,7 @@ describe('CurrentWeatherEffects', () => {
 
   it('should be created', () => {
     store.complete()
-    weatherServiceMock.getCurrentWeather.and.returnValue(of(null))
+    weatherServiceMock.getCurrentWeather.and.returnValue(of(defaultWeather))
     expect(effects).toBeTruthy()
   })
 })
