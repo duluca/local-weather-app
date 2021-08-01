@@ -5,7 +5,7 @@ import { map, switchMap } from 'rxjs/operators'
 
 import { environment } from '../../environments/environment'
 import { ICurrentWeather } from '../interfaces'
-import { PostalCodeService } from '../postal-code/postal-code.service'
+import { PostalCodeService, defaultPostalCode } from '../postal-code/postal-code.service'
 
 export interface ICurrentWeatherData {
   // exported to support unit testing
