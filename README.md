@@ -2,7 +2,7 @@
 
 > Learn Angular, Angular Material, RxJS fundementals with LocalCast Weather using the Kanban method.
 
-> View live demo: https://localcast-weather.duluca.now.sh/ _Note: See deprecations section below regarding changes to `now`_
+> View live demo: https://local-weather-app-duluca.vercel.app _Note: See deprecations section below regarding changes to `now`_
 
 ![Angular Version](https://img.shields.io/badge/angular-v12-326839)
 [![CircleCI](https://circleci.com/gh/duluca/local-weather-app/tree/master.svg?style=svg)](https://circleci.com/gh/duluca/local-weather-app/tree/master)
@@ -79,6 +79,7 @@ See the example project here https://github.com/duluca/lemon-mart-server
 - `now` package has been replaced with `vercel`.
 - CircleCI variable renamed from `$NOW_TOKEN` to `$VERCEL_TOKEN`.
 - `npm run now:publish` renamed to `npm run vercel:publish`.
+- `now` v1 configuration with docker deployment is removed.
 
 ### _Waffle.io_
 

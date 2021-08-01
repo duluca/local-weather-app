@@ -36,8 +36,6 @@
     "docker:debug": "run-s -cs docker:build docker:run docker:open docker:debugmessage docker:taillogs",
     "prevercel:publish": "npm run build:prod",
     "vercel:publish": "vercel --platform-version 2 --prod dist/local-weather-app",
-    "prevercel:publish:docker": "npm run build:prod",
-    "vercel:publish:docker": "vercel --local-config now-v1.json",
     "test:a11y": "pa11y --standard Section508 http://localhost:5000",
     "test:a11y:ci": "pa11y-ci",
     "gcloud:tag": "docker tag duluca/localcast-weather gcr.io/localcast-weather/localcast-weather",

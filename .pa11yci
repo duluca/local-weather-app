@@ -9,6 +9,6 @@
         }
     },
     "urls": [
-        "https://localcast-weather.duluca.now.sh/"
+        "https://local-weather-app-duluca.vercel.app"
     ]
 }
