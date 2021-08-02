@@ -86,6 +86,10 @@ Changes are inevitable to keep the project up-to-date with libraries, tools, pat
 - Added `npm run watch` command
 - Strict settings on by default
 
+## Augury
+
+- `Augury` extension is deprecated. Get use `Angular DevTools` instead: https://angular.io/guide/devtools.
+
 ## Renamed `master` branch to `main`
 
 If you already have a `master` branch locally, then execute the following commands:
