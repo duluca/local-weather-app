@@ -8,7 +8,11 @@
       "sourceRoot": "src",
       "projectType": "application",
       "prefix": "app",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -92,8 +96,14 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["src/localcast-theme.scss", "src/styles.css"],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/localcast-theme.scss",
+              "src/styles.css"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -107,8 +117,14 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["tsconfig.app.json", "tsconfig.spec.json", "e2e/tsconfig.json"],
-            "exclude": ["**/node_modules/**"]
+            "tsConfig": [
+              "tsconfig.app.json",
+              "tsconfig.spec.json",
+              "e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         },
         "e2e": {
@@ -128,7 +144,11 @@
     },
     "ch2": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
       "root": "projects/ch2",
       "sourceRoot": "projects/ch2/src",
       "prefix": "app",
@@ -141,8 +161,13 @@
             "main": "projects/ch2/src/main.ts",
             "polyfills": "projects/ch2/src/polyfills.ts",
             "tsConfig": "projects/ch2/tsconfig.app.json",
-            "assets": ["projects/ch2/src/favicon.ico", "projects/ch2/src/assets"],
-            "styles": ["projects/ch2/src/styles.css"],
+            "assets": [
+              "projects/ch2/src/favicon.ico",
+              "projects/ch2/src/assets"
+            ],
+            "styles": [
+              "projects/ch2/src/styles.css"
+            ],
             "scripts": [],
             "vendorChunk": true,
             "extractLicenses": false,
@@ -153,7 +178,6 @@
           },
           "configurations": {
             "production": {
-
               "budgets": [
                 {
                   "type": "initial",
@@ -209,8 +233,13 @@
             "polyfills": "projects/ch2/src/polyfills.ts",
             "tsConfig": "projects/ch2/tsconfig.spec.json",
             "karmaConfig": "projects/ch2/karma.conf.js",
-            "assets": ["projects/ch2/src/favicon.ico", "projects/ch2/src/assets"],
-            "styles": ["projects/ch2/src/styles.css"],
+            "assets": [
+              "projects/ch2/src/favicon.ico",
+              "projects/ch2/src/assets"
+            ],
+            "styles": [
+              "projects/ch2/src/styles.css"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -229,7 +258,9 @@
               "projects/ch2/tsconfig.spec.json",
               "projects/ch2/e2e/tsconfig.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         },
         "e2e": {
@@ -249,7 +280,11 @@
     },
     "ch3": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
       "root": "projects/ch3",
       "sourceRoot": "projects/ch3/src",
       "prefix": "app",
@@ -262,8 +297,13 @@
             "main": "projects/ch3/src/main.ts",
             "polyfills": "projects/ch3/src/polyfills.ts",
             "tsConfig": "projects/ch3/tsconfig.app.json",
-            "assets": ["projects/ch3/src/favicon.ico", "projects/ch3/src/assets"],
-            "styles": ["projects/ch3/src/styles.css"],
+            "assets": [
+              "projects/ch3/src/favicon.ico",
+              "projects/ch3/src/assets"
+            ],
+            "styles": [
+              "projects/ch3/src/styles.css"
+            ],
             "scripts": [],
             "vendorChunk": true,
             "extractLicenses": false,
@@ -329,8 +369,13 @@
             "polyfills": "projects/ch3/src/polyfills.ts",
             "tsConfig": "projects/ch3/tsconfig.spec.json",
             "karmaConfig": "projects/ch3/karma.conf.js",
-            "assets": ["projects/ch3/src/favicon.ico", "projects/ch3/src/assets"],
-            "styles": ["projects/ch3/src/styles.css"],
+            "assets": [
+              "projects/ch3/src/favicon.ico",
+              "projects/ch3/src/assets"
+            ],
+            "styles": [
+              "projects/ch3/src/styles.css"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -349,7 +394,9 @@
               "projects/ch3/tsconfig.spec.json",
               "projects/ch3/e2e/tsconfig.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         },
         "e2e": {
@@ -369,7 +416,11 @@
     },
     "ch4": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
       "root": "projects/ch4",
       "sourceRoot": "projects/ch4/src",
       "prefix": "app",
@@ -382,8 +433,13 @@
             "main": "projects/ch4/src/main.ts",
             "polyfills": "projects/ch4/src/polyfills.ts",
             "tsConfig": "projects/ch4/tsconfig.app.json",
-            "assets": ["projects/ch4/src/favicon.ico", "projects/ch4/src/assets"],
-            "styles": ["projects/ch4/src/styles.css"],
+            "assets": [
+              "projects/ch4/src/favicon.ico",
+              "projects/ch4/src/assets"
+            ],
+            "styles": [
+              "projects/ch4/src/styles.css"
+            ],
             "scripts": [],
             "vendorChunk": true,
             "extractLicenses": false,
@@ -449,8 +505,13 @@
             "polyfills": "projects/ch4/src/polyfills.ts",
             "tsConfig": "projects/ch4/tsconfig.spec.json",
             "karmaConfig": "projects/ch4/karma.conf.js",
-            "assets": ["projects/ch4/src/favicon.ico", "projects/ch4/src/assets"],
-            "styles": ["projects/ch4/src/styles.css"],
+            "assets": [
+              "projects/ch4/src/favicon.ico",
+              "projects/ch4/src/assets"
+            ],
+            "styles": [
+              "projects/ch4/src/styles.css"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -469,7 +530,9 @@
               "projects/ch4/tsconfig.spec.json",
               "projects/ch4/e2e/tsconfig.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         },
         "e2e": {
@@ -489,7 +552,11 @@
     },
     "ch5": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
       "root": "projects/ch5",
       "sourceRoot": "projects/ch5/src",
       "prefix": "app",
@@ -502,7 +569,10 @@
             "main": "projects/ch5/src/main.ts",
             "polyfills": "projects/ch5/src/polyfills.ts",
             "tsConfig": "projects/ch5/tsconfig.app.json",
-            "assets": ["projects/ch5/src/favicon.ico", "projects/ch5/src/assets"],
+            "assets": [
+              "projects/ch5/src/favicon.ico",
+              "projects/ch5/src/assets"
+            ],
             "styles": [
               "projects/ch5/src/localcast-theme.scss",
               "projects/ch5/src/styles.css"
@@ -572,7 +642,10 @@
             "polyfills": "projects/ch5/src/polyfills.ts",
             "tsConfig": "projects/ch5/tsconfig.spec.json",
             "karmaConfig": "projects/ch5/karma.conf.js",
-            "assets": ["projects/ch5/src/favicon.ico", "projects/ch5/src/assets"],
+            "assets": [
+              "projects/ch5/src/favicon.ico",
+              "projects/ch5/src/assets"
+            ],
             "styles": [
               "projects/ch5/src/localcast-theme.scss",
               "projects/ch5/src/styles.css"
@@ -595,7 +668,9 @@
               "projects/ch5/tsconfig.spec.json",
               "projects/ch5/e2e/tsconfig.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         },
         "e2e": {
@@ -615,7 +690,11 @@
     },
     "ch6": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
       "root": "projects/ch6",
       "sourceRoot": "projects/ch6/src",
       "prefix": "app",
@@ -628,7 +707,10 @@
             "main": "projects/ch6/src/main.ts",
             "polyfills": "projects/ch6/src/polyfills.ts",
             "tsConfig": "projects/ch6/tsconfig.app.json",
-            "assets": ["projects/ch6/src/favicon.ico", "projects/ch6/src/assets"],
+            "assets": [
+              "projects/ch6/src/favicon.ico",
+              "projects/ch6/src/assets"
+            ],
             "styles": [
               "projects/ch6/src/localcast-theme.scss",
               "projects/ch6/src/styles.css"
@@ -698,7 +780,10 @@
             "polyfills": "projects/ch6/src/polyfills.ts",
             "tsConfig": "projects/ch6/tsconfig.spec.json",
             "karmaConfig": "projects/ch6/karma.conf.js",
-            "assets": ["projects/ch6/src/favicon.ico", "projects/ch6/src/assets"],
+            "assets": [
+              "projects/ch6/src/favicon.ico",
+              "projects/ch6/src/assets"
+            ],
             "styles": [
               "projects/ch6/src/localcast-theme.scss",
               "projects/ch6/src/styles.css"
@@ -721,7 +806,9 @@
               "projects/ch6/tsconfig.spec.json",
               "projects/ch6/e2e/tsconfig.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         },
         "e2e": {
@@ -741,7 +828,11 @@
     },
     "ch12": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
       "root": "projects/ch12",
       "sourceRoot": "projects/ch12/src",
       "prefix": "app",
@@ -754,7 +845,10 @@
             "main": "projects/ch12/src/main.ts",
             "polyfills": "projects/ch12/src/polyfills.ts",
             "tsConfig": "projects/ch12/tsconfig.app.json",
-            "assets": ["projects/ch12/src/favicon.ico", "projects/ch12/src/assets"],
+            "assets": [
+              "projects/ch12/src/favicon.ico",
+              "projects/ch12/src/assets"
+            ],
             "styles": [
               "projects/ch12/src/localcast-theme.scss",
               "projects/ch12/src/styles.css"
@@ -824,7 +918,10 @@
             "polyfills": "projects/ch12/src/polyfills.ts",
             "tsConfig": "projects/ch12/tsconfig.spec.json",
             "karmaConfig": "projects/ch12/karma.conf.js",
-            "assets": ["projects/ch12/src/favicon.ico", "projects/ch12/src/assets"],
+            "assets": [
+              "projects/ch12/src/favicon.ico",
+              "projects/ch12/src/assets"
+            ],
             "styles": [
               "projects/ch12/src/localcast-theme.scss",
               "projects/ch12/src/styles.css"
@@ -847,7 +944,9 @@
               "projects/ch12/tsconfig.spec.json",
               "projects/ch12/e2e/tsconfig.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         },
         "e2e": {
