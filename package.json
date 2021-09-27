@@ -67,7 +67,7 @@
     "@ngrx/effects": "^12.3.0",
     "@ngrx/store": "^12.3.0",
     "@ngrx/store-devtools": "^12.3.0",
-    "rxjs": "^6.6.3",
+    "rxjs": "^6.6.7",
     "subsink": "^1.0.2",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
