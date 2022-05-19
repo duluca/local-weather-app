@@ -44,3 +44,4 @@ Thumbs.db
 dist.tar.gz
 test_results
 .env
+.angular
