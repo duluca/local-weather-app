@@ -66,7 +66,7 @@
     "@angular/router": "12.1.4",
     "@ngrx/effects": "^12.3.0",
     "@ngrx/store": "^12.3.0",
-    "@ngrx/store-devtools": "^12.3.0",
+    "@ngrx/store-devtools": "^12.5.1",
     "rxjs": "^6.6.3",
     "subsink": "^1.0.2",
     "tslib": "^2.3.0",
