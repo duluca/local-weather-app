@@ -70,7 +70,7 @@
     "rxjs": "^6.6.3",
     "subsink": "^1.0.2",
     "tslib": "^2.3.0",
-    "zone.js": "~0.11.4"
+    "zone.js": "~0.13.1"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~12.1.4",
