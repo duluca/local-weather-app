@@ -1,7 +1,7 @@
 version: 2.1
 orbs:
-  coveralls: coveralls/coveralls@1.0.6
-  browser-tools: circleci/browser-tools@1.4.1
+  coveralls: coveralls/coveralls@2.2.1
+  browser-tools: circleci/browser-tools@1.4.3
 commands:
   install:
     description: 'Install project dependencies'
@@ -167,7 +167,6 @@ jobs:
       - build_and_test:
           project: 'ch12'
 workflows:
-  version: 2
   build-test-and-approval-deploy:
     jobs:
       - initialize
