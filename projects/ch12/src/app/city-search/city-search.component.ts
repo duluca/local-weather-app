@@ -22,14 +22,15 @@ export class CitySearchComponent {
   ) {
     this.search.valueChanges
       .pipe(
+        filter((searchValue) => this.search.valid),
         debounceTime(1000),
-        filter(() => !this.search.invalid),
-        tap((searchValue: string) => this.doSearch(searchValue))
+        tap((searchValue) => this.doSearch(searchValue))
       )
       .subscribe()
   }
 
-  doSearch(searchValue: string) {
+  doSearch(searchValue: string | null) {
+    if (searchValue === null) return
     const userInput = searchValue.split(',').map((s) => s.trim())
     const searchText = userInput[0]
     const country = userInput.length > 1 ? userInput[1] : undefined

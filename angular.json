@@ -873,6 +873,5 @@
         }
       }
     }
-  },
-  "defaultProject": "local-weather-app"
+  }
 }
