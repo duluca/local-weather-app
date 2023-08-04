@@ -83,7 +83,7 @@
     "@types/node": "^16.4.10",
     "angular-unit-test-helper": "^12.0.0",
     "codelyzer": "^6.0.2",
-    "cross-conf-env": "^1.2.1",
+    "cross-conf-env": "^1.3.0",
     "dev-norms": "1.7.1",
     "import-sort": "^6.0.0",
     "import-sort-cli": "^6.0.0",
