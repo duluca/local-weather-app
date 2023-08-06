@@ -21,7 +21,6 @@ export class CitySearchComponent {
     private store: Store<fromSearch.State>
   ) {
     this.search.valueChanges
-    this.search.valueChanges
       .pipe(
         filter((searchValue) => this.search.valid),
         debounceTime(1000),
