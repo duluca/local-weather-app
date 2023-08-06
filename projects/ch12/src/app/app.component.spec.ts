@@ -5,18 +5,16 @@ import { AppMaterialModule } from './app-material.module'
 import { AppComponent } from './app.component'
 
 describe('AppComponent', () => {
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [
-          AppComponent,
-          createComponentMock('CurrentWeatherComponent'),
-          createComponentMock('CitySearchComponent'),
-        ],
-        imports: [AppMaterialModule],
-      }).compileComponents()
-    })
-  )
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      declarations: [
+        AppComponent,
+        createComponentMock('CurrentWeatherComponent'),
+        createComponentMock('CitySearchComponent'),
+      ],
+      imports: [AppMaterialModule],
+    }).compileComponents()
+  }))
 
   it('should create the app', () => {
     const fixture = TestBed.createComponent(AppComponent)

@@ -8,14 +8,12 @@ describe('CurrentWeatherComponent', () => {
   let component: CurrentWeatherComponent
   let fixture: ComponentFixture<CurrentWeatherComponent>
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [CurrentWeatherComponent],
-        providers: [{ provide: WeatherService, useClass: WeatherServiceFake }],
-      }).compileComponents()
-    })
-  )
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      declarations: [CurrentWeatherComponent],
+      providers: [{ provide: WeatherService, useClass: WeatherServiceFake }],
+    }).compileComponents()
+  }))
 
   beforeEach(() => {
     fixture = TestBed.createComponent(CurrentWeatherComponent)

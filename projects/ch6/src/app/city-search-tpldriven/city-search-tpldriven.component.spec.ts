@@ -17,23 +17,21 @@ describe('CitySearchTpldrivenComponent', () => {
   let fixture: ComponentFixture<CitySearchTpldrivenComponent>
   let weatherServiceMock: jasmine.SpyObj<WeatherService>
 
-  beforeEach(
-    waitForAsync(() => {
-      const weatherServiceSpy = autoSpyObj(
-        WeatherService,
-        ['currentWeather$'],
-        ObservablePropertyStrategy.BehaviorSubject
-      )
+  beforeEach(waitForAsync(() => {
+    const weatherServiceSpy = autoSpyObj(
+      WeatherService,
+      ['currentWeather$'],
+      ObservablePropertyStrategy.BehaviorSubject
+    )
 
-      TestBed.configureTestingModule({
-        declarations: [CitySearchTpldrivenComponent],
-        providers: [{ provide: WeatherService, useValue: weatherServiceSpy }],
-        imports: [FormsModule, MaterialModule, NoopAnimationsModule],
-      }).compileComponents()
+    TestBed.configureTestingModule({
+      declarations: [CitySearchTpldrivenComponent],
+      providers: [{ provide: WeatherService, useValue: weatherServiceSpy }],
+      imports: [FormsModule, MaterialModule, NoopAnimationsModule],
+    }).compileComponents()
 
-      weatherServiceMock = injectSpy(WeatherService)
-    })
-  )
+    weatherServiceMock = injectSpy(WeatherService)
+  }))
 
   beforeEach(() => {
     fixture = TestBed.createComponent(CitySearchTpldrivenComponent)

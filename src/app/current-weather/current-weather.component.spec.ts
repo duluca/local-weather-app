@@ -22,27 +22,25 @@ describe('CurrentWeatherComponent', () => {
   let store: MockStore<{ search: { current: ICurrentWeather } }>
   const initialState = { search: { current: defaultWeather } }
 
-  beforeEach(
-    waitForAsync(() => {
-      const weatherServiceSpy = autoSpyObj(
-        WeatherService,
-        ['currentWeather$'],
-        ObservablePropertyStrategy.BehaviorSubject
-      )
+  beforeEach(waitForAsync(() => {
+    const weatherServiceSpy = autoSpyObj(
+      WeatherService,
+      ['currentWeather$'],
+      ObservablePropertyStrategy.BehaviorSubject
+    )
 
-      TestBed.configureTestingModule({
-        declarations: [CurrentWeatherComponent],
-        imports: [AppMaterialModule],
-        providers: [
-          { provide: WeatherService, useValue: weatherServiceSpy },
-          provideMockStore({ initialState }),
-        ],
-      }).compileComponents()
+    TestBed.configureTestingModule({
+      declarations: [CurrentWeatherComponent],
+      imports: [AppMaterialModule],
+      providers: [
+        { provide: WeatherService, useValue: weatherServiceSpy },
+        provideMockStore({ initialState }),
+      ],
+    }).compileComponents()
 
-      weatherServiceMock = injectSpy(WeatherService)
-      store = TestBed.inject(Store) as any
-    })
-  )
+    weatherServiceMock = injectSpy(WeatherService)
+    store = TestBed.inject(Store) as any
+  }))
 
   beforeEach(() => {
     fixture = TestBed.createComponent(CurrentWeatherComponent)

@@ -6,13 +6,11 @@ describe('CurrentWeatherComponent', () => {
   let component: CurrentWeatherComponent
   let fixture: ComponentFixture<CurrentWeatherComponent>
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [CurrentWeatherComponent],
-      }).compileComponents()
-    })
-  )
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      declarations: [CurrentWeatherComponent],
+    }).compileComponents()
+  }))
 
   beforeEach(() => {
     fixture = TestBed.createComponent(CurrentWeatherComponent)

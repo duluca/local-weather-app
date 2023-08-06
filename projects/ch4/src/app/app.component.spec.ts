@@ -4,13 +4,11 @@ import { createComponentMock } from 'angular-unit-test-helper'
 import { AppComponent } from './app.component'
 
 describe('AppComponent', () => {
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [AppComponent, createComponentMock('CurrentWeatherComponent')],
-      }).compileComponents()
-    })
-  )
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      declarations: [AppComponent, createComponentMock('CurrentWeatherComponent')],
+    }).compileComponents()
+  }))
 
   it('should create the app', () => {
     const fixture = TestBed.createComponent(AppComponent)

@@ -5,14 +5,12 @@ import { AppComponent } from './app.component'
 import { MaterialModule } from './material.module'
 
 describe('AppComponent', () => {
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [AppComponent, createComponentMock('CurrentWeatherComponent')],
-        imports: [MaterialModule],
-      }).compileComponents()
-    })
-  )
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      declarations: [AppComponent, createComponentMock('CurrentWeatherComponent')],
+      imports: [MaterialModule],
+    }).compileComponents()
+  }))
 
   it('should create the app', () => {
     const fixture = TestBed.createComponent(AppComponent)
