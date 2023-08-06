@@ -17,7 +17,7 @@ commands:
       - when:
           condition: << parameters.warm-cache >>
           steps:
-            - run: npm ci
+            - run: npm ci --legacy-peer-deps
             # Pre-build Angular modules
             - run: npx ngcc --properties es2015
             # force update the webdriver, so it runs with latest version of Chrome
