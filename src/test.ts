@@ -8,6 +8,8 @@ import {
   platformBrowserDynamicTesting,
 } from '@angular/platform-browser-dynamic/testing'
 
+// import { ngMocks } from 'ng-mocks'
+
 declare const require: {
   context(
     path: string,
@@ -28,3 +30,8 @@ getTestBed().initTestEnvironment(
 const context = require.context('./', true, /\.spec\.ts$/)
 // And load the modules.
 context.keys().map(context)
+
+// All methods in mock declarations and providers
+// will be automatically spied on their creation.
+// https://ng-mocks.sudo.eu/extra/auto-spy
+// ngMocks.autoSpy('jasmine'); // or jest
