@@ -75,7 +75,7 @@ describe('CurrentWeatherComponent', () => {
 
       // Assert on DOM
       const debugEl = fixture.debugElement
-      const titleEl: HTMLElement = debugEl.query(By.css('.mat-title')).nativeElement
+      const titleEl: HTMLElement = debugEl.query(By.css('.mat-headline-6')).nativeElement
       expect(titleEl.textContent).toContain('Bethesda')
       done()
     })
