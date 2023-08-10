@@ -6,7 +6,7 @@
 
 > See [Changes](#changes) section for important or breaking changes made to the project.
 
-![Angular Version](https://img.shields.io/badge/angular-v15-326839)
+![Angular Version](https://img.shields.io/badge/angular-v16-326839)
 [![CircleCI](https://circleci.com/gh/duluca/local-weather-app/tree/main.svg?style=svg)](https://circleci.com/gh/duluca/local-weather-app/tree/main)
 [![DeepScan grade](https://deepscan.io/api/teams/1906/projects/5034/branches/39254/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=1906&pid=5034&bid=39254)
 [![Coverage Status](https://coveralls.io/repos/github/duluca/local-weather-app/badge.svg?branch=main)](https://coveralls.io/github/duluca/local-weather-app?branch=main)
@@ -57,8 +57,7 @@ This app was developed to demonstrate Angular fundementals, unit testing, and di
 ### During Development
 
 - Run `npm start` for a developmenet web server.
-- Navigate to `http://localhost:5000/`. The app will automatically reload if you change any of the source files.
-  - Note that the port is different than the default Angular port of `4200` intentionally, so you can run test projects or proof of concepts side-by-side without the hassle of specifiying a new port.
+- Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 - Run `npm test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 - Run `npm run e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
