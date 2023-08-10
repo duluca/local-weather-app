@@ -76,7 +76,7 @@
     "@angular/cli": "15.2.9",
     "@angular/compiler-cli": "^15.2.9",
     "@angular/language-service": "^15.2.9",
-    "@ngrx/schematics": "^15.4.0",
+    "@ngrx/schematics": "^16.2.0",
     "@types/jasmine": "~4.3.5",
     "@types/jasminewd2": "~2.0.10",
     "@types/node": "^20.4.9",
