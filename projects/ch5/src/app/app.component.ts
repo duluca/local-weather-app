@@ -14,10 +14,10 @@ import { Component } from '@angular/core'
       </div>
       <div fxLayout="row">
         <div fxFlex></div>
-        <mat-card fxFlex="300px">
+        <mat-card appearance="outlined" fxFlex="300px">
           <mat-card-header>
             <mat-card-title>
-              <div class="mat-headline">Current Weather</div>
+              <div class="mat-headline-5">Current Weather</div>
             </mat-card-title>
           </mat-card-header>
           <mat-card-content>
