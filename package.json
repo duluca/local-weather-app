@@ -79,7 +79,7 @@
     "@ngrx/schematics": "^14.3.3",
     "@types/jasmine": "~4.0.2",
     "@types/jasminewd2": "~2.0.10",
-    "@types/node": "^16.4.10",
+    "@types/node": "^20.4.9",
     "angular-unit-test-helper": "^14.0.1",
     "codelyzer": "^6.0.2",
     "cross-conf-env": "^1.3.0",
