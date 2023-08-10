@@ -6,7 +6,7 @@
 
 > See [Changes](#changes) section for important or breaking changes made to the project.
 
-![Angular Version](https://img.shields.io/badge/angular-v12-326839)
+![Angular Version](https://img.shields.io/badge/angular-v15-326839)
 [![CircleCI](https://circleci.com/gh/duluca/local-weather-app/tree/main.svg?style=svg)](https://circleci.com/gh/duluca/local-weather-app/tree/main)
 [![DeepScan grade](https://deepscan.io/api/teams/1906/projects/5034/branches/39254/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=1906&pid=5034&bid=39254)
 [![Coverage Status](https://coveralls.io/repos/github/duluca/local-weather-app/badge.svg?branch=main)](https://coveralls.io/github/duluca/local-weather-app?branch=main)
@@ -77,6 +77,22 @@ See the example project here https://github.com/duluca/lemon-mart-server
 # Changes
 
 Changes are inevitable to keep the project up-to-date with libraries, tools, patterns and practices. Below are some notable changes that differ from the 1st and 2nd edition of my book.
+
+## Angular 16 (planned)
+
+- Plan to replace jasmine and karma with Jest
+- Plan to replace tslint with eslint
+- Plan to move to standalone configuration and using @ngrx/component-store
+
+## Angular 13-15
+
+- Updated `dev-norms.md`
+- Introduced `ngx-mock` to supplement `angular-unit-test-helper` for mocking components
+- Replaced `@angular/flex-layout` with `@ngbracket/ngx-layout`
+- Removed `jsbeautify` and `import-sort` in prep for migration to eslint
+- Disabled code coverage in prep for migration to Jest
+- Updated `style` and `lint` scripts
+- Updated `config.yml` for CircleCI updates
 
 ## Angular 12 configuration changes
 
