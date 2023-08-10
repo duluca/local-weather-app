@@ -13,22 +13,20 @@ describe('CurrentWeatherComponent', () => {
   let fixture: ComponentFixture<CurrentWeatherComponent>
   let weatherServiceMock: jasmine.SpyObj<WeatherService>
 
-  beforeEach(
-    waitForAsync(() => {
-      const weatherServiceSpy = jasmine.createSpyObj('WeatherService', [
-        'getCurrentWeather',
-      ])
+  beforeEach(waitForAsync(() => {
+    const weatherServiceSpy = jasmine.createSpyObj('WeatherService', [
+      'getCurrentWeather',
+    ])
 
-      TestBed.configureTestingModule({
-        declarations: [CurrentWeatherComponent],
-        imports: [MaterialModule],
-        providers: [{ provide: WeatherService, useValue: weatherServiceSpy }],
-      }).compileComponents()
+    TestBed.configureTestingModule({
+      declarations: [CurrentWeatherComponent],
+      imports: [MaterialModule],
+      providers: [{ provide: WeatherService, useValue: weatherServiceSpy }],
+    }).compileComponents()
 
-      // weatherServiceMock = TestBed.inject(WeatherService) as any
-      weatherServiceMock = injectSpy(WeatherService)
-    })
-  )
+    // weatherServiceMock = TestBed.inject(WeatherService) as any
+    weatherServiceMock = injectSpy(WeatherService)
+  }))
 
   beforeEach(() => {
     fixture = TestBed.createComponent(CurrentWeatherComponent)

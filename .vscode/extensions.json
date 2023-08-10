@@ -1,18 +1,14 @@
 {
   "recommendations": [
     "johnpapa.angular-essentials",
-    "PKief.material-icon-theme",
-    "formulahendry.auto-close-tag",
-    "ms-azuretools.vscode-docker",
     "eamodio.gitlens",
-    "WallabyJs.quokka-vscode",
-    "amatiasq.sort-imports",
-    "DSKWRK.vscode-generate-getter-setter",
     "esbenp.prettier-vscode",
-    "HookyQR.beautify",
-    "expertly-simple.ng-evergreen",
-    "msjsdiag.debugger-for-edge",
     "johnpapa.vscode-peacock",
-    "ms-vscode.vscode-typescript-tslint-plugin"
+    "ms-azuretools.vscode-docker",
+    "dbaeumer.vscode-eslint",
+    "PKief.material-icon-theme",
+    "WallabyJs.quokka-vscode",
+    "circleci.circleci",
+    "github.vscode-pull-request-github"
   ]
 }
