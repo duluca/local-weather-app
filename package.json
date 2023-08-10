@@ -73,7 +73,7 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^15.2.9",
-    "@angular/cli": "15.2.9",
+    "@angular/cli": "16.2.0",
     "@angular/compiler-cli": "^15.2.9",
     "@angular/language-service": "^15.2.9",
     "@ngrx/schematics": "^15.4.0",
