@@ -13,6 +13,7 @@ export const fakeWeather: ICurrentWeather = {
 }
 
 export class WeatherServiceFake implements IWeatherService {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   public getCurrentWeather(city: string, country: string): Observable<ICurrentWeather> {
     return of(fakeWeather)
   }

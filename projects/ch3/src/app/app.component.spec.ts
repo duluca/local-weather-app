@@ -18,7 +18,7 @@ describe('AppComponent', () => {
   it(`should have as title 'local-weather-app'`, () => {
     const fixture = TestBed.createComponent(AppComponent)
     const app = fixture.componentInstance
-    // @ts-ignore
+
     expect(app.title).toEqual('local-weather-app')
   })
 

@@ -7,8 +7,6 @@ import { WeatherService } from '../weather/weather.service'
 import { fakeWeather } from '../weather/weather.service.fake'
 import { CurrentWeatherComponent } from './current-weather.component'
 
-// @ts-ignore
-
 // ###################################################################
 // Advanced High-Performance Unit Test Setup sans TestBed
 // By Brendon Caulkins
@@ -47,7 +45,6 @@ describe('CurrentWeatherComponent (no TestBed)', () => {
     // After migrating to ngrx, everything happens in the constructor...
     //  ... which is normally called by fixture.detectChanges() ...
     //  ... so that action is up to us to call manually as our Act
-    // @ts-ignore
     component = new CurrentWeatherComponent(weatherServiceMock, store)
 
     // Assert
@@ -62,7 +59,6 @@ describe('CurrentWeatherComponent (no TestBed)', () => {
     weatherServiceMock.currentWeather$.next(fakeWeather)
 
     // Act
-    // @ts-ignore
     component = new CurrentWeatherComponent(weatherServiceMock, store)
 
     // Assert
@@ -79,7 +75,6 @@ describe('CurrentWeatherComponent (no TestBed)', () => {
   // Disabled with migration to ngrx
   xdescribe('(pre-ngrx)', () => {
     beforeEach(() => {
-      // @ts-ignore
       component = new CurrentWeatherComponent(weatherServiceMock, store)
     })
 
@@ -89,7 +84,6 @@ describe('CurrentWeatherComponent (no TestBed)', () => {
 
       // Act
       // Lifecycle hooks must be called manually
-      // @ts-ignore
       component.ngOnInit()
 
       // Assert
@@ -102,7 +96,6 @@ describe('CurrentWeatherComponent (no TestBed)', () => {
 
       // Act
       // Lifecycle hooks must be called manually
-      // @ts-ignore
       component.ngOnInit()
 
       // Assert

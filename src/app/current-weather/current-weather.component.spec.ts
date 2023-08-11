@@ -39,7 +39,7 @@ describe('CurrentWeatherComponent', () => {
     }).compileComponents()
 
     weatherServiceMock = injectSpy(WeatherService)
-    store = TestBed.inject(Store) as any
+    store = TestBed.inject(Store) as MockStore<{ search: { current: ICurrentWeather } }>
   }))
 
   beforeEach(() => {
