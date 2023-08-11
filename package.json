@@ -92,7 +92,7 @@
     "cypress": "^12.16.0",
     "dev-norms": "^2.0.4",
     "eslint": "^8.44.0",
-    "eslint-config-prettier": "^8.10.0",
+    "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-cypress": "^2.10.3",
     "init-dev-env": "^2.0.0",
     "jasmine": "^4.3.0",
