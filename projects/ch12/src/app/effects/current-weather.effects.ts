@@ -8,7 +8,10 @@ import { WeatherService } from '../weather/weather.service'
 
 @Injectable()
 export class CurrentWeatherEffects {
-  constructor(private actions$: Actions, private weatherService: WeatherService) {}
+  constructor(
+    private actions$: Actions,
+    private weatherService: WeatherService
+  ) {}
 
   getCurrentWeather$ = createEffect(() =>
     this.actions$.pipe(
