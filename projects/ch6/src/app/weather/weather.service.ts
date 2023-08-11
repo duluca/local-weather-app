@@ -13,7 +13,7 @@ export interface ICurrentWeatherData {
     {
       description: string
       icon: string
-    }
+    },
   ]
   main: {
     temp: number

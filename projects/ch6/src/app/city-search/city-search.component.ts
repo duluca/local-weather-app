@@ -17,7 +17,7 @@ export class CitySearchComponent {
   constructor(private weatherService: WeatherService) {
     this.search.valueChanges
       .pipe(
-        filter((searchValue) => this.search.valid),
+        filter(() => this.search.valid),
         debounceTime(1000),
         tap((searchValue) => this.doSearch(searchValue))
       )

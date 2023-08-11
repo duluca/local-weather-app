@@ -10,7 +10,7 @@ import { WeatherService, defaultWeather } from '../weather/weather.service'
 import { CurrentWeatherEffects } from './current-weather.effects'
 
 describe('CurrentWeatherEffects', () => {
-  const actions$: Observable<any> = of(null)
+  const actions$: Observable<unknown> = of(null)
   const initialState = { search: { current: defaultWeather } }
 
   let effects: CurrentWeatherEffects
@@ -28,7 +28,7 @@ describe('CurrentWeatherEffects', () => {
     })
 
     effects = injectClass(CurrentWeatherEffects)
-    store = TestBed.inject(Store) as any
+    store = TestBed.inject(Store) as MockStore<{ search: { current: ICurrentWeather } }>
     weatherServiceMock = injectSpy(WeatherService)
   })
 

@@ -126,6 +126,15 @@
               "protractorConfig": "e2e/protractor-ci.conf.js"
             }
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     },
@@ -248,6 +257,15 @@
               "devServerTarget": "ch2:serve:production",
               "protractorConfig": "e2e/protractor-ci.conf.js"
             }
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/ch2/**/*.ts",
+              "projects/ch2/**/*.html"
+            ]
           }
         }
       }
@@ -372,6 +390,15 @@
               "protractorConfig": "e2e/protractor-ci.conf.js"
             }
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/ch3/**/*.ts",
+              "projects/ch3/**/*.html"
+            ]
+          }
         }
       }
     },
@@ -494,6 +521,15 @@
               "devServerTarget": "ch4:serve:production",
               "protractorConfig": "e2e/protractor-ci.conf.js"
             }
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/ch4/**/*.ts",
+              "projects/ch4/**/*.html"
+            ]
           }
         }
       }
@@ -620,6 +656,15 @@
               "protractorConfig": "e2e/protractor-ci.conf.js"
             }
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/ch5/**/*.ts",
+              "projects/ch5/**/*.html"
+            ]
+          }
         }
       }
     },
@@ -745,6 +790,15 @@
               "protractorConfig": "e2e/protractor-ci.conf.js"
             }
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/ch6/**/*.ts",
+              "projects/ch6/**/*.html"
+            ]
+          }
         }
       }
     },
@@ -869,6 +923,15 @@
               "devServerTarget": "ch12:serve:production",
               "protractorConfig": "e2e/protractor-ci.conf.js"
             }
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/ch12/**/*.ts",
+              "projects/ch12/**/*.html"
+            ]
           }
         }
       }
