@@ -96,7 +96,7 @@
     "eslint-plugin-cypress": "^2.10.3",
     "init-dev-env": "^2.0.0",
     "jasmine": "^4.3.0",
-    "jasmine-core": "~4.3.0",
+    "jasmine-core": "~5.1.0",
     "jasmine-spec-reporter": "~7.0.0",
     "karma": "~6.3.4",
     "karma-chrome-launcher": "~3.1.0",
