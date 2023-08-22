@@ -85,7 +85,7 @@
     "@types/jasmine": "~4.3.5",
     "@types/jasminewd2": "~2.0.10",
     "@types/node": "^20.4.9",
-    "@typescript-eslint/eslint-plugin": "5.62.0",
+    "@typescript-eslint/eslint-plugin": "6.4.1",
     "@typescript-eslint/parser": "5.62.0",
     "angular-unit-test-helper": "^16.0.0",
     "cross-conf-env": "^1.3.0",
