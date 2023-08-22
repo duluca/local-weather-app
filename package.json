@@ -84,7 +84,7 @@
     "@ngrx/schematics": "^16.2.0",
     "@types/jasmine": "~4.3.5",
     "@types/jasminewd2": "~2.0.10",
-    "@types/node": "^20.4.9",
+    "@types/node": "^20.5.2",
     "@typescript-eslint/eslint-plugin": "5.62.0",
     "@typescript-eslint/parser": "5.62.0",
     "angular-unit-test-helper": "^16.0.0",
