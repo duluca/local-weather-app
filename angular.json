@@ -1,6 +1,9 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
+  "cli": {
+    "packageManager": "npm"
+  },
   "newProjectRoot": "projects",
   "projects": {
     "local-weather-app": {
@@ -9,8 +12,15 @@
       "projectType": "application",
       "prefix": "app",
       "schematics": {
-        "@schematics/angular:application": {
-          "strict": true
+        "@schematics/angular:component": {
+          "style": "scss",
+          "standalone": true
+        },
+        "@schematics/angular:directive": {
+          "standalone": true
+        },
+        "@schematics/angular:pipe": {
+          "standalone": true
         }
       },
       "architect": {
@@ -20,24 +30,19 @@
             "outputPath": "dist/local-weather-app",
             "index": "src/index.html",
             "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
+            "polyfills": [
+              "zone.js"
+            ],
             "tsConfig": "tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/localcast-theme.scss",
-              "src/styles.css"
+              "src/styles.scss"
             ],
-            "scripts": [],
-            "aot": false,
-            "vendorChunk": true,
-            "extractLicenses": false,
-            "buildOptimizer": false,
-            "sourceMap": true,
-            "optimization": false,
-            "namedChunks": true
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -93,16 +98,19 @@
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "main": "src/test.ts",
-            "polyfills": "src/polyfills.ts",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
+            "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/localcast-theme.scss",
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "scripts": []
           },
@@ -141,8 +149,15 @@
     "ch2": {
       "projectType": "application",
       "schematics": {
-        "@schematics/angular:application": {
-          "strict": true
+        "@schematics/angular:component": {
+          "style": "scss",
+          "standalone": true
+        },
+        "@schematics/angular:directive": {
+          "standalone": true
+        },
+        "@schematics/angular:pipe": {
+          "standalone": true
         }
       },
       "root": "projects/ch2",
@@ -155,22 +170,19 @@
             "outputPath": "dist/ch2",
             "index": "projects/ch2/src/index.html",
             "main": "projects/ch2/src/main.ts",
-            "polyfills": "projects/ch2/src/polyfills.ts",
+            "polyfills": [
+              "zone.js"
+            ],
             "tsConfig": "projects/ch2/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
             "assets": [
               "projects/ch2/src/favicon.ico",
               "projects/ch2/src/assets"
             ],
             "styles": [
-              "projects/ch2/src/styles.css"
+              "projects/ch2/src/styles.scss"
             ],
-            "scripts": [],
-            "vendorChunk": true,
-            "extractLicenses": false,
-            "buildOptimizer": false,
-            "sourceMap": true,
-            "optimization": false,
-            "namedChunks": true
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -226,15 +238,19 @@
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "main": "projects/ch2/src/test.ts",
-            "polyfills": "projects/ch2/src/polyfills.ts",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
             "tsConfig": "projects/ch2/tsconfig.spec.json",
             "karmaConfig": "projects/ch2/karma.conf.js",
+            "inlineStyleLanguage": "scss",
             "assets": [
               "projects/ch2/src/favicon.ico",
               "projects/ch2/src/assets"
             ],
             "styles": [
-              "projects/ch2/src/styles.css"
+              "projects/ch2/src/styles.scss"
             ],
             "scripts": []
           },
@@ -273,8 +289,15 @@
     "ch3": {
       "projectType": "application",
       "schematics": {
-        "@schematics/angular:application": {
-          "strict": true
+        "@schematics/angular:component": {
+          "style": "scss",
+          "standalone": true
+        },
+        "@schematics/angular:directive": {
+          "standalone": true
+        },
+        "@schematics/angular:pipe": {
+          "standalone": true
         }
       },
       "root": "projects/ch3",
@@ -287,22 +310,19 @@
             "outputPath": "dist/ch3",
             "index": "projects/ch3/src/index.html",
             "main": "projects/ch3/src/main.ts",
-            "polyfills": "projects/ch3/src/polyfills.ts",
+            "polyfills": [
+              "zone.js"
+            ],
             "tsConfig": "projects/ch3/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
             "assets": [
               "projects/ch3/src/favicon.ico",
               "projects/ch3/src/assets"
             ],
             "styles": [
-              "projects/ch3/src/styles.css"
+              "projects/ch3/src/styles.scss"
             ],
-            "scripts": [],
-            "vendorChunk": true,
-            "extractLicenses": false,
-            "buildOptimizer": false,
-            "sourceMap": true,
-            "optimization": false,
-            "namedChunks": true
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -358,15 +378,19 @@
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "main": "projects/ch3/src/test.ts",
-            "polyfills": "projects/ch3/src/polyfills.ts",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
             "tsConfig": "projects/ch3/tsconfig.spec.json",
             "karmaConfig": "projects/ch3/karma.conf.js",
+            "inlineStyleLanguage": "scss",
             "assets": [
               "projects/ch3/src/favicon.ico",
               "projects/ch3/src/assets"
             ],
             "styles": [
-              "projects/ch3/src/styles.css"
+              "projects/ch3/src/styles.scss"
             ],
             "scripts": []
           },
@@ -405,8 +429,15 @@
     "ch4": {
       "projectType": "application",
       "schematics": {
-        "@schematics/angular:application": {
-          "strict": true
+        "@schematics/angular:component": {
+          "style": "scss",
+          "standalone": true
+        },
+        "@schematics/angular:directive": {
+          "standalone": true
+        },
+        "@schematics/angular:pipe": {
+          "standalone": true
         }
       },
       "root": "projects/ch4",
@@ -419,22 +450,19 @@
             "outputPath": "dist/ch4",
             "index": "projects/ch4/src/index.html",
             "main": "projects/ch4/src/main.ts",
-            "polyfills": "projects/ch4/src/polyfills.ts",
+            "polyfills": [
+              "zone.js"
+            ],
             "tsConfig": "projects/ch4/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
             "assets": [
               "projects/ch4/src/favicon.ico",
               "projects/ch4/src/assets"
             ],
             "styles": [
-              "projects/ch4/src/styles.css"
+              "projects/ch4/src/styles.scss"
             ],
-            "scripts": [],
-            "vendorChunk": true,
-            "extractLicenses": false,
-            "buildOptimizer": false,
-            "sourceMap": true,
-            "optimization": false,
-            "namedChunks": true
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -490,15 +518,19 @@
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "main": "projects/ch4/src/test.ts",
-            "polyfills": "projects/ch4/src/polyfills.ts",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
             "tsConfig": "projects/ch4/tsconfig.spec.json",
             "karmaConfig": "projects/ch4/karma.conf.js",
+            "inlineStyleLanguage": "scss",
             "assets": [
               "projects/ch4/src/favicon.ico",
               "projects/ch4/src/assets"
             ],
             "styles": [
-              "projects/ch4/src/styles.css"
+              "projects/ch4/src/styles.scss"
             ],
             "scripts": []
           },
@@ -537,8 +569,15 @@
     "ch5": {
       "projectType": "application",
       "schematics": {
-        "@schematics/angular:application": {
-          "strict": true
+        "@schematics/angular:component": {
+          "style": "scss",
+          "standalone": true
+        },
+        "@schematics/angular:directive": {
+          "standalone": true
+        },
+        "@schematics/angular:pipe": {
+          "standalone": true
         }
       },
       "root": "projects/ch5",
@@ -551,23 +590,19 @@
             "outputPath": "dist/ch5",
             "index": "projects/ch5/src/index.html",
             "main": "projects/ch5/src/main.ts",
-            "polyfills": "projects/ch5/src/polyfills.ts",
+            "polyfills": [
+              "zone.js"
+            ],
             "tsConfig": "projects/ch5/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
             "assets": [
               "projects/ch5/src/favicon.ico",
               "projects/ch5/src/assets"
             ],
             "styles": [
-              "projects/ch5/src/localcast-theme.scss",
-              "projects/ch5/src/styles.css"
+              "projects/ch5/src/styles.scss"
             ],
-            "scripts": [],
-            "vendorChunk": true,
-            "extractLicenses": false,
-            "buildOptimizer": false,
-            "sourceMap": true,
-            "optimization": false,
-            "namedChunks": true
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -623,16 +658,19 @@
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "main": "projects/ch5/src/test.ts",
-            "polyfills": "projects/ch5/src/polyfills.ts",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
             "tsConfig": "projects/ch5/tsconfig.spec.json",
             "karmaConfig": "projects/ch5/karma.conf.js",
+            "inlineStyleLanguage": "scss",
             "assets": [
               "projects/ch5/src/favicon.ico",
               "projects/ch5/src/assets"
             ],
             "styles": [
-              "projects/ch5/src/localcast-theme.scss",
-              "projects/ch5/src/styles.css"
+              "projects/ch5/src/styles.scss"
             ],
             "scripts": []
           },
@@ -671,8 +709,15 @@
     "ch6": {
       "projectType": "application",
       "schematics": {
-        "@schematics/angular:application": {
-          "strict": true
+        "@schematics/angular:component": {
+          "style": "scss",
+          "standalone": true
+        },
+        "@schematics/angular:directive": {
+          "standalone": true
+        },
+        "@schematics/angular:pipe": {
+          "standalone": true
         }
       },
       "root": "projects/ch6",
@@ -685,23 +730,19 @@
             "outputPath": "dist/ch6",
             "index": "projects/ch6/src/index.html",
             "main": "projects/ch6/src/main.ts",
-            "polyfills": "projects/ch6/src/polyfills.ts",
+            "polyfills": [
+              "zone.js"
+            ],
             "tsConfig": "projects/ch6/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
             "assets": [
               "projects/ch6/src/favicon.ico",
               "projects/ch6/src/assets"
             ],
             "styles": [
-              "projects/ch6/src/localcast-theme.scss",
-              "projects/ch6/src/styles.css"
+              "projects/ch6/src/styles.scss"
             ],
-            "scripts": [],
-            "vendorChunk": true,
-            "extractLicenses": false,
-            "buildOptimizer": false,
-            "sourceMap": true,
-            "optimization": false,
-            "namedChunks": true
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -757,16 +798,19 @@
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "main": "projects/ch6/src/test.ts",
-            "polyfills": "projects/ch6/src/polyfills.ts",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
             "tsConfig": "projects/ch6/tsconfig.spec.json",
             "karmaConfig": "projects/ch6/karma.conf.js",
+            "inlineStyleLanguage": "scss",
             "assets": [
               "projects/ch6/src/favicon.ico",
               "projects/ch6/src/assets"
             ],
             "styles": [
-              "projects/ch6/src/localcast-theme.scss",
-              "projects/ch6/src/styles.css"
+              "projects/ch6/src/styles.scss"
             ],
             "scripts": []
           },
@@ -805,8 +849,15 @@
     "ch12": {
       "projectType": "application",
       "schematics": {
-        "@schematics/angular:application": {
-          "strict": true
+        "@schematics/angular:component": {
+          "style": "scss",
+          "standalone": true
+        },
+        "@schematics/angular:directive": {
+          "standalone": true
+        },
+        "@schematics/angular:pipe": {
+          "standalone": true
         }
       },
       "root": "projects/ch12",
@@ -819,23 +870,19 @@
             "outputPath": "dist/ch12",
             "index": "projects/ch12/src/index.html",
             "main": "projects/ch12/src/main.ts",
-            "polyfills": "projects/ch12/src/polyfills.ts",
+            "polyfills": [
+              "zone.js"
+            ],
             "tsConfig": "projects/ch12/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
             "assets": [
               "projects/ch12/src/favicon.ico",
               "projects/ch12/src/assets"
             ],
             "styles": [
-              "projects/ch12/src/localcast-theme.scss",
-              "projects/ch12/src/styles.css"
+              "projects/ch12/src/styles.scss"
             ],
-            "scripts": [],
-            "vendorChunk": true,
-            "extractLicenses": false,
-            "buildOptimizer": false,
-            "sourceMap": true,
-            "optimization": false,
-            "namedChunks": true
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -891,16 +938,19 @@
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "main": "projects/ch12/src/test.ts",
-            "polyfills": "projects/ch12/src/polyfills.ts",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
             "tsConfig": "projects/ch12/tsconfig.spec.json",
             "karmaConfig": "projects/ch12/karma.conf.js",
+            "inlineStyleLanguage": "scss",
             "assets": [
               "projects/ch12/src/favicon.ico",
               "projects/ch12/src/assets"
             ],
             "styles": [
-              "projects/ch12/src/localcast-theme.scss",
-              "projects/ch12/src/styles.css"
+              "projects/ch12/src/styles.scss"
             ],
             "scripts": []
           },
@@ -932,6 +982,101 @@
               "projects/ch12/**/*.ts",
               "projects/ch12/**/*.html"
             ]
+          }
+        }
+      }
+    },
+    "chat-gpt": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/chat-gpt",
+      "sourceRoot": "projects/chat-gpt/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/chat-gpt",
+            "index": "projects/chat-gpt/src/index.html",
+            "main": "projects/chat-gpt/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/chat-gpt/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/chat-gpt/src/favicon.ico",
+              "projects/chat-gpt/src/assets"
+            ],
+            "styles": [
+              "@angular/material/prebuilt-themes/indigo-pink.scss",
+              "projects/chat-gpt/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "chat-gpt:build:production"
+            },
+            "development": {
+              "browserTarget": "chat-gpt:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "chat-gpt:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/chat-gpt/tsconfig.spec.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/chat-gpt/src/favicon.ico",
+              "projects/chat-gpt/src/assets"
+            ],
+            "styles": [
+              "@angular/material/prebuilt-themes/indigo-pink.scss",
+              "projects/chat-gpt/src/styles.scss"
+            ],
+            "scripts": []
           }
         }
       }

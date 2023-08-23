@@ -1,9 +1,18 @@
-import { Component } from '@angular/core'
+import { Component, OnInit, signal, effect } from '@angular/core'
+import { ThemeService } from './theme.service'
 
 @Component({
   selector: 'app-root',
   template: `
-    <mat-toolbar color="primary"> <span>LocalCast Weather</span> </mat-toolbar>
+    <mat-toolbar color="primary">
+      <span>LocalCast Weather</span>
+      <div fxFlex></div>
+      <mat-icon>brightness_5</mat-icon>
+      <mat-slide-toggle
+        [ngModel]="toggleState()"
+        (change)="toggleTheme($event.checked)"></mat-slide-toggle>
+      <mat-icon>bedtime</mat-icon>
+    </mat-toolbar>
     <div fxLayoutAlign="center">
       <div class="mat-caption vertical-margin">Your city, your forecast, right now!</div>
     </div>
@@ -24,4 +33,16 @@ import { Component } from '@angular/core'
     </div>
   `,
 })
-export class AppComponent {}
+export class AppComponent implements OnInit {
+  toggleState = signal(false)
+
+  constructor(private themeService: ThemeService) {}
+  ngOnInit(): void {
+    this.toggleState.set(this.themeService.darkTheme)
+  }
+
+  toggleTheme(isChecked: boolean): void {
+    this.toggleState.set(isChecked)
+    this.themeService.setDarkTheme(this.toggleState())
+  }
+}
