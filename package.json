@@ -80,7 +80,7 @@
     "@angular-eslint/template-parser": "16.1.0",
     "@angular/cli": "16.2.0",
     "@angular/compiler-cli": "^16.2.0",
-    "@angular/language-service": "^16.2.0",
+    "@angular/language-service": "^16.2.1",
     "@ngrx/schematics": "^16.2.0",
     "@types/jasmine": "~4.3.5",
     "@types/jasminewd2": "~2.0.10",
