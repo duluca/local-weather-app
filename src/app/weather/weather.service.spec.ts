@@ -33,7 +33,7 @@ const fakeWeatherData: ICurrentWeatherData = {
 
 describe('WeatherService', () => {
   let weatherService: WeatherService
-  let postalCodeServiceMock: jasmine.SpyObj<PostalCodeService>
+  let postalCodeServiceMock: jest.Mocked<PostalCodeService>
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -58,7 +58,7 @@ describe('WeatherService', () => {
       // Arrange
       const httpMock = TestBed.inject(HttpTestingController)
       const uriParams = 'q=Bursa'
-      postalCodeServiceMock.resolvePostalCode.and.returnValue(of(defaultPostalCode))
+      postalCodeServiceMock.resolvePostalCode.mockReturnValue(of(defaultPostalCode))
 
       // Act
       weatherService.getCurrentWeather('Bursa').subscribe((data) => {
@@ -84,7 +84,7 @@ describe('WeatherService', () => {
       // Arrange
       const httpMock = TestBed.inject(HttpTestingController)
       const uriParams = 'lat=38.887103&lon=-77.093197'
-      postalCodeServiceMock.resolvePostalCode.and.returnValue(
+      postalCodeServiceMock.resolvePostalCode.mockReturnValue(
         of({
           postalCode: '22201',
           lat: 38.887103,

@@ -10,7 +10,7 @@ import { CurrentWeatherComponent } from './current-weather.component'
 describe('CurrentWeatherComponent', () => {
   let component: CurrentWeatherComponent
   let fixture: ComponentFixture<CurrentWeatherComponent>
-  let weatherServiceMock: jasmine.SpyObj<WeatherService>
+  let weatherServiceMock: jest.Mocked<WeatherService>
 
   beforeEach(waitForAsync(() => {
     const weatherServiceSpy = jasmine.createSpyObj('WeatherService', [
@@ -34,7 +34,7 @@ describe('CurrentWeatherComponent', () => {
 
   it('should create', () => {
     // Arrange
-    weatherServiceMock.getCurrentWeather.and.returnValue(of())
+    weatherServiceMock.getCurrentWeather.mockReturnValue(of())
 
     // Act
     fixture.detectChanges() // triggers ngOnInit
@@ -45,7 +45,7 @@ describe('CurrentWeatherComponent', () => {
 
   it('should get currentWeather from weatherService', () => {
     // Arrange
-    weatherServiceMock.getCurrentWeather.and.returnValue(of())
+    weatherServiceMock.getCurrentWeather.mockReturnValue(of())
 
     // Act
     fixture.detectChanges() // triggers ngOnInit()
@@ -56,7 +56,7 @@ describe('CurrentWeatherComponent', () => {
 
   it('should eagerly load currentWeather in Bethesda from weatherService', () => {
     // Arrange
-    weatherServiceMock.getCurrentWeather.and.returnValue(of(fakeWeather))
+    weatherServiceMock.getCurrentWeather.mockReturnValue(of(fakeWeather))
 
     // Act
     fixture.detectChanges() // triggers ngOnInit()

@@ -26,8 +26,8 @@ import { OnInit } from '@angular/core'
 
 describe('CurrentWeatherComponent (no TestBed)', () => {
   let component: CurrentWeatherComponent
-  let weatherServiceMock: jasmine.SpyObj<WeatherService>
-  let store: jasmine.SpyObj<Store<State>>
+  let weatherServiceMock: jest.Mocked<WeatherService>
+  let store: jest.Mocked<Store<State>>
 
   beforeEach(() => {
     weatherServiceMock = jasmine.createSpyObj(WeatherService.name, ['getCurrentWeather'])
@@ -35,12 +35,12 @@ describe('CurrentWeatherComponent (no TestBed)', () => {
 
     // ngrx data store must be created manually
     store = jasmine.createSpyObj('AppState Store', ['pipe'])
-    store.pipe.and.returnValue(of())
+    store.pipe.mockReturnValue(of())
   })
 
   it('should create', () => {
     // Arrange
-    weatherServiceMock.getCurrentWeather.and.returnValue(of())
+    weatherServiceMock.getCurrentWeather.mockReturnValue(of())
 
     // Act
     // After migrating to ngrx, everything happens in the constructor...
@@ -84,7 +84,7 @@ describe('CurrentWeatherComponent (no TestBed)', () => {
 
     it('should call getCurrentWeather from weatherService', () => {
       // Arrange
-      weatherServiceMock.getCurrentWeather.and.returnValue(of())
+      weatherServiceMock.getCurrentWeather.mockReturnValue(of())
 
       // Act
       // Lifecycle hooks must be called manually
@@ -96,7 +96,7 @@ describe('CurrentWeatherComponent (no TestBed)', () => {
 
     it('should eagerly load currentWeather in Bethesda from weatherService', (done) => {
       // Arrange
-      weatherServiceMock.getCurrentWeather.and.returnValue(of(fakeWeather))
+      weatherServiceMock.getCurrentWeather.mockReturnValue(of(fakeWeather))
 
       // Act
       // Lifecycle hooks must be called manually

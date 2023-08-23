@@ -17,7 +17,7 @@ describe('CitySearchComponent', () => {
   let component: CitySearchComponent
   let fixture: ComponentFixture<CitySearchComponent>
 
-  let weatherServiceMock: jasmine.SpyObj<WeatherService>
+  let weatherServiceMock: jest.Mocked<WeatherService>
 
   beforeEach(waitForAsync(() => {
     const weatherServiceSpy = autoSpyObj(
@@ -50,7 +50,7 @@ describe('CitySearchComponent', () => {
 
   it('should create', () => {
     // Arrange
-    weatherServiceMock.getCurrentWeather.and.returnValue(of())
+    weatherServiceMock.getCurrentWeather.mockReturnValue(of())
 
     // Act
     fixture.detectChanges() // triggers ngOnInit

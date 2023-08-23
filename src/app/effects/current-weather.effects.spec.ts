@@ -15,7 +15,7 @@ describe('CurrentWeatherEffects', () => {
 
   let effects: CurrentWeatherEffects
   let store: MockStore<{ search: { current: ICurrentWeather } }>
-  let weatherServiceMock: jasmine.SpyObj<WeatherService>
+  let weatherServiceMock: jest.Mocked<WeatherService>
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -34,7 +34,7 @@ describe('CurrentWeatherEffects', () => {
 
   it('should be created', () => {
     store.complete()
-    weatherServiceMock.getCurrentWeather.and.returnValue(of(defaultWeather))
+    weatherServiceMock.getCurrentWeather.mockReturnValue(of(defaultWeather))
     expect(effects).toBeTruthy()
   })
 })

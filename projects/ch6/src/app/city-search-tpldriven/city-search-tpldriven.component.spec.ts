@@ -15,7 +15,7 @@ import { CitySearchTpldrivenComponent } from './city-search-tpldriven.component'
 describe('CitySearchTpldrivenComponent', () => {
   let component: CitySearchTpldrivenComponent
   let fixture: ComponentFixture<CitySearchTpldrivenComponent>
-  let weatherServiceMock: jasmine.SpyObj<WeatherService>
+  let weatherServiceMock: jest.Mocked<WeatherService>
 
   beforeEach(waitForAsync(() => {
     const weatherServiceSpy = autoSpyObj(
@@ -40,7 +40,7 @@ describe('CitySearchTpldrivenComponent', () => {
 
   it('should create', () => {
     // Arrange
-    weatherServiceMock.getCurrentWeather.and.returnValue(of())
+    weatherServiceMock.getCurrentWeather.mockReturnValue(of())
 
     // Act
     fixture.detectChanges() // triggers ngOnInit
