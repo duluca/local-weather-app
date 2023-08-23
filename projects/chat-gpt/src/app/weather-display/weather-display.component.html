@@ -1,11 +1,11 @@
 <mat-form-field appearance="fill">
   <mat-label>Enter City</mat-label>
-  <input matInput [(ngModel)]="city" (keyup.enter)="fetchWeather()">
+  <input matInput [(ngModel)]="city" (keyup.enter)="fetchWeather()" />
 </mat-form-field>
 <button mat-raised-button color="primary" (click)="fetchWeather()">Fetch Weather</button>
 
 <div *ngIf="weatherData">
-  <h2>Weather in {{weatherData.name}}</h2>
-  <p>Temperature: {{weatherData.main.temp}}°C</p>
-  <p>Conditions: {{weatherData.weather[0].description}}</p>
+  <h2>Weather in {{ weatherData.name }}</h2>
+  <p>Temperature: {{ weatherData.main.temp }}°C</p>
+  <p>Conditions: {{ weatherData.weather[0].description }}</p>
 </div>
