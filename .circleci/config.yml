@@ -18,10 +18,6 @@ commands:
           condition: << parameters.warm-cache >>
           steps:
             - run: npm ci
-            # Pre-build Angular modules
-            - run: npx ngcc --properties es2015
-            # force update the webdriver, so it runs with latest version of Chrome
-            # - run: cd ./node_modules/protractor && npm i webdriver-manager@latest
             - save_cache:
                 key: node_modules-{{ checksum "package-lock.json" }}
                 paths:
@@ -47,10 +43,7 @@ commands:
       - when:
           condition: << parameters.run-tests >>
           steps:
-            # - run: cd ./node_modules/protractor && npm i webdriver-manager@latest
-            #  --code-coverage
-            - run: npx ng test --watch=false --project << parameters.project >>
-            - run: npx ng e2e << parameters.project >>
+            - run: npx ng test --watch=false --project << parameters.project >> --code-coverage
   store:
     description: 'Stores build_and_test artifacts'
     parameters:
@@ -167,6 +160,14 @@ jobs:
       - install
       - build_and_test:
           project: 'ch12'
+  chat-gpt: # this job is only here to verify sample code from the book, remove it in your own projects
+    docker:
+      - image: cimg/node:lts-browsers
+    working_directory: ~/repo
+    steps:
+      - install
+      - build_and_test:
+          project: 'chat-gpt'
 workflows:
   build-test-and-approval-deploy:
     jobs:
@@ -190,6 +191,9 @@ workflows:
           requires:
             - initialize
       - ch12: # this job is only here to verify sample code from the book, remove it in your own projects
+          requires:
+            - initialize
+      - chat-gpt: # this job is only here to verify sample code from the book, remove it in your own projects
           requires:
             - initialize
       - deploy:
