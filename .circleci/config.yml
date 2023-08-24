@@ -44,8 +44,8 @@ commands:
           steps:
             - attach_workspace:
                 at: ~/
-            # - browser-tools/install-chrome
-            # - browser-tools/install-chromedriver
+            - browser-tools/install-chrome
+            - browser-tools/install-chromedriver
             - run: npx ng test --watch=false --project << parameters.project >> --code-coverage
             # - run: npx ng run << parameters.project >>:cypress-run
   store:
