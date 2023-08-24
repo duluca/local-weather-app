@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http'
 import { Injectable } from '@angular/core'
 import { BehaviorSubject, Observable } from 'rxjs'
-import { map, switchMap } from 'rxjs/operators'
+import { map, switchMap, first } from 'rxjs/operators'
 
 import { environment } from '../../environments/environment'
 import { ICurrentWeather } from '../interfaces'
@@ -92,9 +92,9 @@ export class WeatherService implements IWeatherService {
   }
 
   updateCurrentWeather(search: string, country?: string): void {
-    this.getCurrentWeather(search, country).subscribe((weather) =>
-      this.currentWeather$.next(weather)
-    )
+    this.getCurrentWeather(search, country)
+      .pipe(first())
+      .subscribe((weather) => this.currentWeather$.next(weather))
   }
 
   private getCurrentWeatherHelper(uriParams: HttpParams): Observable<ICurrentWeather> {

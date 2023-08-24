@@ -1,6 +1,6 @@
 import { Store } from '@ngrx/store'
 import { addPropertyAsBehaviorSubject } from 'angular-unit-test-helper'
-import { of } from 'rxjs'
+import { of, first } from 'rxjs'
 
 import { State } from '../reducers'
 import { WeatherService } from '../weather/weather.service'
@@ -64,7 +64,7 @@ describe('CurrentWeatherComponent (no TestBed)', () => {
 
     // Assert
     expect(component.current$).toBeDefined()
-    component.current$.subscribe((current) => {
+    component.current$.pipe(first()).subscribe((current) => {
       if (current) {
         expect(current.city).toEqual('Bethesda')
         expect(current.temperature).toEqual(280.32)
@@ -104,7 +104,7 @@ describe('CurrentWeatherComponent (no TestBed)', () => {
 
       // Assert
       expect(component.current$).toBeDefined()
-      component.current$.subscribe((current) => {
+      component.current$.pipe(first()).subscribe((current) => {
         if (current) {
           expect(current.city).toEqual('Bethesda')
           expect(current.temperature).toEqual(280.32)

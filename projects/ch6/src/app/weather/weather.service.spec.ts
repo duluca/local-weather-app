@@ -4,7 +4,7 @@ import {
 } from '@angular/common/http/testing'
 import { TestBed, inject, waitForAsync } from '@angular/core/testing'
 import { autoSpyObj, injectClass, injectSpy } from 'angular-unit-test-helper'
-import { of } from 'rxjs'
+import { of, first } from 'rxjs'
 
 import { environment } from '../../environments/environment'
 import {
@@ -61,10 +61,13 @@ describe('WeatherService', () => {
       postalCodeServiceMock.resolvePostalCode.and.returnValue(of(defaultPostalCode))
 
       // Act
-      weatherService.getCurrentWeather('Bursa').subscribe((data) => {
-        // Assert
-        expect(data.city).toEqual('Bursa')
-      })
+      weatherService
+        .getCurrentWeather('Bursa')
+        .pipe(first())
+        .subscribe((data) => {
+          // Assert
+          expect(data.city).toEqual('Bursa')
+        })
 
       // Assert
       const request = httpMock.expectOne(
@@ -95,7 +98,7 @@ describe('WeatherService', () => {
       )
 
       // Act
-      weatherService.getCurrentWeather('22201').subscribe()
+      weatherService.getCurrentWeather('22201').pipe(first()).subscribe()
 
       // Assert
       const request = httpMock.expectOne(

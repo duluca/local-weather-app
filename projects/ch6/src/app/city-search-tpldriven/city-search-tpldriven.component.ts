@@ -1,4 +1,5 @@
 import { Component } from '@angular/core'
+import { first } from 'rxjs/operators'
 
 import { WeatherService } from '../weather/weather.service'
 
@@ -17,6 +18,7 @@ export class CitySearchTpldrivenComponent {
     const userInput = searchValue.split(',').map((s) => s.trim())
     this.weatherService
       .getCurrentWeather(userInput[0], userInput.length > 1 ? userInput[1] : undefined)
+      .pipe(first())
       .subscribe((data) => console.log(data))
   }
 }

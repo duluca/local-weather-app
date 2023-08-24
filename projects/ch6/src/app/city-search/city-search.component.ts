@@ -1,6 +1,7 @@
 import { Component } from '@angular/core'
 import { FormControl, Validators } from '@angular/forms'
 import { debounceTime, filter, tap } from 'rxjs/operators'
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
 
 import { WeatherService } from '../weather/weather.service'
 
@@ -17,6 +18,7 @@ export class CitySearchComponent {
   constructor(private weatherService: WeatherService) {
     this.search.valueChanges
       .pipe(
+        takeUntilDestroyed(),
         filter(() => this.search.valid),
         debounceTime(1000),
         tap((searchValue) => this.doSearch(searchValue))

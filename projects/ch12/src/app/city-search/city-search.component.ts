@@ -2,6 +2,7 @@ import { Component } from '@angular/core'
 import { FormControl, Validators } from '@angular/forms'
 import { Store } from '@ngrx/store'
 import { debounceTime, filter, tap } from 'rxjs/operators'
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
 
 import { SearchActions } from '../actions/search.actions'
 import * as fromSearch from '../reducers/search.reducer'
@@ -22,6 +23,7 @@ export class CitySearchComponent {
   ) {
     this.search.valueChanges
       .pipe(
+        takeUntilDestroyed(),
         filter(() => this.search.valid),
         debounceTime(1000),
         tap((searchValue) => this.doSearch(searchValue))

@@ -9,7 +9,8 @@ import { ThemeService } from './theme.service'
       <div fxFlex></div>
       <mat-icon>brightness_5</mat-icon>
       <mat-slide-toggle
-        [ngModel]="toggleState()"
+        color="warn"
+        [checked]="toggleState()"
         (change)="toggleTheme($event.checked)"></mat-slide-toggle>
       <mat-icon>bedtime</mat-icon>
     </mat-toolbar>

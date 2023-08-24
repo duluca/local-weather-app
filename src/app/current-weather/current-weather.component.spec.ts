@@ -7,7 +7,7 @@ import {
   autoSpyObj,
   injectSpy,
 } from 'angular-unit-test-helper'
-import { of } from 'rxjs'
+import { of, first } from 'rxjs'
 
 import { AppMaterialModule } from '../app-material.module'
 import { ICurrentWeather } from '../interfaces'
@@ -69,7 +69,7 @@ describe('CurrentWeatherComponent', () => {
     // Assert
     expect(component.current$).toBeDefined()
 
-    component.current$.subscribe((current) => {
+    component.current$.pipe(first()).subscribe((current) => {
       expect(current.city).toEqual('Bethesda')
       expect(current.temperature).toEqual(280.32)
 

@@ -37,6 +37,7 @@ export class CurrentWeatherComponent implements OnInit {
     noop()
     // this.weatherService
     //   .getCurrentWeather('Bethesda', 'US')
+    //   .pipe(first())
     //   .subscribe(data => (this.current = data))
   }
 }
