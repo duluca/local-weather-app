@@ -10,9 +10,9 @@ on:
     branches: ['*']
 
 jobs:
-  ch2:
+  step2:
     env:
-      PROJECT: ch2
+      PROJECT: step2
     runs-on: ubuntu-latest
 
     steps:
@@ -34,9 +34,9 @@ jobs:
 
       - run: npx ng test --watch=false --project $PROJECT
       - run: npx ng e2e $PROJECT
-  ch3:
+  step3:
     env:
-      PROJECT: ch3
+      PROJECT: step3
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -57,9 +57,9 @@ jobs:
       - run: npx ng build --configuration production --project $PROJECT
       # - run: npx ng test --configuration=ci --project $PROJECT #Intentionally failing tests
       - run: npx ng e2e --configuration=ci $PROJECT
-  ch4:
+  step4:
     env:
-      PROJECT: ch4
+      PROJECT: step4
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -80,9 +80,9 @@ jobs:
       - run: npx ng build --configuration production --project $PROJECT
       - run: npx ng test --configuration=ci --project $PROJECT
       - run: npx ng e2e --configuration=ci $PROJECT
-  ch5:
+  step5:
     env:
-      PROJECT: ch5
+      PROJECT: step5
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -103,9 +103,9 @@ jobs:
       - run: npx ng build --configuration production --project $PROJECT
       - run: npx ng test --configuration=ci --project $PROJECT
       - run: npx ng e2e --configuration=ci $PROJECT
-  ch6:
+  step6:
     env:
-      PROJECT: ch6
+      PROJECT: step6
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -126,9 +126,9 @@ jobs:
       - run: npx ng build --configuration production --project $PROJECT
       - run: npx ng test --configuration=ci --project $PROJECT
       - run: npx ng e2e --configuration=ci $PROJECT
-ch12:
+step12:
   env:
-    PROJECT: ch12
+    PROJECT: step12
   runs-on: ubuntu-latest
   steps:
     - uses: actions/checkout@v2

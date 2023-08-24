@@ -77,11 +77,17 @@ See the example project here https://github.com/duluca/lemon-mart-server
 
 Changes are inevitable to keep the project up-to-date with libraries, tools, patterns and practices. Below are some notable changes that differ from the 1st and 2nd edition of my book.
 
+## Planned
+
+- Plan to replace jasmine and karma with Jest
+
 ## Angular 16
 
+- Renamed `projects` from `ch2` format to `step2`, so they make sense in the 3rd edition.
 - Replaced tslint with eslint
-- Plan to replace jasmine and karma with Jest
-- Plan to move to standalone configuration and using @ngrx/component-store
+- Replaced protractor with cypress for e2e, added tests
+- Moved to Standalone configuration
+- Plan to add @ngrx/component-store example
 
 ## Angular 13-15
 

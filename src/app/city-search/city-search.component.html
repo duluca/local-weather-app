@@ -2,6 +2,7 @@
   <form #searchForm>
     <mat-form-field
       appearance="outline"
+      data-testid="search-input"
       [ngClass]="search.value ? 'search-box-partial' : 'search-box-full'">
       <mat-label>City Name or Postal Code</mat-label>
       <mat-icon matPrefix>search</mat-icon>
@@ -15,6 +16,7 @@
       mat-icon-button
       *ngIf="search.value"
       class="clear-button"
+      data-testid="clear-button"
       (click)="searchForm.reset(); search.reset()">
       <mat-icon>close</mat-icon>
     </button>
@@ -22,6 +24,7 @@
   <div class="center">
     <mat-slide-toggle
       color="accent"
+      data-testid="ngrx-toggle"
       [(ngModel)]="useNgRx"
       (ngModelChange)="doSearch(search.value)"
       [ngModelOptions]="{ standalone: true }">

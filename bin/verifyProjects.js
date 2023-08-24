@@ -9,10 +9,10 @@ fs.readdirSync(root).forEach((module) => {
   const modulePath = path.join(root, module)
   console.log(modulePath)
 
-  if (module !== 'ch12') {
-    // temporarily skip ch12
+  if (module !== 'step12') {
+    // temporarily skip step12
 
-    const skipTests = module === 'ch3'
+    const skipTests = module === 'step3'
 
     const project = ['--project', module]
 
