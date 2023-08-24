@@ -83,7 +83,9 @@ Changes are inevitable to keep the project up-to-date with libraries, tools, pat
 
 ## Angular 16
 
+- Renamed `projects` from `ch2` format to `step2`, so they make sense in the 3rd edition.
 - Replaced tslint with eslint
+- Replaced protractor with cypress for e2e, added tests
 - Plan to move to standalone configuration
 - Plan to add @ngrx/component-store example
 
