@@ -45,7 +45,7 @@ commands:
             - browser-tools/install-chrome
             - browser-tools/install-chromedriver
             - attach_workspace:
-                at: ~/repo
+                at: ~/
             - run: npx ng test --watch=false --project << parameters.project >> --code-coverage
             - run: npx ng e2e << parameters.project >>
   store:
@@ -101,7 +101,7 @@ jobs:
           warm-cache: true
       - cypress/install
       - persist_to_workspace:
-          root: ~/repo
+          root: ~/
           paths:
             - .cache/Cypress
   default:
