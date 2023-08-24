@@ -1,5 +1,6 @@
-import { Component, OnInit, signal } from '@angular/core'
-import { ThemeService } from './theme.service'
+import { Component, effect, signal } from '@angular/core'
+
+const darkClassName = 'dark-theme'
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,7 @@ import { ThemeService } from './theme.service'
         color="warn"
         data-testid="darkmode-toggle"
         [checked]="toggleState()"
-        (change)="toggleTheme($event.checked)"></mat-slide-toggle>
+        (change)="toggleState.set($event.checked)"></mat-slide-toggle>
       <mat-icon>bedtime</mat-icon>
     </mat-toolbar>
     <div fxLayoutAlign="center">
@@ -35,16 +36,13 @@ import { ThemeService } from './theme.service'
     </div>
   `,
 })
-export class AppComponent implements OnInit {
-  toggleState = signal(false)
+export class AppComponent {
+  toggleState = signal(localStorage.getItem(darkClassName) === 'true')
 
-  constructor(private themeService: ThemeService) {}
-  ngOnInit(): void {
-    this.toggleState.set(this.themeService.darkTheme)
-  }
-
-  toggleTheme(isChecked: boolean): void {
-    this.toggleState.set(isChecked)
-    this.themeService.setDarkTheme(this.toggleState())
+  constructor() {
+    effect(() => {
+      localStorage.setItem(darkClassName, this.toggleState().toString())
+      document.documentElement.classList.toggle(darkClassName, this.toggleState())
+    })
   }
 }
