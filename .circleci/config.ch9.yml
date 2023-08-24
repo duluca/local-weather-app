@@ -28,6 +28,7 @@ jobs:
 
       - run: npm run build:prod
       - run: npm run test:coverage -- --watch=false
+      - run: npm run e2e
 
       - store_test_results:
           path: ./test_results

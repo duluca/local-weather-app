@@ -2,6 +2,7 @@ version: 2.1
 orbs:
   coveralls: coveralls/coveralls@2.2.1
   browser-tools: circleci/browser-tools@1.4.3
+  cypress: cypress-io/cypress@3
 commands:
   install:
     description: 'Install project dependencies'
@@ -44,6 +45,7 @@ commands:
           condition: << parameters.run-tests >>
           steps:
             - run: npx ng test --watch=false --project << parameters.project >> --code-coverage
+            - run: npx ng e2e << parameters.project >>
   store:
     description: 'Stores build_and_test artifacts'
     parameters:
@@ -160,14 +162,6 @@ jobs:
       - install
       - build_and_test:
           project: 'ch12'
-  chatgpt: # this job is only here to verify sample code from the book, remove it in your own projects
-    docker:
-      - image: cimg/node:lts-browsers
-    working_directory: ~/repo
-    steps:
-      - install
-      - build_and_test:
-          project: 'chat-gpt'
 workflows:
   build-test-and-approval-deploy:
     jobs:
@@ -191,9 +185,6 @@ workflows:
           requires:
             - initialize
       - ch12: # this job is only here to verify sample code from the book, remove it in your own projects
-          requires:
-            - initialize
-      - chatgpt: # this job is only here to verify sample code from the book, remove it in your own projects
           requires:
             - initialize
       - deploy:

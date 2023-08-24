@@ -20,7 +20,7 @@
     "test:coverage": "npm test -- --code-coverage",
     "lint": "ng lint",
     "lint:fix": "ng lint --fix",
-    "e2e": "ng e2e local-weather-app",
+    "e2e": "ng e2e",
     "build:prod": "ng build --configuration production",
     "predocker:build": "npm run build",
     "docker:build": "cross-conf-env docker image build . -t $npm_package_config_imageRepo:$npm_package_version",
@@ -48,7 +48,9 @@
     "lint:ts:fix": "tslint --config tslint.json --fix --project . -e \"**/{test,polyfills}.ts\"",
     "lint:tsc": "tsc --noEmit --skipLibCheck",
     "docker:stop": "cross-conf-env docker stop $npm_package_config_imageName || true",
-    "docker:open": "sleep 2 && cross-conf-env open-cli http://localhost:$npm_package_config_imagePort"
+    "docker:open": "sleep 2 && cross-conf-env open-cli http://localhost:$npm_package_config_imagePort",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
   },
   "private": true,
   "dependencies": {
@@ -81,6 +83,7 @@
     "@angular/cli": "16.2.0",
     "@angular/compiler-cli": "^16.2.0",
     "@angular/language-service": "^16.2.0",
+    "@cypress/schematic": "^2.5.0",
     "@ngrx/schematics": "^16.2.0",
     "@types/jasmine": "~4.3.5",
     "@typescript-eslint/eslint-plugin": "5.62.0",
