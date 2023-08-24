@@ -5,9 +5,12 @@ import { Observable, merge } from 'rxjs'
 import { ICurrentWeather } from '../interfaces'
 import * as appStore from '../reducers'
 import { WeatherService } from '../weather/weather.service'
+import { CommonModule } from '@angular/common'
 
 @Component({
   selector: 'app-current-weather',
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './current-weather.component.html',
   styleUrls: ['./current-weather.component.css'],
 })

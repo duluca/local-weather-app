@@ -1,9 +1,28 @@
+import { HttpClientModule } from '@angular/common/http'
 import { Component, effect, signal } from '@angular/core'
+import { FlexLayoutModule } from '@ngbracket/ngx-layout'
+import { CitySearchComponent } from './city-search/city-search.component'
+import { CurrentWeatherComponent } from './current-weather/current-weather.component'
+import { MatCardModule } from '@angular/material/card'
+import { MatIconModule } from '@angular/material/icon'
+import { MatSlideToggleModule } from '@angular/material/slide-toggle'
+import { MatToolbarModule } from '@angular/material/toolbar'
 
 const darkClassName = 'dark-theme'
 
 @Component({
   selector: 'app-root',
+  standalone: true,
+  imports: [
+    HttpClientModule,
+    FlexLayoutModule,
+    CurrentWeatherComponent,
+    CitySearchComponent,
+    MatToolbarModule,
+    MatIconModule,
+    MatCardModule,
+    MatSlideToggleModule,
+  ],
   template: `
     <mat-toolbar color="primary">
       <span data-testid="title">LocalCast Weather</span>
