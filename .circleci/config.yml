@@ -47,7 +47,7 @@ commands:
             - attach_workspace:
                 at: ~/
             - run: npx ng test --watch=false --project << parameters.project >> --code-coverage
-            - run: npx ng e2e << parameters.project >>
+            - run: npx ng run << parameters.project >>:cypress-run
   store:
     description: 'Stores build_and_test artifacts'
     parameters:

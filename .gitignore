@@ -44,3 +44,4 @@ Thumbs.db
 .env
 dist.tar.gz
 test_results
+cypress/videos
