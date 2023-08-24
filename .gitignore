@@ -45,3 +45,4 @@ Thumbs.db
 dist.tar.gz
 test_results
 cypress/videos
+cypress/screenshots

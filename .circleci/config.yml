@@ -42,12 +42,12 @@ commands:
       - when:
           condition: << parameters.run-tests >>
           steps:
-            - browser-tools/install-chrome
-            - browser-tools/install-chromedriver
             - attach_workspace:
                 at: ~/
+            # - browser-tools/install-chrome
+            # - browser-tools/install-chromedriver
             - run: npx ng test --watch=false --project << parameters.project >> --code-coverage
-            - run: npx ng run << parameters.project >>:cypress-run
+            # - run: npx ng run << parameters.project >>:cypress-run
   store:
     description: 'Stores build_and_test artifacts'
     parameters:
@@ -112,6 +112,7 @@ jobs:
       - install
       - lint
       - build_and_test
+      - run: npx ng run local-weather-app:cypress-run
       - store
   deploy:
     docker:
