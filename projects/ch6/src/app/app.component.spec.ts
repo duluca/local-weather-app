@@ -6,6 +6,7 @@ import { MockComponents } from 'ng-mocks'
 import { CurrentWeatherComponent } from './current-weather/current-weather.component'
 import { CitySearchComponent } from './city-search/city-search.component'
 import { CitySearchTpldrivenComponent } from './city-search-tpldriven/city-search-tpldriven.component'
+import { MaterialModule } from 'projects/ch5/src/app/material.module'
 
 describe('AppComponent', () => {
   beforeEach(waitForAsync(() => {
@@ -18,6 +19,7 @@ describe('AppComponent', () => {
           CitySearchTpldrivenComponent
         ),
       ],
+      imports: [MaterialModule],
     }).compileComponents()
   }))
 
