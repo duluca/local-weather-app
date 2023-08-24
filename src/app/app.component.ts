@@ -1,15 +1,16 @@
-import { Component, OnInit, signal, effect } from '@angular/core'
+import { Component, OnInit, signal } from '@angular/core'
 import { ThemeService } from './theme.service'
 
 @Component({
   selector: 'app-root',
   template: `
     <mat-toolbar color="primary">
-      <span>LocalCast Weather</span>
+      <span data-testid="title">LocalCast Weather</span>
       <div fxFlex></div>
       <mat-icon>brightness_5</mat-icon>
       <mat-slide-toggle
         color="warn"
+        data-testid="darkmode-toggle"
         [checked]="toggleState()"
         (change)="toggleTheme($event.checked)"></mat-slide-toggle>
       <mat-icon>bedtime</mat-icon>
