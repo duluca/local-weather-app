@@ -10,7 +10,8 @@
   </div>
   <div fxLayout="row" fxLayoutAlign="center center" style="margin-bottom: -48px">
     <div fxFlex="55%">
-      <img data-testid="weather-icon"
+      <img
+        data-testid="weather-icon"
         style="zoom: 175%; margin-bottom: 32px"
         [src]="current.image"
         [alt]="current.description" />
@@ -22,5 +23,7 @@
       </p>
     </div>
   </div>
-  <div fxLayoutAlign="center " class="mat-caption" data-testid="description">{{ current.description }}</div>
+  <div fxLayoutAlign="center " class="mat-caption" data-testid="description">
+    {{ current.description }}
+  </div>
 </div>
