@@ -15,7 +15,7 @@ jobs:
       PROJECT: stage2
     runs-on: ubuntu-latest
 
-    stages:
+    steps:
       - uses: aquariuslt/node-browsers-github-actions@v1.0.0
       - uses: actions/checkout@v2
       - uses: actions/cache@v1
@@ -38,7 +38,7 @@ jobs:
     env:
       PROJECT: stage3
     runs-on: ubuntu-latest
-    stages:
+    steps:
       - uses: actions/checkout@v2
 
       - name: Cache node modules
@@ -61,7 +61,7 @@ jobs:
     env:
       PROJECT: stage4
     runs-on: ubuntu-latest
-    stages:
+    steps:
       - uses: actions/checkout@v2
 
       - name: Cache node modules
@@ -84,7 +84,7 @@ jobs:
     env:
       PROJECT: stage5
     runs-on: ubuntu-latest
-    stages:
+    steps:
       - uses: actions/checkout@v2
 
       - name: Cache node modules
@@ -107,7 +107,7 @@ jobs:
     env:
       PROJECT: stage6
     runs-on: ubuntu-latest
-    stages:
+    steps:
       - uses: actions/checkout@v2
 
       - name: Cache node modules
@@ -130,7 +130,7 @@ stage12:
   env:
     PROJECT: stage12
   runs-on: ubuntu-latest
-  stages:
+  steps:
     - uses: actions/checkout@v2
     - name: Cache node modules
       uses: actions/cache@v1
