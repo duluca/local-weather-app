@@ -181,7 +181,7 @@
         }
       }
     },
-    "step2": {
+    "stage2": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -195,27 +195,27 @@
           "standalone": true
         }
       },
-      "root": "projects/step2",
-      "sourceRoot": "projects/step2/src",
+      "root": "projects/stage2",
+      "sourceRoot": "projects/stage2/src",
       "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/step2",
-            "index": "projects/step2/src/index.html",
-            "main": "projects/step2/src/main.ts",
+            "outputPath": "dist/stage2",
+            "index": "projects/stage2/src/index.html",
+            "main": "projects/stage2/src/main.ts",
             "polyfills": [
               "zone.js"
             ],
-            "tsConfig": "projects/step2/tsconfig.app.json",
+            "tsConfig": "projects/stage2/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "projects/step2/src/favicon.ico",
-              "projects/step2/src/assets"
+              "projects/stage2/src/favicon.ico",
+              "projects/stage2/src/assets"
             ],
             "styles": [
-              "projects/step2/src/styles.scss"
+              "projects/stage2/src/styles.scss"
             ],
             "scripts": []
           },
@@ -235,8 +235,8 @@
               ],
               "fileReplacements": [
                 {
-                  "replace": "projects/step2/src/environments/environment.ts",
-                  "with": "projects/step2/src/environments/environment.prod.ts"
+                  "replace": "projects/stage2/src/environments/environment.ts",
+                  "with": "projects/stage2/src/environments/environment.prod.ts"
                 }
               ],
               "outputHashing": "all"
@@ -255,18 +255,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "step2:build"
+            "browserTarget": "stage2:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "step2:build:production"
+              "browserTarget": "stage2:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "step2:build"
+            "browserTarget": "stage2:build"
           }
         },
         "test": {
@@ -276,15 +276,15 @@
               "zone.js",
               "zone.js/testing"
             ],
-            "tsConfig": "projects/step2/tsconfig.spec.json",
-            "karmaConfig": "projects/step2/karma.conf.js",
+            "tsConfig": "projects/stage2/tsconfig.spec.json",
+            "karmaConfig": "projects/stage2/karma.conf.js",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "projects/step2/src/favicon.ico",
-              "projects/step2/src/assets"
+              "projects/stage2/src/favicon.ico",
+              "projects/stage2/src/assets"
             ],
             "styles": [
-              "projects/step2/src/styles.scss"
+              "projects/stage2/src/styles.scss"
             ],
             "scripts": []
           },
@@ -300,20 +300,20 @@
           "builder": "@angular-eslint/builder:lint",
           "options": {
             "lintFilePatterns": [
-              "projects/step2/**/*.ts",
-              "projects/step2/**/*.html"
+              "projects/stage2/**/*.ts",
+              "projects/stage2/**/*.html"
             ]
           }
         },
         "cypress-run": {
           "builder": "@cypress/schematic:cypress",
           "options": {
-            "devServerTarget": "step2:serve",
-            "configFile": "projects/step2/cypress.config.js"
+            "devServerTarget": "stage2:serve",
+            "configFile": "projects/stage2/cypress.config.js"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "step2:serve:production"
+              "devServerTarget": "stage2:serve:production"
             }
           }
         },
@@ -322,39 +322,39 @@
           "options": {
             "watch": true,
             "headless": false,
-            "configFile": "projects/step2/cypress.config.js"
+            "configFile": "projects/stage2/cypress.config.js"
           }
         },
         "ct": {
           "builder": "@cypress/schematic:cypress",
           "options": {
-            "devServerTarget": "step2:serve",
+            "devServerTarget": "stage2:serve",
             "watch": true,
             "headless": false,
             "testingType": "component"
           },
           "configurations": {
             "development": {
-              "devServerTarget": "step2:serve:development"
+              "devServerTarget": "stage2:serve:development"
             }
           }
         },
         "e2e": {
           "builder": "@cypress/schematic:cypress",
           "options": {
-            "devServerTarget": "step2:serve",
+            "devServerTarget": "stage2:serve",
             "watch": true,
             "headless": false
           },
           "configurations": {
             "production": {
-              "devServerTarget": "step2:serve:production"
+              "devServerTarget": "stage2:serve:production"
             }
           }
         }
       }
     },
-    "step3": {
+    "stage3": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -368,27 +368,27 @@
           "standalone": true
         }
       },
-      "root": "projects/step3",
-      "sourceRoot": "projects/step3/src",
+      "root": "projects/stage3",
+      "sourceRoot": "projects/stage3/src",
       "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/step3",
-            "index": "projects/step3/src/index.html",
-            "main": "projects/step3/src/main.ts",
+            "outputPath": "dist/stage3",
+            "index": "projects/stage3/src/index.html",
+            "main": "projects/stage3/src/main.ts",
             "polyfills": [
               "zone.js"
             ],
-            "tsConfig": "projects/step3/tsconfig.app.json",
+            "tsConfig": "projects/stage3/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "projects/step3/src/favicon.ico",
-              "projects/step3/src/assets"
+              "projects/stage3/src/favicon.ico",
+              "projects/stage3/src/assets"
             ],
             "styles": [
-              "projects/step3/src/styles.scss"
+              "projects/stage3/src/styles.scss"
             ],
             "scripts": []
           },
@@ -396,8 +396,8 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "projects/step3/src/environments/environment.ts",
-                  "with": "projects/step3/src/environments/environment.prod.ts"
+                  "replace": "projects/stage3/src/environments/environment.ts",
+                  "with": "projects/stage3/src/environments/environment.prod.ts"
                 }
               ],
               "budgets": [
@@ -428,18 +428,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "step3:build"
+            "browserTarget": "stage3:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "step3:build:production"
+              "browserTarget": "stage3:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "step3:build"
+            "browserTarget": "stage3:build"
           }
         },
         "test": {
@@ -449,15 +449,15 @@
               "zone.js",
               "zone.js/testing"
             ],
-            "tsConfig": "projects/step3/tsconfig.spec.json",
-            "karmaConfig": "projects/step3/karma.conf.js",
+            "tsConfig": "projects/stage3/tsconfig.spec.json",
+            "karmaConfig": "projects/stage3/karma.conf.js",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "projects/step3/src/favicon.ico",
-              "projects/step3/src/assets"
+              "projects/stage3/src/favicon.ico",
+              "projects/stage3/src/assets"
             ],
             "styles": [
-              "projects/step3/src/styles.scss"
+              "projects/stage3/src/styles.scss"
             ],
             "scripts": []
           },
@@ -473,20 +473,20 @@
           "builder": "@angular-eslint/builder:lint",
           "options": {
             "lintFilePatterns": [
-              "projects/step3/**/*.ts",
-              "projects/step3/**/*.html"
+              "projects/stage3/**/*.ts",
+              "projects/stage3/**/*.html"
             ]
           }
         },
         "cypress-run": {
           "builder": "@cypress/schematic:cypress",
           "options": {
-            "devServerTarget": "step3:serve",
-            "configFile": "projects/step3/cypress.config.js"
+            "devServerTarget": "stage3:serve",
+            "configFile": "projects/stage3/cypress.config.js"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "step3:serve:production"
+              "devServerTarget": "stage3:serve:production"
             }
           }
         },
@@ -495,39 +495,39 @@
           "options": {
             "watch": true,
             "headless": false,
-            "configFile": "projects/step3/cypress.config.js"
+            "configFile": "projects/stage3/cypress.config.js"
           }
         },
         "ct": {
           "builder": "@cypress/schematic:cypress",
           "options": {
-            "devServerTarget": "step3:serve",
+            "devServerTarget": "stage3:serve",
             "watch": true,
             "headless": false,
             "testingType": "component"
           },
           "configurations": {
             "development": {
-              "devServerTarget": "step3:serve:development"
+              "devServerTarget": "stage3:serve:development"
             }
           }
         },
         "e2e": {
           "builder": "@cypress/schematic:cypress",
           "options": {
-            "devServerTarget": "step3:serve",
+            "devServerTarget": "stage3:serve",
             "watch": true,
             "headless": false
           },
           "configurations": {
             "production": {
-              "devServerTarget": "step3:serve:production"
+              "devServerTarget": "stage3:serve:production"
             }
           }
         }
       }
     },
-    "step4": {
+    "stage4": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -541,27 +541,27 @@
           "standalone": true
         }
       },
-      "root": "projects/step4",
-      "sourceRoot": "projects/step4/src",
+      "root": "projects/stage4",
+      "sourceRoot": "projects/stage4/src",
       "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/step4",
-            "index": "projects/step4/src/index.html",
-            "main": "projects/step4/src/main.ts",
+            "outputPath": "dist/stage4",
+            "index": "projects/stage4/src/index.html",
+            "main": "projects/stage4/src/main.ts",
             "polyfills": [
               "zone.js"
             ],
-            "tsConfig": "projects/step4/tsconfig.app.json",
+            "tsConfig": "projects/stage4/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "projects/step4/src/favicon.ico",
-              "projects/step4/src/assets"
+              "projects/stage4/src/favicon.ico",
+              "projects/stage4/src/assets"
             ],
             "styles": [
-              "projects/step4/src/styles.scss"
+              "projects/stage4/src/styles.scss"
             ],
             "scripts": []
           },
@@ -569,8 +569,8 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "projects/step4/src/environments/environment.ts",
-                  "with": "projects/step4/src/environments/environment.prod.ts"
+                  "replace": "projects/stage4/src/environments/environment.ts",
+                  "with": "projects/stage4/src/environments/environment.prod.ts"
                 }
               ],
               "budgets": [
@@ -601,18 +601,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "step4:build"
+            "browserTarget": "stage4:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "step4:build:production"
+              "browserTarget": "stage4:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "step4:build"
+            "browserTarget": "stage4:build"
           }
         },
         "test": {
@@ -622,15 +622,15 @@
               "zone.js",
               "zone.js/testing"
             ],
-            "tsConfig": "projects/step4/tsconfig.spec.json",
-            "karmaConfig": "projects/step4/karma.conf.js",
+            "tsConfig": "projects/stage4/tsconfig.spec.json",
+            "karmaConfig": "projects/stage4/karma.conf.js",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "projects/step4/src/favicon.ico",
-              "projects/step4/src/assets"
+              "projects/stage4/src/favicon.ico",
+              "projects/stage4/src/assets"
             ],
             "styles": [
-              "projects/step4/src/styles.scss"
+              "projects/stage4/src/styles.scss"
             ],
             "scripts": []
           },
@@ -646,20 +646,20 @@
           "builder": "@angular-eslint/builder:lint",
           "options": {
             "lintFilePatterns": [
-              "projects/step4/**/*.ts",
-              "projects/step4/**/*.html"
+              "projects/stage4/**/*.ts",
+              "projects/stage4/**/*.html"
             ]
           }
         },
         "cypress-run": {
           "builder": "@cypress/schematic:cypress",
           "options": {
-            "devServerTarget": "step4:serve",
-            "configFile": "projects/step4/cypress.config.js"
+            "devServerTarget": "stage4:serve",
+            "configFile": "projects/stage4/cypress.config.js"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "step4:serve:production"
+              "devServerTarget": "stage4:serve:production"
             }
           }
         },
@@ -668,39 +668,39 @@
           "options": {
             "watch": true,
             "headless": false,
-            "configFile": "projects/step4/cypress.config.js"
+            "configFile": "projects/stage4/cypress.config.js"
           }
         },
         "ct": {
           "builder": "@cypress/schematic:cypress",
           "options": {
-            "devServerTarget": "step4:serve",
+            "devServerTarget": "stage4:serve",
             "watch": true,
             "headless": false,
             "testingType": "component"
           },
           "configurations": {
             "development": {
-              "devServerTarget": "step4:serve:development"
+              "devServerTarget": "stage4:serve:development"
             }
           }
         },
         "e2e": {
           "builder": "@cypress/schematic:cypress",
           "options": {
-            "devServerTarget": "step4:serve",
+            "devServerTarget": "stage4:serve",
             "watch": true,
             "headless": false
           },
           "configurations": {
             "production": {
-              "devServerTarget": "step4:serve:production"
+              "devServerTarget": "stage4:serve:production"
             }
           }
         }
       }
     },
-    "step5": {
+    "stage5": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -714,27 +714,27 @@
           "standalone": true
         }
       },
-      "root": "projects/step5",
-      "sourceRoot": "projects/step5/src",
+      "root": "projects/stage5",
+      "sourceRoot": "projects/stage5/src",
       "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/step5",
-            "index": "projects/step5/src/index.html",
-            "main": "projects/step5/src/main.ts",
+            "outputPath": "dist/stage5",
+            "index": "projects/stage5/src/index.html",
+            "main": "projects/stage5/src/main.ts",
             "polyfills": [
               "zone.js"
             ],
-            "tsConfig": "projects/step5/tsconfig.app.json",
+            "tsConfig": "projects/stage5/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "projects/step5/src/favicon.ico",
-              "projects/step5/src/assets"
+              "projects/stage5/src/favicon.ico",
+              "projects/stage5/src/assets"
             ],
             "styles": [
-              "projects/step5/src/styles.scss"
+              "projects/stage5/src/styles.scss"
             ],
             "scripts": []
           },
@@ -742,8 +742,8 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "projects/step5/src/environments/environment.ts",
-                  "with": "projects/step5/src/environments/environment.prod.ts"
+                  "replace": "projects/stage5/src/environments/environment.ts",
+                  "with": "projects/stage5/src/environments/environment.prod.ts"
                 }
               ],
               "budgets": [
@@ -774,18 +774,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "step5:build"
+            "browserTarget": "stage5:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "step5:build:production"
+              "browserTarget": "stage5:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "step5:build"
+            "browserTarget": "stage5:build"
           }
         },
         "test": {
@@ -795,15 +795,15 @@
               "zone.js",
               "zone.js/testing"
             ],
-            "tsConfig": "projects/step5/tsconfig.spec.json",
-            "karmaConfig": "projects/step5/karma.conf.js",
+            "tsConfig": "projects/stage5/tsconfig.spec.json",
+            "karmaConfig": "projects/stage5/karma.conf.js",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "projects/step5/src/favicon.ico",
-              "projects/step5/src/assets"
+              "projects/stage5/src/favicon.ico",
+              "projects/stage5/src/assets"
             ],
             "styles": [
-              "projects/step5/src/styles.scss"
+              "projects/stage5/src/styles.scss"
             ],
             "scripts": []
           },
@@ -819,20 +819,20 @@
           "builder": "@angular-eslint/builder:lint",
           "options": {
             "lintFilePatterns": [
-              "projects/step5/**/*.ts",
-              "projects/step5/**/*.html"
+              "projects/stage5/**/*.ts",
+              "projects/stage5/**/*.html"
             ]
           }
         },
         "cypress-run": {
           "builder": "@cypress/schematic:cypress",
           "options": {
-            "devServerTarget": "step5:serve",
-            "configFile": "projects/step5/cypress.config.js"
+            "devServerTarget": "stage5:serve",
+            "configFile": "projects/stage5/cypress.config.js"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "step5:serve:production"
+              "devServerTarget": "stage5:serve:production"
             }
           }
         },
@@ -841,39 +841,39 @@
           "options": {
             "watch": true,
             "headless": false,
-            "configFile": "projects/step5/cypress.config.js"
+            "configFile": "projects/stage5/cypress.config.js"
           }
         },
         "ct": {
           "builder": "@cypress/schematic:cypress",
           "options": {
-            "devServerTarget": "step5:serve",
+            "devServerTarget": "stage5:serve",
             "watch": true,
             "headless": false,
             "testingType": "component"
           },
           "configurations": {
             "development": {
-              "devServerTarget": "step5:serve:development"
+              "devServerTarget": "stage5:serve:development"
             }
           }
         },
         "e2e": {
           "builder": "@cypress/schematic:cypress",
           "options": {
-            "devServerTarget": "step5:serve",
+            "devServerTarget": "stage5:serve",
             "watch": true,
             "headless": false
           },
           "configurations": {
             "production": {
-              "devServerTarget": "step5:serve:production"
+              "devServerTarget": "stage5:serve:production"
             }
           }
         }
       }
     },
-    "step6": {
+    "stage6": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -887,27 +887,27 @@
           "standalone": true
         }
       },
-      "root": "projects/step6",
-      "sourceRoot": "projects/step6/src",
+      "root": "projects/stage6",
+      "sourceRoot": "projects/stage6/src",
       "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/step6",
-            "index": "projects/step6/src/index.html",
-            "main": "projects/step6/src/main.ts",
+            "outputPath": "dist/stage6",
+            "index": "projects/stage6/src/index.html",
+            "main": "projects/stage6/src/main.ts",
             "polyfills": [
               "zone.js"
             ],
-            "tsConfig": "projects/step6/tsconfig.app.json",
+            "tsConfig": "projects/stage6/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "projects/step6/src/favicon.ico",
-              "projects/step6/src/assets"
+              "projects/stage6/src/favicon.ico",
+              "projects/stage6/src/assets"
             ],
             "styles": [
-              "projects/step6/src/styles.scss"
+              "projects/stage6/src/styles.scss"
             ],
             "scripts": []
           },
@@ -915,8 +915,8 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "projects/step6/src/environments/environment.ts",
-                  "with": "projects/step6/src/environments/environment.prod.ts"
+                  "replace": "projects/stage6/src/environments/environment.ts",
+                  "with": "projects/stage6/src/environments/environment.prod.ts"
                 }
               ],
               "budgets": [
@@ -947,18 +947,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "step6:build"
+            "browserTarget": "stage6:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "step6:build:production"
+              "browserTarget": "stage6:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "step6:build"
+            "browserTarget": "stage6:build"
           }
         },
         "test": {
@@ -968,15 +968,15 @@
               "zone.js",
               "zone.js/testing"
             ],
-            "tsConfig": "projects/step6/tsconfig.spec.json",
-            "karmaConfig": "projects/step6/karma.conf.js",
+            "tsConfig": "projects/stage6/tsconfig.spec.json",
+            "karmaConfig": "projects/stage6/karma.conf.js",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "projects/step6/src/favicon.ico",
-              "projects/step6/src/assets"
+              "projects/stage6/src/favicon.ico",
+              "projects/stage6/src/assets"
             ],
             "styles": [
-              "projects/step6/src/styles.scss"
+              "projects/stage6/src/styles.scss"
             ],
             "scripts": []
           },
@@ -992,20 +992,20 @@
           "builder": "@angular-eslint/builder:lint",
           "options": {
             "lintFilePatterns": [
-              "projects/step6/**/*.ts",
-              "projects/step6/**/*.html"
+              "projects/stage6/**/*.ts",
+              "projects/stage6/**/*.html"
             ]
           }
         },
         "cypress-run": {
           "builder": "@cypress/schematic:cypress",
           "options": {
-            "devServerTarget": "step6:serve",
-            "configFile": "projects/step6/cypress.config.js"
+            "devServerTarget": "stage6:serve",
+            "configFile": "projects/stage6/cypress.config.js"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "step6:serve:production"
+              "devServerTarget": "stage6:serve:production"
             }
           }
         },
@@ -1014,39 +1014,39 @@
           "options": {
             "watch": true,
             "headless": false,
-            "configFile": "projects/step6/cypress.config.js"
+            "configFile": "projects/stage6/cypress.config.js"
           }
         },
         "ct": {
           "builder": "@cypress/schematic:cypress",
           "options": {
-            "devServerTarget": "step6:serve",
+            "devServerTarget": "stage6:serve",
             "watch": true,
             "headless": false,
             "testingType": "component"
           },
           "configurations": {
             "development": {
-              "devServerTarget": "step6:serve:development"
+              "devServerTarget": "stage6:serve:development"
             }
           }
         },
         "e2e": {
           "builder": "@cypress/schematic:cypress",
           "options": {
-            "devServerTarget": "step6:serve",
+            "devServerTarget": "stage6:serve",
             "watch": true,
             "headless": false
           },
           "configurations": {
             "production": {
-              "devServerTarget": "step6:serve:production"
+              "devServerTarget": "stage6:serve:production"
             }
           }
         }
       }
     },
-    "step12": {
+    "stage12": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -1060,27 +1060,27 @@
           "standalone": true
         }
       },
-      "root": "projects/step12",
-      "sourceRoot": "projects/step12/src",
+      "root": "projects/stage12",
+      "sourceRoot": "projects/stage12/src",
       "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/step12",
-            "index": "projects/step12/src/index.html",
-            "main": "projects/step12/src/main.ts",
+            "outputPath": "dist/stage12",
+            "index": "projects/stage12/src/index.html",
+            "main": "projects/stage12/src/main.ts",
             "polyfills": [
               "zone.js"
             ],
-            "tsConfig": "projects/step12/tsconfig.app.json",
+            "tsConfig": "projects/stage12/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "projects/step12/src/favicon.ico",
-              "projects/step12/src/assets"
+              "projects/stage12/src/favicon.ico",
+              "projects/stage12/src/assets"
             ],
             "styles": [
-              "projects/step12/src/styles.scss"
+              "projects/stage12/src/styles.scss"
             ],
             "scripts": []
           },
@@ -1088,8 +1088,8 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "projects/step12/src/environments/environment.ts",
-                  "with": "projects/step12/src/environments/environment.prod.ts"
+                  "replace": "projects/stage12/src/environments/environment.ts",
+                  "with": "projects/stage12/src/environments/environment.prod.ts"
                 }
               ],
               "budgets": [
@@ -1120,18 +1120,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "step12:build"
+            "browserTarget": "stage12:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "step12:build:production"
+              "browserTarget": "stage12:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "step12:build"
+            "browserTarget": "stage12:build"
           }
         },
         "test": {
@@ -1141,15 +1141,15 @@
               "zone.js",
               "zone.js/testing"
             ],
-            "tsConfig": "projects/step12/tsconfig.spec.json",
-            "karmaConfig": "projects/step12/karma.conf.js",
+            "tsConfig": "projects/stage12/tsconfig.spec.json",
+            "karmaConfig": "projects/stage12/karma.conf.js",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "projects/step12/src/favicon.ico",
-              "projects/step12/src/assets"
+              "projects/stage12/src/favicon.ico",
+              "projects/stage12/src/assets"
             ],
             "styles": [
-              "projects/step12/src/styles.scss"
+              "projects/stage12/src/styles.scss"
             ],
             "scripts": []
           },
@@ -1165,20 +1165,20 @@
           "builder": "@angular-eslint/builder:lint",
           "options": {
             "lintFilePatterns": [
-              "projects/step12/**/*.ts",
-              "projects/step12/**/*.html"
+              "projects/stage12/**/*.ts",
+              "projects/stage12/**/*.html"
             ]
           }
         },
         "cypress-run": {
           "builder": "@cypress/schematic:cypress",
           "options": {
-            "devServerTarget": "step12:serve",
-            "configFile": "projects/step12/cypress.config.js"
+            "devServerTarget": "stage12:serve",
+            "configFile": "projects/stage12/cypress.config.js"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "step12:serve:production"
+              "devServerTarget": "stage12:serve:production"
             }
           }
         },
@@ -1187,33 +1187,33 @@
           "options": {
             "watch": true,
             "headless": false,
-            "configFile": "projects/step12/cypress.config.js"
+            "configFile": "projects/stage12/cypress.config.js"
           }
         },
         "ct": {
           "builder": "@cypress/schematic:cypress",
           "options": {
-            "devServerTarget": "step12:serve",
+            "devServerTarget": "stage12:serve",
             "watch": true,
             "headless": false,
             "testingType": "component"
           },
           "configurations": {
             "development": {
-              "devServerTarget": "step12:serve:development"
+              "devServerTarget": "stage12:serve:development"
             }
           }
         },
         "e2e": {
           "builder": "@cypress/schematic:cypress",
           "options": {
-            "devServerTarget": "step12:serve",
+            "devServerTarget": "stage12:serve",
             "watch": true,
             "headless": false
           },
           "configurations": {
             "production": {
-              "devServerTarget": "step12:serve:production"
+              "devServerTarget": "stage12:serve:production"
             }
           }
         }

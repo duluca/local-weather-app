@@ -6,7 +6,7 @@ describe('WeatherStoreService', () => {
   let service: WeatherStoreService
 
   beforeEach(() => {
-    TestBed.configureTestingModule({})
+    TestBed.configureTestingModule({ providers: [WeatherStoreService] })
     service = TestBed.inject(WeatherStoreService)
   })
 

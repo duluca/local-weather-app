@@ -10,12 +10,12 @@ on:
     branches: ['*']
 
 jobs:
-  step2:
+  stage2:
     env:
-      PROJECT: step2
+      PROJECT: stage2
     runs-on: ubuntu-latest
 
-    steps:
+    stages:
       - uses: aquariuslt/node-browsers-github-actions@v1.0.0
       - uses: actions/checkout@v2
       - uses: actions/cache@v1
@@ -34,11 +34,11 @@ jobs:
 
       - run: npx ng test --watch=false --project $PROJECT
       - run: npx ng e2e $PROJECT
-  step3:
+  stage3:
     env:
-      PROJECT: step3
+      PROJECT: stage3
     runs-on: ubuntu-latest
-    steps:
+    stages:
       - uses: actions/checkout@v2
 
       - name: Cache node modules
@@ -57,11 +57,11 @@ jobs:
       - run: npx ng build --configuration production --project $PROJECT
       # - run: npx ng test --configuration=ci --project $PROJECT #Intentionally failing tests
       - run: npx ng e2e --configuration=ci $PROJECT
-  step4:
+  stage4:
     env:
-      PROJECT: step4
+      PROJECT: stage4
     runs-on: ubuntu-latest
-    steps:
+    stages:
       - uses: actions/checkout@v2
 
       - name: Cache node modules
@@ -80,11 +80,11 @@ jobs:
       - run: npx ng build --configuration production --project $PROJECT
       - run: npx ng test --configuration=ci --project $PROJECT
       - run: npx ng e2e --configuration=ci $PROJECT
-  step5:
+  stage5:
     env:
-      PROJECT: step5
+      PROJECT: stage5
     runs-on: ubuntu-latest
-    steps:
+    stages:
       - uses: actions/checkout@v2
 
       - name: Cache node modules
@@ -103,11 +103,11 @@ jobs:
       - run: npx ng build --configuration production --project $PROJECT
       - run: npx ng test --configuration=ci --project $PROJECT
       - run: npx ng e2e --configuration=ci $PROJECT
-  step6:
+  stage6:
     env:
-      PROJECT: step6
+      PROJECT: stage6
     runs-on: ubuntu-latest
-    steps:
+    stages:
       - uses: actions/checkout@v2
 
       - name: Cache node modules
@@ -126,11 +126,11 @@ jobs:
       - run: npx ng build --configuration production --project $PROJECT
       - run: npx ng test --configuration=ci --project $PROJECT
       - run: npx ng e2e --configuration=ci $PROJECT
-step12:
+stage12:
   env:
-    PROJECT: step12
+    PROJECT: stage12
   runs-on: ubuntu-latest
-  steps:
+  stages:
     - uses: actions/checkout@v2
     - name: Cache node modules
       uses: actions/cache@v1
