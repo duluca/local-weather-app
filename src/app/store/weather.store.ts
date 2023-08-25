@@ -8,7 +8,7 @@ export const initialState: WeatherState = {
 }
 
 @Injectable()
-export class WeatherStoreService extends ComponentStore<WeatherState> {
+export class WeatherStore extends ComponentStore<WeatherState> {
   constructor() {
     super(initialState)
   }
