@@ -34,7 +34,7 @@ export class CitySearchComponent {
 
   constructor(
     private weatherService: WeatherService,
-    private store: Store<fromSearch.State>
+    private store: Store<fromSearch.WeatherState>
   ) {
     this.search.valueChanges
       .pipe(

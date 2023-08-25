@@ -4,7 +4,7 @@ import { environment } from '../../environments/environment'
 import * as fromSearch from './search.reducer'
 
 export interface State {
-  search: fromSearch.State
+  search: fromSearch.WeatherState
 }
 
 export const reducers: ActionReducerMap<State> = {
