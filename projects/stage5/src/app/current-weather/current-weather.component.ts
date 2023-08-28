@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core'
-import { first } from 'rxjs/operators'
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
 
 import { ICurrentWeather } from '../interfaces'
 import { WeatherService } from '../weather/weather.service'
@@ -16,7 +16,7 @@ export class CurrentWeatherComponent implements OnInit {
   ngOnInit(): void {
     this.weatherService
       .getCurrentWeather('Bethesda', 'US')
-      .pipe(first())
+      .pipe(takeUntilDestroyed())
       .subscribe((data) => (this.current = data))
   }
 
