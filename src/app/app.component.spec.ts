@@ -1,6 +1,6 @@
 import { TestBed, waitForAsync } from '@angular/core/testing'
 
-import { AppMaterialModule } from './app-material.module'
+import { MaterialModule } from './material.module'
 import { AppComponent } from './app.component'
 
 import { MockComponents } from 'ng-mocks'
@@ -14,7 +14,7 @@ describe('AppComponent', () => {
         AppComponent,
         ...MockComponents(CurrentWeatherComponent, CitySearchComponent),
       ],
-      imports: [AppMaterialModule],
+      imports: [MaterialModule],
     }).compileComponents()
   }))
   it('should create the app', waitForAsync(() => {

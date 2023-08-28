@@ -20,4 +20,4 @@ const modules = [
 @NgModule({
   exports: modules,
 })
-export class AppMaterialModule {}
+export class MaterialModule {}
