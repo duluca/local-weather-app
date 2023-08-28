@@ -7,9 +7,7 @@
       "request": "launch",
       "url": "http://localhost:5000/#",
       "webRoot": "${workspaceRoot}",
-      "runtimeArgs": [
-        "--remote-debugging-port=9222"
-      ],
+      "runtimeArgs": ["--remote-debugging-port=9222"],
       "sourceMaps": true,
       "preLaunchTask": "npm: start"
     },
@@ -28,9 +26,7 @@
       "request": "launch",
       "url": "http://localhost:9876/debug.html",
       "webRoot": "${workspaceRoot}",
-      "runtimeArgs": [
-        "--remote-debugging-port=9222"
-      ],
+      "runtimeArgs": ["--remote-debugging-port=9222"],
       "sourceMaps": true,
       "preLaunchTask": "npm: test"
     },
@@ -42,16 +38,6 @@
       "webRoot": "${workspaceRoot}",
       "sourceMaps": true,
       "preLaunchTask": "npm: test"
-    },
-    {
-      "name": "npm run e2e",
-      "type": "node",
-      "request": "launch",
-      "program": "${workspaceRoot}/node_modules/protractor/bin/protractor",
-      "protocol": "inspector",
-      "args": [
-        "${workspaceRoot}/protractor.conf.js"
-      ]
     }
   ]
 }
