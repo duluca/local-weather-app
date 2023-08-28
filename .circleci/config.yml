@@ -196,6 +196,7 @@ workflows:
           requires:
             - initialize
       - deploy:
+          context: vercel
           requires:
             - default
           filters:
