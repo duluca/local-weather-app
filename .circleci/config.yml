@@ -90,7 +90,7 @@ commands:
     steps:
       - attach_workspace:
           at: /tmp/workspace
-      - run: npx vercel --token $VERCEL_TOKEN --platform-version 2 --prod /tmp/workspace/dist/<< parameters.project >> --confirm
+      - run: npx vercel deploy --token $VERCEL_TOKEN --prod /tmp/workspace/dist/<< parameters.project >> --yes
 jobs:
   initialize:
     docker:
