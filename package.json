@@ -21,6 +21,8 @@
     "lint": "ng lint",
     "lint:fix": "ng lint --fix",
     "e2e": "ng e2e",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
     "build:prod": "ng build --configuration production",
     "predocker:build": "npm run build",
     "docker:build": "cross-conf-env docker image build . -t $npm_package_config_imageRepo:$npm_package_version",
@@ -48,9 +50,7 @@
     "lint:ts:fix": "tslint --config tslint.json --fix --project . -e \"**/{test,polyfills}.ts\"",
     "lint:tsc": "tsc --noEmit --skipLibCheck",
     "docker:stop": "cross-conf-env docker stop $npm_package_config_imageName || true",
-    "docker:open": "sleep 2 && cross-conf-env open-cli http://localhost:$npm_package_config_imagePort",
-    "cypress:open": "cypress open",
-    "cypress:run": "cypress run"
+    "docker:open": "sleep 2 && cross-conf-env open-cli http://localhost:$npm_package_config_imagePort"
   },
   "private": true,
   "dependencies": {
