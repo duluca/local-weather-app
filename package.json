@@ -112,6 +112,6 @@
     "prettier": "^3.0.1",
     "rimraf": "^5.0.1",
     "typescript": "^5.1.6",
-    "vercel": "^31.2.3"
+    "vercel": "^32.1.0"
   }
 }
