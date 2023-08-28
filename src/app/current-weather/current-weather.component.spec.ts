@@ -6,6 +6,7 @@ import {
   ObservablePropertyStrategy,
   autoSpyObj,
   injectSpy,
+  addProperty,
 } from 'angular-unit-test-helper'
 import { of, first } from 'rxjs'
 
@@ -14,6 +15,22 @@ import { ICurrentWeather } from '../interfaces'
 import { WeatherService, defaultWeather } from '../weather/weather.service'
 import { fakeWeather } from '../weather/weather.service.fake'
 import { CurrentWeatherComponent } from './current-weather.component'
+
+/* eslint-disable-next-line arrow-body-style */
+export const spyGetter = <T, K extends keyof T>(
+  target: jasmine.SpyObj<T>,
+  key: K
+): jasmine.Spy => {
+  return Object.getOwnPropertyDescriptor(target, key)?.get as jasmine.Spy
+}
+
+/* eslint-disable-next-line arrow-body-style */
+export const spySetter = <T, K extends keyof T>(
+  target: jasmine.SpyObj<T>,
+  key: K
+): jasmine.Spy => {
+  return Object.getOwnPropertyDescriptor(target, key)?.set as jasmine.Spy
+}
 
 describe('CurrentWeatherComponent', () => {
   let component: CurrentWeatherComponent
@@ -28,6 +45,8 @@ describe('CurrentWeatherComponent', () => {
       ['currentWeather$'],
       ObservablePropertyStrategy.BehaviorSubject
     )
+
+    addProperty(weatherServiceSpy, 'reactivityMode', () => 'subject')
 
     TestBed.configureTestingModule({
       imports: [MaterialModule, CurrentWeatherComponent],
