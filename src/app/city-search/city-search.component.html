@@ -1,4 +1,4 @@
-<div fxLayout="column" style="margin-bottom: 32px">
+<div fxLayout="column" style="margin-bottom: 16px">
   <form #searchForm>
     <mat-form-field
       appearance="outline"
@@ -21,14 +21,14 @@
       <mat-icon>close</mat-icon>
     </button>
   </form>
-  <div class="center">
-    <mat-slide-toggle
-      color="accent"
-      data-testid="ngrx-toggle"
-      [(ngModel)]="useNgRx"
-      (ngModelChange)="doSearch(search.value)"
-      [ngModelOptions]="{ standalone: true }">
-      {{ useNgRx ? 'Using NgRX' : 'Using BehaviorSubject' }}
-    </mat-slide-toggle>
+  <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="8px" style="margin-top:16px;">
+    <div class="mat-headline-8">Reactivity Mode<mat-icon matTooltip="For demonstration purposes only">info</mat-icon></div>
+    <mat-button-toggle-group color="accent" aria-label="Reactivity Mode" data-testid="reactivity-mode" [(ngModel)]="reactivityMode"
+    (ngModelChange)="doSearch(search.value)"
+    [ngModelOptions]="{ standalone: true }">
+      <mat-button-toggle value="signal">Signal</mat-button-toggle>
+      <mat-button-toggle value="subject">BehaviorSubject</mat-button-toggle>
+      <mat-button-toggle value="ngrx">NgRx</mat-button-toggle>
+    </mat-button-toggle-group>
   </div>
 </div>

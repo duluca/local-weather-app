@@ -1,12 +1,14 @@
 import { HttpClientModule } from '@angular/common/http'
 import { Component, effect, signal } from '@angular/core'
-import { FlexLayoutModule } from '@ngbracket/ngx-layout'
+
 import { CitySearchComponent } from './city-search/city-search.component'
 import { CurrentWeatherComponent } from './current-weather/current-weather.component'
 import { MatCardModule } from '@angular/material/card'
 import { MatIconModule } from '@angular/material/icon'
 import { MatSlideToggleModule } from '@angular/material/slide-toggle'
 import { MatToolbarModule } from '@angular/material/toolbar'
+
+import { FlexLayoutModule } from '@ngbracket/ngx-layout'
 
 const darkClassName = 'dark-theme'
 
@@ -15,13 +17,13 @@ const darkClassName = 'dark-theme'
   standalone: true,
   imports: [
     HttpClientModule,
-    FlexLayoutModule,
     CurrentWeatherComponent,
     CitySearchComponent,
     MatToolbarModule,
     MatIconModule,
     MatCardModule,
     MatSlideToggleModule,
+    FlexLayoutModule,
   ],
   template: `
     <mat-toolbar color="primary">

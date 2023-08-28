@@ -5,7 +5,7 @@
       {{ current.country }}
     </div>
     <div fxFlex class="mat-subtitle-1 no-margin" data-testid="date">
-      {{ current.date | date: 'EEEE MMM d' }}{{ getOrdinal(current.date) }}
+      {{ current.date | date: 'EEEE' }}<br/>{{ current.date | date: 'MMM d' }}{{ getOrdinal(current.date) }}
     </div>
   </div>
   <div fxLayout="row" fxLayoutAlign="center center" style="margin-bottom: -48px">
@@ -23,7 +23,7 @@
       </p>
     </div>
   </div>
-  <div fxLayoutAlign="center " class="mat-caption" data-testid="description">
+  <div fxLayoutAlign="center" class="mat-caption" data-testid="description">
     {{ current.description }}
   </div>
 </div>

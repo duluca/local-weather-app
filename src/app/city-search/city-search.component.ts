@@ -10,8 +10,11 @@ import { WeatherService } from '../weather/weather.service'
 import { CommonModule } from '@angular/common'
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
-import { MatSlideToggleModule } from '@angular/material/slide-toggle'
 import { MatIconModule } from '@angular/material/icon'
+import { MatTooltipModule } from '@angular/material/tooltip'
+import { MatButtonToggleModule } from '@angular/material/button-toggle'
+import { MatDividerModule } from '@angular/material/divider'
+import { FlexLayoutModule } from '@ngbracket/ngx-layout'
 
 @Component({
   selector: 'app-city-search',
@@ -22,14 +25,18 @@ import { MatIconModule } from '@angular/material/icon'
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSlideToggleModule,
+    MatButtonToggleModule,
     MatIconModule,
+    MatDividerModule,
+    FlexLayoutModule,
+    MatIconModule,
+    MatTooltipModule,
   ],
   templateUrl: './city-search.component.html',
   styleUrls: ['./city-search.component.css'],
 })
 export class CitySearchComponent {
-  useNgRx = false
+  reactivityMode: 'signal' | 'subject' | 'ngrx' = 'subject'
   search = new FormControl('', [Validators.required, Validators.minLength(2)])
 
   constructor(
@@ -52,10 +59,16 @@ export class CitySearchComponent {
     const searchText = userInput[0]
     const country = userInput.length > 1 ? userInput[1] : undefined
 
-    if (this.useNgRx) {
-      this.ngRxBasedSearch(searchText, country)
-    } else {
-      this.behaviorSubjectBasedSearch(searchText, country)
+    switch (this.reactivityMode) {
+      // case 'signal':
+      //   this.signalBasedSearch(searchText, country)
+      //   break
+      case 'subject':
+        this.behaviorSubjectBasedSearch(searchText, country)
+        break
+      case 'ngrx':
+        this.ngRxBasedSearch(searchText, country)
+        break
     }
   }
 
