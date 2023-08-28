@@ -5,14 +5,18 @@ describe('LocalCast Weather', () => {
     cy.visit('/')
   })
 
-  it('can search for a city by name', () => {
+  it('can search for a city by name using subject', () => {
+    cy.byTestId('reactivity-mode').contains('BehaviorSubject').click()
     searchByCity('Bursa', 'Bursa')
   })
 
   it('can search for a city by name using ngrx', () => {
-    cy.byTestId('ngrx-toggle').click()
-    cy.byTestId('ngrx-toggle').should('have.class', 'mat-mdc-slide-toggle-checked')
+    cy.byTestId('reactivity-mode').contains('NgRx').click()
+    searchByCity('Bursa', 'Bursa')
+  })
 
+  it('can search for a city by name using signal', () => {
+    cy.byTestId('reactivity-mode').contains('Signal').click()
     searchByCity('Bursa', 'Bursa')
   })
 })
