@@ -121,55 +121,55 @@ jobs:
     steps:
       - deploy_vercel
 
-  step2: # this job is only here to verify sample code from the book, remove it in your own projects
+  stage2: # this job is only here to verify sample code from the book, remove it in your own projects
     docker:
       - image: cimg/node:lts-browsers
     working_directory: ~/repo
     steps:
       - install
       - build_and_test:
-          project: 'step2'
-  step3: # this job is only here to verify sample code from the book, remove it in your own projects
+          project: 'stage2'
+  stage3: # this job is only here to verify sample code from the book, remove it in your own projects
     docker:
       - image: cimg/node:lts-browsers
     working_directory: ~/repo
     steps:
       - install
       - build_and_test:
-          project: 'step3'
+          project: 'stage3'
           run-tests: false
-  step4: # this job is only here to verify sample code from the book, remove it in your own projects
+  stage4: # this job is only here to verify sample code from the book, remove it in your own projects
     docker:
       - image: cimg/node:lts-browsers
     working_directory: ~/repo
     steps:
       - install
       - build_and_test:
-          project: 'step4'
-  step5: # this job is only here to verify sample code from the book, remove it in your own projects
+          project: 'stage4'
+  stage5: # this job is only here to verify sample code from the book, remove it in your own projects
     docker:
       - image: cimg/node:lts-browsers
     working_directory: ~/repo
     steps:
       - install
       - build_and_test:
-          project: 'step5'
-  step6: # this job is only here to verify sample code from the book, remove it in your own projects
+          project: 'stage5'
+  stage6: # this job is only here to verify sample code from the book, remove it in your own projects
     docker:
       - image: cimg/node:lts-browsers
     working_directory: ~/repo
     steps:
       - install
       - build_and_test:
-          project: 'step6'
-  step12: # this job is only here to verify sample code from the book, remove it in your own projects
+          project: 'stage6'
+  stage12: # this job is only here to verify sample code from the book, remove it in your own projects
     docker:
       - image: cimg/node:lts-browsers
     working_directory: ~/repo
     steps:
       - install
       - build_and_test:
-          project: 'step12'
+          project: 'stage12'
 workflows:
   build-test-and-approval-deploy:
     jobs:
@@ -177,22 +177,22 @@ workflows:
       - default:
           requires:
             - initialize
-      - step2: # this job is only here to verify sample code from the book, remove it in your own projects
+      - stage2: # this job is only here to verify sample code from the book, remove it in your own projects
           requires:
             - initialize
-      - step3: # this job is only here to verify sample code from the book, remove it in your own projects
+      - stage3: # this job is only here to verify sample code from the book, remove it in your own projects
           requires:
             - initialize
-      - step4: # this job is only here to verify sample code from the book, remove it in your own projects
+      - stage4: # this job is only here to verify sample code from the book, remove it in your own projects
           requires:
             - initialize
-      - step5: # this job is only here to verify sample code from the book, remove it in your own projects
+      - stage5: # this job is only here to verify sample code from the book, remove it in your own projects
           requires:
             - initialize
-      - step6: # this job is only here to verify sample code from the book, remove it in your own projects
+      - stage6: # this job is only here to verify sample code from the book, remove it in your own projects
           requires:
             - initialize
-      - step12: # this job is only here to verify sample code from the book, remove it in your own projects
+      - stage12: # this job is only here to verify sample code from the book, remove it in your own projects
           requires:
             - initialize
       - deploy:

@@ -4,11 +4,11 @@ import { SearchActions } from '../actions/search.actions'
 import { ICurrentWeather } from '../interfaces'
 import { defaultWeather } from '../weather/weather.service'
 
-export interface State {
+export interface WeatherState {
   current: ICurrentWeather
 }
 
-export const initialState: State = {
+export const initialState: WeatherState = {
   current: defaultWeather,
 }
 
@@ -22,6 +22,6 @@ const searchReducer = createReducer(
   })
 )
 
-export function reducer(state: State | undefined, action: Action) {
+export function reducer(state: WeatherState | undefined, action: Action) {
   return searchReducer(state, action)
 }

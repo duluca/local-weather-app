@@ -19,7 +19,7 @@ import { OnInit } from '@angular/core'
 //    - Has fewer imports / requires less maintenance
 //    - Forces higher knowledge of how the lifecycle interactes with your component
 //    - Allows you to better separate Unit (fast) and Integration (slow) tests
-//        into separate scripts or pipeline stages
+//        into separate scripts or pipeline steps
 // Note that with Angular 9+ tests run faster compared to prior versions. So,
 //  the performance gains will likely be less.
 // ###################################################################

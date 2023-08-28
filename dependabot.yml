@@ -1,0 +1,20 @@
+version: 2
+updates:
+  - package-ecosystem: 'npm'
+    directory: '/'
+    schedule:
+      interval: 'monthly'
+groups:
+  production-dependencies:
+    dependency-type: 'production'
+  development-dependencies:
+    dependency-type: 'development'
+  angular:
+    patterns:
+      - '@angular*'
+    update-types:
+      - 'minor'
+      - 'patch'
+ignore:
+  - dependency-name: '@angular*'
+    update-types: ['version-update:semver-major']

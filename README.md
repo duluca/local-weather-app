@@ -14,6 +14,8 @@
 
 ![mat-style4](https://user-images.githubusercontent.com/822159/56008986-210ad880-5cac-11e9-812f-6514b2dc0f97.PNG)
 
+> Chapter specific examples within `projects` have been renamed, from a `ch` format to `stage`. e.g. `projects/ch2` would now be located under `projects/stage2`.
+
 ## Get the book
 
 LocalCast Weather has been developed in support of my book _Angular for Enterprise-Ready Web Applications_. You can get the book at any major bookstore or find the links at http://AngularForEnterprise.com.
@@ -83,7 +85,7 @@ Changes are inevitable to keep the project up-to-date with libraries, tools, pat
 
 ## Angular 16
 
-- Renamed `projects` from `ch2` format to `step2`, so they make sense in the 3rd edition.
+- Renamed `projects` from `ch2` format to `stage2`, so they make sense in the 3rd edition.
 - Replaced tslint with eslint
 - Replaced protractor with cypress for e2e, added tests
 - Moved to Standalone configuration

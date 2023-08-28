@@ -66,6 +66,7 @@
     "@angular/platform-server": "16.2.0",
     "@angular/router": "16.2.0",
     "@ngbracket/ngx-layout": "^16.0.0",
+    "@ngrx/component-store": "^16.2.0",
     "@ngrx/effects": "^16.2.0",
     "@ngrx/store": "^16.2.0",
     "@ngrx/store-devtools": "^16.2.0",
