@@ -1,11 +1,13 @@
 import { HttpClient, HttpParams } from '@angular/common/http'
 import { Injectable } from '@angular/core'
-import { BehaviorSubject, Observable } from 'rxjs'
+import { BehaviorSubject, Observable, firstValueFrom } from 'rxjs'
 import { map, switchMap, first } from 'rxjs/operators'
 
 import { environment } from '../../environments/environment'
 import { ICurrentWeather } from '../interfaces'
 import { PostalCodeService, defaultPostalCode } from '../postal-code/postal-code.service'
+import { signal } from '@angular/core'
+import { WritableSignal } from '@angular/core'
 
 export interface ICurrentWeatherData {
   weather: [
@@ -38,6 +40,7 @@ export interface IWeatherService {
   getCurrentWeather(city: string, country?: string): Observable<ICurrentWeather>
   getCurrentWeatherByCoords(coords: GeolocationCoordinates): Observable<ICurrentWeather>
   updateCurrentWeather(searchText: string, country?: string): void
+  updateCurrentWeatherSignal(searchText: string, country?: string): void
 }
 
 @Injectable({
@@ -45,6 +48,9 @@ export interface IWeatherService {
 })
 export class WeatherService implements IWeatherService {
   readonly currentWeather$ = new BehaviorSubject<ICurrentWeather>(defaultWeather)
+  readonly currentWeatherSignal = signal(defaultWeather)
+  readonly reactivityMode: WritableSignal<'signal' | 'subject' | 'ngrx'> =
+    signal('subject')
 
   constructor(
     private httpClient: HttpClient,
@@ -68,6 +74,12 @@ export class WeatherService implements IWeatherService {
       .subscribe((weather) => this.currentWeather$.next(weather))
   }
 
+  async updateCurrentWeatherSignal(searchText: string, country?: string): Promise<void> {
+    this.currentWeatherSignal.set(
+      await this.getCurrentWeatherAsPromise(searchText, country)
+    )
+  }
+
   getCurrentWeather(searchText: string, country?: string): Observable<ICurrentWeather> {
     return this.postalCodeService.resolvePostalCode(searchText).pipe(
       switchMap((postalCode) => {
@@ -86,6 +98,13 @@ export class WeatherService implements IWeatherService {
         }
       })
     )
+  }
+
+  getCurrentWeatherAsPromise(
+    searchText: string,
+    country?: string
+  ): Promise<ICurrentWeather> {
+    return firstValueFrom(this.getCurrentWeather(searchText, country))
   }
 
   private getCurrentWeatherHelper(uriParams: HttpParams): Observable<ICurrentWeather> {

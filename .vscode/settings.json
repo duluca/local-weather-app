@@ -47,7 +47,7 @@
   "ng-evergreen.upgradeChannel": "Latest",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "[html]": {
-    "editor.defaultFormatter": "HookyQR.beautify"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[shellscript]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"

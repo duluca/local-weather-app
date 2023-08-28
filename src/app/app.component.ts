@@ -7,8 +7,11 @@ import { MatCardModule } from '@angular/material/card'
 import { MatIconModule } from '@angular/material/icon'
 import { MatSlideToggleModule } from '@angular/material/slide-toggle'
 import { MatToolbarModule } from '@angular/material/toolbar'
-
+import { MatTooltipModule } from '@angular/material/tooltip'
+import { MatButtonToggleModule } from '@angular/material/button-toggle'
 import { FlexLayoutModule } from '@ngbracket/ngx-layout'
+import { WeatherService } from './weather/weather.service'
+import { WritableSignal } from '@angular/core'
 
 const darkClassName = 'dark-theme'
 
@@ -24,6 +27,8 @@ const darkClassName = 'dark-theme'
     MatCardModule,
     MatSlideToggleModule,
     FlexLayoutModule,
+    MatButtonToggleModule,
+    MatTooltipModule,
   ],
   template: `
     <mat-toolbar color="primary">
@@ -47,20 +52,43 @@ const darkClassName = 'dark-theme'
       <div fxFlex></div>
       <mat-card appearance="outlined" fxFlex="300px">
         <mat-card-header>
-          <mat-card-title
-            ><div class="mat-headline-5">Current Weather</div></mat-card-title
-          >
+          <mat-card-title>
+            <div class="mat-headline-5">Current Weather</div>
+          </mat-card-title>
         </mat-card-header>
         <mat-card-content> <app-current-weather></app-current-weather> </mat-card-content>
       </mat-card>
       <div fxFlex></div>
     </div>
+    <div
+      fxLayout="column"
+      fxLayoutAlign="center center"
+      fxLayoutGap="8px"
+      style="margin-top:16px;">
+      <div class="mat-headline-8">
+        Reactivity Mode<mat-icon matTooltip="For demonstration purposes only"
+          >info</mat-icon
+        >
+      </div>
+      <mat-button-toggle-group
+        color="accent"
+        aria-label="Reactivity Mode"
+        data-testid="reactivity-mode"
+        [value]="reactivityMode()"
+        (change)="reactivityMode.set($event.value)">
+        <mat-button-toggle value="signal">Signal</mat-button-toggle>
+        <mat-button-toggle value="subject">BehaviorSubject</mat-button-toggle>
+        <mat-button-toggle value="ngrx">NgRx</mat-button-toggle>
+      </mat-button-toggle-group>
+    </div>
   `,
 })
 export class AppComponent {
-  toggleState = signal(localStorage.getItem(darkClassName) === 'true')
+  readonly reactivityMode: WritableSignal<'signal' | 'subject' | 'ngrx'>
+  readonly toggleState = signal(localStorage.getItem(darkClassName) === 'true')
 
-  constructor() {
+  constructor(private weatherService: WeatherService) {
+    this.reactivityMode = weatherService.reactivityMode
     effect(() => {
       localStorage.setItem(darkClassName, this.toggleState().toString())
       document.documentElement.classList.toggle(darkClassName, this.toggleState())

@@ -7,6 +7,8 @@ import * as appStore from '../reducers'
 import { WeatherService } from '../weather/weather.service'
 import { CommonModule } from '@angular/common'
 import { FlexLayoutModule } from '@ngbracket/ngx-layout'
+import { effect } from '@angular/core'
+import { WritableSignal } from '@angular/core'
 
 @Component({
   selector: 'app-current-weather',
@@ -16,16 +18,22 @@ import { FlexLayoutModule } from '@ngbracket/ngx-layout'
   styleUrls: ['./current-weather.component.css'],
 })
 export class CurrentWeatherComponent {
+  usingSignal = true
+  readonly currentSignal: WritableSignal<ICurrentWeather>
   current$: Observable<ICurrentWeather>
 
   constructor(
     private weatherService: WeatherService,
     private store: Store<appStore.State>
   ) {
+    this.currentSignal = this.weatherService.currentWeatherSignal
     this.current$ = merge(
       this.store.pipe(select(appStore.selectCurrentWeather)),
       this.weatherService.currentWeather$
     )
+    effect(() => {
+      this.usingSignal = this.weatherService.reactivityMode() === 'signal'
+    })
   }
 
   // Attribution: https://stackoverflow.com/a/44418732/178620
