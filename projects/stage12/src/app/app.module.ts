@@ -9,7 +9,7 @@ import { StoreModule } from '@ngrx/store'
 import { StoreDevtoolsModule } from '@ngrx/store-devtools'
 
 import { environment } from '../environments/environment'
-import { AppMaterialModule } from './app-material.module'
+
 import { AppComponent } from './app.component'
 import { CitySearchComponent } from './city-search/city-search.component'
 import { CurrentWeatherComponent } from './current-weather/current-weather.component'
@@ -23,16 +23,15 @@ import { metaReducers, reducers } from './reducers'
     HttpClientModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
-    AppMaterialModule,
     FormsModule,
     ReactiveFormsModule,
     StoreModule.forRoot(reducers, {
-      metaReducers,
-      runtimeChecks: { strictStateImmutability: true, strictActionImmutability: true },
+        metaReducers,
+        runtimeChecks: { strictStateImmutability: true, strictActionImmutability: true },
     }),
     EffectsModule.forRoot([CurrentWeatherEffects]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
-  ],
+],
   providers: [],
   bootstrap: [AppComponent],
 })

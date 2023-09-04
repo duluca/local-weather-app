@@ -10,7 +10,7 @@ import {
 } from 'angular-unit-test-helper'
 import { of, first } from 'rxjs'
 
-import { MaterialModule } from '../material.module'
+
 import { ICurrentWeather } from '../interfaces'
 import { WeatherService, defaultWeather } from '../weather/weather.service'
 import { fakeWeather } from '../weather/weather.service.fake'
@@ -49,7 +49,7 @@ describe('CurrentWeatherComponent', () => {
     addProperty(weatherServiceSpy, 'reactivityMode', () => 'subject')
 
     TestBed.configureTestingModule({
-      imports: [MaterialModule, CurrentWeatherComponent],
+      imports: [CurrentWeatherComponent],
       providers: [
         { provide: WeatherService, useValue: weatherServiceSpy },
         provideMockStore({ initialState }),

@@ -9,7 +9,7 @@ import {
 } from 'angular-unit-test-helper'
 import { of } from 'rxjs'
 
-import { MaterialModule } from '../material.module'
+
 import { WeatherService } from '../weather/weather.service'
 import { CitySearchComponent } from './city-search.component'
 
@@ -28,12 +28,11 @@ describe('CitySearchComponent', () => {
 
     TestBed.configureTestingModule({
       imports: [
-        MaterialModule,
-        FormsModule,
-        ReactiveFormsModule,
-        NoopAnimationsModule,
-        CitySearchComponent,
-      ],
+    FormsModule,
+    ReactiveFormsModule,
+    NoopAnimationsModule,
+    CitySearchComponent,
+],
       providers: [
         { provide: WeatherService, useValue: weatherServiceSpy },
         { provide: Store, useValue: null },
