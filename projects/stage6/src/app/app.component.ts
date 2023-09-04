@@ -1,4 +1,8 @@
 import { Component } from '@angular/core'
+import { CitySearchTpldrivenComponent } from './city-search-tpldriven/city-search-tpldriven.component'
+import { CurrentWeatherComponent } from './current-weather/current-weather.component'
+import { CitySearchComponent } from './city-search/city-search.component'
+import { FlexModule } from '@ngbracket/ngx-layout/flex'
 
 @Component({
   selector: 'app-root',
@@ -43,6 +47,13 @@ import { Component } from '@angular/core'
       </div>
     </div>
   `,
+  standalone: true,
+  imports: [
+    FlexModule,
+    CitySearchComponent,
+    CurrentWeatherComponent,
+    CitySearchTpldrivenComponent,
+  ],
 })
 export class AppComponent {
   // Alternate event-based implementation

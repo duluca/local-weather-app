@@ -2,11 +2,15 @@ import { Component } from '@angular/core'
 import { first } from 'rxjs/operators'
 
 import { WeatherService } from '../weather/weather.service'
+import { NgIf } from '@angular/common'
+import { FormsModule } from '@angular/forms'
 
 @Component({
   selector: 'app-city-search-tpldriven',
   templateUrl: './city-search-tpldriven.component.html',
   styleUrls: ['./city-search-tpldriven.component.css'],
+  standalone: true,
+  imports: [FormsModule, NgIf],
 })
 export class CitySearchTpldrivenComponent {
   model = {

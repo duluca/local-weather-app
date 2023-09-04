@@ -1,14 +1,17 @@
 import { Component } from '@angular/core'
-import { FormControl, Validators } from '@angular/forms'
+import { FormControl, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { debounceTime, filter, tap } from 'rxjs/operators'
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
 
 import { WeatherService } from '../weather/weather.service'
+import { NgIf } from '@angular/common'
 
 @Component({
   selector: 'app-city-search',
   templateUrl: './city-search.component.html',
   styleUrls: ['./city-search.component.css'],
+  standalone: true,
+  imports: [FormsModule, ReactiveFormsModule, NgIf],
 })
 export class CitySearchComponent {
   // implements OnInit { // Imperative-style

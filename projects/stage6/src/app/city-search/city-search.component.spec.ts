@@ -26,8 +26,13 @@ describe('CitySearchComponent', () => {
     )
 
     TestBed.configureTestingModule({
-      declarations: [CitySearchComponent],
-      imports: [MaterialModule, FormsModule, ReactiveFormsModule, NoopAnimationsModule],
+      imports: [
+        MaterialModule,
+        FormsModule,
+        ReactiveFormsModule,
+        NoopAnimationsModule,
+        CitySearchComponent,
+      ],
       providers: [{ provide: WeatherService, useValue: weatherServiceSpy }],
     }).compileComponents()
 

@@ -10,11 +10,11 @@ import { CitySearchComponent } from './city-search/city-search.component'
 describe('AppComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [
+      imports: [
+        AppMaterialModule,
         AppComponent,
         ...MockComponents(CurrentWeatherComponent, CitySearchComponent),
       ],
-      imports: [AppMaterialModule],
     }).compileComponents()
   }))
   it('should create the app', waitForAsync(() => {

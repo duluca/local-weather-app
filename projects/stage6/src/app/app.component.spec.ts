@@ -11,7 +11,8 @@ import { MaterialModule } from 'projects/stage5/src/app/material.module'
 describe('AppComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [
+      imports: [
+        MaterialModule,
         AppComponent,
         ...MockComponents(
           CurrentWeatherComponent,
@@ -19,7 +20,6 @@ describe('AppComponent', () => {
           CitySearchTpldrivenComponent
         ),
       ],
-      imports: [MaterialModule],
     }).compileComponents()
   }))
 

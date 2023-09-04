@@ -9,8 +9,7 @@ import { MaterialModule } from './material.module'
 describe('AppComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [AppComponent, ...MockComponents(CurrentWeatherComponent)],
-      imports: [MaterialModule],
+      imports: [MaterialModule, AppComponent, ...MockComponents(CurrentWeatherComponent)],
     }).compileComponents()
   }))
 

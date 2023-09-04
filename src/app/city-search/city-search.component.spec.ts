@@ -9,7 +9,6 @@ import {
 } from 'angular-unit-test-helper'
 import { of } from 'rxjs'
 
-
 import { WeatherService } from '../weather/weather.service'
 import { CitySearchComponent } from './city-search.component'
 
@@ -28,11 +27,11 @@ describe('CitySearchComponent', () => {
 
     TestBed.configureTestingModule({
       imports: [
-    FormsModule,
-    ReactiveFormsModule,
-    NoopAnimationsModule,
-    CitySearchComponent,
-],
+        FormsModule,
+        ReactiveFormsModule,
+        NoopAnimationsModule,
+        CitySearchComponent,
+      ],
       providers: [
         { provide: WeatherService, useValue: weatherServiceSpy },
         { provide: Store, useValue: null },

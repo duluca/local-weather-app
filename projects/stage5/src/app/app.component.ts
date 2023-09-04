@@ -1,4 +1,6 @@
 import { Component } from '@angular/core'
+import { CurrentWeatherComponent } from './current-weather/current-weather.component'
+import { FlexModule } from '@ngbracket/ngx-layout/flex'
 
 @Component({
   selector: 'app-root',
@@ -28,5 +30,7 @@ import { Component } from '@angular/core'
       </div>
     </div>
   `,
+  standalone: true,
+  imports: [FlexModule, CurrentWeatherComponent],
 })
 export class AppComponent {}

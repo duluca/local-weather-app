@@ -10,7 +10,6 @@ import {
 } from 'angular-unit-test-helper'
 import { of, first } from 'rxjs'
 
-
 import { ICurrentWeather } from '../interfaces'
 import { WeatherService, defaultWeather } from '../weather/weather.service'
 import { fakeWeather } from '../weather/weather.service.fake'

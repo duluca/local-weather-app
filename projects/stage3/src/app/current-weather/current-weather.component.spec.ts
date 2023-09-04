@@ -8,7 +8,7 @@ describe('CurrentWeatherComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [CurrentWeatherComponent],
+      imports: [CurrentWeatherComponent],
     }).compileComponents()
   }))
 
