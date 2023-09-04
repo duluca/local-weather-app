@@ -12,6 +12,7 @@ import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
 import { MatIconModule } from '@angular/material/icon'
 import { FlexLayoutModule } from '@ngbracket/ngx-layout'
+import { MatButtonModule } from '@angular/material/button'
 
 @Component({
   selector: 'app-city-search',
@@ -24,6 +25,7 @@ import { FlexLayoutModule } from '@ngbracket/ngx-layout'
     MatInputModule,
     FlexLayoutModule,
     MatIconModule,
+    MatButtonModule,
   ],
   templateUrl: './city-search.component.html',
   styleUrls: ['./city-search.component.css'],
