@@ -1,6 +1,5 @@
 import { TestBed, waitForAsync } from '@angular/core/testing'
 import { MockComponents } from 'ng-mocks'
-import { MaterialModule } from 'projects/stage5/src/app/material.module'
 
 import { AppComponent } from './app.component'
 import { CitySearchComponent } from './city-search/city-search.component'
@@ -11,7 +10,6 @@ describe('AppComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
-        MaterialModule,
         AppComponent,
         ...MockComponents(
           CurrentWeatherComponent,
