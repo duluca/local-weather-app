@@ -1,9 +1,9 @@
+import { DatePipe, DecimalPipe, NgIf } from '@angular/common'
 import { Component, OnInit } from '@angular/core'
+import { FlexModule } from '@ngbracket/ngx-layout/flex'
 
 import { ICurrentWeather } from '../interfaces'
 import { WeatherService } from '../weather/weather.service'
-import { FlexModule } from '@ngbracket/ngx-layout/flex'
-import { NgIf, DecimalPipe, DatePipe } from '@angular/common'
 
 @Component({
   selector: 'app-current-weather',

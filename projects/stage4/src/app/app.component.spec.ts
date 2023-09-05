@@ -1,8 +1,7 @@
 import { TestBed, waitForAsync } from '@angular/core/testing'
+import { MockComponents } from 'ng-mocks'
 
 import { AppComponent } from './app.component'
-
-import { MockComponents } from 'ng-mocks'
 import { CurrentWeatherComponent } from './current-weather/current-weather.component'
 
 describe('AppComponent', () => {

@@ -1,9 +1,9 @@
+import { NgIf } from '@angular/common'
 import { Component } from '@angular/core'
+import { FormsModule } from '@angular/forms'
 import { first } from 'rxjs/operators'
 
 import { WeatherService } from '../weather/weather.service'
-import { NgIf } from '@angular/common'
-import { FormsModule } from '@angular/forms'
 
 @Component({
   selector: 'app-city-search-tpldriven',

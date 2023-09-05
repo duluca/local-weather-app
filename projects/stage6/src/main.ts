@@ -1,12 +1,12 @@
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
 import { enableProdMode, importProvidersFrom } from '@angular/core'
-
-import { environment } from './environments/environment'
-import { AppComponent } from './app/app.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
-import { FlexLayoutModule } from '@ngbracket/ngx-layout'
+import { bootstrapApplication, BrowserModule } from '@angular/platform-browser'
 import { provideAnimations } from '@angular/platform-browser/animations'
-import { withInterceptorsFromDi, provideHttpClient } from '@angular/common/http'
-import { BrowserModule, bootstrapApplication } from '@angular/platform-browser'
+import { FlexLayoutModule } from '@ngbracket/ngx-layout'
+
+import { AppComponent } from './app/app.component'
+import { environment } from './environments/environment'
 
 if (environment.production) {
   enableProdMode()

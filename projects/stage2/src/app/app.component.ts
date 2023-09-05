@@ -1,5 +1,5 @@
+import { NgSwitch, NgSwitchCase, NgSwitchDefault } from '@angular/common'
 import { Component } from '@angular/core'
-import { NgSwitch, NgSwitchDefault, NgSwitchCase } from '@angular/common'
 
 @Component({
   selector: 'app-root',

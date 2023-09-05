@@ -1,14 +1,15 @@
-import { bootstrapApplication } from '@angular/platform-browser'
-import { AppComponent } from './app/app.component'
 import { provideHttpClient } from '@angular/common/http'
-import { provideAnimations } from '@angular/platform-browser/animations'
-import { provideStore } from '@ngrx/store'
-import { provideEffects } from '@ngrx/effects'
-import { provideStoreDevtools } from '@ngrx/store-devtools'
-import { CurrentWeatherEffects } from './app/effects/current-weather.effects'
-import { reducers, metaReducers } from './app/reducers'
-import { environment } from './environments/environment'
 import { enableProdMode } from '@angular/core'
+import { bootstrapApplication } from '@angular/platform-browser'
+import { provideAnimations } from '@angular/platform-browser/animations'
+import { provideEffects } from '@ngrx/effects'
+import { provideStore } from '@ngrx/store'
+import { provideStoreDevtools } from '@ngrx/store-devtools'
+
+import { AppComponent } from './app/app.component'
+import { CurrentWeatherEffects } from './app/effects/current-weather.effects'
+import { metaReducers, reducers } from './app/reducers'
+import { environment } from './environments/environment'
 
 if (environment.production) {
   enableProdMode()

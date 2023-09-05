@@ -1,8 +1,8 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing'
 import {
-  ObservablePropertyStrategy,
   autoSpyObj,
   injectSpy,
+  ObservablePropertyStrategy,
 } from 'angular-unit-test-helper'
 import { of } from 'rxjs'
 

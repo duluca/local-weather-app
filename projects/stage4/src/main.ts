@@ -1,9 +1,9 @@
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
 import { enableProdMode, importProvidersFrom } from '@angular/core'
+import { bootstrapApplication, BrowserModule } from '@angular/platform-browser'
 
-import { environment } from './environments/environment'
 import { AppComponent } from './app/app.component'
-import { withInterceptorsFromDi, provideHttpClient } from '@angular/common/http'
-import { BrowserModule, bootstrapApplication } from '@angular/platform-browser'
+import { environment } from './environments/environment'
 
 if (environment.production) {
   enableProdMode()

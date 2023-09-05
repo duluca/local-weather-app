@@ -2,9 +2,9 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { NoopAnimationsModule } from '@angular/platform-browser/animations'
 import {
-  ObservablePropertyStrategy,
   autoSpyObj,
   injectSpy,
+  ObservablePropertyStrategy,
 } from 'angular-unit-test-helper'
 import { of } from 'rxjs'
 

@@ -6,7 +6,7 @@ import { autoSpyObj, injectClass, injectSpy } from 'angular-unit-test-helper'
 import { Observable, of } from 'rxjs'
 
 import { ICurrentWeather } from '../interfaces'
-import { WeatherService, defaultWeather } from '../weather/weather.service'
+import { defaultWeather, WeatherService } from '../weather/weather.service'
 import { CurrentWeatherEffects } from './current-weather.effects'
 
 describe('CurrentWeatherEffects', () => {

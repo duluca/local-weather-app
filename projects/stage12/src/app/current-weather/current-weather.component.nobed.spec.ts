@@ -1,12 +1,12 @@
+import { OnInit } from '@angular/core'
 import { Store } from '@ngrx/store'
 import { addPropertyAsBehaviorSubject } from 'angular-unit-test-helper'
-import { of, first } from 'rxjs'
+import { first, of } from 'rxjs'
 
 import { State } from '../reducers'
 import { WeatherService } from '../weather/weather.service'
 import { fakeWeather } from '../weather/weather.service.fake'
 import { CurrentWeatherComponent } from './current-weather.component'
-import { OnInit } from '@angular/core'
 
 // ###################################################################
 // Advanced High-Performance Unit Test Setup sans TestBed

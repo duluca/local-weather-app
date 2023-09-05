@@ -1,4 +1,4 @@
-import { ActionReducer, ActionReducerMap, MetaReducer, createSelector } from '@ngrx/store'
+import { ActionReducer, ActionReducerMap, createSelector, MetaReducer } from '@ngrx/store'
 
 import { environment } from '../../environments/environment'
 import * as fromSearch from './search.reducer'

@@ -1,13 +1,13 @@
+import { NgIf } from '@angular/common'
 import { Component } from '@angular/core'
-import { FormControl, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
+import { FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms'
 import { Store } from '@ngrx/store'
 import { debounceTime, filter, tap } from 'rxjs/operators'
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
 
 import { SearchActions } from '../actions/search.actions'
 import * as fromSearch from '../reducers/search.reducer'
 import { WeatherService } from '../weather/weather.service'
-import { NgIf } from '@angular/common'
 
 @Component({
   selector: 'app-city-search',

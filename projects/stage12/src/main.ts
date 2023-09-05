@@ -1,17 +1,17 @@
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
 import { enableProdMode, importProvidersFrom } from '@angular/core'
-
-import { environment } from './environments/environment'
-import { AppComponent } from './app/app.component'
-import { StoreDevtoolsModule } from '@ngrx/store-devtools'
-import { CurrentWeatherEffects } from './app/effects/current-weather.effects'
-import { EffectsModule } from '@ngrx/effects'
-import { reducers, metaReducers } from './app/reducers'
-import { StoreModule } from '@ngrx/store'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
-import { FlexLayoutModule } from '@ngbracket/ngx-layout'
+import { bootstrapApplication, BrowserModule } from '@angular/platform-browser'
 import { provideAnimations } from '@angular/platform-browser/animations'
-import { withInterceptorsFromDi, provideHttpClient } from '@angular/common/http'
-import { BrowserModule, bootstrapApplication } from '@angular/platform-browser'
+import { FlexLayoutModule } from '@ngbracket/ngx-layout'
+import { EffectsModule } from '@ngrx/effects'
+import { StoreModule } from '@ngrx/store'
+import { StoreDevtoolsModule } from '@ngrx/store-devtools'
+
+import { AppComponent } from './app/app.component'
+import { CurrentWeatherEffects } from './app/effects/current-weather.effects'
+import { metaReducers, reducers } from './app/reducers'
+import { environment } from './environments/environment'
 
 if (environment.production) {
   enableProdMode()

@@ -1,10 +1,10 @@
+import { AsyncPipe, DatePipe, DecimalPipe, NgIf } from '@angular/common'
 import { Component } from '@angular/core'
+import { FlexModule } from '@ngbracket/ngx-layout/flex'
 import { Observable } from 'rxjs'
 
 import { ICurrentWeather } from '../interfaces'
 import { WeatherService } from '../weather/weather.service'
-import { FlexModule } from '@ngbracket/ngx-layout/flex'
-import { NgIf, AsyncPipe, DecimalPipe, DatePipe } from '@angular/common'
 
 @Component({
   selector: 'app-current-weather',

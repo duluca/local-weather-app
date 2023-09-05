@@ -1,8 +1,9 @@
 import { Component } from '@angular/core'
+import { FlexModule } from '@ngbracket/ngx-layout/flex'
+
+import { CitySearchComponent } from './city-search/city-search.component'
 import { CitySearchTpldrivenComponent } from './city-search-tpldriven/city-search-tpldriven.component'
 import { CurrentWeatherComponent } from './current-weather/current-weather.component'
-import { CitySearchComponent } from './city-search/city-search.component'
-import { FlexModule } from '@ngbracket/ngx-layout/flex'
 
 @Component({
   selector: 'app-root',
