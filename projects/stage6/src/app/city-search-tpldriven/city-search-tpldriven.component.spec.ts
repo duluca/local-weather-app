@@ -25,12 +25,7 @@ describe('CitySearchTpldrivenComponent', () => {
 
     TestBed.configureTestingModule({
       providers: [{ provide: WeatherService, useValue: weatherServiceSpy }],
-      imports: [
-        FormsModule,
-        MaterialModule,
-        NoopAnimationsModule,
-        CitySearchTpldrivenComponent,
-      ],
+      imports: [FormsModule, NoopAnimationsModule, CitySearchTpldrivenComponent],
     }).compileComponents()
 
     weatherServiceMock = injectSpy(WeatherService)

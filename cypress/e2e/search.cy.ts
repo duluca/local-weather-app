@@ -12,12 +12,12 @@ describe('LocalCast Weather', () => {
 
   it('can search for a city by name using ngrx', () => {
     cy.byTestId('reactivity-mode').contains('NgRx').click()
-    searchByCity('Bursa', 'Bursa')
+    searchByCity('Arlington', 'Arlington')
   })
 
   it('can search for a city by name using signal', () => {
     cy.byTestId('reactivity-mode').contains('Signal').click()
-    searchByCity('Bursa', 'Bursa')
+    searchByCity('Bethesda', 'Bethesda')
   })
 })
 

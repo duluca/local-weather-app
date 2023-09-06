@@ -9,7 +9,6 @@ import {
 } from 'angular-unit-test-helper'
 import { of } from 'rxjs'
 
-import { AppMaterialModule } from '../app-material.module'
 import { WeatherService } from '../weather/weather.service'
 import { CitySearchComponent } from './city-search.component'
 
@@ -28,7 +27,6 @@ describe('CitySearchComponent', () => {
 
     TestBed.configureTestingModule({
       imports: [
-        AppMaterialModule,
         FormsModule,
         ReactiveFormsModule,
         NoopAnimationsModule,
