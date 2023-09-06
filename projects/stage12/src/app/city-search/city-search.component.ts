@@ -2,6 +2,8 @@ import { NgIf } from '@angular/common'
 import { Component } from '@angular/core'
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
 import { FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms'
+import { MatFormFieldModule } from '@angular/material/form-field'
+import { MatIconModule } from '@angular/material/icon'
 import { Store } from '@ngrx/store'
 import { debounceTime, filter, tap } from 'rxjs/operators'
 
@@ -14,7 +16,7 @@ import { WeatherService } from '../weather/weather.service'
   templateUrl: './city-search.component.html',
   styleUrls: ['./city-search.component.css'],
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule, NgIf],
+  imports: [FormsModule, ReactiveFormsModule, NgIf, MatFormFieldModule, MatIconModule],
 })
 export class CitySearchComponent {
   useNgRx = false
