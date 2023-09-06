@@ -1,6 +1,6 @@
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
+import { provideHttpClient } from '@angular/common/http'
 import { enableProdMode, importProvidersFrom } from '@angular/core'
-import { bootstrapApplication, BrowserModule } from '@angular/platform-browser'
+import { bootstrapApplication } from '@angular/platform-browser'
 import { provideAnimations } from '@angular/platform-browser/animations'
 import { FlexLayoutModule } from '@ngbracket/ngx-layout'
 
@@ -13,8 +13,8 @@ if (environment.production) {
 
 bootstrapApplication(AppComponent, {
   providers: [
-    importProvidersFrom(BrowserModule, FlexLayoutModule),
-    provideHttpClient(withInterceptorsFromDi()),
+    importProvidersFrom(FlexLayoutModule),
+    provideHttpClient(),
     provideAnimations(),
   ],
 }).catch((err) => console.error(err))

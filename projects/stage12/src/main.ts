@@ -1,12 +1,10 @@
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
-import { enableProdMode, importProvidersFrom } from '@angular/core'
-import { FormsModule, ReactiveFormsModule } from '@angular/forms'
-import { bootstrapApplication, BrowserModule } from '@angular/platform-browser'
+import { provideHttpClient } from '@angular/common/http'
+import { enableProdMode } from '@angular/core'
+import { bootstrapApplication } from '@angular/platform-browser'
 import { provideAnimations } from '@angular/platform-browser/animations'
-import { FlexLayoutModule } from '@ngbracket/ngx-layout'
-import { EffectsModule } from '@ngrx/effects'
-import { StoreModule } from '@ngrx/store'
-import { StoreDevtoolsModule } from '@ngrx/store-devtools'
+import { provideEffects } from '@ngrx/effects'
+import { provideStore } from '@ngrx/store'
+import { provideStoreDevtools } from '@ngrx/store-devtools'
 
 import { AppComponent } from './app/app.component'
 import { CurrentWeatherEffects } from './app/effects/current-weather.effects'
@@ -19,19 +17,13 @@ if (environment.production) {
 
 bootstrapApplication(AppComponent, {
   providers: [
-    importProvidersFrom(
-      BrowserModule,
-      FlexLayoutModule,
-      FormsModule,
-      ReactiveFormsModule,
-      StoreModule.forRoot(reducers, {
-        metaReducers,
-        runtimeChecks: { strictStateImmutability: true, strictActionImmutability: true },
-      }),
-      EffectsModule.forRoot([CurrentWeatherEffects]),
-      StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
-    ),
-    provideHttpClient(withInterceptorsFromDi()),
     provideAnimations(),
+    provideHttpClient(),
+    provideEffects(CurrentWeatherEffects),
+    provideStore(reducers, {
+      metaReducers,
+      runtimeChecks: { strictStateImmutability: true, strictActionImmutability: true },
+    }),
+    provideStoreDevtools({ maxAge: 25, logOnly: environment.production }),
   ],
 }).catch((err) => console.error(err))

@@ -1,8 +1,11 @@
 import { NgIf } from '@angular/common'
 import { Component } from '@angular/core'
-import { FormsModule } from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { MatButtonModule } from '@angular/material/button'
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatIconModule } from '@angular/material/icon'
+import { MatInputModule } from '@angular/material/input'
+import { FlexLayoutModule } from '@ngbracket/ngx-layout'
 import { first } from 'rxjs/operators'
 
 import { WeatherService } from '../weather/weather.service'
@@ -12,7 +15,16 @@ import { WeatherService } from '../weather/weather.service'
   templateUrl: './city-search-tpldriven.component.html',
   styleUrls: ['./city-search-tpldriven.component.css'],
   standalone: true,
-  imports: [FormsModule, NgIf, MatFormFieldModule, MatIconModule],
+  imports: [
+    NgIf,
+    FormsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FlexLayoutModule,
+    MatIconModule,
+    MatButtonModule,
+  ],
 })
 export class CitySearchTpldrivenComponent {
   model = {
