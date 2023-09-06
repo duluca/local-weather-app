@@ -6,7 +6,6 @@ import {
 } from 'angular-unit-test-helper'
 import { of } from 'rxjs'
 
-import { MaterialModule } from '../material.module'
 import { WeatherService } from '../weather/weather.service'
 import { CurrentWeatherComponent } from './current-weather.component'
 
