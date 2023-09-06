@@ -7,7 +7,7 @@ import { CurrentWeatherComponent } from './current-weather/current-weather.compo
 describe('AppComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [MaterialModule, AppComponent, ...MockComponents(CurrentWeatherComponent)],
+      imports: [AppComponent, ...MockComponents(CurrentWeatherComponent)],
     }).compileComponents()
   }))
 

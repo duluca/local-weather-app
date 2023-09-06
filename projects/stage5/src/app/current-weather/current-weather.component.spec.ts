@@ -19,7 +19,7 @@ describe('CurrentWeatherComponent', () => {
     ])
 
     TestBed.configureTestingModule({
-      imports: [MaterialModule, CurrentWeatherComponent],
+      imports: [CurrentWeatherComponent],
       providers: [{ provide: WeatherService, useValue: weatherServiceSpy }],
     }).compileComponents()
 
