@@ -7,7 +7,7 @@ import { MatIconModule } from '@angular/material/icon'
 import { MatSlideToggleModule } from '@angular/material/slide-toggle'
 import { MatToolbarModule } from '@angular/material/toolbar'
 import { MatTooltipModule } from '@angular/material/tooltip'
-import { FlexLayoutModule } from '@ngbracket/ngx-layout'
+import { FlexModule } from '@ngbracket/ngx-layout'
 
 import { CitySearchComponent } from './city-search/city-search.component'
 import { CurrentWeatherComponent } from './current-weather/current-weather.component'
@@ -21,7 +21,7 @@ const darkClassName = 'dark-theme'
   imports: [
     CitySearchComponent,
     CurrentWeatherComponent,
-    FlexLayoutModule,
+    FlexModule,
     HttpClientModule,
     MatButtonToggleModule,
     MatCardModule,

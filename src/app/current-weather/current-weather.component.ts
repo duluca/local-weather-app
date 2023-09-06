@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common'
 import { Component } from '@angular/core'
 import { effect } from '@angular/core'
 import { WritableSignal } from '@angular/core'
-import { FlexLayoutModule } from '@ngbracket/ngx-layout'
+import { FlexModule } from '@ngbracket/ngx-layout'
 import { select, Store } from '@ngrx/store'
 import { merge, Observable } from 'rxjs'
 
@@ -13,7 +13,7 @@ import { WeatherService } from '../weather/weather.service'
 @Component({
   selector: 'app-current-weather',
   standalone: true,
-  imports: [CommonModule, FlexLayoutModule],
+  imports: [CommonModule, FlexModule],
   templateUrl: './current-weather.component.html',
   styleUrls: ['./current-weather.component.css'],
 })

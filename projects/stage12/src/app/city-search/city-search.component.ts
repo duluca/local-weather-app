@@ -7,7 +7,7 @@ import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatIconModule } from '@angular/material/icon'
 import { MatInputModule } from '@angular/material/input'
 import { MatSlideToggleModule } from '@angular/material/slide-toggle'
-import { FlexLayoutModule } from '@ngbracket/ngx-layout'
+import { FlexModule } from '@ngbracket/ngx-layout'
 import { Store } from '@ngrx/store'
 import { debounceTime, filter, tap } from 'rxjs/operators'
 
@@ -26,7 +26,7 @@ import { WeatherService } from '../weather/weather.service'
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
-    FlexLayoutModule,
+    FlexModule,
     MatIconModule,
     MatButtonModule,
     MatSlideToggleModule,

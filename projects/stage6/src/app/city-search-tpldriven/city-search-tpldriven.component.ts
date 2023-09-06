@@ -5,7 +5,7 @@ import { MatButtonModule } from '@angular/material/button'
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatIconModule } from '@angular/material/icon'
 import { MatInputModule } from '@angular/material/input'
-import { FlexLayoutModule } from '@ngbracket/ngx-layout'
+import { FlexModule } from '@ngbracket/ngx-layout'
 import { first } from 'rxjs/operators'
 
 import { WeatherService } from '../weather/weather.service'
@@ -21,7 +21,7 @@ import { WeatherService } from '../weather/weather.service'
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
-    FlexLayoutModule,
+    FlexModule,
     MatIconModule,
     MatButtonModule,
   ],
