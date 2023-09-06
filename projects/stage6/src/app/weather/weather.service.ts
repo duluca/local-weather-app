@@ -1,11 +1,11 @@
 import { HttpClient, HttpParams } from '@angular/common/http'
 import { Injectable } from '@angular/core'
 import { BehaviorSubject, Observable } from 'rxjs'
-import { map, switchMap, first } from 'rxjs/operators'
+import { first, map, switchMap } from 'rxjs/operators'
 
 import { environment } from '../../environments/environment'
 import { ICurrentWeather } from '../interfaces'
-import { PostalCodeService, defaultPostalCode } from '../postal-code/postal-code.service'
+import { defaultPostalCode, PostalCodeService } from '../postal-code/postal-code.service'
 
 export interface ICurrentWeatherData {
   // exported to support unit testing

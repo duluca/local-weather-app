@@ -1,13 +1,29 @@
+import { provideHttpClient } from '@angular/common/http'
 import { enableProdMode } from '@angular/core'
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic'
+import { bootstrapApplication } from '@angular/platform-browser'
+import { provideAnimations } from '@angular/platform-browser/animations'
+import { provideEffects } from '@ngrx/effects'
+import { provideStore } from '@ngrx/store'
+import { provideStoreDevtools } from '@ngrx/store-devtools'
 
-import { AppModule } from './app/app.module'
+import { AppComponent } from './app/app.component'
+import { CurrentWeatherEffects } from './app/effects/current-weather.effects'
+import { metaReducers, reducers } from './app/reducers'
 import { environment } from './environments/environment'
 
 if (environment.production) {
   enableProdMode()
 }
 
-platformBrowserDynamic()
-  .bootstrapModule(AppModule)
-  .catch((err) => console.error(err))
+bootstrapApplication(AppComponent, {
+  providers: [
+    provideAnimations(),
+    provideHttpClient(),
+    provideEffects(CurrentWeatherEffects),
+    provideStore(reducers, {
+      metaReducers,
+      runtimeChecks: { strictStateImmutability: true, strictActionImmutability: true },
+    }),
+    provideStoreDevtools({ maxAge: 25, logOnly: environment.production }),
+  ],
+}).catch((err) => console.error(err))

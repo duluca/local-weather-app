@@ -1,7 +1,13 @@
+import { NgIf } from '@angular/common'
 import { Component } from '@angular/core'
-import { FormControl, Validators } from '@angular/forms'
-import { debounceTime, filter, tap } from 'rxjs/operators'
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
+import { FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms'
+import { MatButtonModule } from '@angular/material/button'
+import { MatFormFieldModule } from '@angular/material/form-field'
+import { MatIconModule } from '@angular/material/icon'
+import { MatInputModule } from '@angular/material/input'
+import { FlexModule } from '@ngbracket/ngx-layout'
+import { debounceTime, filter, tap } from 'rxjs/operators'
 
 import { WeatherService } from '../weather/weather.service'
 
@@ -9,6 +15,17 @@ import { WeatherService } from '../weather/weather.service'
   selector: 'app-city-search',
   templateUrl: './city-search.component.html',
   styleUrls: ['./city-search.component.css'],
+  standalone: true,
+  imports: [
+    NgIf,
+    FormsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FlexModule,
+    MatIconModule,
+    MatButtonModule,
+  ],
 })
 export class CitySearchComponent {
   // implements OnInit { // Imperative-style

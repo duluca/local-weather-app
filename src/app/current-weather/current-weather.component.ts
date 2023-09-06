@@ -1,19 +1,19 @@
+import { CommonModule } from '@angular/common'
 import { Component } from '@angular/core'
-import { Store, select } from '@ngrx/store'
-import { Observable, merge } from 'rxjs'
+import { effect } from '@angular/core'
+import { WritableSignal } from '@angular/core'
+import { FlexModule } from '@ngbracket/ngx-layout'
+import { select, Store } from '@ngrx/store'
+import { merge, Observable } from 'rxjs'
 
 import { ICurrentWeather } from '../interfaces'
 import * as appStore from '../reducers'
 import { WeatherService } from '../weather/weather.service'
-import { CommonModule } from '@angular/common'
-import { FlexLayoutModule } from '@ngbracket/ngx-layout'
-import { effect } from '@angular/core'
-import { WritableSignal } from '@angular/core'
 
 @Component({
   selector: 'app-current-weather',
   standalone: true,
-  imports: [CommonModule, FlexLayoutModule],
+  imports: [CommonModule, FlexModule],
   templateUrl: './current-weather.component.html',
   styleUrls: ['./current-weather.component.css'],
 })

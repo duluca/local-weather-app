@@ -1,17 +1,18 @@
+import { CommonModule } from '@angular/common'
 import { Component } from '@angular/core'
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
 import { FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms'
+import { MatButtonModule } from '@angular/material/button'
+import { MatFormFieldModule } from '@angular/material/form-field'
+import { MatIconModule } from '@angular/material/icon'
+import { MatInputModule } from '@angular/material/input'
+import { FlexModule } from '@ngbracket/ngx-layout'
 import { Store } from '@ngrx/store'
 import { debounceTime, filter, tap } from 'rxjs/operators'
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
 
 import { SearchActions } from '../actions/search.actions'
 import * as fromSearch from '../reducers/search.reducer'
 import { WeatherService } from '../weather/weather.service'
-import { CommonModule } from '@angular/common'
-import { MatFormFieldModule } from '@angular/material/form-field'
-import { MatInputModule } from '@angular/material/input'
-import { MatIconModule } from '@angular/material/icon'
-import { FlexLayoutModule } from '@ngbracket/ngx-layout'
 
 @Component({
   selector: 'app-city-search',
@@ -22,8 +23,9 @@ import { FlexLayoutModule } from '@ngbracket/ngx-layout'
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
-    FlexLayoutModule,
+    FlexModule,
     MatIconModule,
+    MatButtonModule,
   ],
   templateUrl: './city-search.component.html',
   styleUrls: ['./city-search.component.css'],

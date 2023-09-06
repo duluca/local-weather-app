@@ -1,17 +1,15 @@
 import { TestBed, waitForAsync } from '@angular/core/testing'
+import { MockComponents } from 'ng-mocks'
 
 import { AppComponent } from './app.component'
-
-import { MockComponents } from 'ng-mocks'
-import { CurrentWeatherComponent } from './current-weather/current-weather.component'
 import { CitySearchComponent } from './city-search/city-search.component'
 import { CitySearchTpldrivenComponent } from './city-search-tpldriven/city-search-tpldriven.component'
-import { MaterialModule } from 'projects/stage5/src/app/material.module'
+import { CurrentWeatherComponent } from './current-weather/current-weather.component'
 
 describe('AppComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [
+      imports: [
         AppComponent,
         ...MockComponents(
           CurrentWeatherComponent,
@@ -19,7 +17,6 @@ describe('AppComponent', () => {
           CitySearchTpldrivenComponent
         ),
       ],
-      imports: [MaterialModule],
     }).compileComponents()
   }))
 

@@ -1,12 +1,11 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing'
 import {
-  ObservablePropertyStrategy,
   autoSpyObj,
   injectSpy,
+  ObservablePropertyStrategy,
 } from 'angular-unit-test-helper'
 import { of } from 'rxjs'
 
-import { MaterialModule } from '../material.module'
 import { WeatherService } from '../weather/weather.service'
 import { CurrentWeatherComponent } from './current-weather.component'
 
@@ -23,8 +22,7 @@ describe('CurrentWeatherComponent', () => {
     )
 
     TestBed.configureTestingModule({
-      declarations: [CurrentWeatherComponent],
-      imports: [MaterialModule],
+      imports: [CurrentWeatherComponent],
       providers: [{ provide: WeatherService, useValue: weatherServiceSpy }],
     }).compileComponents()
 

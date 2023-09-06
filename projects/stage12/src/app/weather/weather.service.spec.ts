@@ -2,15 +2,15 @@ import {
   HttpClientTestingModule,
   HttpTestingController,
 } from '@angular/common/http/testing'
-import { TestBed, inject, waitForAsync } from '@angular/core/testing'
+import { inject, TestBed, waitForAsync } from '@angular/core/testing'
 import { autoSpyObj, injectClass, injectSpy } from 'angular-unit-test-helper'
 import { of } from 'rxjs'
 
 import { environment } from '../../environments/environment'
 import {
+  defaultPostalCode,
   IPostalCode,
   PostalCodeService,
-  defaultPostalCode,
 } from '../postal-code/postal-code.service'
 import { ICurrentWeatherData, WeatherService } from './weather.service'
 

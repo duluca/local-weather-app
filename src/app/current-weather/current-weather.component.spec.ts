@@ -3,16 +3,15 @@ import { By } from '@angular/platform-browser'
 import { Store } from '@ngrx/store'
 import { MockStore, provideMockStore } from '@ngrx/store/testing'
 import {
-  ObservablePropertyStrategy,
+  addProperty,
   autoSpyObj,
   injectSpy,
-  addProperty,
+  ObservablePropertyStrategy,
 } from 'angular-unit-test-helper'
-import { of, first } from 'rxjs'
+import { first, of } from 'rxjs'
 
-import { MaterialModule } from '../material.module'
 import { ICurrentWeather } from '../interfaces'
-import { WeatherService, defaultWeather } from '../weather/weather.service'
+import { defaultWeather, WeatherService } from '../weather/weather.service'
 import { fakeWeather } from '../weather/weather.service.fake'
 import { CurrentWeatherComponent } from './current-weather.component'
 
@@ -49,7 +48,7 @@ describe('CurrentWeatherComponent', () => {
     addProperty(weatherServiceSpy, 'reactivityMode', () => 'subject')
 
     TestBed.configureTestingModule({
-      imports: [MaterialModule, CurrentWeatherComponent],
+      imports: [CurrentWeatherComponent],
       providers: [
         { provide: WeatherService, useValue: weatherServiceSpy },
         provideMockStore({ initialState }),

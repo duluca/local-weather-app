@@ -1,4 +1,9 @@
 import { Component } from '@angular/core'
+import { MatCardModule } from '@angular/material/card'
+import { MatToolbarModule } from '@angular/material/toolbar'
+import { FlexModule } from '@ngbracket/ngx-layout/flex'
+
+import { CurrentWeatherComponent } from './current-weather/current-weather.component'
 
 @Component({
   selector: 'app-root',
@@ -28,5 +33,7 @@ import { Component } from '@angular/core'
       </div>
     </div>
   `,
+  standalone: true,
+  imports: [FlexModule, CurrentWeatherComponent, MatToolbarModule, MatCardModule],
 })
 export class AppComponent {}

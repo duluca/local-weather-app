@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core'
 import { ComponentStore } from '@ngrx/component-store'
-import { defaultWeather } from '../weather/weather.service'
+
 import { WeatherState } from '../reducers/search.reducer'
+import { defaultWeather } from '../weather/weather.service'
 
 export const initialState: WeatherState = {
   current: defaultWeather,

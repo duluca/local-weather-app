@@ -10,7 +10,7 @@ describe('CurrentWeatherComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [CurrentWeatherComponent],
+      imports: [CurrentWeatherComponent],
       providers: [{ provide: WeatherService, useClass: WeatherServiceFake }],
     }).compileComponents()
   }))

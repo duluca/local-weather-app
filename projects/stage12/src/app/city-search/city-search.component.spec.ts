@@ -3,13 +3,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { NoopAnimationsModule } from '@angular/platform-browser/animations'
 import { Store } from '@ngrx/store'
 import {
-  ObservablePropertyStrategy,
   autoSpyObj,
   injectSpy,
+  ObservablePropertyStrategy,
 } from 'angular-unit-test-helper'
 import { of } from 'rxjs'
 
-import { AppMaterialModule } from '../app-material.module'
 import { WeatherService } from '../weather/weather.service'
 import { CitySearchComponent } from './city-search.component'
 
@@ -27,12 +26,11 @@ describe('CitySearchComponent', () => {
     )
 
     TestBed.configureTestingModule({
-      declarations: [CitySearchComponent],
       imports: [
-        AppMaterialModule,
         FormsModule,
         ReactiveFormsModule,
         NoopAnimationsModule,
+        CitySearchComponent,
       ],
       providers: [
         { provide: WeatherService, useValue: weatherServiceSpy },

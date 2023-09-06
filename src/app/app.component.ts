@@ -1,17 +1,17 @@
 import { HttpClientModule } from '@angular/common/http'
 import { Component, effect, signal } from '@angular/core'
-
-import { CitySearchComponent } from './city-search/city-search.component'
-import { CurrentWeatherComponent } from './current-weather/current-weather.component'
+import { WritableSignal } from '@angular/core'
+import { MatButtonToggleModule } from '@angular/material/button-toggle'
 import { MatCardModule } from '@angular/material/card'
 import { MatIconModule } from '@angular/material/icon'
 import { MatSlideToggleModule } from '@angular/material/slide-toggle'
 import { MatToolbarModule } from '@angular/material/toolbar'
 import { MatTooltipModule } from '@angular/material/tooltip'
-import { MatButtonToggleModule } from '@angular/material/button-toggle'
-import { FlexLayoutModule } from '@ngbracket/ngx-layout'
+import { FlexModule } from '@ngbracket/ngx-layout'
+
+import { CitySearchComponent } from './city-search/city-search.component'
+import { CurrentWeatherComponent } from './current-weather/current-weather.component'
 import { WeatherService } from './weather/weather.service'
-import { WritableSignal } from '@angular/core'
 
 const darkClassName = 'dark-theme'
 
@@ -19,15 +19,15 @@ const darkClassName = 'dark-theme'
   selector: 'app-root',
   standalone: true,
   imports: [
-    HttpClientModule,
-    CurrentWeatherComponent,
     CitySearchComponent,
-    MatToolbarModule,
-    MatIconModule,
-    MatCardModule,
-    MatSlideToggleModule,
-    FlexLayoutModule,
+    CurrentWeatherComponent,
+    FlexModule,
+    HttpClientModule,
     MatButtonToggleModule,
+    MatCardModule,
+    MatIconModule,
+    MatSlideToggleModule,
+    MatToolbarModule,
     MatTooltipModule,
   ],
   template: `
