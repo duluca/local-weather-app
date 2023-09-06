@@ -32,10 +32,10 @@ function searchByCity(city: string, expectedCity: string) {
   cy.wait('@getWeather').then(() => {
     cy.get('@getWeather').its('request.url').should('contain', `q=${city}`)
     cy.get('@getWeather').its('response.statusCode').should('eq', 200)
-  })
 
-  cy.byTestId('city').should('contain', expectedCity)
-  cy.byTestId('description').should('not.be.empty')
-  cy.byTestId('temperature').should('not.equal', '0')
-  cy.byTestId('date').should('not.be.empty')
+    cy.byTestId('city').should('contain', expectedCity)
+    cy.byTestId('description').should('not.be.empty')
+    cy.byTestId('temperature').should('not.equal', '0')
+    cy.byTestId('date').should('not.be.empty')
+  })
 }
