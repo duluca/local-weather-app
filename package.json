@@ -84,7 +84,7 @@
     "@angular/cli": "16.2.1",
     "@angular/compiler-cli": "^16.2.3",
     "@angular/language-service": "^16.2.3",
-    "@cypress/schematic": "^2.5.0",
+    "@cypress/schematic": "^2.5.1",
     "@ngrx/schematics": "^16.2.0",
     "@types/jasmine": "~4.3.5",
     "@typescript-eslint/eslint-plugin": "6.5.0",
