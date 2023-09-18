@@ -65,7 +65,7 @@
     "@angular/platform-browser-dynamic": "16.2.3",
     "@angular/platform-server": "16.2.3",
     "@angular/router": "16.2.3",
-    "@ngbracket/ngx-layout": "^16.0.0",
+    "@ngbracket/ngx-layout": "^16.1.1",
     "@ngrx/component-store": "^16.2.0",
     "@ngrx/effects": "^16.2.0",
     "@ngrx/store": "^16.2.0",
