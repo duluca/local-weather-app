@@ -43,7 +43,7 @@ const darkClassName = 'dark-theme'
       <mat-icon>bedtime</mat-icon>
     </mat-toolbar>
     <div fxLayoutAlign="center">
-      <div class="mat-caption vertical-margin">Your city, your forecast, right now!</div>
+      <div class="mat-caption v-pad">Your city, your forecast, right now!</div>
     </div>
     <div fxLayoutAlign="center">
       <app-city-search></app-city-search>
