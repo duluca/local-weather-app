@@ -25,7 +25,7 @@
     "cypress:run": "cypress run",
     "build:prod": "ng build --configuration production",
     "predocker:build": "npm run build",
-    "docker:build": "cross-conf-env docker image build --platform linux/amd64,linux/arm64 . -t $npm_package_config_imageRepo:$npm_package_version",
+    "docker:build": "cross-conf-env docker image build --platform linux/amd64,linux/arm64  . -t $npm_package_config_imageRepo:$npm_package_version",
     "postdocker:build": "npm run docker:tag",
     "docker:tag": " cross-conf-env docker image tag $npm_package_config_imageRepo:$npm_package_version $npm_package_config_imageRepo:latest",
     "docker:run": "run-s -c docker:stop docker:runHelper",
