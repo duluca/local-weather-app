@@ -38,7 +38,7 @@
     "docker:debugmessage": "echo Docker Debug Completed Successfully! Hit Ctrl+C to terminate log tailing.",
     "docker:debug": "run-s -cs docker:build docker:run docker:open docker:debugmessage docker:taillogs",
     "prevercel:publish": "npm run build:prod",
-    "vercel:publish": "vercel --platform-version 2 --prod dist/local-weather-app",
+    "vercel:publish": "vercel deploy --prod dist/local-weather-app --yes",
     "test:a11y": "pa11y --standard Section508 http://localhost:4200",
     "test:a11y:ci": "pa11y-ci",
     "gcloud:tag": "docker tag duluca/localcast-weather gcr.io/localcast-weather/localcast-weather",
