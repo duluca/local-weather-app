@@ -18,7 +18,7 @@ commands:
       - when:
           condition: << parameters.warm-cache >>
           steps:
-            - run: npm ci
+            - run: npm ci --legacy-peer-deps
             - save_cache:
                 key: node_modules-{{ checksum "package-lock.json" }}
                 paths:
