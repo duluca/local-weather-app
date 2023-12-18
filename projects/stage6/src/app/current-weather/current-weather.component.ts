@@ -1,4 +1,4 @@
-import { AsyncPipe, DatePipe, DecimalPipe, NgIf } from '@angular/common'
+import { AsyncPipe, DatePipe, DecimalPipe } from '@angular/common'
 import { Component } from '@angular/core'
 import { FlexModule } from '@ngbracket/ngx-layout/flex'
 import { Observable } from 'rxjs'
@@ -11,7 +11,7 @@ import { WeatherService } from '../weather/weather.service'
   templateUrl: './current-weather.component.html',
   styleUrls: ['./current-weather.component.css'],
   standalone: true,
-  imports: [NgIf, FlexModule, AsyncPipe, DecimalPipe, DatePipe],
+  imports: [FlexModule, AsyncPipe, DecimalPipe, DatePipe],
 })
 export class CurrentWeatherComponent {
   // implements OnInit, OnDestroy { // Imperative implementation

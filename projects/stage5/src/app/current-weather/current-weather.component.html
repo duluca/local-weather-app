@@ -1,5 +1,7 @@
-<div *ngIf="!current">no data</div>
-<div *ngIf="current">
+@if (!current) {
+<div>no data</div>
+} @if (current) {
+<div>
   <div fxLayout="row">
     <div fxFlex="66%" class="mat-headline-6 no-margin">
       {{ current.city }}, {{ current.country }}
@@ -29,3 +31,4 @@
     </div>
   </div>
 </div>
+}

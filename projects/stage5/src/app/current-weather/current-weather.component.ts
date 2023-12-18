@@ -1,4 +1,4 @@
-import { DatePipe, DecimalPipe, NgIf } from '@angular/common'
+import { DatePipe, DecimalPipe } from '@angular/common'
 import { Component, OnInit } from '@angular/core'
 import { FlexModule } from '@ngbracket/ngx-layout/flex'
 
@@ -10,7 +10,7 @@ import { WeatherService } from '../weather/weather.service'
   templateUrl: './current-weather.component.html',
   styleUrls: ['./current-weather.component.css'],
   standalone: true,
-  imports: [NgIf, FlexModule, DecimalPipe, DatePipe],
+  imports: [FlexModule, DecimalPipe, DatePipe],
 })
 export class CurrentWeatherComponent implements OnInit {
   constructor(private weatherService: WeatherService) {}

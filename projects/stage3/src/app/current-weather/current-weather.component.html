@@ -1,6 +1,8 @@
 <!-- Null guarding: Strategy 3: ngIf -->
-<div *ngIf="!current">no data</div>
-<div *ngIf="current">
+@if (!current) {
+<div>no data</div>
+} @if (current) {
+<div>
   <div>
     <span>{{ current.city }}, {{ current.country }}</span>
     <span>{{ current.date | date: 'fullDate' }}</span>
@@ -13,6 +15,7 @@
     {{ current.description }}
   </div>
 </div>
+}
 
 <!-- Null guarding: Strategy 2, Safe navigation operator
 <div>

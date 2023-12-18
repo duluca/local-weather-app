@@ -1,14 +1,14 @@
 {
   "recommendations": [
-    "johnpapa.angular-essentials",
-    "eamodio.gitlens",
+    "circleci.circleci",
+    "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",
+    "github.vscode-pull-request-github",
+    "expertly-simple.ng-evergreen",
+    "formulahendry.auto-close-tag",
+    "johnpapa.angular-essentials",
     "johnpapa.vscode-peacock",
     "ms-azuretools.vscode-docker",
-    "dbaeumer.vscode-eslint",
-    "PKief.material-icon-theme",
-    "WallabyJs.quokka-vscode",
-    "circleci.circleci",
-    "github.vscode-pull-request-github"
+    "PKief.material-icon-theme"
   ]
 }

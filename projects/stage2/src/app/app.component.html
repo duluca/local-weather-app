@@ -617,13 +617,20 @@
   </div>
 
   <!-- Terminal -->
-  <div class="terminal" [ngSwitch]="selection.value">
-    <pre *ngSwitchDefault>ng generate component xyz</pre>
-    <pre *ngSwitchCase="'material'">ng add &#64;angular/material</pre>
-    <pre *ngSwitchCase="'pwa'">ng add &#64;angular/pwa</pre>
-    <pre *ngSwitchCase="'dependency'">ng add _____</pre>
-    <pre *ngSwitchCase="'test'">ng test</pre>
-    <pre *ngSwitchCase="'build'">ng build</pre>
+  <div class="terminal">
+    @switch (selection.value) { @default {
+    <pre>ng generate component xyz</pre>
+    } @case ('material') {
+    <pre>ng add &#64;angular/material</pre>
+    } @case ('pwa') {
+    <pre>ng add &#64;angular/pwa</pre>
+    } @case ('dependency') {
+    <pre>ng add _____</pre>
+    } @case ('test') {
+    <pre>ng test</pre>
+    } @case ('build') {
+    <pre>ng build</pre>
+    } }
   </div>
 
   <!-- Links -->

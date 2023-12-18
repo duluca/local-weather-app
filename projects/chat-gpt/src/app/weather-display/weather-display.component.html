@@ -4,8 +4,10 @@
 </mat-form-field>
 <button mat-raised-button color="primary" (click)="fetchWeather()">Fetch Weather</button>
 
-<div *ngIf="weatherData">
+@if (weatherData) {
+<div>
   <h2>Weather in {{ weatherData.name }}</h2>
   <p>Temperature: {{ weatherData.main.temp }}°C</p>
   <p>Conditions: {{ weatherData.weather[0].description }}</p>
 </div>
+}
