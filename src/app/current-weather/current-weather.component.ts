@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common'
-import { Component, Signal } from '@angular/core'
+import { Component } from '@angular/core'
 import { effect } from '@angular/core'
 import { FlexModule } from '@ngbracket/ngx-layout'
 import { select, Store } from '@ngrx/store'

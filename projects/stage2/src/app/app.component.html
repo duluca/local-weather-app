@@ -618,19 +618,26 @@
 
   <!-- Terminal -->
   <div class="terminal">
-    @switch (selection.value) { @default {
-    <pre>ng generate component xyz</pre>
-    } @case ('material') {
-    <pre>ng add &#64;angular/material</pre>
-    } @case ('pwa') {
-    <pre>ng add &#64;angular/pwa</pre>
-    } @case ('dependency') {
-    <pre>ng add _____</pre>
-    } @case ('test') {
-    <pre>ng test</pre>
-    } @case ('build') {
-    <pre>ng build</pre>
-    } }
+    @switch (selection.value) {
+      @default {
+        <pre>ng generate component xyz</pre>
+      }
+      @case ('material') {
+        <pre>ng add &#64;angular/material</pre>
+      }
+      @case ('pwa') {
+        <pre>ng add &#64;angular/pwa</pre>
+      }
+      @case ('dependency') {
+        <pre>ng add _____</pre>
+      }
+      @case ('test') {
+        <pre>ng test</pre>
+      }
+      @case ('build') {
+        <pre>ng build</pre>
+      }
+    }
   </div>
 
   <!-- Links -->

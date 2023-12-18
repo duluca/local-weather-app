@@ -9,17 +9,17 @@
       <input matInput aria-label="City or Zip" [formControl]="search" />
       <mat-hint>Specify country code like 'Paris, US'</mat-hint>
       @if (search.invalid) {
-      <mat-error> Type more than one character to search </mat-error>
+        <mat-error> Type more than one character to search </mat-error>
       }
     </mat-form-field>
     @if (search.value) {
-    <button
-      mat-icon-button
-      class="clear-button"
-      data-testid="clear-button"
-      (click)="searchForm.reset(); search.reset()">
-      <mat-icon>close</mat-icon>
-    </button>
+      <button
+        mat-icon-button
+        class="clear-button"
+        data-testid="clear-button"
+        (click)="searchForm.reset(); search.reset()">
+        <mat-icon>close</mat-icon>
+      </button>
     }
   </form>
 </div>
