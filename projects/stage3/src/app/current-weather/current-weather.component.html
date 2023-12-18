@@ -1,18 +1,22 @@
 <!-- Null guarding: Strategy 3: ngIf -->
-<div *ngIf="!current">no data</div>
-<div *ngIf="current">
+@if (!current) {
+  <div>no data</div>
+}
+@if (current) {
   <div>
-    <span>{{ current.city }}, {{ current.country }}</span>
-    <span>{{ current.date | date: 'fullDate' }}</span>
+    <div>
+      <span>{{ current.city }}, {{ current.country }}</span>
+      <span>{{ current.date | date: 'fullDate' }}</span>
+    </div>
+    <div>
+      <img [alt]="current.description" [src]="current.image" />
+      <span>{{ current.temperature | number: '1.0-0' }}℉</span>
+    </div>
+    <div>
+      {{ current.description }}
+    </div>
   </div>
-  <div>
-    <img [alt]="current.description" [src]="current.image" />
-    <span>{{ current.temperature | number: '1.0-0' }}℉</span>
-  </div>
-  <div>
-    {{ current.description }}
-  </div>
-</div>
+}
 
 <!-- Null guarding: Strategy 2, Safe navigation operator
 <div>

@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common'
 import { Component } from '@angular/core'
 import { effect } from '@angular/core'
-import { WritableSignal } from '@angular/core'
 import { FlexModule } from '@ngbracket/ngx-layout'
 import { select, Store } from '@ngrx/store'
 import { merge, Observable } from 'rxjs'
@@ -19,20 +18,20 @@ import { WeatherService } from '../weather/weather.service'
 })
 export class CurrentWeatherComponent {
   usingSignal = true
-  readonly currentSignal: WritableSignal<ICurrentWeather>
+  current: ICurrentWeather | null = null
   current$: Observable<ICurrentWeather>
 
   constructor(
     private weatherService: WeatherService,
     private store: Store<appStore.State>
   ) {
-    this.currentSignal = this.weatherService.currentWeatherSignal
     this.current$ = merge(
       this.store.pipe(select(appStore.selectCurrentWeather)),
       this.weatherService.currentWeather$
     )
     effect(() => {
       this.usingSignal = this.weatherService.reactivityMode() === 'signal'
+      this.current = this.weatherService.currentWeatherSignal()
     })
   }
 

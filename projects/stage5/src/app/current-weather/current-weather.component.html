@@ -1,31 +1,35 @@
-<div *ngIf="!current">no data</div>
-<div *ngIf="current">
-  <div fxLayout="row">
-    <div fxFlex="66%" class="mat-headline-6 no-margin">
-      {{ current.city }}, {{ current.country }}
+@if (!current) {
+  <div>no data</div>
+}
+@if (current) {
+  <div>
+    <div fxLayout="row">
+      <div fxFlex="66%" class="mat-headline-6 no-margin">
+        {{ current.city }}, {{ current.country }}
+      </div>
+      <div fxFlex class="mat-h3 no-margin">
+        {{ current.date | date: 'EEEE' }}<br />
+        {{ current.date | date: 'MMM d' }}{{ getOrdinal(current.date) }}
+      </div>
     </div>
-    <div fxFlex class="mat-h3 no-margin">
-      {{ current.date | date: 'EEEE' }}<br />
-      {{ current.date | date: 'MMM d' }}{{ getOrdinal(current.date) }}
+    <div fxLayout="row" fxLayoutAlign="center center" style="margin-bottom: -48px">
+      <div fxFlex="55%">
+        <img
+          style="zoom: 175%; margin-bottom: 32px"
+          [src]="current.image"
+          [alt]="current.description" />
+      </div>
+      <div fxFlex class="right no-margin">
+        <p class="mat-headline-2">
+          {{ current.temperature | number: '1.0-0' }}
+          <span class="mat-headline-4 unit">℉</span>
+        </p>
+      </div>
+    </div>
+    <div fxLayoutAlign="center">
+      <div class="mat-caption">
+        {{ current.description }}
+      </div>
     </div>
   </div>
-  <div fxLayout="row" fxLayoutAlign="center center" style="margin-bottom: -48px">
-    <div fxFlex="55%">
-      <img
-        style="zoom: 175%; margin-bottom: 32px"
-        [src]="current.image"
-        [alt]="current.description" />
-    </div>
-    <div fxFlex class="right no-margin">
-      <p class="mat-headline-2">
-        {{ current.temperature | number: '1.0-0' }}
-        <span class="mat-headline-4 unit">℉</span>
-      </p>
-    </div>
-  </div>
-  <div fxLayoutAlign="center">
-    <div class="mat-caption">
-      {{ current.description }}
-    </div>
-  </div>
-</div>
+}

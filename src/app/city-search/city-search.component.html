@@ -8,17 +8,18 @@
       <mat-icon matPrefix>search</mat-icon>
       <input matInput aria-label="City or Zip" [formControl]="search" />
       <mat-hint>Specify country code like 'Paris, US'</mat-hint>
-      <mat-error *ngIf="search.invalid">
-        Type more than one character to search
-      </mat-error>
+      @if (search.invalid) {
+        <mat-error> Type more than one character to search </mat-error>
+      }
     </mat-form-field>
-    <button
-      mat-icon-button
-      *ngIf="search.value"
-      class="clear-button"
-      data-testid="clear-button"
-      (click)="searchForm.reset(); search.reset()">
-      <mat-icon>close</mat-icon>
-    </button>
+    @if (search.value) {
+      <button
+        mat-icon-button
+        class="clear-button"
+        data-testid="clear-button"
+        (click)="searchForm.reset(); search.reset()">
+        <mat-icon>close</mat-icon>
+      </button>
+    }
   </form>
 </div>

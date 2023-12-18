@@ -46,6 +46,7 @@ describe('CurrentWeatherComponent', () => {
     )
 
     addProperty(weatherServiceSpy, 'reactivityMode', () => 'subject')
+    addProperty(weatherServiceSpy, 'currentWeatherSignal', () => fakeWeather)
 
     TestBed.configureTestingModule({
       imports: [CurrentWeatherComponent],

@@ -24,6 +24,10 @@ bootstrapApplication(AppComponent, {
       metaReducers,
       runtimeChecks: { strictStateImmutability: true, strictActionImmutability: true },
     }),
-    provideStoreDevtools({ maxAge: 25, logOnly: environment.production }),
+    provideStoreDevtools({
+      maxAge: 25,
+      logOnly: environment.production,
+      connectInZone: true,
+    }),
   ],
 }).catch((err) => console.error(err))
