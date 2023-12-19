@@ -1,0 +1,74 @@
+/* weather.component.css */
+.weather-app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.content-container {
+  flex: 1;
+  display: flex;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.weather-card {
+  flex-grow: 1;
+  margin-right: 20px;
+}
+
+.search-section {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.current-weather {
+  text-align: center;
+}
+
+.weather-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.forecast {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.sidenav-container {
+  width: 250px;
+}
+
+.sidenav-content {
+  padding: 20px;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .content-container {
+    flex-direction: column;
+  }
+
+  .weather-card {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .sidenav-container {
+    width: 100%;
+  }
+}
