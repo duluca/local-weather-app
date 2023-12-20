@@ -1,6 +1,3 @@
-@if (!current) {
-  <div>no data</div>
-}
 @if (current) {
   <div>
     <div fxLayout="row">
@@ -32,4 +29,6 @@
       </div>
     </div>
   </div>
+} @else {
+  <div>no data</div>
 }
