@@ -38,10 +38,12 @@
             </div>
           </div>
           <div class="forecast">
-            <div class="forecast-day" *ngFor="let day of forecast">
-              <p>{{ day.day }}</p>
-              <p>{{ day.temperatureHigh }}° / {{ day.temperatureLow }}°</p>
-            </div>
+            @for (day of forecast; track day) {
+              <div class="forecast-day">
+                <p>{{ day.day }}</p>
+                <p>{{ day.temperatureHigh }}° / {{ day.temperatureLow }}°</p>
+              </div>
+            }
           </div>
         </div>
       </mat-card-content>

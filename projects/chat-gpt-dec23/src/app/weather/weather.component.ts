@@ -2,7 +2,7 @@
 import { Component, inject } from '@angular/core'
 import { WeatherService } from './weather.service'
 import { MatFormFieldModule } from '@angular/material/form-field'
-import { CommonModule, NgFor, NgIf } from '@angular/common'
+import { CommonModule } from '@angular/common'
 import { FormsModule } from '@angular/forms'
 import { MatInputModule } from '@angular/material/input'
 import { MatCardModule } from '@angular/material/card'
@@ -58,7 +58,6 @@ export const defaultWeather: ICurrentWeather = {
   imports: [
     CommonModule,
     MatFormFieldModule,
-    NgIf,
     FormsModule,
     MatInputModule,
     MatCardModule,
@@ -71,7 +70,6 @@ export const defaultWeather: ICurrentWeather = {
     MatToolbarModule,
     MatTooltipModule,
     MatSidenavModule,
-    NgFor,
   ],
   templateUrl: './weather.component.html',
   styleUrls: ['./weather.component.css'],
