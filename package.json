@@ -97,7 +97,7 @@
     "eslint": "^8.56.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-cypress": "^2.15.1",
-    "eslint-plugin-prettier": "^5.0.1",
+    "eslint-plugin-prettier": "^5.1.0",
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "init-dev-env": "^2.0.0",
     "jasmine-core": "~5.1.1",
