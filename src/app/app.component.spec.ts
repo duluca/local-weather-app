@@ -1,4 +1,5 @@
 import { TestBed, waitForAsync } from '@angular/core/testing'
+import { getNativeElementByTestId } from 'angular-unit-test-helper'
 import { MockComponents } from 'ng-mocks'
 
 import { AppComponent } from './app.component'
@@ -22,7 +23,7 @@ describe('AppComponent', () => {
   it('should render title in a h1 tag', waitForAsync(() => {
     const fixture = TestBed.createComponent(AppComponent)
     fixture.detectChanges()
-    const compiled = fixture.debugElement.nativeElement
-    expect(compiled.querySelector('span').textContent).toContain('LocalCast Weather')
+    const titleElement = getNativeElementByTestId(fixture, 'title')
+    expect(titleElement.textContent).toContain('LocalCast Weather')
   }))
 })

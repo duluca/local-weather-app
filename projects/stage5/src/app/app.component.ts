@@ -10,7 +10,7 @@ import { CurrentWeatherComponent } from './current-weather/current-weather.compo
   template: `
     <div>
       <mat-toolbar color="primary">
-        <span>LocalCast Weather</span>
+        <span data-testid="title">LocalCast Weather</span>
       </mat-toolbar>
       <div fxLayoutAlign="center">
         <div class="mat-caption v-pad">Your city, your forecast, right now!</div>
