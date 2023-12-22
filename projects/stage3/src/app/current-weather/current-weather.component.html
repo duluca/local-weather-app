@@ -1,7 +1,4 @@
-<!-- Null guarding: Strategy 3: ngIf -->
-@if (!current) {
-  <div>no data</div>
-}
+<!-- Null guarding: Strategy 3: @if -->
 @if (current) {
   <div>
     <div>
@@ -16,6 +13,8 @@
       {{ current.description }}
     </div>
   </div>
+} @else {
+  <div>no data</div>
 }
 
 <!-- Null guarding: Strategy 2, Safe navigation operator

@@ -1361,6 +1361,100 @@
           }
         }
       }
+    },
+    "chat-gpt-dec23": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/chat-gpt-dec23",
+      "sourceRoot": "projects/chat-gpt-dec23/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:application",
+          "options": {
+            "outputPath": "dist/chat-gpt-dec23",
+            "index": "projects/chat-gpt-dec23/src/index.html",
+            "browser": "projects/chat-gpt-dec23/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/chat-gpt-dec23/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/chat-gpt-dec23/src/favicon.ico",
+              "projects/chat-gpt-dec23/src/assets"
+            ],
+            "styles": [
+              "projects/chat-gpt-dec23/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "chat-gpt-dec23:build:production"
+            },
+            "development": {
+              "buildTarget": "chat-gpt-dec23:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "buildTarget": "chat-gpt-dec23:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/chat-gpt-dec23/tsconfig.spec.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/chat-gpt-dec23/src/favicon.ico",
+              "projects/chat-gpt-dec23/src/assets"
+            ],
+            "styles": [
+              "projects/chat-gpt-dec23/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        }
+      }
     }
   }
 }

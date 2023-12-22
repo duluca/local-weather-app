@@ -1,0 +1,64 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.all-component-typographies();
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$local-weather-app-primary: mat.define-palette(mat.$red-palette, 500);
+$local-weather-app-accent: mat.define-palette(mat.$indigo-palette, A400);
+
+// The warn palette is optional (defaults to red).
+$local-weather-app-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$local-weather-app-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $local-weather-app-primary,
+      accent: $local-weather-app-accent,
+      warn: $local-weather-app-warn,
+    ),
+  )
+);
+
+// create a dark theme
+$local-weather-app-dark-theme: mat.define-dark-theme(
+  (
+    color: (
+      primary: $local-weather-app-primary,
+      accent: $local-weather-app-accent,
+      warn: $local-weather-app-warn,
+    ),
+  )
+);
+
+.dark-theme {
+  @include mat.all-component-colors($local-weather-app-dark-theme);
+}
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($local-weather-app-theme);
+
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+.v-pad {
+  margin: 16px 0;
+}

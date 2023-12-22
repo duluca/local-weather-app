@@ -1,0 +1,67 @@
+<!-- weather.component.html -->
+<div class="weather-app-container">
+  <mat-toolbar class="top-bar" color="primary">
+    <span>LocalCast Weather</span>
+    <span class="spacer"></span>
+    <mat-slide-toggle>°C / °F</mat-slide-toggle>
+  </mat-toolbar>
+
+  <div class="content-container">
+    <mat-card class="weather-card">
+      <mat-card-content>
+        <div class="search-section">
+          <mat-form-field appearance="fill">
+            <mat-label>Enter city or ZIP</mat-label>
+            <input matInput [(ngModel)]="userInput" />
+          </mat-form-field>
+          <button mat-icon-button (click)="getWeatherData()">
+            <mat-icon>search</mat-icon>
+          </button>
+        </div>
+
+        <div class="current-weather">
+          <h2>{{ weatherData?.city }}, {{ weatherData?.country }}</h2>
+          <div class="weather-details">
+            <div class="weather-info">
+              <p>
+                {{ weatherData?.date | date: 'EEEE' }}<br />{{
+                  weatherData?.date | date: 'MMM d'
+                }}{{ getOrdinal(weatherData?.date) }}
+              </p>
+              <p>{{ weatherData?.description }}</p>
+            </div>
+            <div class="temperature-info">
+              <h1>
+                {{ weatherData?.temperature | number: '1.0-0' }}
+                <span class="mat-headline-4 unit">&#8457;</span>
+              </h1>
+            </div>
+          </div>
+          <div class="forecast">
+            @for (day of forecast; track day) {
+              <div class="forecast-day">
+                <p>{{ day.day }}</p>
+                <p>{{ day.temperatureHigh }}° / {{ day.temperatureLow }}°</p>
+              </div>
+            }
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-sidenav-container class="sidenav-container">
+      <mat-sidenav #sidenav mode="side" opened>
+        <!-- Sidenav content -->
+        <div class="sidenav-content">
+          <h3>Search Results</h3>
+          <!-- ...search results here... -->
+          <mat-form-field appearance="fill">
+            <mat-label>Departing City</mat-label>
+            <input matInput [(ngModel)]="departingCity" />
+          </mat-form-field>
+          <button mat-button (click)="saveDepartingCity()">SAVE</button>
+        </div>
+      </mat-sidenav>
+    </mat-sidenav-container>
+  </div>
+</div>
