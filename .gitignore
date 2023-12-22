@@ -42,7 +42,9 @@ testem.log
 Thumbs.db
 
 .env
-dist.tar.gz
-test_results
+cache
+*.tar**
 cypress/videos
 cypress/screenshots
+coverage
+test_results
