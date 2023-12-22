@@ -1,9 +1,9 @@
 import { TestBed, waitForAsync } from '@angular/core/testing'
+import { getNativeElementByTestId } from 'angular-unit-test-helper'
 import { MockComponents } from 'ng-mocks'
 
 import { AppComponent } from './app.component'
 import { CurrentWeatherComponent } from './current-weather/current-weather.component'
-import { getNativeElementByTestId } from 'angular-unit-test-helper'
 
 describe('AppComponent', () => {
   beforeEach(waitForAsync(() => {
