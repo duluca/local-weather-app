@@ -4,6 +4,7 @@ import { MockComponents } from 'ng-mocks'
 import { AppComponent } from './app.component'
 import { CitySearchComponent } from './city-search/city-search.component'
 import { CurrentWeatherComponent } from './current-weather/current-weather.component'
+import { getNativeElementByTestId } from 'angular-unit-test-helper'
 
 describe('AppComponent', () => {
   beforeEach(waitForAsync(() => {
@@ -22,7 +23,7 @@ describe('AppComponent', () => {
   it('should render title in a h1 tag', waitForAsync(() => {
     const fixture = TestBed.createComponent(AppComponent)
     fixture.detectChanges()
-    const compiled = fixture.debugElement.nativeElement
-    expect(compiled.querySelector('span').textContent).toContain('LocalCast Weather')
+    const titleElement = getNativeElementByTestId(fixture, 'title')
+    expect(titleElement.textContent).toContain('LocalCast Weather')
   }))
 })
