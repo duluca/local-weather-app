@@ -58,6 +58,8 @@ commands:
           path: ./test_results
       - store_artifacts:
           path: ./coverage
+      - store_artifacts:
+          path: ~/cypress
 
       # upload coverage report to coveralls for readme badge support
       # requires the orbs coveralls: coveralls/coveralls@2
