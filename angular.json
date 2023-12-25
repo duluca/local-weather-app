@@ -261,8 +261,12 @@
           "configurations": {
             "production": {
               "buildTarget": "stage2:build:production"
+            },
+            "development": {
+              "buildTarget": "stage2:build:development"
             }
-          }
+          },
+          "defaultConfiguration": "development"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
@@ -434,8 +438,12 @@
           "configurations": {
             "production": {
               "buildTarget": "stage3:build:production"
+            },
+            "development": {
+              "buildTarget": "stage3:build:development"
             }
-          }
+          },
+          "defaultConfiguration": "development"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
@@ -607,8 +615,12 @@
           "configurations": {
             "production": {
               "buildTarget": "stage4:build:production"
+            },
+            "development": {
+              "buildTarget": "stage4:build:development"
             }
-          }
+          },
+          "defaultConfiguration": "development"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
@@ -780,8 +792,12 @@
           "configurations": {
             "production": {
               "buildTarget": "stage5:build:production"
+            },
+            "development": {
+              "buildTarget": "stage5:build:development"
             }
-          }
+          },
+          "defaultConfiguration": "development"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
@@ -953,8 +969,12 @@
           "configurations": {
             "production": {
               "buildTarget": "stage6:build:production"
+            },
+            "development": {
+              "buildTarget": "stage6:build:development"
             }
-          }
+          },
+          "defaultConfiguration": "development"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
@@ -1126,8 +1146,12 @@
           "configurations": {
             "production": {
               "buildTarget": "stage12:build:production"
+            },
+            "development": {
+              "buildTarget": "stage12:build:development"
             }
-          }
+          },
+          "defaultConfiguration": "development"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
