@@ -40,10 +40,10 @@ export class CitySearchComponent {
   ) {
     this.search.valueChanges
       .pipe(
-        takeUntilDestroyed(),
         filter(() => this.search.valid),
         debounceTime(1000),
-        tap((searchValue) => this.doSearch(searchValue))
+        tap((searchValue) => this.doSearch(searchValue)),
+        takeUntilDestroyed()
       )
       .subscribe()
   }

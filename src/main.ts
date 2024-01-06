@@ -17,7 +17,7 @@ if (environment.production) {
 
 bootstrapApplication(AppComponent, {
   providers: [
-    provideAnimations(),
+    provideAnimations(), // provideAnimationsAsync(),
     provideHttpClient(),
     provideEffects(CurrentWeatherEffects),
     provideStore(reducers, {
@@ -28,6 +28,7 @@ bootstrapApplication(AppComponent, {
       maxAge: 25,
       logOnly: environment.production,
       connectInZone: true,
+      // trace: true,
     }),
   ],
 }).catch((err) => console.error(err))
