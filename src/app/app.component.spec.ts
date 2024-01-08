@@ -1,3 +1,4 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing'
 import { TestBed, waitForAsync } from '@angular/core/testing'
 import { getNativeElementByTestId } from 'angular-unit-test-helper'
 import { MockComponents } from 'ng-mocks'
@@ -10,6 +11,7 @@ describe('AppComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
+        HttpClientTestingModule,
         AppComponent,
         ...MockComponents(CurrentWeatherComponent, CitySearchComponent),
       ],
