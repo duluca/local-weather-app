@@ -1,0 +1,29 @@
+<div fxLayout="row">
+  <div fxFlex="66%" class="mat-headline-6 no-margin" data-testid="city">
+    {{ store.current().city }},
+    {{ store.current().country }}
+  </div>
+  <div fxFlex class="mat-subtitle-1 no-margin" data-testid="date">
+    {{ store.current().date | date: 'EEEE' }}<br />{{
+      store.current().date | date: 'MMM d'
+    }}{{ getOrdinal(store.current().date) }}
+  </div>
+</div>
+<div fxLayout="row" fxLayoutAlign="center center" style="margin-bottom: -48px">
+  <div fxFlex="55%">
+    <img
+      data-testid="weather-icon"
+      style="zoom: 175%; margin-bottom: 32px"
+      [src]="store.current().image"
+      [alt]="store.current().description" />
+  </div>
+  <div fxFlex class="right no-margin">
+    <p class="mat-headline-2" data-testid="temperature">
+      {{ store.current().temperature | number: '1.0-0' }}
+      <span class="mat-headline-4 unit">&#8457;</span>
+    </p>
+  </div>
+</div>
+<div fxLayoutAlign="center" class="mat-caption" data-testid="description">
+  {{ store.current().description }}
+</div>

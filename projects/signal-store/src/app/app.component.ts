@@ -1,6 +1,4 @@
 import { Component, effect, signal } from '@angular/core'
-import { WritableSignal } from '@angular/core'
-import { MatButtonToggleModule } from '@angular/material/button-toggle'
 import { MatCardModule } from '@angular/material/card'
 import { MatIconModule } from '@angular/material/icon'
 import { MatSlideToggleModule } from '@angular/material/slide-toggle'
@@ -10,7 +8,6 @@ import { FlexModule } from '@ngbracket/ngx-layout'
 
 import { CitySearchComponent } from './city-search/city-search.component'
 import { CurrentWeatherComponent } from './current-weather/current-weather.component'
-import { WeatherService } from './weather/weather.service'
 
 const darkClassName = 'dark-theme'
 
@@ -21,7 +18,6 @@ const darkClassName = 'dark-theme'
     CitySearchComponent,
     CurrentWeatherComponent,
     FlexModule,
-    MatButtonToggleModule,
     MatCardModule,
     MatIconModule,
     MatSlideToggleModule,
@@ -58,35 +54,12 @@ const darkClassName = 'dark-theme'
       </mat-card>
       <div fxFlex></div>
     </div>
-    <div
-      fxLayout="column"
-      fxLayoutAlign="center center"
-      fxLayoutGap="8px"
-      style="margin-top:16px;">
-      <div class="mat-headline-8">
-        Reactivity Mode<mat-icon matTooltip="For demonstration purposes only"
-          >info</mat-icon
-        >
-      </div>
-      <mat-button-toggle-group
-        color="accent"
-        aria-label="Reactivity Mode"
-        data-testid="reactivity-mode"
-        [value]="reactivityMode()"
-        (change)="reactivityMode.set($event.value)">
-        <mat-button-toggle value="signal">Signal</mat-button-toggle>
-        <mat-button-toggle value="subject">BehaviorSubject</mat-button-toggle>
-        <mat-button-toggle value="ngrx">NgRx</mat-button-toggle>
-      </mat-button-toggle-group>
-    </div>
   `,
 })
 export class AppComponent {
-  readonly reactivityMode: WritableSignal<'signal' | 'subject' | 'ngrx'>
   readonly toggleState = signal(localStorage.getItem(darkClassName) === 'true')
 
-  constructor(private weatherService: WeatherService) {
-    this.reactivityMode = weatherService.reactivityMode
+  constructor() {
     effect(() => {
       localStorage.setItem(darkClassName, this.toggleState().toString())
       document.documentElement.classList.toggle(darkClassName, this.toggleState())

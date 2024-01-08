@@ -172,6 +172,15 @@ jobs:
       - install
       - build_and_test:
           project: 'stage12'
+  signalStore: # this job is only here to verify sample code from the book, remove it in your own projects
+    docker:
+      - image: cimg/node:lts-browsers
+    working_directory: ~/repo
+    steps:
+      - install
+      - build_and_test:
+          project: 'signal-store'
+      - run: npx ng run signal-store:cypress-run --spec "cypress/e2e/app.cy.ts,cypress/e2e/simple-search.cy.ts"
 workflows:
   build-test-and-approval-deploy:
     jobs:
@@ -195,6 +204,9 @@ workflows:
           requires:
             - initialize
       - stage12: # this job is only here to verify sample code from the book, remove it in your own projects
+          requires:
+            - initialize
+      - signalStore: # this job is only here to verify sample code from the book, remove it in your own projects
           requires:
             - initialize
       - deploy:
