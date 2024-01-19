@@ -1,5 +1,4 @@
-import { Component, effect, signal } from '@angular/core'
-import { WritableSignal } from '@angular/core'
+import { Component, effect, inject, signal } from '@angular/core'
 import { MatButtonToggleModule } from '@angular/material/button-toggle'
 import { MatCardModule } from '@angular/material/card'
 import { MatIconModule } from '@angular/material/icon'
@@ -72,8 +71,8 @@ const darkClassName = 'dark-theme'
         color="accent"
         aria-label="Reactivity Mode"
         data-testid="reactivity-mode"
-        [value]="reactivityMode()"
-        (change)="reactivityMode.set($event.value)">
+        [value]="this.weatherService.reactivityMode()"
+        (change)="this.weatherService.reactivityMode.set($event.value)">
         <mat-button-toggle value="signal">Signal</mat-button-toggle>
         <mat-button-toggle value="subject">BehaviorSubject</mat-button-toggle>
         <mat-button-toggle value="ngrx">NgRx</mat-button-toggle>
@@ -82,11 +81,10 @@ const darkClassName = 'dark-theme'
   `,
 })
 export class AppComponent {
-  readonly reactivityMode: WritableSignal<'signal' | 'subject' | 'ngrx'>
+  readonly weatherService = inject(WeatherService)
   readonly toggleState = signal(localStorage.getItem(darkClassName) === 'true')
 
-  constructor(private weatherService: WeatherService) {
-    this.reactivityMode = weatherService.reactivityMode
+  constructor() {
     effect(() => {
       localStorage.setItem(darkClassName, this.toggleState().toString())
       document.documentElement.classList.toggle(darkClassName, this.toggleState())

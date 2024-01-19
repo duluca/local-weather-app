@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common'
-import { Component } from '@angular/core'
+import { Component, inject } from '@angular/core'
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
 import { FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms'
 import { MatButtonModule } from '@angular/material/button'
@@ -31,12 +31,10 @@ import { WeatherService } from '../weather/weather.service'
   styleUrls: ['./city-search.component.css'],
 })
 export class CitySearchComponent {
+  private readonly weatherService = inject(WeatherService)
   search = new FormControl('', [Validators.required, Validators.minLength(2)])
 
-  constructor(
-    private weatherService: WeatherService,
-    private store: Store<fromSearch.WeatherState>
-  ) {
+  constructor(private store: Store<fromSearch.WeatherState>) {
     this.search.valueChanges
       .pipe(
         filter(() => this.search.valid),
