@@ -3,7 +3,7 @@ orbs:
   coveralls: coveralls/coveralls@2
   browser-tools: circleci/browser-tools@1
   cypress: cypress-io/cypress@3
-  cloudrun: circleci/gcp-cloud-run@1.0.2
+  cloudrun: livup/gcp-cloud-run@1.0.32
 commands:
   install:
     description: 'Install project dependencies'
@@ -257,9 +257,4 @@ workflows:
           filters:
             branches:
               only: main
-      - deploy_cloudrun:
-          requires:
-            - default
-          filters:
-            branches:
-              only: main
+      - deploy_cloudrun
