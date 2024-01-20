@@ -3,7 +3,6 @@ orbs:
   coveralls: coveralls/coveralls@2
   browser-tools: circleci/browser-tools@1
   cypress: cypress-io/cypress@3
-  cloudrun: circleci/gcp-cloud-run@1.0.2
 commands:
   install:
     description: 'Install project dependencies'
@@ -85,7 +84,7 @@ commands:
           paths:
             - dist/<< parameters.project >>
   deploy_vercel:
-    description: 'Deploys project to Vercel --> https://vercel.com'
+    description: 'Deploys project to Zeit Vercel --> https://vercel.com'
     parameters:
       project:
         type: string
@@ -94,40 +93,6 @@ commands:
       - attach_workspace:
           at: /tmp/workspace
       - run: npx vercel deploy --token $VERCEL_TOKEN --prod /tmp/workspace/dist/<< parameters.project >> --yes
-  deploy_cloudrun:
-    description: 'Deploys project to Google Cloud Run --> https://cloud.google.com/run'
-    parameters:
-      project:
-        type: string
-        default: 'LocalCast Weather'
-    steps:
-      - attach_workspace:
-          at: /tmp/workspace
-      - checkout
-      - run:
-          name: Copy built app to dist folder
-          command: cp -avR /tmp/workspace/dist/ .
-      - cloudrun/init
-      - cloudrun/build:
-          tag: 'gcr.io/${GOOGLE_PROJECT_ID}/test-${CIRCLE_SHA1}'
-          source: ~/repo
-      - cloudrun/deploy:
-          image: 'gcr.io/${GOOGLE_PROJECT_ID}/test-${CIRCLE_SHA1}'
-          platform: managed
-          region: us-east1
-          service-name: localcast-weather
-          unauthenticated: true
-      - run:
-          command: >
-            GCP_API_RESULTS=$(curl -s "$GCP_DEPLOY_ENDPOINT")
-
-            if ! echo "$GCP_API_RESULTS" | grep -nwo "<< parameters.project >>"; then
-              echo "Result is unexpected"
-              echo 'Result: '
-              curl -s "$GCP_DEPLOY_ENDPOINT"
-              exit 1;
-            fi
-          name: Test managed deployed service.
 jobs:
   initialize:
     docker:
@@ -157,12 +122,6 @@ jobs:
     working_directory: ~/repo
     steps:
       - deploy_vercel
-  deploy_cloudrun:
-    docker:
-      - image: cimg/node:lts
-    working_directory: ~/repo
-    steps:
-      - deploy_cloudrun
 
   stage2: # this job is only here to verify sample code from the book, remove it in your own projects
     docker:
@@ -252,12 +211,6 @@ workflows:
             - initialize
       - deploy:
           context: vercel
-          requires:
-            - default
-          filters:
-            branches:
-              only: main
-      - deploy_cloudrun:
           requires:
             - default
           filters:
