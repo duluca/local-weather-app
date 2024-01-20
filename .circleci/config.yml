@@ -257,6 +257,6 @@ workflows:
           filters:
             branches:
               only: main
-      - deploy_cloudrun
+      - deploy_cloudrun:
           requires:
             - default
