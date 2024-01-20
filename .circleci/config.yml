@@ -258,3 +258,5 @@ workflows:
             branches:
               only: main
       - deploy_cloudrun
+          requires:
+            - default
