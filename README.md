@@ -1,8 +1,10 @@
 # LocalCast Weather
 
-> Learn Angular, Angular Material, RxJS fundementals with LocalCast Weather using the Kanban method.
+> Learn Angular, Angular Material, RxJS, and Signal fundamentals with LocalCast Weather using the Kanban method.
+>
+>  Discover stage management with NgRx and SignalStore.
 
-> View live demo: https://local-weather-app-duluca.vercel.app
+> View live demo: [https://local-weather-app-duluca.vercel.app](https://www.localcastweather.app/)
 
 > See [Changes](#changes) section for important or breaking changes made to the project.
 
@@ -12,13 +14,13 @@
 [![Coverage Status](https://coveralls.io/repos/github/duluca/local-weather-app/badge.svg?branch=main)](https://coveralls.io/github/duluca/local-weather-app?branch=main)
 [![Kanban Board](https://img.shields.io/badge/Kanban-View%20Project%20Status-blue)](https://github.com/duluca/local-weather-app/projects/1)
 
-![mat-style4](https://user-images.githubusercontent.com/822159/56008986-210ad880-5cac-11e9-812f-6514b2dc0f97.PNG)
+![mat-style4](https://github.com/duluca/local-weather-app/assets/822159/b0ea8b3e-144e-4033-94d8-d3fad597c3da)
 
 > Chapter specific examples within `projects` have been renamed, from a `ch` format to `stage`. e.g. `projects/ch2` would now be located under `projects/stage2`.
 
 ## Get the book
 
-LocalCast Weather has been developed in support of my book _Angular for Enterprise-Ready Web Applications_. You can get the book at any major bookstore or find the links at http://AngularForEnterprise.com.
+LocalCast Weather has been developed to support my book _Angular for Enterprise Applications_. You can get the book at any major bookstore or find the links at https://AngularForEnterprise.com.
 
 Watch the talk on `Architecture for Scalable Angular Apps` on [Pluralsight](https://www.pluralsight.com/courses/angular-denver-2019-session-28).
 
@@ -30,12 +32,12 @@ Build, debug and publish Docker images with [**npm Scripts for Docker**](bit.ly/
 
 ## Build
 
-- `npm run build:prod` to build a production optimized version of the app.
+- `npm run build:prod` is used to build a production-optimized version of the app.
 - `npm run docker:debug` to run tests and build a containerized version of the app.
 
 ## Developers
 
-This app was developed to demonstrate Angular fundementals, unit testing, and different techniques for building Angular apps using reactive patterns. The app is a good blueprint if you intend to build largely a single screen app experience. Questions? Consider creating an issue on this repo and buying my book at http://AngularForEnterprise.com.
+This app was developed to demonstrate Angular fundamentals, unit testing, and different techniques for building Angular apps using reactive patterns. The app is a good blueprint if you intend to build a largely single-screen app experience. Questions? Consider creating an issue on this repo and buying my book at https://AngularForEnterprise.com.
 
 ### Pre-requisites
 
@@ -51,14 +53,14 @@ This app was developed to demonstrate Angular fundementals, unit testing, and di
 - Rename the repo on GitHub to match the name of your project.
 - Search and replace references to `lemon-mart` with your project name and git repo.
 - Remove `manager`, `pos`, and `inventory` folders and references to them from `app-routing.module.ts`.
-- You may modify `profile.component.ts` and `view-user.component.ts` under the `user` folder to fit your needs.
+- To fit your needs, you may modify `profile.component.ts` and `view-user.component.ts` under the `user` folder.
 - Edit `lemonmart-theme.scss` to match your desired color scheme.
 - Now you may begin implementing your own feature modules.
   - Questions? Consider creating an issue on this repo and buying my book at http://AngularForEnterprise.com.
 
 ### During Development
 
-- Run `npm start` for a developmenet web server.
+- Run `npm start` for a development web server.
 - Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 - Run `npm test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 - Run `npm run e2e` to execute the end-to-end tests via [Cypress](https://cypress.io).
@@ -69,7 +71,7 @@ This app was developed to demonstrate Angular fundementals, unit testing, and di
 
 ### Further help with Angular CLI
 
-> To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+> To get more help on the Angular CLI, use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
 ### Full-Stack Setup with Docker Compose and Deploying to AWS
 
@@ -82,6 +84,7 @@ Changes are inevitable to keep the project up-to-date with libraries, tools, pat
 ## Angular 17
 
 - Moved to control flow syntax
+- Implemented a nearly observable and subscribe-free version using SignalStore in `projects/signal-store`
 
 ## Angular 16
 
@@ -111,7 +114,7 @@ Changes are inevitable to keep the project up-to-date with libraries, tools, pat
 
 ## Augury
 
-- `Augury` extension is deprecated. Get use `Angular DevTools` instead: https://angular.io/guide/devtools.
+- `Augury` extension is deprecated. Get to use `Angular DevTools` instead: https://angular.io/guide/devtools.
 
 ## Renamed `master` branch to `main`
 
@@ -137,6 +140,9 @@ Sadly Waffle.io no longer exists. I recommend using GitHub Projects as a free re
 
 ## _Using Zeit Now with Docker_
 
-Unfortunately Zeit Now no longer allows publication of arbitrary `Dockerfile` images. Using Zeit v2 you can publish the output of your `dist` folder and still be able to host your application for free.
+Unfortunately, Zeit Now no longer allows the publication of arbitrary `Dockerfile` images. Using Zeit v2 you can publish the output of your `dist` folder and still be able to host your application for free.
 
-A replacement for publishing arbitrary Docker images would be a new service called [Google Cloud Run](https://cloud.google.com/run/). A sample command would look like `gcloud beta run deploy --image localcast-weather`.
+~~A replacement for publishing arbitrary Docker images would be a new service called [Google Cloud Run](https://cloud.google.com/run/). A sample command would look like `gcloud beta run deploy --image localcast-weather`.~~
+
+## _Using Google Cloud Run with Docker_
+As of January 2024, Cloud Run has deprecated private container repositories, which breaks its integration with the `docker` command. This seemingly subtle change moves Cloud Run from an easy-to-use to a complicated-cloud-service category. For this reason, it has been removed from the book.
