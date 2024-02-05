@@ -8,17 +8,17 @@ describe('LocalCast Weather', () => {
   })
 
   it('has the same behavior for Signal button', () => {
-    cy.byTestId('signal-button').click()
-    cy.get('.signal-button').should('have.class', 'active')
+    cy.byTestId('signal').click()
+    cy.byTestId('signal').should('have.class', 'mat-button-toggle-checked')
   })
 
   it('has the same behavior for Behavior button', () => {
-    cy.byTestId('behavior-button').click()
+    cy.byTestId('behavior').click()
     cy.get('.behavior-button').should('have.class', 'active')
   })
 
   it('has the same behavior for NxRx button', () => {
-    cy.byTestId('nxrx-button').click()
+    cy.byTestId('ngrx').click()
     cy.get('.NxRx-button').should('have.class', 'active')
   })
 })

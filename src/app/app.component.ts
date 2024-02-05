@@ -73,9 +73,11 @@ const darkClassName = 'dark-theme'
         data-testid="reactivity-mode"
         [value]="this.weatherService.reactivityMode()"
         (change)="this.weatherService.reactivityMode.set($event.value)">
-        <mat-button-toggle value="signal">Signal</mat-button-toggle>
-        <mat-button-toggle value="subject">BehaviorSubject</mat-button-toggle>
-        <mat-button-toggle value="ngrx">NgRx</mat-button-toggle>
+        <mat-button-toggle data-testid="signal" value="signal">Signal</mat-button-toggle>
+        <mat-button-toggle data-testid="behavior" value="subject"
+          >BehaviorSubject</mat-button-toggle
+        >
+        <mat-button-toggle data-testid="ngrx" value="ngrx">NgRx</mat-button-toggle>
       </mat-button-toggle-group>
     </div>
   `,
