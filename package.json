@@ -114,7 +114,7 @@
     "open-cli": "^8.0.0",
     "pa11y": "^6.2.3",
     "pa11y-ci": "^3.1.0",
-    "prettier": "^3.1.1",
+    "prettier": "^3.2.5",
     "rimraf": "^5.0.5",
     "typescript": "^5.2.2",
     "vercel": "^33.0.1"
