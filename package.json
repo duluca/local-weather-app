@@ -116,7 +116,7 @@
     "pa11y-ci": "^3.1.0",
     "prettier": "^3.1.1",
     "rimraf": "^5.0.5",
-    "typescript": "^5.2.2",
+    "typescript": "^5.3.3",
     "vercel": "^33.0.1"
   }
 }
