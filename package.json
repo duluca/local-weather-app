@@ -85,7 +85,7 @@
     "@angular-eslint/template-parser": "17.2.0",
     "@angular/cli": "17.1.0",
     "@angular/compiler-cli": "^17.1.0",
-    "@angular/language-service": "^17.1.0",
+    "@angular/language-service": "^17.1.2",
     "@cypress/schematic": "^2.5.1",
     "@ngrx/eslint-plugin": "^17.1.0",
     "@ngrx/schematics": "^17.1.0",
