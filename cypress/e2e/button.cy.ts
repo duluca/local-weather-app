@@ -7,13 +7,13 @@ describe('LocalCast Weather', () => {
     cy.visit('/')
   })
 
-  it('has the same behavior for Signal button', () => {
+  it("Signal button's check functionality works ", () => {
     cy.byTestId('signal').click()
     cy.byTestId('signal').should('have.class', 'mat-button-toggle-checked')
     cy.byTestId('behavior').should('not.have.class', 'mat-button-toggle-checked')
   })
 
-  it('has the same behavior for Behavior button', () => {
+  it("Behavior button's check functionality works", () => {
     cy.byTestId('behavior').click()
     cy.byTestId('behavior').should('have.class', 'mat-button-toggle-checked')
     cy.byTestId('ngrx').should('not.have.class', 'mat-button-toggle-checked')
