@@ -1,4 +1,6 @@
 /* eslint-disable prettier/prettier */
+/* eslint-disable @typescript-eslint/ban-types */
+/* eslint-disable prettier/prettier */
 import '../support/commands'
 
 describe('LocalCast Weather', () => {
@@ -6,23 +8,22 @@ describe('LocalCast Weather', () => {
     cy.visit('/')
   })
 
-  it('can search for a city by name', () => {
-    searchByCity('Bursa', 'Bursa')
-    searchByCity('Arlington', 'Arlington')
-    searchByCity('Bethesda', 'Bethesda')
+  it('can search for a zipcode', () => {
+    searchByZipCode(16140, 'Bursa')
+    searchByZipCode(34000, 'Istanbul')
   })
 })
 
-function searchByCity(city: string, expectedCity: string) {
+function searchByZipCode(zipcode: Number, expectedCity: String) {
   cy.intercept(
     'GET',
-    `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=01ff1417eeb4a81b09ac68b15958d453`
+    `http://api.openweathermap.org/data/2.5/weather?q=${zipcode}&appid=01ff1417eeb4a81b09ac68b15958d453`
   ).as('getWeather')
 
-  cy.byTestId('search-input').type(`${city}{enter}`)
+  cy.byTestId('search-input').type(`${zipcode}{enter}`)
 
   cy.wait('@getWeather')
-  cy.get('@getWeather').its('request.url').should('contain', `q=${city}`)
+  cy.get('@getWeather').its('request.url').should('contain', `q=${zipcode}`)
   cy.get('@getWeather').its('response.statusCode').should('eq', 200)
 
   cy.byTestId('city').should('contain', expectedCity)

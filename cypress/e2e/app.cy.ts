@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import '../support/commands'
 
 describe('LocalCast Weather', () => {

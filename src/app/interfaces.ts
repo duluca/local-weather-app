@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 export interface ICurrentWeather {
   city: string
   country: string
