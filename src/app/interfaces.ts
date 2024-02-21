@@ -6,5 +6,4 @@ export interface ICurrentWeather {
   image: string
   temperature: number
   description: string
-  zipcode: number
 }
